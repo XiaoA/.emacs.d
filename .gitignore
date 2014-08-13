@@ -1,0 +1,11 @@
+
+auto-save-list
+backups
+*~
+.places
+session.*
+tramp
+elpa
+backups
+.DS_Store
+/url/
