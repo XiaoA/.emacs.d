@@ -1,4 +1,3 @@
-
 auto-save-list
 backups
 *~
@@ -9,3 +8,6 @@ elpa
 backups
 .DS_Store
 /url/
+*scratch*
+games
+places
