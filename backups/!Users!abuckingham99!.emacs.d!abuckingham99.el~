@@ -33,6 +33,8 @@
 
 ;; Use web-mode for .NET sites at work
 (setq auto-mode-alist (cons '("\\.aspx$" . web-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.erb
+$" . web-mode) auto-mode-alist))
 
 ;; Byte Recompile
 (defun ab/byte-recompile ()
@@ -41,7 +43,7 @@
 
 ;; Increment Number at Point
 ;;Got this from EmacsWiki; enables incremental numbers. First input
-  ;; numbers and then use this!
+;; numbers and then use this!
   (defun ab/increment-number-at-point ()
       (interactive)
       (skip-chars-backward "0123456789")
@@ -72,7 +74,6 @@
 
 ;;  (defun yas/org-very-safe-expand ()
 ;;    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
-
 (defun yas-org-very-safe-expand ()
   (let ((yas-fallback-behavior 'return-nil))
     (and (fboundp 'yas-expand) (yas-expand))))

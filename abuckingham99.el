@@ -133,7 +133,7 @@ $" . web-mode) auto-mode-alist))
               (expand-file-name "src" dotfiles-dir)))
             Info-directory-list))
 
-(message "Starter Kit Org loaded.")
+(message ".")
 
 (setq org-directory "~/Dropbox/org")
 (setq org-default-notes-file "~/Dropbox/org/refile.org")

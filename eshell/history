@@ -1,34 +1,3 @@
-which clear
-ls
-pwd
-cd
-pwd
-$+
-+
-$
-ll
-ls -l
-man more
-pwd
-brew update
-/usr/local/brew update
-/usr/local/bin/brew update
-/usr/local/bin/brew upgrade
-ls /usr/local/bin/
-cd mmd
-pwd
-pwd
-cd /usr/local/bin/
-ls
-cd brew
-ls
-cd /usr/local/Cellar/
-ls
-cd multimarkdown
-ls
-cd head
-ls
-cd bin
 ls
 pwd
 vim
@@ -126,3 +95,34 @@ bundle install
 bin/rails server
 jekyll serve -w
 vim
+irb
+ruby hello.rb
+ruby simple_variables.rb
+ruby control_flow.rb 
+ruby control_flow.rb
+ruby control_flow.rb
+ruby control_flow.rb
+ruby bank_account.rb
+ruby bank_account.rb
+ruby bank_account.rb
+ruby bank_account.rb
+ruby bank_account.rb
+ruby bank_account.rb
+ruby simple_variables.rb
+string.inspect
+string = "Hello world\n"
+string = "Hello world\n"
+String = "Hello world\n"
+irb
+clear
+mkdir methods
+cd methods
+ls
+ruby simple_methods.rb 
+ruby simple_methods.rb 
+ruby simple_methods.rb 
+ruby simple_methods.rb 
+ruby simple_methods.rb 
+ruby bank_account.rb 
+load './bank_account.rb'
+irb
