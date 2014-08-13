@@ -1,0 +1,61 @@
+UMKC-ART-HIST315-0001-15281-SP2014
+UMKC-ART-HIST315-0002-16894-SP2014
+UMKC-ART-HIST315-0003-18052-SP2014
+UMKC-ART-HIST497H-0001-14925-SP2014
+UMKC-ART-HIST497Q-0005-16165-SP2014
+UMKC-ART-HIST5577-0001-18260-SP2014
+UMKC-ART-HIST5590-0005-15681-SP2014
+UMKC-ART-HIST5599-0005-15025-SP2014
+UMKC-ART-HIST5699-0002-12211-SP2014
+UMKC-BLKS315-0001-16289-SP2014
+
+
+
+Current Location
+Help is On: Click to hide page help.
+
+    Administrator Panel
+    System Reporting
+    Disk Usage
+
+Disk Usage
+
+This report displays disk usage on courses and organizations with recent user interaction. The information is gathered periodically, and is accurate as of the last task run date. Last task run: Unknown. More Help
+Actions for Content Page
+
+    Run for Inactive Courses
+
+Search
+
+    Search Options:  
+    Attribute   Filter   Search value   Unit for disk usage  
+
+| Course ID                                   | Course Name                                                                                                       | Status      | Course Files | Protected Files | Legacy Filesystem | Soft Limit | Total Size |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+|---------------------------------------------+-------------------------------------------------------------------------------------------------------------------+-------------+--------------+-----------------+-------------------+------------+------------+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|
+| UMKC-ART-HIST315-0001-40068-FS2011          | ART-HIST 315 0001- Arts of African and New World Cultures FS2011                                                  | Unavailable | 6.868 GB     | 2.087 MB        | 12.506 GB         | 225 MB     | 19.376 GB  |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0001-16992-SP2011          | ART-HIST 315 0001- Arts of African and New World Cultures SP2011                                                  | Unavailable | 0 B          | 0 B             | 6.819 GB          | 225 MB     | 6.819 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0001-33260-SS2011          | ART-HIST 315- Arts of African and New World Cultures SS2011                                                       | Unavailable | 0 B          | 0 B             | 5.186 GB          | 225 MB     | 5.186 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0002-46863-FS2011          | ART-HIST 315 0002- Arts of African and New World Cultures FS2011                                                  | Unavailable | 4.001 GB     | 538.933 KB      | 1.003 GB          | 225 MB     | 5.004 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0001-15576-SP2013          | ART-HIST 315 0001- Arts of Afrin/New Wld Culture SP2013                                                           | Unavailable | 1.191 GB     | 32.572 MB       | 2.081 GB          | 225 MB     | 3.303 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST5577-0001-47514-FS2012         | ART-HIST 5577 0001- Contemp Artists of Africa and the African Diaspora FS 2012                                    | Available   | 249.999 MB   | 20.738 MB       | 2.835 GB          | 225 MB     | 3.099 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0001-45551-FS2013          | ART-HIST 315 0001- Arts of Africa & American Cultures (African-American, Meso-American, & Native American) FS2013 | Unavailable | 594.116 MB   | 43.86 MB        | 2.117 GB          | 550 MB     | 2.74 GB    |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0001-45951-FS2012          | ART-HIST 315 0001- Arts of African & New World Cultures FS2012                                                    | Available   | 249.999 MB   | 32.791 MB       | 2.292 GB          | 225 MB     | 2.568 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST5571-0001-17269-SP2011         | ART-HIST 5571 0001- Contemporary Artists of the African Diaspora;New SP2011                                       | Unavailable | 0 B          | 0 B             | 2.411 GB          | 225 MB     | 2.411 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST301-0001-40064-FS2011          | ART-HIST 301 0001- Survey Western Art- I FS2011                                                                   | Unavailable | 1.645 GB     | 0 B             | 0 B               | 225 MB     | 1.645 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST201-0001-47721-FS2013          | ART-HIST 201 0001- From Cave Paintings to Cathedr FS2013                                                          | Unavailable | 1.576 GB     | 0 B             | 139 B             | Unlimited  | 1.576 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST5577-0001-18260-SP2014         | ART-HIST 5577 0001- Contemporary Artists of the African Diaspora SP2014                                           | Available   | 6.135 MB     | 20.738 MB       | 1.249 GB          | 225 MB     | 1.275 GB   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST110-0001-12801-SP2011          | ART-HIST 110 0001- Intro ToHist of Visual Arts SP2011                                                             | Unavailable | 0 B          | 0 B             | 1.02 GB           | 225 MB     | 1.02 GB    |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST5571-0001-47334-FS2013         | ART-HIST 5571 0001- Seminar on Meso-American Artists FS2013                                                       | Unavailable | 231.175 MB   | 72.129 MB       | 519.045 MB        | 225 MB     | 822.349 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0002-17774-SP2013          | ART-HIST 315 0002- Arts of Afrin/New Wld Culture SP2013                                                           | Unavailable | 698.257 MB   | 32.89 MB        | 57.757 MB         | 225 MB     | 788.904 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-SANDBOX African            | Art History 315 - SANDBOX                                                                                         | Unavailable | 0 B          | 0 B             | 770.953 MB        | 225 MB     | 770.953 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST497I-0002-17272-SP2013         | ART-HIST 497I 0002- Spec Studies Ancient Art SP2013                                                               | Unavailable | 753.027 MB   | 0 B             | 0 B               | Unlimited  | 753.027 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0001-34626-SS2010-TEGPILOT | ART-HIST 315 0001- Arts of African and New World Cultures SS2010                                                  | Unavailable | 0 B          | 0 B             | 729.885 MB        | 225 MB     | 729.885 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0001-15281-SP2014          | ART-HIST 315 0001- Arts of African and New World Cultures SP2014                                                  | Available   | 236.837 MB   | 54.662 MB       | 265.632 MB        | 550 MB     | 557.132 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0002-16894-SP2014          | ART-HIST 315 0002- Arts of African & New World Cultures SP2014                                                    | Available   | 236.837 MB   | 43.891 MB       | 265.63 MB         | 550 MB     | 546.358 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST315-0003-18052-SP2014          | ART-HIST 315 0003- Arts of African and New World Cultures SP2014                                                  | Available   | 236.837 MB   | 43.86 MB        | 209.521 MB        | 550 MB     | 490.218 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST254-0001-12295-SP2013          | ART-HIST 254 0001- His Design Env II, Late SP2013                                                                 | Unavailable | 120.987 MB   | 0 B             | 306.297 MB        | 439.453 MB | 427.284 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST497D-0001-47343-FS2011         | ART-HIST 497D 0001- Sp St-Amer Art&Architect FS2011                                                               | Unavailable | 423.702 MB   | 0 B             | 0 B               | 225 MB     | 423.702 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST5501-0001-47338-FS2013         | ART-HIST 5501 0001- Scope&Meth Of Art Hist FS2013                                                                 | Unavailable | 32.279 MB    | 0 B             | 268.346 MB        | 225 MB     | 300.625 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST5501-0001-15639-SP2013         | ART-HIST 5501 0001- Scope&Meth Of Art Hist SP2013                                                                 | Unavailable | 16.321 MB    | 0 B             | 268.336 MB        | 225 MB     | 284.657 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST5501-0001-17153-SP2011         | ART-HIST 5501 0001- Scope & Meth of Art Hist SP2011                                                               | Unavailable | 0 B          | 0 B             | 268.391 MB        | 225 MB     | 268.391 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| UMKC-ART-HIST497H-0001-40054-FS2013         | ART-HIST 497H 0001- Special Studies, Arts of Africa and New World Cultures FS2013                                 | Unavailable | 249.961 MB   | 0 B             | 71.59 KB          | 225 MB     | 250.031 MB |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |

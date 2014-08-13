@@ -1,0 +1,11 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Footnote
+# key: ^
+# binding: direct-keybinding
+# expand-env: ((some-var some-value))
+# type: command
+# --
+
+[^$1]
+
+(end-of-buffer)[^\1]:$2

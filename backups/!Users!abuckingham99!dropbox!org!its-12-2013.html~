@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Andrew Buckingham's ITS Worklog, December2013</title>
+<!-- 2013-12-04 Wed 14:00 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Andrew Buckingham" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Andrew Buckingham's ITS Worklog, December2013</h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">LTIC Face-to-Face</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Agenda</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+LTIC Face to Face Meeting Agenda
+December 3, 2013
+10am - 3pm
+</p>
+</div>
+
+<div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1">Annual Governance review (15 mins)</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<ul class="org-ul">
+<li>Officer election
+</li>
+<li>Update documents
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2">Vendor license renewals (Kevin) (15 mins)</h4>
+</div>
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3">Working team updates (1 hour)</h4>
+</div>
+<div id="outline-container-sec-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4">LUNCH</h4>
+</div>
+<div id="outline-container-sec-1-1-5" class="outline-4">
+<h4 id="sec-1-1-5">LMS review</h4>
+</div>
+<div id="outline-container-sec-1-1-6" class="outline-4">
+<h4 id="sec-1-1-6">Collaborative project brainstorming</h4>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Notes</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1">Governance/Officer Election</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+<b>(Meg will send a corrected copy for final review)</b>
+</p>
+
+<ul class="org-ul">
+<li>A few minor changes in the contacts list; Meg will send updated list
+</li>
+<li>Mary is the new Chair
+</li>
+<li>Juwanda (SP?) is the Secretary
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2">Vendor license Renewals</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+Kevin provided a status report; will update with a breakdown by campus 
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="todo TODO">TODO</span> Send notes from Respondus Monitor webinar to LTIC Leads</h4>
+</div>
+
+<div id="outline-container-sec-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4">Working team updates (1 hour)</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<ul class="org-ul">
+<li><b>Kelly – Tech team update</b>
+<ul class="org-ul">
+<li>AM conference to prepare for afternoon call with Bb
+</li>
+<li>BTB shared tickets make it easy for us to reference issues on other UM campuses
+</li>
+<li>Upgrade was fairly smooth
+</li>
+<li>SP15 for next update (?)
+</li>
+<li>Starfish
+<ul class="org-ul">
+<li>Advisor access to Bb
+</li>
+<li>What about inactive course sites?
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><b>Angie/Danna – Training and support update</b>
+<ul class="org-ul">
+<li>No updates now
+</li>
+
+<li>Planning to Bring in Instructional Designers to help plan development
+</li>
+
+<li>Per campus survey needed:
+
+<ul class="org-ul">
+<li>Support Personnel
+</li>
+<li>Instructional Designers
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><b>Marcel – Digital content update</b>
+<ul class="org-ul">
+<li>1st Quarter
+<ul class="org-ul">
+<li>Equella permission issues (other than UMKC)
+</li>
+</ul>
+</li>
+<li>2nd Quarter
+<ul class="org-ul">
+<li>Kaltura permissions issues
+</li>
+<li>Collaborate issues
+</li>
+</ul>
+</li>
+<li>3rd Quarter
+<ul class="org-ul">
+<li>Kaltura went into PROD
+<ul class="org-ul">
+<li>Went well
+</li>
+</ul>
+</li>
+<li>Java issues with OSX (security settings made it difficult for some users to use Java-based products; primarily with Collaborate)
+</li>
+</ul>
+</li>
+<li>4th Quarter
+<ul class="org-ul">
+<li>Outage issues unreported
+</li>
+<li>Kaltura iOS app available as of 12/2/2013
+</li>
+<li>Bb Collaborate license negotiated by Kevin (will co-incide with Bb Learn)
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li><b>Marcel - Kaltura governance</b>
+<ul class="org-ul">
+<li>Soft Limits : shared 10 GB (3.3GB per campus)
+</li>
+<li>Can one campus use another campus' storage?
+<ul class="org-ul">
+<li>Kevin: If one campus uses more, that's fine, but if more storage purchase is required, the campus that is using the most will pay more.
+</li>
+</ul>
+</li>
+<li>Each campus only sees its own usage; does not know how much other campuses are using now
+<ul class="org-ul">
+<li>Kevin: They're working on providing a Admin view access that shows all three campus-level usage.
+</li>
+</ul>
+</li>
+<li>Analytics not set up by default
+</li>
+<li>Questions about streaming quotas
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2-5" class="outline-4">
+<h4 id="sec-1-2-5">LMS review</h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+Meg: ELI Conference S&amp;T is driving down there: <a href="http://www.educause.edu/eli">http://www.educause.edu/eli</a>
+</p>
+</div>
+
+<ul class="org-ul"><li>S&amp;T LMS Review update<br  /></li>
+
+<li>Review 2011 LTIC LMS Market Report (attachment)<br  /><div class="outline-text-5" id="text-1-2-5-2">
+<ul class="org-ul">
+<li>Previous report recommended staying with Bb for the short term
+</li>
+<li>Relied on data from Gartner
+</li>
+<li>Learning Stacks will become more important in the future
+</li>
+<li>Kevin: The Learning Stack theory hasn't been proven yet. Two years ago, they looked at Bb market share and if it was the right tool. With our renewal two years out, it's a good time to look again at our LMS options.
+</li>
+<li>Meg: recommendation/proposal to look at a new LMS - April 1 might be a good deadline
+</li>
+<li>Angela: IT at S&amp;T never actually chose Bb; they're currently looking at comparing Bb to other options
+</li>
+<li>Meg: Considering consistency for intercampus courses should also be a factor. If one campus drops a product, should they be forced to use/pay for it?
+</li>
+<li>Kevin: Last time, we focused on six platforms. Do we still need to focus on all of those, or just three (Bb, D2L, Canvas)?
+</li>
+<li>Implications of MACE Initiative?
+<ul class="org-ul">
+<li><a href="http://www.fhsu.edu/teacher-scholar/current/volume4/collaboration_in/page1.html">MACE</a> Initiative (Fort Hayes State)
+</li>
+<li>CSTL <a href="http://cstl.semo.edu/mace/">MACE Initiative</a> Site
+</li>
+</ul>
+</li>
+<li>Meg: This is a perfect time to look at the trends in online learning and we have the opportunity to provide great value to the UM system
+<ul class="org-ul">
+<li>sharing licensing costs
+</li>
+<li>improving service to end users
+</li>
+<li>leveraging expertise
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</li></ul>
+</div>
+<div id="outline-container-sec-1-2-6" class="outline-4">
+<h4 id="sec-1-2-6">Collaborative project brainstorming</h4>
+<div class="outline-text-4" id="text-1-2-6">
+<ul class="org-ul">
+<li>Content management?
+</li>
+<li>Learning technology portfolio/catalog?
+</li>
+<li>Catalog of learning technologies that are supported and/or promoted by each campus
+</li>
+<li>Revision of 2011 LTIC LMS Market Report?
+</li>
+<li>Any strategic projects?
+</li>
+<li>Other?
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Projects we can work on through the rest of the fiscal year:
+<ul class="org-ul">
+<li>Update LMS report
+</li>
+<li>EdTech Applications Matrix (online self-help support system)
+</li>
+<li>Catalog of learning technologies that are supported and/or promoted by each campus
+<ul class="org-ul">
+<li>Project Team (Starting after first of the year
+<ul class="org-ul">
+<li>Andrew
+</li>
+<li>Angie
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li>Content Management
+<ul class="org-ul">
+<li>Marcel: Found out that Kaltura can support posting pictures and documents (even though unofficialy unsupported)
+</li>
+
+<li>Kevin: Kaltura might work, but not be the best option. Options like <a href="https://www.box.com/enterprise/cloud-content-management/">Box</a> might be a better option.
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Andrew Buckingham</p>
+<p class="date">Created: 2013-12-04 Wed 14:00</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

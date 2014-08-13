@@ -1,0 +1,6 @@
+#contributor : Andrew Buckingham, adapted from a snippet by Anders Bach Nielsen <abachn@abachn.net>
+#name : <img src="..." alt="..." />
+# --
+<caption>$3</caption>
+<img src="$1" alt="$2" />
+$0

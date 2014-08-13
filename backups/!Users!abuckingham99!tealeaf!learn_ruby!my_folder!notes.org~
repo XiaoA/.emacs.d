@@ -1,0 +1,1622 @@
+#+TITLE: Andrew's Learn Ruby Notes
+#+AUTHOR: Andrew Buckingham
+#+STARTUP: indent
+#+OPTIONS: num:nil
+#+TODO: TODO(t) | | Started(s) | Waiting(w) | Someday/Maybe(m) | Canceled(c) | DONE(d)(@) | Meeting(M) | Note(n)
+: tangle:filename
+
+* Preparation
+  
+** Exercise 1
+   #+BEGIN_SRC ruby :tangle: one.rb
+   puts "this is file one"
+   #+END_SRC
+
+
+      #+BEGIN_SRC ruby
+   puts "this is file two"
+   #+END_SRC
+
+
+* The Basics
+
+** Strings
+   - Strings can use either double quotes ("") or single quotes (''), and you can escape quotes, when necessary ('This is Andrew\'s string.')
+   - String interpolation (concatenation) *only works with double quotes*
+     - Syntax: "Here's how to use string interpolation with a #{Ruby Expression}"
+       *Example:*       
+   #+BEGIN_SRC ruby
+a = 'ten'
+
+"My favorite number is #{a}!"
+  
+  #+END_SRC
+
+   
+  #+RESULTS:
+  : My favorite number is ten!
+
+** Symbols
+   #+BEGIN_SRC ruby
+# Examples of symbols
+:name
+:a_symbol
+:"surprisingly, this is also a symbol" 
+   #+END_SRC
+
+** Numbers
+
+*** Integers
+    9, 1, 4, 1000
+
+*** Floats
+    9.1, 44.44409, 9.01234
+
+** nil
+   empty value
+
+** Operations (Mathematical)
+   
+*** Adding, Subtracting, and Multiplying Integers
+
+*** Addition (+)
+    #+BEGIN_SRC ruby
+      2 + 2
+          
+    #+END_SRC
+
+    #+RESULTS:
+    : 4
+
+*** Subtraction (-)
+    #+BEGIN_SRC ruby
+49 - 47
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : 2
+
+*** Multiplication (*)
+    #+BEGIN_SRC ruby
+144 * 144
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : 20736
+
+** Division vs. Modulus
+
+*** Division (/)
+    #+BEGIN_SRC ruby
+144 / 2
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : 72
+
+*** Modulo
+    #+BEGIN_SRC ruby
+16 / 4  # 0
+16 / 3  # 5
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : 5
+
+*** Multiplying Floats and Decimals
+    #+BEGIN_SRC ruby
+15.0 / 4    # 3.75
+48.0 * 7.2  # 345.6
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : 3.75
+
+*** Equality Comparison
+
+    #+BEGIN_SRC ruby
+      4 == 4    # true
+      4 == '4'  # false
+      
+      'book' == "book"  # true
+      'four' == 4       # false
+      'four' == '4'     #false
+    #+END_SRC
+
+    #+RESULTS:
+    : false
+
+*** String Concatenation
+    #+BEGIN_SRC ruby
+"I love" + " Ruby!"
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : I love Ruby!
+
+#+BEGIN_SRC ruby
+"1" + "1" 
+#+END_SRC
+
+#+RESULTS:
+: 11
+
+    *We cannot concatenate a string and a number*
+
+#+BEGIN_SRC ruby
+1 + "Love"
+#+END_SRC    
+
+#+RESULTS:
+-:3:in `+': String can't be coerced into Fixnum (TypeError)
+	from -:3:in `main'
+	from -:5:in `<main>'
+
+** Basic Data Structures
+   
+*** Arrays
+
+    #+BEGIN_SRC ruby
+[1,2,3,4]
+    
+    #+END_SRC
+
+    #+RESULTS:
+    | 1 | 2 | 3 | 4 |
+
+    Predictably, the index starts with 0:
+
+    #+BEGIN_SRC ruby
+    [1, 2, 3, 4] [1]
+    #+END_SRC
+
+    #+RESULTS:
+    : 2
+
+*** Hashes {}
+    - Function as dictionary/key-value pairs
+
+      #+BEGIN_SRC ruby
+{:cat => 'meows'}
+      
+      #+END_SRC
+
+      #+RESULTS:
+      | :cat=> | meows |
+
+    We can add more values:
+    #+BEGIN_SRC ruby
+{:dog => 'barks', :cat => 'meows', :pig => 'oinks'}
+    
+    #+END_SRC
+
+    #+RESULTS:
+    | :dog=> | barks | :cat=> | meows | :pig=> | oinks |
+
+    To find the value of one of the hashes:
+    #+BEGIN_SRC ruby
+{:dog => 'barks', :cat => 'meows', :pig => 'oinks'} [:cat]  # meows
+    
+    #+END_SRC
+
+    #+RESULTS:
+    : meows
+
+** Expressions and Return
+   - When you use the IRB, you'll see the 'hash rocket': =>
+   - Everything in Ruby is an expression, and it always returns something, even if only /nil/
+
+*** Puts vs. Return
+    - puts: Ruby puts something on the screen, but it doesn't return what is printed to the screen. For example, *do* does something, but it also returns a value. Puts does not return the value:
+
+      #+BEGIN_SRC ruby
+      puts "stuff" # nil (but it puts 'stuff')
+      #+END_SRC
+
+      #+RESULTS:
+      : nil
+
+      #+BEGIN_SRC ruby
+        a = puts "stuff"
+        puts a               # nil
+      #+END_SRC
+
+      #+RESULTS:
+      : nil
+
+** Exercises
+   
+*** Exercise One
+    
+**** Problem 1
+     Add two strings together that, when concatenated, return your first and last name as your full name in one string.
+
+#+BEGIN_SRC ruby
+"<Firstname> <Lastname>"
+#+END_SRC
+
+For example, if your name is John Doe, think about how you can put "John" and "Doe" together to get "John Doe".
+
+**** Solution 1
+     #+BEGIN_SRC ruby
+"Andrew " + "Buckingham" # Andrew Buckingham
+     
+     #+END_SRC
+
+     #+RESULTS:
+     : Andrew Buckingham
+
+**** Problem 2
+2. Use the modulo operator, division, or a combination of both to take a 4 digit number and find 1) the thousands number 2) the hundreds 3) the tens and 4) and the ones.
+     
+**** Solution 1
+
+     #+BEGIN_SRC ruby
+thousands = 9999 / 1000
+hundreds = 9999 % 1000 / 100
+tens = 9999 % 1000 % 100 / 10
+ones = 9999 % 1000 %100 % 10     
+     #+END_SRC
+
+**** Problem 3
+Write a program that uses a hash to store a list of movie titles with the year they came out. Then use the *puts* command to make your program print out the year of each movie to the screen. The output for your program should look something like this. 
+**** Solution 3
+     #+BEGIN_SRC ruby
+       movies = {:The_Empire_Strikes_Back =>'1980',
+         :Into_the_Fire => '2010',
+         :Avatar => '2009',
+         :The_Blind_Side => '2009',
+         :The_Dark_Knight => '2008'}
+       
+       puts movies[:The_Empire_Strikes_Back]
+       puts movies[:Into_the_Fire]
+       puts movies[:Avatar]
+       puts movies[:The_Blind_Side]
+       puts movies[:The_Dark_Knight]
+     #+END_SRC
+
+**** Problem 4
+     Use the dates from the previous example and store them in an array. Then make your program output the same thing as exercise 3.
+
+**** Solution 4
+     #+BEGIN_SRC ruby
+       movies = {:The_Empire_Strikes_Back =>'1980',
+         :Into_the_Fire => '2010',
+         :Avatar => '2009',
+         :The_Blind_Side => '2009',
+         :The_Dark_Knight => '2008'}
+       
+       years = [1980, 2010, 2009, 2009, 2008]
+
+       puts years[0]
+       puts years[1]
+       puts years[2]
+       puts years[3]
+       puts years[4]
+
+     #+END_SRC
+
+**** Problem 5
+     Write a program that outputs the factorial of the numbers 5, 6, 7, and 8.
+
+**** Solution 5
+Here's mine:
+     #+BEGIN_SRC ruby
+
+five = 5 * 4 * 3 * 2 * 1
+six = 6 * 5 * 4 * 3 * 2 * 1
+seven = 7 * 6 * 5 * 4 * 3 * 2 * 1
+eight = 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
+
+     ["five", "six", "seven", "eight"]
+
+puts "five"
+puts "six"
+puts "seven"
+puts "eight"
+     #+END_SRC
+
+Here's the book's solution (it's easier, but I got the same result):
+
+#+BEGIN_SRC ruby
+
+puts 5 * 4 * 3 * 2 * 1
+puts 6 * 5 * 4 * 3 * 2 * 1
+puts 7 * 6 * 5 * 4 * 3 * 2 * 1
+puts 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
+
+#+END_SRC
+
+**** Problem 6
+     Write a program that calculates the squares of 3 float numbers of your choosing and outputs the result to the screen.
+
+**** Solution 6
+
+     #+BEGIN_SRC ruby
+puts 40.3 * 40.3
+puts 59.5959 * 59.5959
+puts 999.99191874 * 999.99191874
+     
+     #+END_SRC
+
+     
+
+**** Problem 7
+     What does the following error message tell you?
+
+     #+BEGIN_SRC sh
+SyntaxError: (irb):2: syntax error, unexpected ')', expecting '}' from /usr/local/rvm/rubies/ruby-2.0.0-rc2/bin/irb:16:in `<main>' 
+#+END_SRC
+**** Solution 7
+
+     I said:     "The coder typed a ')' instead of a '}' (probably when closing a hash)."
+     The book's solution: "There is an opening bracket somewhere in the program without a closing bracket following it. It may have happened when creating a hash."
+
+* Variables
+  
+** What is a Variable?
+   "Variables are used to store information to be referenced and manipulated in a computer program. They also provide a way of labeling data with a descriptive name, so our programs can be understood more clearly by the reader and ourselves. It is helpful to think of variables as containers that hold information. Their sole purpose is to label and store data in memory. This data can then be used throughout your program."
+   
+** Assigning Value to Variables
+   - Use descriptive/understandable variable names
+   - Use '=' for assignment.
+
+     #+BEGIN_SRC ruby
+first_name = 'Andrew'  # "Andrew"
+     
+     #+END_SRC
+
+     #+RESULTS:
+     : Andrew
+
+     Now, when we call the variable:
+
+     #+BEGIN_SRC ruby
+       
+       first_name  # "Andrew"
+            
+     #+END_SRC
+
+   *"Variables point to values in memory."*
+
+   #+BEGIN_SRC ruby
+a = 4
+# 4
+
+b = a
+# 4
+
+a = 7
+# 7
+
+b
+
+# b still equals 4, even though variable a = 7.
+   
+   #+END_SRC
+
+** Variable Scope
+- Defined by where the variable was created/initialized
+- Determined by blocks
+  
+*** *Inner scope can access variables initialized in an outer scope, but not vice versa.*
+    #+BEGIN_SRC ruby
+# scope.rb
+
+a = 5 # variable is initialized in the outer scope
+3.times do |n| a = 3 # is a accessible here, in an inner scope?
+end puts a 
+
+# a = 3
+#+END_SRC    
+
+    Another example:
+
+    #+BEGIN_SRC ruby
+# scope.rb
+a = 5
+
+3.times do |n|
+  a = 3
+  b = 5 # b is initialized in the inner scope
+end
+
+puts a
+puts b
+
+# is b accessible here, in the outer scope? 
+    
+    #+END_SRC
+
+    It didn't work. I got the following error:
+    #+BEGIN_SRC sh
+scope.rb:10:in `<main>': undefined local variable or method `b' for main:Object (NameError)
+    
+    #+END_SRC
+
+    According to the book: This is because the variable b is not available outside of the do/end block in which it is initialized. When we call puts b it is not available within that outer scope.
+
+    /(This isn't a surprise. I've seen the same behavior in JS.)/
+
+    Another example, with a method:
+    #+BEGIN_SRC ruby
+a = 5
+
+def some_method
+a = 3
+end
+
+puts a
+
+# a = 5
+    #+END_SRC
+
+    From the text:
+    "What's the value of a? Still 5, because methods create their own scope that's entirely outside of the execution flow. We'll cover this in more detail when we talk about methods, but for now, make sure you don't mix up do/end with methods when you're working with variable scope issues.
+
+    *Note: the key distinguishing factor for deciding whether code delimited by {} or do/end is considered a block (and thereby creating a new scope for variables), is seeing if the {} or do/end immediately follows a method invocation.* For example:"
+
+    #+BEGIN_SRC ruby
+arr = [1, 2, 3]
+
+for i in arr do
+  a = 5 # a is initialized here
+end
+
+puts a # is it accessible here? (A: Yes!)
+    
+    #+END_SRC
+
+    In this case, *for...do/end* did not create a new inner scope, because these are part of standard Ruby language, and not method calls.
+
+    (!) New blocks are created when we use *each*, *times*, or other methods, followed by:
+    - {}
+    - do/end
+
+    
+** Exercises
+
+*** 1. Write a program called name.rb that asks the user to type in their name and then prints out a greeting message with their name included.
+
+**** My solution
+
+#+BEGIN_SRC ruby
+# Instructions: Write a program called name.rb that asks the user to type in their name and then prints out a greeting message with their name included.
+
+
+name = gets.chomp
+
+puts 'Hello, ' + name + '!'
+
+#+END_SRC
+
+**** Book solution
+#+BEGIN_SRC ruby
+# name.rb
+puts "What is your name?"
+name = gets.chomp
+puts "Hello " + name
+#+END_SRC
+
+**** Comments
+Oops, I forgot to add the first line, which would ask the user for his/her name...
+
+*** 2. Write a program called age.rb that asks a user how old they are and then tells them how old they will be in 10, 20, 30 and 40 years. Below is the output for someone 20 years old.
+#+BEGIN_SRC ruby
+
+# output of age.rb for someone 20 yrs old
+How old are you?
+In 10 years you will be: 30
+In 20 years you will be: 40
+In 30 years you will be: 50
+In 40 years you will be: 60
+
+#+END_SRC
+
+**** My Solution
+
+In the last exercise, I forgot to first use 'puts' to ask the user for his/her name. I'll start with that here...
+
+
+#+BEGIN_SRC ruby
+# age.rb
+
+puts "How old are you?
+
+age = gets.chomp 
+
+puts "In 10 years you will be: " + (age + 10)
+puts "In 20 years you will be: " + (age + 20)
+puts "In 30 years you will be: " + (age + 30)
+puts "In 40 years you will be: " + (age + 40)
+
+#+END_SRC
+
+**** Book Solution
+#+BEGIN_SRC ruby
+puts "How old are you?" 
+age = gets.chomp.to_i 
+"In 10 years you will be:" 
+puts age + 10 
+puts "In 20 years you will be:" 
+puts age + 20 
+puts "In 30 years you will be:" 
+puts age + 30 
+puts "In 40 years you will be:" 
+puts age + 40
+#+END_SRC
+
+**** Comments
+
+Three things:
+1. I didn't know about the 'to.i' method. It seems to be the equivalent of JavaScript's 'parseInt'. I'll need to look into this more.
+2. I used parentheses, that's wrong in Ruby (JavaScript habit).
+3. I concatenated the string and the function. Would that work? Let's clean up what I did, and try...
+
+   #+BEGIN_SRC ruby
+puts "How old are you?
+
+age = gets.chomp.to_i
+
+puts "In 10 years you will be: " + age + 10
+puts "In 20 years you will be: " + age + 20
+puts "In 30 years you will be: " + age + 30
+puts "In 40 years you will be: " + age + 40
+
+   
+   #+END_SRC
+I tested it, and it doesn't work. So I can't concatenate the same way in Ruby. Here's the corrected version:
+
+#+BEGIN_SRC ruby
+# age.rb
+puts "How old are you?"
+
+age = gets.chomp.to_i
+
+puts "In 10 years you will be:"
+puts age + 10
+
+puts "In 20 years you will be:"
+puts age + 20
+
+puts "In 30 years you will be:"
+puts age + 30
+
+puts "In 40 years you will be:"
+puts age + 40
+
+#+END_SRC
+
+** 3. Add another section onto name.rb that prints the name of the user 10 times. You must do this without explicitly writing the puts method 10 times in a row.
+
+*** My Solution
+#+BEGIN_SRC ruby
+# name.rb (Version II; prints out the greeting ten times)
+puts "What is your name?" 
+name = gets.chomp 
+
+10.times do
+  puts name
+end
+#+END_SRC
+
+*** Book Solution (Same)
+
+#+BEGIN_SRC ruby
+  # name.rb continued 
+  10.times do 
+    puts name 
+  end
+#+END_SRC
+
+*** Comments
+Yay. I got this right. :)
+
+** 4. Modify name.rb again so that it first asks the user for their first name, saves it into a variable, and then does the same for the last name. Then outputs their full name all at once.
+
+*** My Solution
+#+BEGIN_SRC ruby
+# name.rb (Version III; Print out full name
+
+puts "What is your first name?" 
+first_name = gets.chomp
+
+puts "What is your last name?" 
+last_name = gets.chomp 
+
+puts first_name + " " + last_name
+
+#+END_SRC
+
+*** Book Solution
+#+BEGIN_SRC ruby
+# name.rb continued again
+puts "What is your first name?"
+first_name = gets.chomp
+puts "Thank you. What is your last name?"
+last_name = gets.chomp
+puts "Great. So your full name is " + first_name + " " + last_name
+
+#+END_SRC
+
+*** Comments
+I didn't have any problems with this one.
+
+** 5. Look at the following programs...
+#+BEGIN_SRC ruby
+  x = 0
+  3.times do
+    x += 1
+  end
+  puts x
+#+END_SRC
+
+and...
+
+#+BEGIN_SRC ruby
+
+  y = 0
+  3.times do
+    y+= 1
+    x = y
+  end
+  puts x
+
+#+END_SRC
+What does x print to the screen in each case? Do they both give errors? Are the errors different? Why?
+
+*** My Solution
+*Here are my guesses before I test them...*
+I think the first one will print '3', because 'X' is defined as '0', and then it is incremented three times. Because the variable is initialized globally, it will be available in the global scope.
+
+X will cause an error in the second example, because 'x' is initialized within the '3.times do' local scope. (BTW, Y = 1)...
+
+And now for the tests...
+
+- I was right for the first one.
+
+- I was also right for the second one. The exact error message was:
+
+  #+BEGIN_SRC ruby
+test.rb:6:in `<main>': undefined local variable or method `x' for main:Object (NameError)
+  
+  #+END_SRC
+
+*** Book Solution
+The first prints 3 to the screen. The second throws an error undefined local variable or method because x is not available as it is created within the scope of the do/end block.
+
+*** Comments
+I was right, but I should have been a bit more precise with my answer for the second one. The nature of the error was 'undefined local variable or method.'
+
+** 6. What does the following error message tell you?
+#+BEGIN_SRC ruby
+NameError: undefined local variable or method `shoes' for main:Object
+
+from (irb):3
+
+from /usr/local/rvm/rubies/ruby-2.0.0-rc2/bin/irb:16:in `<main>'
+
+#+END_SRC
+
+** My Solution
+The variable 'shoes' was defined locally, and is therefore unavailable in the global scope.
+
+** Book Solution
+The program is trying to reference a variable or method named shoes that has not been defined in the program, or is outside of the scope in which it is being called.
+
+* Methods
+
+** What Are Methods and Why Do We Need Them?
+Most programming languages have procedures that allow you to abstract function calls (or other tasks), to make code cleaner and more readable. In Ruby, these are called *methods*.
+
+Here is the basic syntax:
+#+BEGIN_SRC ruby
+  
+  def say
+    # method body goes here
+  end
+  
+#+END_SRC
+
+Using a method call, we can turn this redundant code:
+#+BEGIN_SRC ruby
+
+# say.rb
+
+puts "hello"
+puts "hi"
+puts "how are you"
+puts "I'm fine"
+
+#+END_SRC
+
+into this:
+
+#+BEGIN_SRC ruby
+    
+    # say.rb refactored
+    def say(words)
+      puts words
+    end
+
+    say("hello")
+    say("hi")
+    say("how are you")
+    say("I'm fine")
+    
+#+END_SRC
+
+One advantage of using methods is that we can make a single change, which will make many changes in our program. For example, to add a period to each expresison:
+
+#+BEGIN_SRC ruby
+# say.rb refactored
+def say(words)
+puts words + '.' ## <= We only make the change here!
+end
+say("hello")
+say("hi")
+say("how are you")
+say("I'm fine")
+
+#+END_SRC
+
+*** Aside
+Taking this a step further, in irb, I grabbed the full array of available methods for strings:
+
+#+BEGIN_SRC ruby
+irb(main):001:0> "hello".methods.sort
+
+=> [:!, :!=, :!~, :%, :*, :+, :<, :<<, :<=, :<=>, :==, :===, :=~, :>, :>=, :[], :[]=, :__id__, :__send__, :ascii_only?, :b, :between?, :bytes, :bytesize, :byteslice, :capitalize, :capitalize!, :casecmp, :center, :chars, :chomp, :chomp!, :chop, :chop!, :chr, :class, :clear, :clone, :codepoints, :concat, :count, :crypt, :define_singleton_method, :delete, :delete!, :display, :downcase, :downcase!, :dump, :dup, :each_byte, :each_char, :each_codepoint, :each_line, :empty?, :encode, :encode!, :encoding, :end_with?, :enum_for, :eql?, :equal?, :extend, :force_encoding, :freeze, :frozen?, :getbyte, :gsub, :gsub!, :hash, :hex, :include?, :index, :insert, :inspect, :instance_eval, :instance_exec, :instance_of?, :instance_variable_defined?, :instance_variable_get, :instance_variable_set, :instance_variables, :intern, :is_a?, :kind_of?, :length, :lines, :ljust, :lstrip, :lstrip!, :match, :method, :methods, :next, :next!, :nil?, :object_id, :oct, :ord, :partition, :prepend, :private_methods, :protected_methods, :public_method, :public_methods, :public_send, :remove_instance_variable, :replace, :respond_to?, :reverse, :reverse!, :rindex, :rjust, :rpartition, :rstrip, :rstrip!, :scan, :scrub, :scrub!, :send, :setbyte, :singleton_class, :singleton_method, :singleton_methods, :size, :slice, :slice!, :split, :squeeze, :squeeze!, :start_with?, :strip, :strip!, :sub, :sub!, :succ, :succ!, :sum, :swapcase, :swapcase!, :taint, :tainted?, :tap, :to_c, :to_enum, :to_f, :to_i, :to_r, :to_s, :to_str, :to_sym, :tr, :tr!, :tr_s, :tr_s!, :trust, :unpack, :untaint, :untrust, :untrusted?, :upcase, :upcase!, :upto, :valid_encoding?]
+
+#+END_SRC
+
+Then I capitalized each sentence:
+
+#+BEGIN_SRC ruby
+# say.rb refactored (plus, capitalized!)
+def say(words)
+  puts words.capitalize + "." # <= I added the 'capitalize' method, just for fun...
+end
+
+say("hello")
+say("hi")
+say("how are you")
+say("I'm fine")
+
+#+END_SRC
+
+Here's the result:
+
+#+BEGIN_SRC bash
+
+Hello.
+Hi.
+How are you.
+I'm fine.
+
+#+END_SRC
+
+*Learning to program is so much fun! :)* 
+
+** Default Parameters
+It's always a good idea to write methods that work, even if no arguments are sent:
+
+#+BEGIN_SRC ruby
+  
+  def say(words='hello')
+    puts words + '.'
+  end
+  say()   # <= "hello."
+  say("hi")
+  say("how are you")
+  say("I'm fine")
+  
+#+END_SRC
+
+** Optional Parentheses
+Many Rubyists leave off parentheses when using methods. So *say("hi")* could be written as *say "hi"*. This can make it hard to differentiate local variables and method names.
+
+** Mutating the Caller (Permanently altering the argument)
+Recall:
+- method arguments are scoped
+- method arguments are not available outside of the method
+- methods cannot modify arguments permanently
+
+#+BEGIN_SRC ruby
+  def some_method(number)
+    number = 7 # this is implicitly returned by the method (because it's scoped, it won't affect the global value of a).
+  end
+  
+  a = 5
+  puts some_method(a) # <= I added a 'puts' here so that I could see the '7' 
+  puts a # <= '5'
+  
+  # a = 5
+#+END_SRC
+
+*I made one (in my opinion) improvement to the code supplied by the authors:* on line 7, I added a 'puts' before 'some method(a), which allowed Ruby to print both the value of 'a' as an argument of *some_method* and as a global variable.
+
+*There is an exception to the rule!* We can perform actions that permanently change the argument (mutate the caller).
+
+#+BEGIN_SRC ruby
+
+# Example of a method that modifies its argument permanently
+
+# mutate.rb
+a = [1, 2, 3]
+def mutate(array)
+  array.pop
+end
+
+p "Before mutate method: #{a}"
+mutate(a)
+p "After mutate method: #{a}"
+
+# Result:
+# "Before mutate method: [1, 2, 3]"
+# "After mutate method: [1, 2]"
+
+#+END_SRC
+
+*** Comments
+The authors point out that they use *p* instead of *puts* in this program. I ran it both ways, and here were the results:
+
+**** *p*
+"Before mutate method: [1, 2, 3]"
+
+"After mutate method: [1, 2]"
+
+**** *puts*
+Before mutate method: [1, 2, 3]
+
+After mutate method: [1, 2]
+
+It seems like the difference is that 'p' adds quotes.
+
+*** This method will not mutate the caller
+#+BEGIN_SRC ruby
+  # Example of a method that does not mutate the caller
+  # mutate.rb
+  
+  a = [1, 2, 3]
+  def no_mutate(array)
+    array.last
+  end
+  
+  p "Before no_mutate method: #{a}"
+  no_mutate(a)
+  p "After no_mutate method: #{a}"
+
+# Results:
+# "Before no_mutate method: [1, 2, 3]"
+# "After no_mutate method: [1, 2, 3]"
+  
+#+END_SRC
+
+Key points:
+- The *last* method does not mutate the caller
+- Some methods mutate the caller, and some do not. Unfortunately, you just have to memorize which do.
+- Ruby is both a /pass-by-value/ and a /pass-by-reference/ language.
+  
+** puts vs. return: The Sequel
+#+BEGIN_SRC ruby
+# mutate.rb
+
+a = [1, 2, 3]
+
+def mutate(array)
+  array.pop
+end
+
+p "Before mutate method:#{a}"
+p mutate(a)
+p "After mutate method:#{a}"
+
+# Output:
+"Before mutate method: [1, 2, 3]"
+3 # The last index in the array was popped
+"After mutate method: [1, 2]"
+#+END_SRC
+
+Explanation:
+1. Print out *a* as initially defined ([1,2,3] array)
+2. Print out the value returned by the mutate method (array.pop)
+3. Print out *a* afer the mutate method
+
+   Here's an example of *return*:
+   #+BEGIN_SRC ruby
+# return.rb
+def add_three(number)
+number + 3
+end
+
+returned_value = add_three(4)
+puts returned_value
+
+   # output:
+# 7
+   #+END_SRC
+
+   I guessed it would be '7' and I was right!
+
+   Explanation from the book:
+
+"   Here we're saving the returned value of the add_three method in a variable called returned_value. Then we print returned_value to the output to see what it has inside it. Your output should print 7 because that's what the method returned."
+
+"*Ruby methods ALWAYS return the evaluated result of the last line of the expression unless an explicit return comes before it.*"
+
+#+BEGIN_SRC ruby
+
+# return.rb
+def add_three(number)
+return number + 3 number + 4
+end
+
+returned_value = add_three(4)
+puts returned_value
+
+# output: 7
+#+END_SRC
+
+*** Comments
+I predicted the above formula would return 7. Return prints the value and stops without executing the next line.
+
+*** Important Takeaway
+Important feature of Ruby:
+*"The 'return' reserved word is not required in order to return something from a method."
+
+#+BEGIN_SRC ruby
+    
+  def just_assignment(number)
+    foo = number + 3
+  end
+
+# The value of just_assignment(5) would be '8'
+    
+#+END_SRC
+
+** Exercises
+
+*** 1. Write a program that contains a method called greeting that takes a name as its parameter. It then prints a greeting message with the name included in it.
+
+*** My Answer
+
+#+BEGIN_SRC ruby
+
+# greeting.rb
+
+puts "What is your name?"
+name = gets.chomp
+
+def greeting(name)
+  return "Hello, " + name + "!"
+end
+
+#+END_SRC
+
+*** Book Solution
+#+BEGIN_SRC ruby
+def greeting(name)
+"Hello, " + name + ". How are you doing?"
+end
+puts greeting("Bob")
+
+#+END_SRC
+
+*** Comments
+OK, looking at the solution...that totally makes sense, and I actually was thinking of something like that at first, but I decided I wanted to allow the user to input their own name.
+
+Interestingly enough, in my version, if you change *return* to *puts*, it will print both the name and the greeting, so return is the way to go (because it stops there).
+
+** 2. What do the following expressions evaluate to?
+
+#+BEGIN_SRC ruby
+
+1. x = 2
+2. puts x = 2
+3. p name = "Joe"
+4. four = "four"
+5. print something = "nothing"
+
+#+END_SRC
+
+
+*** My Answer
+1. x will equal 2, but it won't print anything. 2
+2. x will equal two, and it will evaluate to "2" and return nil
+3. "Joe"
+4. four will equal the string "four", but it won't print anything.
+5. nothing
+
+*** Book Solution
+#+BEGIN_SRC ruby
+1. x = 2 # => 2
+2. puts x = 2 # nil
+3. p name = "Joe" # => "Joe"
+4. four = "four" # => "four"
+5. print something = "nothing" # => nil
+
+#+END_SRC
+
+** 3. Write a program that includes a method called multiply that takes two arguments and returns the product of the two numbers.
+
+*** My Answer
+
+#+BEGIN_SRC ruby
+
+def multiply(a, b)
+  return a * b
+end
+
+puts multiply(5,3)
+
+#+END_SRC
+
+*** Book Solution
+
+#+BEGIN_SRC ruby
+  
+  def multiply(number1, number2) 
+    number1 * number2 
+  end 
+  puts multiply(4, 2)
+  
+#+END_SRC
+
+*** Comments
+My solution worked, and it was essentially the same thing, but I used 'a' and 'b' for arguments. 'number1' and 'number2' are mroe descriptive and would probably be better choices.
+
+** 4. What will the following code print to the screen?
+
+#+BEGIN_SRC ruby
+  def scream(words)
+    words = words + "!!!!"
+    return puts words
+  end
+
+  scream("Yippeee") 
+  
+#+END_SRC
+
+*** Andrew's Answer
+"Yippeee!!!!"
+
+*** Book Solution
+It will not print anything to the screen.
+
+*** Comments
+OK, I see. I missed the fact that there was a 'return' before the 'puts words' call. (I know that 'return' stops the function from running).
+
+** 5. 1) Edit the method in exercise #4 so that it does print words on the screen; 2) What does it return now?
+
+*** Andrew's Answer
+My guess before I do anything is that if I remove (or simply comment out) the 'return' line, it will return "Yipeee!!!!" Let's try:
+
+#+BEGIN_SRC ruby
+
+def scream(words)
+  words = words + "!!!!"
+#  return
+  puts words
+end
+
+scream("Yippeee")
+
+#+END_SRC
+
+
+*** Book Solution
+
+1.
+#+BEGIN_SRC ruby
+
+def scream(words)
+words = words + "!!!!"
+puts words
+end
+scream("Yippeee")
+
+#+END_SRC
+
+2. still returns *nil*
+
+*** Comment
+Aha! The light bulb finally went off for me when I watched the video, and the instructor said, "In Ruby methods, the last thing in the method is the 'return' value, regardless what happens in the method (except for the return keyword.)
+
+In the example, he added 'hi there' before the 'end' statement, and Ruby returned that. Now I understand that Ruby can put/print a value, but still return 'nil'!
+
+** 6. What does the following error message tell you?
+
+#+BEGIN_SRC ruby
+ArgumentError: wrong number of arguments (1 for 2)
+from (irb):1:in `calculate_product\
+from (irb):4
+from /Users/username/.rvm/rubies/ruby-2.0.0-p353/bin/irb:12:in `<main>'
+
+#+END_SRC
+
+*** Andrew's Answer
+In a method called 'calculate_product, only one argument was given, but two were required.
+*** Book Solution
+You are calling a method (calculate_product in this case) that requires two arguments, but you are only providing one.
+
+* Flow Control
+
+** Conditional
+
+*** Formed with a combination of logical statments and comparison operators.
+Logical Statements:
+- if
+- else
+- elsif
+- end
+
+Comparison Operators:
+- <
+- >
+- <=
+- >=
+- !=
+- &&
+- ||
+ 
+#+BEGIN_SRC ruby
+# conditional.rb
+
+puts "Put in a number"
+a = gets.chomp.to_i
+if a == 3
+  puts "a is 3"
+elsif a == 4
+  puts "a is 4"
+else
+  puts "a is neither 3, nor 4"
+end
+
+#+END_SRC
+
+*** Valid Ruby Conditionals
+#+BEGIN_SRC ruby
+  
+# Example 1
+  
+  if x == 3
+    puts "x is 3"
+  end
+  
+#+END_SRC
+
+#+BEGIN_SRC ruby
+  
+# Example 2
+  
+  if x == 3
+    puts "x is 3"
+  elsif x == 4
+    puts "x is 4"
+  end
+  
+#+END_SRC
+
+#+BEGIN_SRC ruby
+  
+# Example 3
+  if x == 3
+    puts "x is 3"
+  else
+    puts "x is NOT 3"
+  end
+  
+#+END_SRC
+
+#+BEGIN_SRC ruby
+
+# Example 4: must use "then" keyword when using 1-line syntax
+
+if x == 3 then puts "x is 3" end
+
+# or
+
+puts "x is 3" if x == 3
+
+#+END_SRC
+
+*unless* is a reserved word that serves as the opposite of *if*:
+#+BEGIN_SRC ruby
+
+puts "x is NOT 3" unless x ==3
+
+#+END_SRC
+
+*** Comparisons
+- *Key Point*: Comparisons always return a *boolean value*.
+
+  | Symbol | Meaning                  | Comments   |
+  |--------+--------------------------+------------|
+  | <      | less than                |            |
+  | >      | greater than             |            |
+  | <=     | less than or equal to    |            |
+  | >=     | greater than or equal to |            |
+  | ==     | equal to                 | (no '===') |
+  | !=     | not equal to             |            |
+  | &&     | and                      |            |
+  |        | or                       |            |
+
+
+**** Less than/Greater than
+
+#+BEGIN_SRC ruby
+4 < 5 # true
+4 > 5 # false
+
+#+END_SRC
+
+**** Less than or equal to/Greater than or equal to
+#+BEGIN_SRC ruby
+
+4 <= 5 # true
+5 >= 5 # true
+4 >= 5 # false
+4 >= 3 # true
+4 >= 4 # true
+
+#+END_SRC
+
+**** Is equal to
+#+BEGIN_SRC ruby
+5 == 5 # true
+5 == 6 # false
+'5' == 5 #false
+#+END_SRC
+
+**** Is not equal to
+#+BEGIN_SRC ruby
+
+4 != 5 # true
+4 != 4 # false
+4 != 156 # true
+
+#+END_SRC
+
+*** Combining Expressions
+1. && 'and'
+   #+BEGIN_SRC ruby
+(4 == 4 && (5 == 5)
+# true
+
+(4 == 5) && (5 == 5)
+# false
+
+(4 == 5) && (5 == 6)
+# false
+   
+   #+END_SRC
+
+2. The "or" Operator
+
+   #+BEGIN_SRC ruby
+(4 == 4) || (5 == 5)
+# true
+
+(4 == 5) || (5 == 5)
+# true
+
+(4 == 5) || (5 == 6)
+# false
+   
+   #+END_SRC
+
+3. The "not" Operator 
+
+#+BEGIN_SRC ruby
+!(4 == 4)
+# false
+#+END_SRC
+
+** Order of Precedence
+1. <=, <, >, >= *Comparison*
+2. ==, != *Equality*
+3. && *Logical AND*
+4. || *Logical OR*
+
+How will the following be evaluated?   
+   #+BEGIN_SRC ruby
+
+if x && y || z
+# do something
+end
+   
+   #+END_SRC
+Answer:
+1. if *x && y* = true, *#do something* will be executed.
+2. if *x && yY = false, the program will evaluate *|| z*. If true, *#do something* will be executed. If not, the *if* statement will be exited.
+
+** Ternary Operator
+- common Ruby idiom to make a quick *if/else* statement in one line.
+- Uses a combination of *?* and *:*
+- Ruby evaluates the expression to the left of the *?*.
+  - If true, it executes the code directly after the *?*.
+  - If false, it executes the code directly after the *:*. 
+
+    #+BEGIN_SRC ruby
+  true ? "this is true" : "this is not true"
+   # true
+
+  false ? "this is true" : "this is not true"
+  # false
+  
+    #+END_SRC
+
+** Case Statement
+- Similar to 'if' statements
+- Use *reserved words*:
+  - *case*
+  - *when*
+  - *else*
+  - *end*
+- First define a case and then evaluate the value of the case and what operation to complete if the case is true...
+- Modified version of *if/elsif/else* statement
+  
+  #+BEGIN_SRC ruby
+    # case_statement.rb
+    a = 5
+
+    case a
+    when 5
+      puts "a is 5"
+    when 6
+      puts "a is 6"
+    else
+      puts "a is neither 5, nor 6"
+    end
+      
+  #+END_SRC
+
+  We can also save the result of a case statement into a variable, which will allow us to not have to write *puts* so many times.
+
+  #+BEGIN_SRC ruby
+
+# case_statement.rb <-- refactored
+
+a = 5
+
+answer = case a
+  when 5 
+    "a is 5"
+  when 6 
+    "a is 6"
+  else 
+    "a is neither 5, nor 6"
+  end
+
+puts answer
+  
+  #+END_SRC
+
+You can write the same program without a case argument:
+#+BEGIN_SRC ruby
+  # case_statement.rb <-- refactored with no case argument 
+  
+  a = 5 
+  
+  answer = case 
+    when a == 5 
+      "a is 5" 
+    when a == 6 
+      "a is 6" 
+    else 
+      "a is neither 5, nor 6" 
+    end 
+
+puts answer
+  
+#+END_SRC
+
+** True and False
+After *if* and *elsif*, we must put an expression that evaluates a boolean value:
+
+#+BEGIN_SRC ruby
+      
+      a = 5
+      if a 
+        puts "how can this be true?"
+        
+      else
+  
+        puts "it is not true"
+  
+      end
+
+# output: "how can this be true?"
+      
+#+END_SRC
+
+We could also write this:
+#+BEGIN_SRC ruby
+if x = 5 # <= careful, this is not asking 'if x == 5...'; it's assigning the value 'x = 5'
+  puts "how can this be true?"
+else
+  puts "it is not true"
+end
+
+#output: "How can this be true?"
+#+END_SRC
+
+** Exercises
+
+*** 1. Write down whether the following expressions return true or false. Then type the expressions into irb to see the results.
+
+1. (32 * 4) >= 129
+2. false != !true
+3. true == 4
+4. false == (847 == '874')
+5. (!true || (!(100 / 5) == 20) || ((328 / 4) == 82)) || false
+
+**** Andrew's Answer
+1. false
+2. false
+3. false
+4. true
+5. true
+
+**** Solution
+1. false
+2. false
+3. false
+4. true
+5. true
+
+*** 2. Write a method that takes a string as argument. The method should return the capitalized version of the string, only if the string is longer than 10 characters. (Hint: Ruby's String class has a few methods that would be helpful. Check the [[http://ruby-doc.org/core-2.1.0/String.html][Ruby Docs]]!)
+
+**** Andrew's Answer
+
+
+#+BEGIN_SRC ruby
+puts "Give me a string"
+a = gets.bytesize
+b = a.to_s
+
+puts a.length
+# if a.length >= 10
+#   puts "hell yes"
+  
+# else
+#   puts "The string is less than 10 characters!"
+# end
+
+string = a(string)
+
+if string > = 
+
+#+END_SRC
+
+**** Andrew's Answer
+#+BEGIN_SRC ruby
+puts "Give me a string"
+a = gets.chomp.to_i
+
+if a >= 10
+  puts "longer"
+else
+  puts "The string is less than 10 characters!"
+end
+
+
+#+END_SRC
+
+**** Book Solution
+#+BEGIN_SRC ruby
+  
+  # caps_method.rb
+  def caps(string)
+    if string.length > 10
+      string.upcase
+    else string
+    end
+  end
+
+  puts caps("Joe Smith")
+  puts caps("Joe Robertson")
+  
+#+END_SRC
+
+**** Andrew's Comments
+Just to make sure I understood, I modified the example with two new Ruby methods ('include' and 'replace'). This method looks for an instance of the name "John" (the previous employee) and replaces it with "Bill" (the new employee):
+
+#+BEGIN_SRC ruby
+
+# Replace instances of "John" (old employee) with "Bill" (new employee)
+
+# new_employee.rb
+def staff(name)
+  if name.include? "John"
+    name.replace "Bill"
+  else
+    puts name
+  end
+end
+
+
+puts staff("John")
+puts staff("Karen")
+#+END_SRC
+
+*** 3. Write a program that takes a number from the user between 0 and 100 and reports back whether the number is between 0 and 50, 50 and 100, or above 100.
+
+**** Andrew's Answer
+
+#+BEGIN_SRC ruby
+puts "Please choose a number."
+
+number = gets.chomp.to_i
+
+if (number >= 0) &&  (number <= 50)
+  puts "Your number is between 0 and 50."
+elsif (number >= 50) && (number <= 100)
+  puts "Your number is between 50 and 100."
+else number >100
+  puts "Your number is more than 100."
+
+end
+
+#+END_SRC
+
+**** Book Solution
+
+#+BEGIN_SRC ruby
+  # evaluate_num.rb
+  puts "Please enter a number between 0 and 100."
+  number = gets.chomp.to_i
+  if number < 0
+    puts "You can't enter a negative number!"
+  elsif number <= 50
+    puts "#{number} is between 0 and 50"
+  elsif number <= 100 puts "#{number} is between 51 and 100"
+  else
+    puts "#{number} is above 100"
+  end
+#+END_SRC
+
+**** Comments
+My solution was too complicated.
+
+*** 4. What will each block of code below print to the screen? Write your answer on a piece of paper or in a text editor and then run each block of code to see if you were correct.
+
+#+BEGIN_SRC ruby
+  # 1.
+   '4' == 4 ? puts("TRUE") : puts("FALSE")
+    
+    # 2.
+    x = 2
+    if ((x * 3) / 2) == (4 + 4 - x - 3)
+      puts "Did you get it right?"
+    else
+      puts "Did you?"
+    end
+    
+  # 3.
+  y = 9
+  x = 10
+  if (x + 1) <= (y)
+    puts "Alright."
+  elsif (x + 1) >= (y)
+    puts "Alright now!"
+  elsif (y + 1) == x
+    puts "ALRIGHT NOW!"
+  else puts "Alrighty!"
+  end
+    
+#+END_SRC
+
+*** Andrew's Answer
+1. "FALSE"
+2. "Did you get it right?"
+3. "Alright now!" 
+
+

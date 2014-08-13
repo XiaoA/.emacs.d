@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Andrew Buckingham's ITS Chat Reports</title>
+<!-- 2013-12-05 Thu 19:03 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Andrew Buckingham" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Andrew Buckingham's ITS Chat Reports</h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">November 2013</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Summary</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>We had six fewer chats, YOY, but the ratio of office/home chats was the same for both 2012 and 2013.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Operators</h3>
+<div class="outline-text-3" id="text-1-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right">Andrew</th>
+<th scope="col" class="right">Brittney</th>
+<th scope="col" class="right">Dante</th>
+<th scope="col" class="right">Feher</th>
+<th scope="col" class="right">James Leftwich</th>
+<th scope="col" class="right">James Yazell</th>
+<th scope="col" class="right">Natalie</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">5</td>
+<td class="right">21</td>
+<td class="right">18</td>
+<td class="right">20</td>
+<td class="right">16</td>
+<td class="right">17</td>
+<td class="right">22</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">Location Breakdown</h3>
+<div class="outline-text-3" id="text-1-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Nov 2013</th>
+<th scope="col" class="right">&#xa0;</th>
+<th scope="col" class="right">&#xa0;</th>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="right">Nov 2012</th>
+<th scope="col" class="right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><b>Location</b></td>
+<td class="right"><b>Total</b></td>
+<td class="right"><b>Percentage</b></td>
+<td class="left">&#xa0;</td>
+<td class="right"><b>Total</b></td>
+<td class="right"><b>Percentage</b></td>
+</tr>
+
+<tr>
+<td class="left">Call Center</td>
+<td class="right">82</td>
+<td class="right">69%</td>
+<td class="left">&#xa0;</td>
+<td class="right">86</td>
+<td class="right">69%</td>
+</tr>
+
+<tr>
+<td class="left">Evening Chat</td>
+<td class="right">37</td>
+<td class="right">31%</td>
+<td class="left">&#xa0;</td>
+<td class="right">39</td>
+<td class="right">31%</td>
+</tr>
+
+<tr>
+<td class="left">Total</td>
+<td class="right">119</td>
+<td class="right">100%</td>
+<td class="left">&#xa0;</td>
+<td class="right">125</td>
+<td class="right">100%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">Top Five Busiest Days</h3>
+<div class="outline-text-3" id="text-1-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="right" />
+
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right"><b>Date</b></th>
+<th scope="col" class="left"><b>Day</b></th>
+<th scope="col" class="right"><b>Total</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">11-18-2013</td>
+<td class="left">Mon</td>
+<td class="right">27</td>
+</tr>
+
+<tr>
+<td class="right">11-05-2013</td>
+<td class="left">Tue</td>
+<td class="right">12</td>
+</tr>
+
+<tr>
+<td class="right">11-19-2013</td>
+<td class="left">Tue</td>
+<td class="right">10</td>
+</tr>
+
+<tr>
+<td class="right">11-21-2013</td>
+<td class="left">Thu</td>
+<td class="right">10</td>
+</tr>
+
+<tr>
+<td class="right">11-04-2013</td>
+<td class="left">Mon</td>
+<td class="right">9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">Daily Breakdown</h3>
+<div class="outline-text-3" id="text-1-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="right" />
+
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right">Date</th>
+<th scope="col" class="left">Day</th>
+<th scope="col" class="right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">11-01-2013</td>
+<td class="left">Fri</td>
+<td class="right">2</td>
+</tr>
+
+<tr>
+<td class="right">11-03-2013</td>
+<td class="left">Sun</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="right">11-04-2013</td>
+<td class="left">Mon</td>
+<td class="right">8</td>
+</tr>
+
+<tr>
+<td class="right">11-05-2013</td>
+<td class="left">Tue</td>
+<td class="right">12</td>
+</tr>
+
+<tr>
+<td class="right">11-06-2013</td>
+<td class="left">Wed</td>
+<td class="right">6</td>
+</tr>
+
+<tr>
+<td class="right">11-07-2013</td>
+<td class="left">Thu</td>
+<td class="right">6</td>
+</tr>
+
+<tr>
+<td class="right">11-08-2013</td>
+<td class="left">Fri</td>
+<td class="right">5</td>
+</tr>
+
+<tr>
+<td class="right">11-10-2013</td>
+<td class="left">Sun</td>
+<td class="right">2</td>
+</tr>
+
+<tr>
+<td class="right">11-11-2013</td>
+<td class="left">Mon</td>
+<td class="right">7</td>
+</tr>
+
+<tr>
+<td class="right">11-12-2013</td>
+<td class="left">Tue</td>
+<td class="right">1</td>
+</tr>
+
+<tr>
+<td class="right">11-13-2013</td>
+<td class="left">Wed</td>
+<td class="right">4</td>
+</tr>
+
+<tr>
+<td class="right">11-14-2013</td>
+<td class="left">Thu</td>
+<td class="right">3</td>
+</tr>
+
+<tr>
+<td class="right">11-15-2013</td>
+<td class="left">Fri</td>
+<td class="right">1</td>
+</tr>
+
+<tr>
+<td class="right">11-17-2013</td>
+<td class="left">Sun</td>
+<td class="right">3</td>
+</tr>
+
+<tr>
+<td class="right">11-18-2013</td>
+<td class="left">Mon</td>
+<td class="right">17</td>
+</tr>
+
+<tr>
+<td class="right">11-19-2013</td>
+<td class="left">Tue</td>
+<td class="right">11</td>
+</tr>
+
+<tr>
+<td class="right">11-20-2013</td>
+<td class="left">Wed</td>
+<td class="right">5</td>
+</tr>
+
+<tr>
+<td class="right">11-21-2013</td>
+<td class="left">Thu</td>
+<td class="right">9</td>
+</tr>
+
+<tr>
+<td class="right">11-22-2013</td>
+<td class="left">Fri</td>
+<td class="right">1</td>
+</tr>
+
+<tr>
+<td class="right">11-24-2013</td>
+<td class="left">Sun</td>
+<td class="right">1</td>
+</tr>
+
+<tr>
+<td class="right">11-25-2013</td>
+<td class="left">Mon</td>
+<td class="right">6</td>
+</tr>
+
+<tr>
+<td class="right">11-26-2013</td>
+<td class="left">Tue</td>
+<td class="right">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Andrew Buckingham</p>
+<p class="date">Created: 2013-12-05 Thu 19:03</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

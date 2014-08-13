@@ -1,0 +1,6 @@
+var number1 = 50,
+    number2 = 100,
+    number3 = 5,
+    result = number1 * number2;
+
+console.log(result);

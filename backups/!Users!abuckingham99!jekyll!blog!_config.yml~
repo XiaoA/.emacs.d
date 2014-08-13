@@ -1,0 +1,14 @@
+# Site settings
+title: Andrew Buckingham
+# email: 
+description: "The adventures of a husband, student, and aspiring web developer"
+baseurl: ""
+url: "http://www.andrewbuckingham.com"
+twitter_username: abuckingham
+github_username:  XiaoA
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+highlighter: pygments
+paginate: 10

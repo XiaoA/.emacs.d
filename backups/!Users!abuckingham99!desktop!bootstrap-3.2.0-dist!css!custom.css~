@@ -1,0 +1,41 @@
+
+body {
+ padding-top: 50px; 
+}
+
+.navbar-brand {
+  color: #428bc4 !important;
+}
+
+.main-bg {
+  background-color: #fff;
+}
+
+.panel-footer {
+  clear: both;
+  background-color: #428bc4;
+  position: relative;
+}
+
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+#header {
+  padding:50px;
+
+}
+#content {
+  padding:10px;
+  padding-bottom:80px; /* Height of the footer element */
+}
+#footer {
+  width:100%;
+  height:80px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  background-color: #428bc4;
+  font-weight: bold;
+  color:#fff;
+}

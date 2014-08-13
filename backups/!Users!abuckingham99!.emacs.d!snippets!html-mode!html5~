@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: html5
+# key: html
+# binding: direct-keybinding
+# expand-env: ((some-var some-value))
+# type: command
+# --
+<!DOCTYPE html>

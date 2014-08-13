@@ -1,0 +1,73 @@
+# Read data into a dataframe called impact
+# DATA <- read.table("stats1-datafiles-Stats1.13.Lab.02.txt", header = T) 
+
+# Q1: How many rows of data are in the data file?
+# Note: Make sure you read the data with the argument: header=TRUE Then: nrow(data) OR dim(data)
+
+nrow(DATA)
+
+# OR
+
+dim(DATA)
+
+# A: 96
+
+# Q2: What is the name of the dependent variable?
+names(DATA)
+
+# A: SR
+ 
+# Q3: What is the mean of SR across all subjects?
+
+mean(DATA$SR) 
+
+
+# OR 
+describe(DATA)
+# A: 12.66
+
+
+# Q4: What is the variance of SR across all subjects?
+
+var(DATA$SR) 
+# OR 
+2.56^2
+
+# A: 6.54
+
+# Q5: What is the mean of SR for all subjects at pretest?
+
+pre = subset(DATA, DATA$time=="pre") 
+mean(pre$SR)
+
+# Q6: What is the standard deviation of SR for all subjects at posttest?
+
+post = subset(DATA, DATA$time=="post") 
+sd(post$SR)
+
+# A: 2.45
+
+# Q7: What is the median of SR for all subjects at posttest?
+
+describe(post$SR) 
+median(post$SR)
+
+# A: 13.5
+
+# Q8: Which group has the highest mean at posttest?
+
+describeBy(post, post$condition)
+
+# A: DS
+
+# Q9: Which one best approximates a normal distribution?
+
+pre.wm = subset(pre, pre$condition=="WM") AND post.wm = subset(post, post$condition=="WM") AND pre.pe = subset(pre, pre$condition=="PE") AND post.pe = subset(post, post$condition=="PE") AND pre.ds = subset(pre, pre$condition=="DS") AND post.ds = subset(post, post$condition=="DS") AND hist(pre.wm) AND hist(post.wm) AND hist(pre.pe) AND hist(post.pe) AND hist(pre.ds) AND hist(post.ds)
+
+# A: DS group at pretest
+
+# Q10: Which group showed the biggest gains in SR?
+
+pre.wm = subset(pre, pre$condition=="WM") AND post.wm = subset(post, post$condition=="WM") AND pre.pe = subset(pre, pre$condition=="PE") AND post.pe = subset(post, post$condition=="PE") AND pre.ds = subset(pre, pre$condition=="DS") AND post.ds = subset(post, post$condition=="DS") AND mean(post.wm$SR)-mean(pre.wm$SR) AND mean(post.pe$SR)-mean(pre.pe$SR) AND mean(post.ds$SR)-mean(pre.ds$SR)
+
+# A: DS

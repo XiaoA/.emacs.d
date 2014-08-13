@@ -1,0 +1,6 @@
+# contributor : Andrew Buckingham <abuckingham99@gmail.com>
+# name : <h1>...</h1>
+#group : header
+# --
+<h1 id="${1/(downcase-word)+|( )/(?1:_:\L$0)/g}">${1:}</h1>
+

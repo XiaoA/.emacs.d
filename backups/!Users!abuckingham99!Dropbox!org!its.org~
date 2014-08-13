@@ -1,0 +1,1794 @@
+#+TITLE: Andrew Buckingham ITS Work Log
+#+AUTHOR: Andrew Buckingham
+#+STARTUP: indent
+#+OPTIONS: num:nil
+#+TODO: TODO(t) | | Started(s) | Waiting(w) | Someday/Maybe(m) | Canceled(c) | DONE(d)(@) | Meeting(M) | Note(n)
+#+FILETAGS: :work:
+
+
+* Projects
+** Active Projects
+*** ITS Blog Posts
+**** Ways to Encourage Collaborative Learning
+***** 1. Discussion Boards
+The easiest way to encourage collaborative learning in Blackboard is to set up forums where students can share, discuss, and debate ideas. Students in traditional classrooms typically enjoy the opportunity to join in classroom discussions, and engage in learning activities with their peers. Many students in online classes miss that sense of community. Blackboard Discussion Boards provide that sense of community,
+
+***** 2. CampusPack Tools
+   - Blogs
+   - Wikis
+   - Journals
+***** Blackboard Groups
+   - Group Discussion Boards
+   - Group Assignment Tools
+***** Turnitin
+   - PeerMark
+***** Tegrity Podcasting
+
+
+
+/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" -o path/to/your/merged/file.pdf /path/to/original/1.pdf /path/to/another/2.pdf /path/to/a/whole/dir/*.pdf
+**** How to Ace Your Next Online Exam
+**** Problems with Blackboard? Check your Browser
+*** January 17 Conference
+**** Proposal
+***** Presentation Title: Fostering Collaborative Learning with Blackboard Groups
+***** Presenter: Andrew Buckingham
+***** School/Department: ITS
+***** Email: buckinghama@umkc.edu
+***** Daytime Phone: 816-235-1093
+***** Presentation Description:
+Compared to students in traditional classrooms, many students in
+online courses have fewer opportunities to interact with their peers
+in meaningful ways.  Blackboard offers several ways to facilitate
+group learning. This session will focus on using the Blackboard Group
+Tool to encourage students to work together to improve learning outcomes.
+
+Topics include:
+****** What is Collaborative Learning, and why is it important?
+****** What features are available within Blackboard Groups?
+****** Deploying Learning Groups in Blackboard
+******* Setting up groups
+******* Choosing which tools to enable
+******* Creating projects and assignments
+******* Assessing group work
+***** Technical Level of presentation:
+Intermediate. Attendees should have basic knowledge of how to set up and deploy course content in Blackboard.
+***** What is the benefit of attending your session?
+Upon completion, attendees will be able to:
+- Determine which tools are appropriate for the goals of the course.
+- Use the Blackboard Group Tool to set up learning groups in Blackboard.
+- Assess Group work and provide feedback and grades to users.
+**** Brainstorm
+CLOCK: [2013-01-04 Fri 10:21]--[2013-01-04 Fri 11:17] =>  0:56
+**** Final Outline
+CLOCK: [2013-01-13 Sun 19:08]--[2013-01-13 Sun 19:49] =>  0:41
+
+***** Fostering Collaborative Learning with Blackboard Groups
+Compared to students in traditional classrooms, many students in
+online courses have fewer opportunities to interact with their peers
+in meaningful ways.
+
+***** Self Introduction
+****** Andrew Buckingham
+****** Software Support Analyst (Blackboard Call Center Manager)
+****** Email: buckinghama@umkc.edu
+****** Daytime Phone: 816-235-6700
+***** What is Collaborative Learning, and why is it important?
+***** Getting Started...
+***** Group Tools
+****** Blogs: In the Group area, all members of a Group can create entries for the same Blog, building upon one another. Any Course member can read and comment on a Group Blog, but cannot make Entries if they are not a member of the Group. Instructors can select the grade option for Group Blogs.
+****** Collaboration: Users within the Group can create and attend Chat sessions and Virtual Classroom sessions.
+****** Discussion Board: Users within the Group can create and manage their own Forums.
+****** Email: Users within the Group can email individual members or the entire Group.
+****** File Exchange: Group members and the Instructor can share files in this area. All members, as well as the Instructor, can add files. They can also delete files, regardless of who added them.
+****** Journals: When used in the Group area, all members of a Group can view each other's Entries, but the Group Journal can only be viewed by the Group and the Instructor. Instructors can select the grade option for Journals.
+****** Tasks: Users within the Group can create Tasks that are distributed to all Group members.
+****** Wikis: User
+***** Group Types
+****** Single Groups 
+Accessible from the "Create Single Group" Button.
+******* Self-Enroll
+******* Manual Enroll
+****** Group Sets
+Accessible from the "Create Group Set" Button.
+******* Self-Enroll
+******* Manual Enroll
+******* Random Enroll
+***** Deploying Learning Groups in Blackboard
+****** Setting up groups
+****** Choosing which tools to enable
+****** Creating projects and assignments
+****** Assessing group work
+
+***** Exercises
+****** Create a Single Group
+******* Instructor
+******** Self-Enroll
+******** Manual Enroll
+******* Student
+******** Self-Enroll
+******** Manual Enroll
+****** Create Student Groups
+******* Instructor
+Create the following Groups:
+******** Blue
+******** Red
+******** Yellow
+******** Green
+******** White
+******* Student
+******* 
+***** What do students want? (Besides an "A")...
+****** They want to learn
+****** They want to express their ideas
+****** They want to interact with their peers and learn from each other
+***** TODO Look for research/data to back this up!
+***** What do instructors want?
+****** They want the same things!
+***** How can Blackboard help students and instructors reach their goals?
+***** Blackboard and Moodle are Learning Management Systems
+****** They provide an environment for learning.
+****** They allow other tools, like Tegrity, Wimba, and Campus Pack Blogs, Journals, and Wikis
+***** Why use Blackboard Groups?
+****** Native feature of Blackboard
+****** Integrated approach to collaborative learning
+******* Blogs
+******* Wikis
+******* Discussion Boards
+******* Group Assignments
+
+***** What is Collaborative Learning?
+***** Note A table comparing individual vs. collaborative learning might be helpful...
+
+***** How Does Blackboard Facilitate Collaborative Learning? 
+Blackboard offers several ways to facilitate
+group learning. This session will focus on using the Blackboard Group
+Tool to encourage students to work together to improve learning outcomes.
+***** How can Blackboard facilitate collaborative learning?
+***** Why is Collaborative Learning important?
+***** What features are available within Blackboard Groups?
+
+
+***** TODO Set up Blackboard site for interactive training
+  - [ ] Blackboard Site
+    - [ ] Create instructor usernames
+    - [ ] Create student usernames
+    - [ ] Create handouts/instructions
+    - [ ] Print handouts/instructions
+
+**** Final Outline Copy
+
+***** Fostering Collaborative Learning with Blackboard Groups
+Compared to students in traditional classrooms, many students in
+online courses have fewer opportunities to interact with their peers
+in meaningful ways.
+
+***** Self Introduction
+****** Andrew Buckingham
+****** Software Support Analyst (Blackboard Call Center Manager)
+****** Email: buckinghama@umkc.edu
+****** Daytime Phone: 816-235-6700
+***** What is Collaborative Learning, and why is it important?
+***** Why use Blackboard Groups?
+****** Native feature of Blackboard
+****** Integrated approach to collaborative learning
+******* Blogs
+******* Wikis
+******* Discussion Boards
+******* Group Assignments
+***** Getting Started...
+***** Group Tools
+****** Blogs: In the Group area, all members of a Group can create entries for the same Blog, building upon one another. Any Course member can read and comment on a Group Blog, but cannot make Entries if they are not a member of the Group. Instructors can select the grade option for Group Blogs.
+****** Collaboration: Users within the Group can create and attend Chat sessions and Virtual Classroom sessions.
+****** Discussion Board: Users within the Group can create and manage their own Forums.
+****** Email: Users within the Group can email individual members or the entire Group.
+****** File Exchange: Group members and the Instructor can share files in this area. All members, as well as the Instructor, can add files. They can also delete files, regardless of who added them.
+****** Journals: When used in the Group area, all members of a Group can view each other's Entries, but the Group Journal can only be viewed by the Group and the Instructor. Instructors can select the grade option for Journals.
+****** Tasks: Users within the Group can create Tasks that are distributed to all Group members.
+****** Wikis: User
+***** Group Types
+****** Single Groups 
+Accessible from the "Create Single Group" Button.
+******* Self-Enroll
+******* Manual Enroll
+****** Group Sets
+Accessible from the "Create Group Set" Button.
+******* Self-Enroll
+******* Manual Enroll
+******* Random Enroll
+***** Deploying Learning Groups in Blackboard
+****** Setting up groups
+****** Choosing which tools to enable
+****** Creating projects and assignments
+****** Assessing group work
+***** Exercises
+****** Create a Single Group
+******* Instructor
+******** Self-Enroll
+******** Manual Enroll
+******* Student
+******** Self-Enroll
+******** Manual Enroll
+****** Create Student Groups
+******* Instructor
+Create the following Groups:
+******** Blue
+******** Red
+******** Yellow
+******** Green
+******** White
+******* Student
+
+***** What is Collaborative Learning?
+***** Note A table comparing individual vs. collaborative learning might be helpful...
+
+***** How Does Blackboard Facilitate Collaborative Learning? 
+Blackboard offers several ways to facilitate
+group learning. This session will focus on using the Blackboard Group
+Tool to encourage students to work together to improve learning outcomes.
+***** How can Blackboard facilitate collaborative learning?
+***** Why is Collaborative Learning important?
+***** What features are available within Blackboard Groups?
+
+
+***** TODO Set up Blackboard site for interactive training
+  - [ ] Blackboard Site
+    - [ ] Create instructor usernames
+    - [ ] Create student usernames
+    - [ ] Create handouts/instructions
+    - [ ] Print handouts/instructions
+
+**** Presentation
+****** Self Introduction
+******* Andrew Buckingham
+******* Software Support Analyst (Blackboard Call Center Manager)
+******* Email: buckinghama@umkc.edu
+******* Daytime Phone: 816-235-6700
+
+****** What is Collaborative Learning, and why is it important?
+
+| Individual Learning Tasks                                                           | Collaborative Learning Tasks                                                                                   |
+|-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------|
+| Encourage introspection and individualism                                           | Encourage communication and teamwork                                                                           |
+| Require each student to be responsible for all aspects of his/her learning outcomes | Allow students to focus on specific aspects of his/her learning outcome, while helping others build competency |
+| Hold the individual accountable for his/her own success                             | Hold each team member responsible for the success of everyone on the team                                      |
+| Assumes each student can achieve equal competency through solitary effort           | Allows students who are stronger in one area to help students who are weaker.                                  |
+
+****** How Does Blackboard Facilitate Collaborative Learning? 
+Blackboard offers several ways to facilitate
+group learning. This session will focus on using the Blackboard Group
+Tool to encourage students to work together to improve learning outcomes.
+
+****** Fostering Collaborative Learning with Blackboard Groups
+Compared to students in traditional classrooms, many students in
+online courses have fewer opportunities to interact with their peers
+in meaningful ways.
+
+****** What features are available within Blackboard Groups?
+
+****** Deploying Learning Groups in Blackboard
+******* Setting up groups
+******* Choosing which tools to enable
+******* Creating projects and assignments
+******* Assessing group work
+
+**** Preparation Tasks
+***** Sites
+I'll make two sites. One site will be for the "Instructor" view; one
+will be for the "Student" view. I'll enroll each member in each site.
+
+***** DONE Create three BB sites
+- Model Site
+- "Student" Site
+- "Instructor" Site
+***** DONE Create a list of Instructor users (30)
+***** Canceled Enroll instructors in instructor course.
+SCHEDULED: <2013-01-09 Wed>
+***** DONE Create a list of Student  users (30)
+***** Canceled Enroll students in student course.
+SCHEDULED: <2013-01-09 Wed>
+
+***** Instructor Site Info
+
+| Username        | Last Name  | First Name | Email                | Password         |
+|-----------------+------------+------------+----------------------+------------------|
+| bbinstructor-1  | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-1!  |
+| bbinstructor-2  | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-2!  |
+| bbinstructor-3  | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-3!  |
+| bbinstructor-4  | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-4!  |
+| bbinstructor-5  | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-5!  |
+| bbinstructor-6  | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-6!  |
+| bbinstructor-7  | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-7!  |
+| bbinstructor-8  | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-8!  |
+| bbinstructor-9  | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-9!  |
+| bbinstructor-10 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-10! |
+| bbinstructor-11 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-11! |
+| bbinstructor-12 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-12! |
+| bbinstructor-13 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-13! |
+| bbinstructor-14 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-14! |
+| bbinstructor-15 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-15! |
+| bbinstructor-16 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-16! |
+| bbinstructor-17 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-17! |
+| bbinstructor-18 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-18! |
+| bbinstructor-19 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-19! |
+| bbinstructor-20 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-20! |
+| bbinstructor-21 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-21! |
+| bbinstructor-22 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-22! |
+| bbinstructor-23 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-23! |
+| bbinstructor-24 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-24! |
+| bbinstructor-25 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-25! |
+| bbinstructor-26 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-26! |
+| bbinstructor-27 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-27! |
+| bbinstructor-28 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-28! |
+| bbinstructor-29 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-29! |
+| bbinstructor-30 | Instructor | BB         | buckinghama@umkc.edu | bbinstructor-30! |
+
+
+
+***** Student Site Info
+| Username     | Last Name | First Name | Email                | Password      |
+|--------------+-----------+------------+----------------------+---------------|
+| bbstudent-1  | Student   | BB         | buckinghama@umkc.edu | bbstudent-1!  |
+| bbstudent-2  | Student   | BB         | buckinghama@umkc.edu | bbstudent-2!  |
+| bbstudent-3  | Student   | BB         | buckinghama@umkc.edu | bbstudent-3!  |
+| bbstudent-4  | Student   | BB         | buckinghama@umkc.edu | bbstudent-4!  |
+| bbstudent-5  | Student   | BB         | buckinghama@umkc.edu | bbstudent-5!  |
+| bbstudent-6  | Student   | BB         | buckinghama@umkc.edu | bbstudent-6!  |
+| bbstudent-7  | Student   | BB         | buckinghama@umkc.edu | bbstudent-7!  |
+| bbstudent-8  | Student   | BB         | buckinghama@umkc.edu | bbstudent-8!  |
+| bbstudent-9  | Student   | BB         | buckinghama@umkc.edu | bbstudent-9!  |
+| bbstudent-10 | Student   | BB         | buckinghama@umkc.edu | bbstudent-10! |
+| bbstudent-11 | Student   | BB         | buckinghama@umkc.edu | bbstudent-11! |
+| bbstudent-12 | Student   | BB         | buckinghama@umkc.edu | bbstudent-12! |
+| bbstudent-13 | Student   | BB         | buckinghama@umkc.edu | bbstudent-13! |
+| bbstudent-14 | Student   | BB         | buckinghama@umkc.edu | bbstudent-14! |
+| bbstudent-15 | Student   | BB         | buckinghama@umkc.edu | bbstudent-15! |
+| bbstudent-16 | Student   | BB         | buckinghama@umkc.edu | bbstudent-16! |
+| bbstudent-17 | Student   | BB         | buckinghama@umkc.edu | bbstudent-17! |
+| bbstudent-18 | Student   | BB         | buckinghama@umkc.edu | bbstudent-18! |
+| bbstudent-19 | Student   | BB         | buckinghama@umkc.edu | bbstudent-19! |
+| bbstudent-20 | Student   | BB         | buckinghama@umkc.edu | bbstudent-20! |
+| bbstudent-21 | Student   | BB         | buckinghama@umkc.edu | bbstudent-21! |
+| bbstudent-22 | Student   | BB         | buckinghama@umkc.edu | bbstudent-22! |
+| bbstudent-23 | Student   | BB         | buckinghama@umkc.edu | bbstudent-23! |
+| bbstudent-24 | Student   | BB         | buckinghama@umkc.edu | bbstudent-24! |
+| bbstudent-25 | Student   | BB         | buckinghama@umkc.edu | bbstudent-25! |
+| bbstudent-26 | Student   | BB         | buckinghama@umkc.edu | bbstudent-26! |
+| bbstudent-27 | Student   | BB         | buckinghama@umkc.edu | bbstudent-27! |
+| bbstudent-28 | Student   | BB         | buckinghama@umkc.edu | bbstudent-28! |
+| bbstudent-29 | Student   | BB         | buckinghama@umkc.edu | bbstudent-29! |
+| bbstudent-30 | Student   | BB         | buckinghama@umkc.edu | bbstudent-30! |
+
+
+
+***** CombinedSite Info
+<2013-01-16 Wed>
+
+
+
+
+| aeb-user-1  | User-1  | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-2  | User-2  | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-3  | User-3  | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-4  | User-4  | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-5  | User-5  | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-6  | User-6  | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-7  | User-7  | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-8  | User-8  | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-9  | User-9  | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-10 | User-10 | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-11 | User-11 | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-12 | User-12 | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-13 | User-13 | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-14 | User-14 | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-15 | User-15 | Conference | buckinghama@umkc.edu | ansho |
+| aeb-user-16 | User-16 | Conference | buckinghama@umkc.edu | ansho |
+
+
+
+
+aeb-user-1, aeb-user-2, aeb-user-3, aeb-user-4, aeb-user-5, aeb-user-6, aeb-user-7, aeb-user-8, aeb-user-9, aeb-user-10, aeb-user-11, aeb-user-12, aeb-user-13, aeb-user-14, aeb-user-15, aeb-user-16,
+
+
+
+
+***** Instructor Info
+<2013-01-16 Wed>
+
+
+
+
+| aeb-instructor-1  | Instructor-1  | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-2  | Instructor-2  | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-3  | Instructor-3  | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-4  | Instructor-4  | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-5  | Instructor-5  | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-6  | Instructor-6  | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-7  | Instructor-7  | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-8  | Instructor-8  | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-9  | Instructor-9  | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-10 | Instructor-10 | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-11 | Instructor-11 | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-12 | Instructor-12 | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-13 | Instructor-13 | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-14 | Instructor-14 | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-15 | Instructor-15 | Conference | buckinghama@umkc.edu | Lao10! |
+| aeb-instructor-16 | Instructor-16 | Conference | buckinghama@umkc.edu | Lao10! |
+
+
+
+
+aeb-student-1, aeb-student-2, aeb-student-3, aeb-student-4, aeb-student-5, aeb-student-6, aeb-student-7, aeb-student-8, aeb-student-9, aeb-student-10, aeb-student-11, aeb-student-12, aeb-student-13, aeb-student-14, aeb-student-15, aeb-student-16
+
+
+
+***** StudentInfo
+<2013-01-16 Wed>
+
+
+
+
+| aeb-student-1  | Student-1  | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-2  | Student-2  | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-3  | Student-3  | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-4  | Student-4  | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-5  | Student-5  | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-6  | Student-6  | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-7  | Student-7  | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-8  | Student-8  | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-9  | Student-9  | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-10 | Student-10 | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-11 | Student-11 | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-12 | Student-12 | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-13 | Student-13 | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-14 | Student-14 | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-15 | Student-15 | Conference | buckinghama@umkc.edu | Ga9Sei! |
+| aeb-student-16 | Student-16 | Conference | buckinghama@umkc.edu | Ga9Sei! |
+
+
+
+
+aeb-user-1, aeb-user-2, aeb-user-3, aeb-user-4, aeb-user-5, aeb-user-6, aeb-user-7, aeb-user-8, aeb-user-9, aeb-user-10, aeb-user-11, aeb-user-12, aeb-user-13, aeb-user-14, aeb-user-15, aeb-user-16,
+
+
+
+
+***** TODO Make screenshots
+
+***** TODO Prepare Handouts
+- [ ] Handouts
+  - [ ] Prepare Handouts
+  - [ ] Print out handouts
+  - [ ] Copy and collate Handouts
+**** 1/16
+***** Self-Intro
+***** What is Collaborative Learning, and why is it important?
+***** How can Blackboard Help?
+***** Advantages of BB Group Tools
+***** Disadvantages of BB Group Tools
+***** Getting Started
+***** What tools are available?
+***** Use Cases
+***** Exercise(s)
+***** For more information
+***** Questions
+**** Final Draft: 1/17 Presetation Outline
+***** Title: Fostering Collaborative Learning with Blackboard Groups
+Compared to students in traditional classrooms, many students in
+online courses have fewer opportunities to interact with their peers
+in meaningful ways.
+***** Outcome
+Upon completion, attendees will be able to:
+- Determine which tools are appropriate for the goals of the course.
+- Use the Blackboard Group Tool to set up learning groups in Blackboard.
+- Assess Group work and provide feedback and grades to users.
+***** Self-Intro
+****** Presenter: Andrew Buckingham
+****** School/Department: ITS
+****** Email: buckinghama@umkc.edu
+****** Daytime Phone: 816-235-6700
+***** What is Collaborative Learning, and why is it important?
+
+| Individual Learning Tasks                                                           | Collaborative Learning Tasks                                                                                   |
+|-------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------|
+| Encourage introspection and individual scholarship                                  | Encourage communication and teamwork                                                                           |
+| Require each student to be responsible for all aspects of his/her learning outcomes | Allow students to focus on specific aspects of his/her learning outcome, while helping others build competency |
+| Hold the individual accountable for his/her own success                             | Hold each team member responsible for the success of everyone on the team                                      |
+| Assumes each student can achieve equal competency through solitary effort           | Allows students who are stronger in one area to help students who are weaker.                                  |
+
+
+****** When properly designed, collaborative learning lessons can reduce the temptation for students to plagarize, because they can work with others to build upon their understanding, and because of peer review
+- Each individual's role must be clearly defined and agreed upon by
+  everyone in the group.
+- Each student must have a specific task to accomplish, and he or she
+  must be accountable for that task.
+
+***** How Does Blackboard Facilitate Collaborative Learning? 
+Blackboard offers several ways to facilitate
+group learning. This session will focus on using the Blackboard Group
+Tool to encourage students to work together to improve learning outcomes.
+
+***** Advantages of BB Group Tools
+- Native feature of Blackboard
+- Offer integrated approach to collaborative learning
+***** Disadvantages of BB Group Tools
+- Content sharing is limited to groups (not available to entire class)
+- Group Assignments are submitted by one person (can be difficult to
+  ensure that all members have shared in the workload)
+***** What tools are available?
+****** "Native Tools"
+- Blogs: In the Group area, all members of a Group can create entries
+  for the same Blog, building upon one another. Any Course member can
+  read and comment on a Group Blog, but cannot make Entries if they
+  are not a member of the Group. Instructors can select the grade
+  option for Group Blogs.
+- Collaboration: Users within the Group can create and attend Chat sessions and Virtual Classroom sessions.
+- Discussion Board: Users within the Group can create and manage their own Forums.
+- Email: Users within the Group can email individual members or the entire Group.
+- File Exchange: Group members and the Instructor can share files in
+  this area. All members, as well as the Instructor, can add
+  files. They can also delete files, regardless of who added them.
+- Journals: When used in the Group area, all members of a Group can
+  view each other's Entries, but the Group Journal can only be viewed
+  by the Group and the Instructor. Instructors can select the grade
+  option for Journals.
+- Tasks: Users within the Group can create Tasks that are distributed to all Group members.
+- Wikis: User
+- (?) BB Collaborate Voice Tool
+****** External Tools
+- Turnitin
+  - Podcasting
+  - Video Presentations
+- Turnitin
+  - PeerMark
+***** Group Types
+****** Single Groups 
+Accessible from the "Create Single Group" Button.
+******* Self-Enroll
+******* Manual Enroll
+****** Group Sets
+Accessible from the "Create Group Set" Button.
+******* Self-Enroll
+******* Manual Enroll
+******* Random Enroll
+***** Getting Started
+The Four Steps to Deploying Learning Groups in Blackboard:
+- Setting up groups
+Control Panel --> Users and Groups --> Groups
+- Choosing which tools to enable
+- Creating projects and assignments
+- Assessing group work
+
+***** Step One: Setting up groups
+***** Step Two: Choosing which tools to enable
+- Class Discussion Board vs. Group Discussion Board
+***** Step Three: Creating projects and assignments
+***** Step Four: Assessing group work
+The Full Grade Center automatically filters by group
+***** Exercise(s)
+Create a Single Group
+******* Instructor
+******** Self-Enroll
+******** Manual Enroll
+******* Student
+******** Self-Enroll
+******** Manual Enroll
+****** Create Student Groups
+******* Instructor
+Create the following Groups:
+******** Blue
+******** Red
+******** Yellow
+******** Green
+******** White
+******* Student
+***** Common Use Cases
+****** Example One: Group Discussion Board
+****** Example Two: Group Assignment
+****** Example Three: Group Wiki
+Useful for Collaborative Research/Presentation
+***** More Advanced Use Cases
+****** Process Writing/Peer Review
+- Response Groups
+- Peer Editing (Using BB Groups or Turnitin PeerMark)
+****** KWL --> Breakout Research Groups
+- Brainstorming
+- Peer Teaching
+****** Jigsaw Activities
+***** For more information
+- This presentation will be available on our website
+- Contact our office
+***** Questions
+*** New Remedy Template Ideas
+**** Course Enrollment
+**** Organization Enrollment
+**** Course Menu Hidden
+**** Can't log in to Blackboard
+**** 
+*** Staff Interviews December 2012
+**** Its Student Assistant Profile and Policies
+***** Information about the job
+****** Scheduling
+******* Shifts are set every semester, so you won't have to worry about your scheduling changing
+******* Hours
+Call Center: 7am - 6pm, Monday - Friday
+Evening Chat: 6pm - 10pm (New employees will not do this.)
+****** Duties
+- Answering phones
+- Assisting users
+- Finding solutions to issues and preparing tutorials and/or helping users solve their issues
+- Working with other members of the ITS department to resolve issues, when necessary (escalating tickets)
+****** Requirements for the position
+- Must be flexible enough to work 20 hours a week, including opening and closing
+- Must be able to commit to a regular schedule each semester (If you do need time off for school or other activities, please let Andrew know as soon as possible).
+- We require two week's notice when you leave. If you do not give two
+  week's notice, you may be subject to immediate termination, and we
+  may not provide a recommendation for future job searches.
+*** Live Chat Canned Responses
+**** <2013-01-10 Thu>
+***** Erica's old ones
+****** OPT
+Please send an email from your UMKC email account to ITS@umkc.edu. In the email, you need to state your name, SSO and that you need access to Blackboard in order to take the OPT test. If you are unable to access your UMKC email, contact the Call Center at 816.235.2000 or callcenter@umkc.edu. They can help you access your email account. Once you have sent ITS the email, your Blackboard account will be enabled within 48 hours. You will not receive a confirmation, so please attempt to login 48 hours after you send us the email.
+****** Math Entrance Exam Enrollment
+To enroll in a Math Entrance Exam, follow the directions at
+http://www.umkc.edu/ia/its/Support/blackboard/students/mathentrance.asp
+. As we only provide technical support for Blackboard, if you have any
+other questions regarding the Math Entrance Exam, you will need to
+refer to the Department of Mathematics Math Entrance Exam site at
+http://cas.umkc.edu/mathematics/MathEntrance.asp Do you have any other
+technical questions regarding Blackboard?
+****** Can't Login to Pathway/Blackboard
+If you cannot login to Pathway and Blackboard, you most likely need to reset your password. To change and/or recover your password, go to http://www.umkc.edu/is/password/ and click the blue Students button halfway down the page. Follow the onscreen directions to do so. If you continue to have problems logging into Pathway and Blackboard, you will need to contact the Call Center at 816.235.2000. Is there anything else we can help you with today?
+****** Register for Classes
+You will need to register for classes through Pathway, at
+http://pathway.umkc.edu . You can view the Registration Quick Guide at
+http://www.umkc.edu/quickguide/ . Section 4 focuses on enrolling in
+classes. Once you enroll in a course through Pathway, you will be
+enrolled in the corresponding Blackboard course site within 1 business
+day. However, most Blackboard course sites will not be available to
+students until January 3rd.
+***** Andrew's New Ones
+[General Questions/Contacts]Where are you located?
+****** OPT
+Please send an email from your UMKC email account to ITS@umkc.edu. In
+the email, state your name, SSO and that you need access to Blackboard
+in order to take the OPT test. If you are unable to access your UMKC
+email, contact the Call Center at 816.235.2000 or
+callcenter@umkc.edu. They can help you access your email account. Once
+you have sent ITS the your Blackboard account will be enabled within
+48 hours. You will not receive a confirmation, so please attempt to
+login 48 hours after you send us the email.
+****** Math Entrance Exam Enrollment 
+To enroll in a Math Entrance Exam, follow the directions at
+http://www.umkc.edu/ia/its/Support/blackboard/students/mathentrance.asp
+. Most issues with the Exam can be resolved by updating Java. Please
+visit this page: http://java.com/en/download/installed.jsp and choose
+"Verify Java Version." You might be instructed to download Java and
+restart your web browser.
+As we only provide technical support for Blackboard, if you have any
+other questions regarding the Math Entrance Exam, you will need to
+refer to the Department of Mathematics Math Entrance Exam site at
+http://cas.umkc.edu/mathematics/MathEntrance.asp. Do you have any other
+technical questions regarding Blackboard?
+****** Can't Login to Pathway/Blackboard
+If you cannot log in to Pathway and Blackboard, you most likely need to
+reset your password. To change and/or recover your password, go to
+http://www.umkc.edu/is/password/ and click the blue Students button
+halfway down the page. Follow the onscreen directions to do so. If you
+continue to have problems logging into Pathway and Blackboard, you
+will need to contact the Call Center at 816.235.2000. Is there
+anything else we can help you with today?
+****** Register for Classes
+You will need to register for classes through Pathway, at
+http://pathway.umkc.edu . You can view the Registration Quick Guide at
+http://www.umkc.edu/quickguide/ . Section four focuses on enrolling in
+classes. Once you enroll in a course through Pathway, you will be
+enrolled in the corresponding Blackboard course site within one business
+day. However, most Blackboard course sites will not be available to
+students until about one week before the official start of each semester.
+****** Courses Unavailable (Student)
+Please verify that you are enrolled in your courses in Pathway, at
+http://pathway.umkc.edu. Blackboard enrollments are based on Pathway,
+so as long as Pathway shows you as enrolled, you are. Keep in mind
+that it can take up to one business day for your enrollment in Pathway
+to show up in Blackboard. By default, courses for the next semester
+are not available to students until about one week before the official
+start of semester classes, so please wait until then. 
+
+Some instructors might choose to make classes available before or
+after that date, so if you believe that your course site should be
+available to you, and it's been more than one business day since you
+verified your enrollment in Pathway, please contact your Instructor or
+the Academic Department. Our staff cannot make courses available to
+you.
+
+If you need information about books, check with the UMKC Bookstore, at
+http://www.umkcbookstore.com/t-textbook-terms.aspx.
+
+****** Make Courses Available (Instructors)
+To make your courses available to students, first enter the course
+site. Then, scroll down to the blue "Control Panel" on the left. Click
+on "Customization" and then "Properties." On the "Properties" page,
+scroll down to Option #3: "Set Availability" and choose "Yes" and then
+"Submit."
+
+***** <2013-01-11 Fri>
+****** [Useful Links] Pathway
+[Useful Links] Pathway
+http://pathway.umkc.edu
+
+[Useful Links] Wiki How: How to Clear Browser Cache
+http://www.wikihow.com/Clear-Your-Browser's-Cache
+
+[Useful Links] Importing Grades from BB --> Pathway
+http://www.umkc.edu/registrar/forms/grading_blackboard.pdf
+
+[Useful Links] UMKC Bookstore Textbook Search
+http://www.umkcbookstore.com/t-textbook-terms.aspx
+
+[Useful Links] RooCast (Tegrity)
+http://roocast.umkc.edu
+
+[Useful Links] Flip4Mac
+http://www.telestream.net/flip4mac/overview.htm
+
+[Useful Links] Do I have Java?
+http://java.com/en/download/installed.jsp
+
+[Useful Links] ITS Homepage
+http://www.umkc.edu/ia/it/
+
+[Useful Links] Tegrity Common Fixes
+http://www.umkc.edu/ia/it/tegrity/common-fixes.aspx
+
+****** Matt's submissions (Original)
+******* Hours
+We are open Monday through Friday from 7:00AM-6:00PM for phone call (816-235-6700) and e-mail support (its@umkc.edu). Additionally we also offer online chat assistance on Sundays and Mondays from 6:00PM-10:00PM as well as on Tuesdays from 8:00PM-10:00PM. To reach the chat, just click the "Live Support" button on the Blackboard homepage.
+
+
+
+******* Browser Issues
+First, you can try deleting your browser's cache (saved data from websites you've visited). For a number of browser-related issues, this solution can work. Here is a link to some instructions on how to do this using various different types of browsers:
+http://www.wikihow.com/Clear-Your-Browser's-Cache
+Next you can do a Browser Check. This will scan your browser to ensure that all of the necessary plug-ins are installed and the settings are set properly to run Blackboard. To do this, go to the Blackboard homepage (blackboard.umkc.edu). Make sure you are logged out, and scroll down to the module that says “Browser Test.” Click “Run Browser Check” and this will load a page that will tell you which items you may need to either install or adjust to access Blackboard.
+If an "x" instead of a checkmark appears next to any of the items on your Browser Check, be sure to update whatever plug-ins it describes (Java, Flash, etc.). It can also help to disable any extra add-ons not necessary to Blackboard you may have installed yourself.
+If none of these strategies work, try to access Blackboard using a different Browser. For any other issues related to your computer or internet connection contact the IT Call Center at (816) 235-2000.
+******* Blackboard Login Issues
+If you are still having trouble logging in to Blackboard, try checking out this page that lists some common issues and solutions:
+http://dev.umkc.edu/kb/classroom%20technologies/UMKC%20Blackboard/20111003-bb-user- loginfail.html
+An important thing to note is that your Blackboard account syncs with your Pathway account so it is always best to check and see if you can log in to Pathway if you ever have issues with Blackboard. Your password for Pathway automatically expires (with notice through e-mail) every six months so sometimes resetting your Pathway password is your solution. Also make sure not to include the "@umkc.edu" with your SSO.
+If you are still having trouble logging on, feel free to give our office a call and we can work through the issue with you.
+******* Can Only See Announcements
+This issue might be related to the viewing options you have set on Blackboard. If you access one of your course sites, on the far left side of the screen past the Announcements module should be a small grey box with an arrow on it. Click this, and the links to your Course Content, Tools, and other Blackboard areas will appear. I’ve attached a screenshot with a picture of this box as well.
+
+******* Generic Tegrity Issues
+Hello,
+Which class are you having Tegrity issues with? If you let us know which specific course, we can look it up for you and determine what the issue might be. I recommend contacting our office directly at 816-235-6700. We are open Monday through Friday from 7:00AM-6:00PM.
+In the meantime, try checking out our Tegrity support page here:
+http://www.umkc.edu/ia/its/podcasting/it-help.cfm
+On this page is a link that says "Test My Computer." If you click it, it will bring you to a page that will run tests and determine if your computer is set up properly to run Tegrity.
+Let us know if you have any more questions. Have a good day,
+******* Data limit reached
+Each Blackboard course site has a set data limit of 250 MB. You are currently at MB and that is why you are unable to upload additional content. To work around this issue, you have a few different options.
+The most basic option is to delete some of the files to free up space. An important thing to remember with this is that when you go into the actual content area and “delete” a file, you are not actually deleting that file. What this does is merely get rid of the link. The data is still lurking in the background, ready to deploy to another section of the Blackboard site if requested. To permanently delete something and thus free up space you will need to access the “Files” section of the Control Panel. To access this area, click on the “Files” heading on the blue Control Panel on the left side of the screen to open up the sub-menu. When you do this, it will display a link that has your Course ID (it should look something like “UMKC-SUBJECT###...”) above a search bar. Click this link to access the Files management screen.
+This screen will display a list of every file you have uploaded to this particular course. If you want to sort the files by their size, click the heading for the column labeled “size” to sort the files from smallest to largest. Click it again to sort them from largest to smallest (if you want to display them by date, you can also click the “Edited” column). To delete any of these files, simply check the box next to the name of the file and then click on the button that says “Delete” at the top or bottom of the screen (next to the “Copy” and “Move” buttons).
+Another option is to use Equella. Equella is basically a data storage locker that lets you link to files you have uploaded to Equella on your Blackboard site without actually putting the data on Blackboard itself. This is a helpful tool for two reasons: it can enable you to add files for the students to view without worrying about your data limit and also makes those files easily available for any future course. This means that if you use the same PowerPoints, assignments, or other forms of data again for a different course you will not have to upload them a second time. I will attach instructions for Equella setup to this email if you are interested.
+The third option is that we can double the data limit for a combo course to 500 MB. So if you merge two courses together via the Request System, we will manually change the settings for you because it will treat the courses as if they are one.
+******* How to do a course combo
+To do a course combo:
+Whenever you log in to Blackboard there should be a “Request System” tab on the right side of your screen. Click this and on the next screen click “Combine Courses” under the Course Site Requests heading. From here you can choose the parent course that will act as the course that is visible to the students. Then select the child course(s) that will be combined together with the parent course. You can either choose to “Keep the enrollment,” which will keep the child course active and visible to students in that course or “Don’t Keep Enrollment,” the more typical option which basically gets rid of the child course and replaces it with the combined parent site. Once the request is completed it will be sent to our office and will be processed within 1-2 business days.
+My ITS E-mails Page 7
+
+****** Matt's submissions (Edited)
+******* Hours
+We are open Monday through Friday from 7:00AM-6:00PM for phone call (816-235-6700) and e-mail support (its@umkc.edu). Additionally we also offer online chat assistance on Sundays and Mondays from 6:00PM-10:00PM as well as on Tuesdays from 8:00PM-10:00PM. To reach the chat, just click the "Live Support" button on the Blackboard homepage.
+
+
+
+******* Browser Issues
+First, you can try deleting your browser's cache (saved data from websites you've visited). For a number of browser-related issues, this solution can work. Here is a link to some instructions on how to do this using various different types of browsers:
+http://www.wikihow.com/Clear-Your-Browser's-Cache
+Next you can do a Browser Check. This will scan your browser to ensure that all of the necessary plug-ins are installed and the settings are set properly to run Blackboard. To do this, go to the Blackboard homepage (blackboard.umkc.edu). Make sure you are logged out, and scroll down to the module that says “Browser Test.” Click “Run Browser Check” and this will load a page that will tell you which items you may need to either install or adjust to access Blackboard.
+If an "x" instead of a checkmark appears next to any of the items on your Browser Check, be sure to update whatever plug-ins it describes (Java, Flash, etc.). It can also help to disable any extra add-ons not necessary to Blackboard you may have installed yourself.
+If none of these strategies work, try to access Blackboard using a different Browser. For any other issues related to your computer or internet connection contact the IT Call Center at (816) 235-2000.
+******* Blackboard Login Issues
+If you are still having trouble logging in to Blackboard, try checking out this page that lists some common issues and solutions:
+http://dev.umkc.edu/kb/classroom%20technologies/UMKC%20Blackboard/20111003-bb-user- loginfail.html
+An important thing to note is that your Blackboard account syncs with your Pathway account so it is always best to check and see if you can log in to Pathway if you ever have issues with Blackboard. Your password for Pathway automatically expires (with notice through e-mail) every six months so sometimes resetting your Pathway password is your solution. Also make sure not to include the "@umkc.edu" with your SSO.
+If you are still having trouble logging on, feel free to give our office a call and we can work through the issue with you.
+******* Can Only See Announcements
+This issue might be related to the viewing options you have set on Blackboard. If you access one of your course sites, on the far left side of the screen past the Announcements module should be a small grey box with an arrow on it. Click this, and the links to your Course Content, Tools, and other Blackboard areas will appear. I’ve attached a screenshot with a picture of this box as well.
+
+******* Generic Tegrity Issues
+Hello,
+Which class are you having Tegrity issues with? If you let us know which specific course, we can look it up for you and determine what the issue might be. I recommend contacting our office directly at 816-235-6700. We are open Monday through Friday from 7:00AM-6:00PM.
+In the meantime, try checking out our Tegrity support page here:
+http://www.umkc.edu/ia/its/podcasting/it-help.cfm
+On this page is a link that says "Test My Computer." If you click it, it will bring you to a page that will run tests and determine if your computer is set up properly to run Tegrity.
+Let us know if you have any more questions. Have a good day,
+******* Data limit reached
+Each Blackboard course site has a set data limit of 250 MB. You are currently at MB and that is why you are unable to upload additional content. To work around this issue, you have a few different options.
+The most basic option is to delete some of the files to free up space. An important thing to remember with this is that when you go into the actual content area and “delete” a file, you are not actually deleting that file. What this does is merely get rid of the link. The data is still lurking in the background, ready to deploy to another section of the Blackboard site if requested. To permanently delete something and thus free up space you will need to access the “Files” section of the Control Panel. To access this area, click on the “Files” heading on the blue Control Panel on the left side of the screen to open up the sub-menu. When you do this, it will display a link that has your Course ID (it should look something like “UMKC-SUBJECT###...”) above a search bar. Click this link to access the Files management screen.
+This screen will display a list of every file you have uploaded to this particular course. If you want to sort the files by their size, click the heading for the column labeled “size” to sort the files from smallest to largest. Click it again to sort them from largest to smallest (if you want to display them by date, you can also click the “Edited” column). To delete any of these files, simply check the box next to the name of the file and then click on the button that says “Delete” at the top or bottom of the screen (next to the “Copy” and “Move” buttons).
+Another option is to use Equella. Equella is basically a data storage locker that lets you link to files you have uploaded to Equella on your Blackboard site without actually putting the data on Blackboard itself. This is a helpful tool for two reasons: it can enable you to add files for the students to view without worrying about your data limit and also makes those files easily available for any future course. This means that if you use the same PowerPoints, assignments, or other forms of data again for a different course you will not have to upload them a second time. I will attach instructions for Equella setup to this email if you are interested.
+The third option is that we can double the data limit for a combo course to 500 MB. So if you merge two courses together via the Request System, we will manually change the settings for you because it will treat the courses as if they are one.
+******* How to do a course combo
+To do a course combo:
+Whenever you log in to Blackboard there should be a “Request System” tab on the right side of your screen. Click this and on the next screen click “Combine Courses” under the Course Site Requests heading. From here you can choose the parent course that will act as the course that is visible to the students. Then select the child course(s) that will be combined together with the parent course. You can either choose to “Keep the enrollment,” which will keep the child course active and visible to students in that course or “Don’t Keep Enrollment,” the more typical option which basically gets rid of the child course and replaces it with the combined parent site. Once the request is completed it will be sent to our office and will be processed within 1-2 business days.
+My ITS E-mails Page 7
+*** Feher Performance Plan
+Feher, I'm sorry this is so late, but I wanted to give you a written
+follow-up to our talk on ...
+
+You asked about our expectations of you. I would like to make sure
+that they are spelled out clearly for you. If you have any questions,
+please let me know.
+
+The good news is that our main expectation for you is that you provide
+our users with accurate, prompt, and polite service. You are doing a
+very good job with our users. I think the main areas where you need to
+improve are in your consistency with checking email, Remedy and
+Request System notifications. Leaving large numbers of 
+
+I think you excel at phone and chat service. You do well with email,
+but you have sometimes left emails in the inbox. If you are unsure of
+how to handle an email, be sure to make a ticket for it, even if it is
+unassigned, and then try to find a solution as soon as you can.
+**** Job Description
+**** Job Duties
+**** Daily Duties
+- Request System
+- Email
+- Remedy Tickets
+  - Checking Remedy inbox and closing tickets
+  - Creating new tickets and assigning them to yourself/others, as appropriate
+- OneNote
+- Phones
+**** Ideas 
+***** Tracking TODOs and planning goals
+- Outlook Web Calendar
+- Word/Plain Text File
+- OneNote
+- [[http://www.toodledo.com][Toodledo]]
+- [[http://www.rememberthemilk.com][Remember the Milk]]
+- [[http://todotxt.com/][Todo.txt]]
+- Android App
+- Paper-based planner
+- [[http://www.orgmode.org][Emacs Org-Mode]]
+***** Completing Work Duties
+- Keep a list of duties, and rotate through them.
+- Implement the Pomodoro technique (URL).
+- Close all non-work-related websites while you're working, or keep
+  them on one monitor, minimized until you've finished all your
+  tasks. 
+- Use Post-its to remind yourself to check the Request System, Remedy
+  Inbox, and Outlook inbox.
+- Use a web-based alarm that pops up and reminds you to check on the inboxes
+***** Extra Projects and Duties (Optional)
+If you'd like to expand on your duties and perhaps get away from
+answering phones a bit more, there some other tasks that I think you'd
+be great at:
+- Migrating "yellow" emails to OneNote documents
+- Developing and Maintaining Employee Training Documentation
+  - Updating ITS Student Assistant Training documentation
+    - Chat
+    - Remedy
+    - Request System
+    - Daily tasks list
+    - Employee Handbook (?)
+
+*** New Employee Training
+** Inactive Projects
+*** OneNote Presentation
+**** Microsoft OneNote
+***** Version One (deprecated)
+****** An Introduction to OneNote
+******* What it is
+******* Why we need it
+******* Getting started
+****** What is OneNote?
+******* http://office.microsoft.com/en-us/onenote-help/demo-what-is-onenote-HA010168634.aspx
+****** Why do we need it?
+******** We have too much to remember!
+******** We need to share information with our colleagues and users
+******** Email, post-its, and folders with Word docs are not working...
+****** Getting started...
+******* Setting up OneNote on your Desktop
+******* Adding content
+******* Setting up OneNote WebApp
+******* Synching
+****** Organizing your notes
+******* Organization Schemes
+******** By Application
+******** By Issue
+******** By User type (Student/Instructor)
+******** ???
+******** My Organizational System
+********* Blackboard
+********** Course Content
+********** Enrollment
+********** Video Issues
+********** Testing
+********** Grade Center
+********** Useful links
+********* Tegrity
+********* Wimba
+********* CampusPack Tools
+********* Turnitin
+********* Moodle
+********** User can't log in/forgot password
+********* Department Structure
+********* Contact info
+********* Ideas
+********* FAQs
+********* Respondus 4.0
+********* Respondus Lockdown Browser
+****** Searching your notes
+****** Collaboration
+****** Keeping your knowledgebase up-to-date
+****** Email: Add to OneNote
+****** Make a sandbox
+****** Using Tags
+***** Version Two (Revised 10-18-2012)
+****** An Introduction to OneNote
+********* What it is
+********* Why we need it
+********* Getting started
+******* What is OneNote?
+****http://office.microsoft.com/en-us/onenote-help/demo-what-is-onenote-HA010168634.aspx
+******* Why do we need it?
+********** We have too much to remember!
+********** We need to share information with our colleagues and users
+********** Email, post-its, and folders with Word docs are not working...
+********** OneNote is easy to use, customizable, and flexible!
+******* Getting Started in Four Easy Steps
+1. Setup
+2. Adding notes
+3. Searching notes
+4. Sharing notes
+
+******* Step One: Setup
+******** Importing existing information
+********* File --> Open
+******** Setting up your notebook on the N: drive
+********* File --> Save As
+******** Synching notes
+********* File --> Settings --> Sync
+You can sync your WebApp version, or open up your notes on the N: drive.
+******** Create tabs that reflect projects or areas of focus
+********* (e.g., Projects, Software, etc.)
+******* Step Two: Adding Notes
+******** Using textboxes
+******** Importing text and images
+******** Using Drawing Tools
+******* Step Three: Searching notes
+******** You can search across all notebooks. (When naming notes, it's a good idea to consider how they will appear in the search window.)
+******* Step Four: Sharing Notes
+******** Email
+********* Share --> E-mail Page
+******** Copy and Paste
+******* Useful links for more information
+******** [[http://office.microsoft.com/en-us/onenote-help/getting-started-with-onenote-2010-HA010370233.aspx][Getting started with OneNote 2010]]
+******** [[http://www.brighthub.com/computing/windows-platform/articles/86239.aspx][Intermediate Microsoft OneNote Tutorial]]
+*** Mac Tegrity IT Help Documentation
+*** Knowledge Transfer
+**** Document Three
+***** Template
+1)      a list of tasks that need to be done to keep systems running in the normal state
+2)      what the tasks are
+3)      how often they are done
+4)      the server/username details necessary for them to be accomplished
+***** Answer
+****** ITS Call Center
+******* General Service Information
+   - The Call Center is open from 7am to 6pm. At least one person should be in the Call Center during those hours. We also offer evening chat. Those hours could change, based on staff availability.
+   - We offer in-person, phone, email, and live chat service. For in-person assistance, we generally try to make appointments with faculty, but sometimes users show up at our office unannounced. We do our best to accommodate them.
+******** Daily Procedures
+- At 7:00am, the Call Center opens.
+- Check Request System tickets. For technical issues with the Request system, contact Duane Nettles.
+- Check Remedy tickets. Lyn Magrone (Central Systems) is the support person for Remedy.
+- Check the ITS Outlook Inbox. Each staff member has a folder. All mails are either answered or delegated to the appropriate staff member.
+- At 6:00pm, the Call Center closes.
+******** Weekly Procedures
+
+******** Systems
+- The ITS Outlook In box
+  - Each employee has a folder in the Pending folder. These should be checked and ticketed every day.
+  - Archives are kept on the N: drive:
+- Blackboard Archives
+  - Mary Crosson archives these sites on a regular basis each semester.
+  - 2009 -- 2012 Blackboard course sites:
+  - 2008 and older Blackboard course sites:
+  - ITS Staff members sometimes receive requests to delete sandbox sites or organization sites. These sites are first archived and then copied to the appropriate Blackboard Archive folder, listed above.
+******** Other Notes
+- *Keys:* In addition to my keys, I have keys to Rooms 314 and 303 in the top drawer of my desk. The key for 303 also opens the Studio and the Classroom.
+
+****
+***** Pop-up Blockers
+****** Mac
+******** Issues
+- Cannot open Tegrity recording list/A new Tegrity recording page
+  opens, but is blank (Screenshot 1)
+- "Your Tegrity sessions list could not open a new window. This may happen because a popup blocker application is used." (Screenshot 2)
+******** Solution
+******* Safari
+1. In the *Safari* menu at the top of your screen, click *Safari* -->
+   *Preferences* (Keyboard shortcut: ⌘,).
+2. You'll see a *Preferences* window. Choose *Security*.
+3. Under *Web Content*, make sure that the *Block pop-up windows*
+   option is *unchecked*.
+/Note: Safari does not include the option to allow exceptions for blocked sites, so if you uncheck this option to view Tegrity videos, you might want to check it afterwards, to prevent pop-ups on other sites./
+
+******* Firefox
+1. In the *Firefox* menu at the top of your screen, click *Firefox*
+   --> *Preferences* (Keyboard shortcut: ⌘,). (Screenshot 1)
+2. The *Preferences* window will pop up. Choose *Content*. Make sure
+   that the box next to "Block pop-up window" is checked. Then click
+   on *Exceptions*.
+3. A new window, "Allowed Sites - Pop-ups" will appear. You'll see a
+   list of websites that are excluded from the pop-up blocker. Make
+   sure that the following sites are listed in the "Allow" box, and if not,
+   add them:
+   - blackboard.umkc.edu
+   - roocast.umkc.edu
+4. Close the Window.
+*** ITS Website
+**** Server Info
+Host: dev.umkc.edu
+(Username/Password = SSO)
+**** DONE <2012-10-24 Wed>
+
+**** Meeting <2012-10-25 Thu>
+
+**** TODO Add links to BB.com for suggestions
+**** DONE Link to PDF tutorials on Blackboard website
+CLOSED: [2012-12-23 Sun 19:53]
+
+**** Canceled Check and make sure that the
+- Not sure where I was going with this, since I either didn't finish the sentence, or it was accidentally yanked.
+
+
+**** Blackboard Link Topics
+***** Instructors
+****** Get Started with Blackboard
+****** Customize and Manage Your Course
+****** Build Your Course
+****** Add Users to Your Site
+****** Communication within Blackboard
+****** Assessing Students
+****** Troubleshooting Common Issues
+
+***** Students
+****** Blackboard Basics
+****** Taking Tests
+****** Submitting Assignments
+****** Communicating within Blackboard
+****** Troubleshooting Common Issues
+
+**** Blackboard Topics (Version 2)
+<2012-11-12 Mon>
+
+***** Index
+About Blackboard
+
+
+***** Instructor Support
+****** Adding Course Content
+- What Types of Files can be Added to Blackboard?
+- Uploading Large Amounts of Content
+****** Adding Users
+******* Available Roles in Course Sites
+- Instructor
+- Teaching Assistant
+- Course Builder
+- Grader
+- Member
+******* Available Roles in Organization Sites
+- Leader
+- Assistant
+- Organization Builder
+- Grader
+- Member
+******* Adding Users
+******** The Request System
+- Enroll Users into Course Sites
+- Enroll Users into Organization Sites
+****** Assignments
+******* Turnitin
+- Blackboard Integration
+- Originality Reports
+- GradeMark
+- PeerMark
+****** Building and Customizing Blackboard Sites
+******** Integrating Content and Enrollment from Other Courses
+- Combo Requests
+- Copy Requests
+******* Course Appearance and Settings
+- Course Menu
+- Customize Course Appearance and Settings
+****** Communicating in Blackboard
+- Discussion Boards
+- Email
+****** Getting Started with Blackboard
+****** The Grade Center
+****** Groups
+- Groups Assignments
+- Group Tools
+  - Group Discussion Boards
+****** Rubrics
+****** Tests and Quizzes
+******* Respondus Campus-Wide
+****** Troubleshooting Common Issues
+******* Course Enrollment
+- Course(s) Missing from My Course List
+- Students Not Listed in Blackboard Course Site
+******* Course Quota
+- My Course has Exceeded its Course Quota
+******* Login Issues
+- I Can't Log in to Blackboard
+******* Course Content
+******* Site Management
+- Course Menu is Missing (Only the Announcements are Visible)
+- Course Site Editing Tools are Missing
+***** Student Support
+****** Communicating in Blackboard
+  - Discussion Boards
+  - Email
+****** Getting Started with Blackboard
+****** Grades
+- Viewing Grades
+- I Cannot View my Grades or Instructor Feedback
+****** Groups
+- Groups Assignments
+- Group Tools
+  - Group Discussion Boards
+****** Submitting Assignments
+- Submitting Assignments in Blackboard
+- Turnitin
+  - Turning in Assignments
+  - Viewing Instructor Feedback
+****** Tests and Quizzes
+****** Troubleshooting Common Issues
+******* Course Content
+- I can't upload an assignment
+- My Video Won't Play
+******* Course Enrollment
+- Course(s) Missing from My Course List
+- I'm Not Listed in a Blackboard Course Site
+******* Login Issues
+- I Can't Log in to Blackboard
+******* Site Management
+- Course Menu is Missing (Only the Announcements are Visible)
+******* Test
+- I Can't Take my Test
+- I Can't Finish my Test
+
+
+
+******** Other
+- Adding Users to a Course Site
+- Assignments
+  - Turnitin
+    - Blackboard Integration
+    - Originality Reports
+    - GradeMark
+    - PeerMark
+- Communicating in Blackboard
+  - Announcements
+  - Email
+- Creating or Customizing a Course Site
+- Discussion Boards
+- The Grade Center
+- Groups
+- Tests and Quizzes
+  - Creating Tests
+  - Deploying Tests
+  - Grading Tests
+- Troubleshooting Common Issues
+
+
+**** FAQ Topics
+- Enrollment
+  - How do I enroll Members in my course site or organization site?
+  - Why are
+- Course Content
+  - How do I add content to my course?
+  -
+
+***** Instructor Support Topics
+- Course Content
+  - Adding Course Content
+  - Creating Tests
+  - Creating Assignments
+- Enrollment
+  - Adding Users
+  - Changing User Roles
+  - Removing Users
+- Grade Center
+  - Adding Columns
+  - Hiding Columns
+  - Removing Columns
+  - Setting up Columns
+  - Grading Assignments
+  - Resetting Attempts
+  -
+***** A to Z Index (Instructors)
+****** A
+- [ ] Accessing Blackboard
+- [ ] Access to Content
+- [ ] Account/Login Issues
+- [ ] Adaptive Release
+- [ ] Announcements
+- [ ] Archiving Courses
+- [ ] Assignments
+- [ ] Attendance Tracking
+
+****** B
+- [ ] Blackboard Collaborate
+- [ ] Blackboard Mobile
+- [ ] Blog (CampusPack)
+
+******  C
+- [ ] Calendar
+- [ ] Cheating Prevention (Turnitin)
+- [ ] Clickers (Turning Technologies)
+- [ ] Collaborate, Blackboard Collaborate
+- [ ] Combining Courses
+- [ ] Content Package (SCORM)
+- [ ] Control Panel
+- [ ] Copying Courses
+- [ ] Copyright Policies
+- [ ] Course Availability
+- [ ] Course Content
+- [ ] Course Home Page
+- [ ] Course Menu
+- [ ] Course Tools
+- [ ] Customizing Your Course
+
+
+****** D
+- [ ] Dashboard
+- [ ] Deleting Course Content in Bulk
+- [ ] Discussion Boards
+- [ ] Droid, Blackboard Mobile Learn
+- [ ] Dashboard, Performance
+- [ ] Deleting Course Content in Bulk
+- [ ] Discussion Boards
+- [ ] Droid, Blackboard Mobile Learn
+
+****** E
+
+- [ ] Early Warning System
+- [ ] Email through Blackboard
+- [ ] eReserves
+- [ ] Exporting Course Materials
+- [ ] Extra Credit
+
+****** F
+
+- [ ] Faculty Tools, Blackboard
+- [ ] Frequently Asked Questions (FAQs)
+- [ ] Frequently Asked Questions (FAQs), For Students
+
+****** G
+
+- [ ] Gateway, Blackboard
+- [ ] Goals and Alignments
+- [ ] Grades, Checking in Blackboard
+- [ ] Grade Center
+- [ ] Grade Submission Tool
+- [ ] Groups
+
+****** H
+
+- [ ] Help
+- [ ] Home Page, Course
+
+****** I
+
+- [ ] Importing Course Materials
+- [ ] iPad, Blackboard Mobile Learn
+- [ ] iPhone, Blackboard Mobile Learn
+- [ ] iPod, Blackboard Mobile Learn
+- [ ] Issues, Known Blackboard
+
+****** J
+
+- [ ] Journals
+
+****** K
+
+- [ ] Known Blackboard Issues
+
+****** L
+
+- [ ] Learning Modules
+- [ ] Lesson Plans
+- [ ] Listserv (NIUOnline)
+
+****** M
+
+- [ ] Mac Computer Issues
+- [ ] Managing Users
+- [ ] Manuals for Blackboard
+- [ ] Mashups
+- [ ] Menu, Course
+- [ ] Migrating Courses
+- [ ] Mobile Learn, Blackboard
+
+****** N
+
+- [ ] Navigating Blackboard
+- [ ] Next Generation, Blackboard
+- [ ] NIUOnline (Listserv)
+- [ ] Notifications
+
+****** O
+
+****** P
+
+- [ ] Packaged (.zip) Files
+- [ ] Performance Dashboard
+- [ ] Personal Information
+- [ ] Podcast, "Teaching with Blackboard"
+- [ ] Podcasting in Blackboard
+- [ ] Portfolios
+- [ ] Preventing Cheating on Tests,Quizzes
+
+****** Q
+
+- [ ] Question Pools
+- [ ] Quiz Generator
+- [ ] Quizzes
+
+****** R
+
+- [ ] Requesting Courses
+- [ ] Rubrics
+
+****** S
+
+- [ ] SafeAssign
+- [ ] SCORM Content Package
+- [ ] Self and Peer Assessments
+- [ ] Standards (see Goals and Alignments)
+- [ ] Surveys
+
+****** T
+
+- [ ] Tests
+- [ ] Textbook Information in Your Course
+- [ ] Tutorials
+
+****** U
+
+- [ ] Users, Managing
+
+****** V
+
+- [ ] Video
+
+****** W
+
+- [ ] Web Conferencing, Blackboard Collaborate
+- [ ] Wikis
+- [ ] Wimba Classroom
+
+****** X
+
+****** Y
+
+****** Z
+
+
+**** Right Menu Topics
+***** Rightmenu topics (Proposed)
+****** Instructors
+******* Assignments
+******* Course Site Access
+******* Course Site Customization
+******* Enrollment
+******* Groups
+******* Grades
+******* Tests and Quizzes
+******* Troubleshooting
+****** Students
+******* Assignments
+******* Course Site Access
+******* Enrollment
+******* Grades
+******* Tests and Quizzes
+******* Troubleshooting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***** Rightmenu topics (Current)
+****** Instructors
+******* Adding Course Content
+******* Adding Users
+******* Assignments
+******* Customizing Blackboard Sites
+******* Communicating in Blackboard
+******* Getting Started with Blackboard
+******* The Grade Center
+******* Groups
+******* Rubrics
+******* Tests and Quizzes
+******* Troubleshooting
+****** Students
+******* Communicating in Blackboard
+******* Getting Started with Blackboard
+******* My Grades
+******* Groups
+******* Submitting Assignments
+******* Tests and Quizzes
+******* Troubleshooting
+
+**** Sitemap (<2012-12-03 Mon>)
+***** Default
+****** Blackboard
+******* Getting Started
+******** Interface Guide
+********* Breadcrumb Navigation
+********* Control Panel
+********* Course Menu
+********** Course Content Areas
+*********** --> course-content.aspx
+******* FAQ
+******* Blackboard News
+******* UMKC Blackboard Policies
+******* Contact us
+****** Instructor Support
+******* Communicating in Blackboard
+******** Discussion Board
+******** Email
+******** Groups
+******* Course Content
+******** Adding Course Content
+********* Build Content
+********** Create
+********** New Page
+********** Mashups
+********* Assessments
+********** Tests
+********** Survey
+********** Assignment
+********** Mobile Compatible Test
+********* Tools
+********* Publisher Content
+******** Deleting Course Content
+******** Editing Course Content
+******** Adaptive Release
+******** Turnitin
+
+******* Course Site Customization
+******* Enrollment
+******* Groups
+******* Grades
+******* The Request System*
+******* Tests and Quizzes
+******* Troubleshooting Common Issues
+****** Student Support
+******* Assignments
+******* Communicating in Blackboard
+******* Course Site Access
+******* Enrollment
+******* Grades
+******* Tests and Quizzes
+******* Troubleshooting Common Issues
+* January 2013 Monthly Report
+** Accomplishments
+- Interviewed and hired two new Student Assistants
+- Gave talk:  "Fostering Collaborative Learning with Blackboard
+  Groups" at 1/17/2013 ITS Conference
+- Updated Chat Canned Responses and created a new set 
+** Projects
+| Project                | Current Status | Comments                                                                                                                                                                      |
+|------------------------+----------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| New Employee Training  | Active         | Last semester, I began the process of creating a better system of training documentation. I've found a lot of things that need to be improved or updated for future training. |
+| Feher Performance Plan | Active         | I've spoken with Feher about his performance and am working with him to improve.                                                                                              |
+| ITS Website            | Active         | Working with Kelsey and James to improve our website documentation. There is still a lot that we would like to include.                                                       |
+| Chat canned responses  | Inactive       | These responses allow employees to click a button and insert a snippet of text into the chat window. I plan to create more in the future, based on staff feedback.            |
+
+
+
+
+
+
+
+** February
+*** <2013-02-01 Fri>
+CLOCK: [2013-02-01 Fri 09:00]--[2013-02-01 Fri 18:00] =>  9:00
+***** TODO Ask Ali about setting up listserv for ITS
+SCHEDULED: <2013-02-04 Mon>
+**** <2013-02-02 Sat>
+CLOCK: [2013-02-02 Sat 09:00]--[2013-02-02 Sat 11:00] =>  2:00
+Closed tickets.
+
+***** TODO Presentation Idea: "Working With Course Content"
+- File formats supported by Blackboard, and how to choose the best one
+- Moving content into Blackboard
+- Moving content out
+- Understand how to build effective courses by considering what kind
+  of files you are using!
+
+
+***** TODO Put together training for the new Remedy System
+- We might want to share this in a future staff meeting?
+
+**** <2013-02-04 Mon>
+CLOCK: [2013-02-04 Mon 09:15]--[2013-02-04 Mon 18:00] =>  8:45
+***** ITS Staff Meeting
+****** Agenda/Notes
+1. Workload
+   - We talked about our workload on the 3rd week. It's slowing down...
+2. Website re-do
+   - We're at the point where we need to fill in holes and expand on
+     existing documentation.
+   - David will look at the E-Tools links and make sure they point to
+     other websites.
+   - David will also look at the "Last Updated" script to see why it's
+     not working.
+3. Testing Center
+   - We agreed not to put up anything on the website yet. I'm not
+     going to be involved in this for this semester.
+4. Call for New Training
+   - Some of my ideas:
+     + Grade Center
+     + Turnitin (Jing's doing one)
+     + Respondus
+     + Group Work/Collaboration
+     + Discussion Board
+5. Creating Strategic Goals
+   - I suggested that we look at improving internal documentation and
+     training programs
+     + We need to update and expand upon our current training
+       documentation.
+     + 
+
+
+
+
+***** ITS Tickets, 2/4/2013
+****** jltmb3
+- [X] Remedy 
+Windows 
+Safari/Firefox
+Could not see Windows Media File. I had her run the Browser check. It
+said that she did not have Windows Media Player installed. I had her
+check and she had Windows Updates to install. I told her to install
+those and try again, and call us if she still had problems.
+
+****** lecnp3
+N 434A
+Could not view video because it required Real Player. I helped her
+download the Real Player, and verified that it worked for her.
+**** <2013-02-05 Tue>
+CLOCK: [2013-02-05 Tue 09:00]--[2013-02-05 Tue 18:00] =>  9:00
+
+***** ITS Tickets, 2/4/2013
+****** Marcela
+Needed to create a test based on her PPT images.
+******* TODO email Marcela instructions for creating tests.
+****** Breytspraak
+Helped user update her Java and "Show all Content" and she was able to
+view Voice Tool content.
+****** krsvx8
+5512
+Trouble with Voice Tool. Will download Java and call me back if that
+does not work.
+****** caruthers
+5616
+Group 1 members could not add a thread to their discussion board. I
+had the instructor click on the "Allow users to create threads"
+option, and she was able to do that.
+**** <2013-02-06 Wed>
+CLOCK: [2013-02-06 Wed 11:15]--[2013-02-06 Wed 18:00] =>  6:45
+
+**** <2013-02-07 Thu>
+CLOCK: [2013-02-07 Thu 09:00]--[2013-02-07 Thu 17:15] =>  8:15
+- Mary and I went to Education 34 to give a talk about technology in
+  education to Brazilian teachers (15:00 - 16:00).
+
+**** <2013-02-08 Fri>
+     CLOCK: [2013-02-08 Fri 09:15]--[2013-02-08 Fri 17:15] =>  8:00
+
+- Mary and I went to Education 34 to give a talk about technology in
+  education to Brazilian teachers (13:00 - 15:00).
+
+***** Canceled Check chat transcripts for instructor who needed me to add someone (possibly Horner)? :online:
+She did it herself.  I emailed her.
+
+**** DONE Email professor about broken links in Comm Studies 400P course. :email:
+SCHEDULED: <2013-02-11 Mon>
+2.1 Discussion Board
+https://blackboard.umkc.edu/bbcswebdav/courses/UMKC-COMM-ST400P-0002-15203-SP2013/SituationResearch/engage.html
+
+2.1 CourseMap
+https://blackboard.umkc.edu/bbcswebdav/pid-887235-dt-content-rid-4076970_1/xid-4076970_1
+
+2.4
+https://blackboard.umkc.edu/bbcswebdav/xid-4217991_1
+
+#+BEGIN: clocktable :maxlevel 7 
+Clock summary at [2013-02-11 Mon 20:51]
+
+| Headline         | Time    |       |       |      |
+|------------------+---------+-------+-------+------|
+| *Total time*     | *51:45* |       |       |      |
+|------------------+---------+-------+-------+------|
+| February         |         | 51:45 |       |      |
+| <2013-02-01 Fri> |         |       | 51:45 |      |
+| <2013-02-02 Sat> |         |       |       | 2:00 |
+| <2013-02-04 Mon> |         |       |       | 8:45 |
+| <2013-02-05 Tue> |         |       |       | 9:00 |
+| <2013-02-06 Wed> |         |       |       | 6:45 |
+| <2013-02-07 Thu> |         |       |       | 8:15 |
+| <2013-02-08 Fri> |         |       |       | 8:00 |
+#+END:
+
+* Scheduling
+** FS2012 ITS Call Center Schedule
+**** FS2012 ITS Call Center Schedule
+
+| Mon           | Tues          | Wed           | Thurs           | Fri              |
+|---------------+---------------+---------------+-----------------+------------------|
+| Call Center   | Call Center   | Call Center   | Call Center     | Call Center      |
+|---------------+---------------+---------------+-----------------+------------------|
+| 7-11 Matt     | 7-11 Pushyami | 7-11 Matt     | 7-11 Feher      | 7-11:30 Pushyami |
+| 10-2 Pushyami |               | 10-2 Pushyami | 11-3 Matt       | 1-4 Matt         |
+| 2-6 Feher     | 1-6 Matt      | 2-6 Feher     | 2:30-6 Pushyami | 2-6 Feher        |
+| 9-5 Andrew    | 9-5 Andrew    | 9-5 Andrew    | 7-3 Andrew      | 9-5 Andrew       |
+|---------------+---------------+---------------+-----------------+------------------|
+| Evening Chat  | Evening Chat  | Evening Chat  | Evening Chat    | Evening Chat     |
+|---------------+---------------+---------------+-----------------+------------------|
+| 6pm           |               |               |                 |                  |
+
+**** FS2012 ITS Call Center Schedule
+
+***** Sunday
+| Evening Chat |          |
+|--------------+----------|
+| Usha         | 6pm-10pm |
+
+***** Monday
+
+| Call Center |      |
+|-------------+------|
+| Matt        | 7-11 |
+| Pushyami    | 10-2 |
+| Feher       |  2-6 |
+| Andrew      |  9-5 |
+
+| Evening Chat |          |
+|--------------+----------|
+| Usha         | 6pm-10pm |
+
+***** Tuesday
+
+| Pushyami | 7-11 |
+| Matt     |  1-6 |
+| Andrew   |  9-5 |
+
+| Evening Chat |          |
+|--------------+----------|
+| Usha         | 8pm-10pm |
+
+***** Wednesday
+
+| Call Center |      |
+|-------------+------|
+| Matt        | 7-11 |
+| Pushyami    | 10-2 |
+| Feher       |  2-6 |
+| Andrew      |  9-5 |
+
+***** Thursday
+
+| Call Center |        |
+|-------------+--------|
+| Feher       |   7-11 |
+| Matt        |   11-3 |
+| Pushyami    | 2:30-6 |
+| Andrew      |    7-4 |
+
+***** Friday
+
+| Call Center |         |
+|-------------+---------|
+| Pushyami    | 7-11:30 |
+| Matt        |     1-4 |
+| Feher       |     2-6 |
+| Andrew      |     9-5 |
+
+
+
+
+** Holiday Hours 2012
+
+| Holiday Hours    |   | Andrew | Feher | James        | Kelsey       | Matt | Pushyami |
+| <2012-12-24 Mon> |   |        |       | 9:00 - 15:00 | 9:00 - 15:00 |      |          |
+| <2012-12-25 Tue> |   | --     | --    | --           | --           | --   | --       |
+| <2012-12-26 Wed> |   |        |       | 9:00 - 15:00 | 9:00 - 15:00 |      |          |
+| <2012-12-27 Thu> |   |        |       | 9:00 - 15:00 | 9:00 - 15:00 |      |          |
+| <2012-12-28 Fri> |   |        |       | 9:00 - 15:00 | 9:00 - 15:00 |      |          |
+| <2012-12-31 Mon> |   |        |       | 9:00 - 15:00 | 9:00 - 15:00 |      |          |
+| <2013-01-01 Tue> |   | --     | --    | --           | --           | --   | --       |
+
+
+| Date                      | Open   | Close | Evening Chat  |
+|---------------------------+--------+-------+---------------|
+| *Thanksgiving Week*       |        |       |               |
+| <2012-11-18 Sun>          | Closed |       | 6pm - 10pm    |
+| <2012-11-19 Mon>          | 8am    | 5pm   | 6pm - 10pm    |
+| <2012-11-20 Tue>          | 8am    | 5pm   | 8pm - 10pm    |
+| <2012-11-21 Wed>          | 8am    | 3pm   |               |
+| <2012-11-22 Thu>          | Closed |       |               |
+| <2012-11-23 Fri>          | Closed |       |               |
+|                           |        |       |               |
+| *11/26/2012 - 12/21/2012* | 7am    | 6pm   | Regular Hours |
+|                           |        |       |               |
+| *Holiday 2012 Hours*      |        |       |               |
+| <2012-12-23 Sun>          | Closed |       | Closed        |
+| <2012-12-24 Mon>          | 9am    | 3pm   | Closed        |
+| <2012-12-25 Tue>          | Closed |       | Closed        |
+| <2012-12-26 Wed>          | 8am    | 5pm   |               |
+| <2012-12-27 Thu>          | 8am    | 5pm   |               |
+| <2012-12-28 Fri>          | 8am    | 5pm   |               |
+| <2012-12-30 Sun>          | Closed |       | Closed        |
+| <2012-12-31 Mon>          | 8am    | 3pm   | Closed        |
+| <2013-01-01 Tue>          | Closed |       | Closed        |
+|                           |        |       |               |
+| *1/2/2013 - 1/18/2013*    | 7am    | 6pm   | Regular Hours |
+|                           |        |       |               |
+
+
+
+
+
+
+** SP 2013 
+*** Dante Webb
+Monday: Class from 2:00 - 3:15
+Tuesday: 11:00 - 12:15 and 2:00 - 3:15 
+Wednesday: 2:00 - 3:15
+Thursday : 11:00 - 12:15 and 2:00 - 3:15
+Friday: No Classes
+*** Brittany Wright
+Monday: 1pm-6pm
+Tuesday: 2:30pm-6pm
+Wednesday: Unavailable
+Thursday: 2:30pm-6pm
+Friday: 1pm-6pm
+*** Matt Davis 
+Here is my schedule for next semester:
+Monday: I'm free in the morning until my class from 12:00-1:20 then free from 1:20-5:30. 
+Tuesday: I'm free until my class at 5:30.
+Wednesday: Free until 12:00, then I have classes all afternoon.
+Thursday: Free all day.
+Friday: Free except for class from 12:00-1:20. 
+***  *Staff Member* | *Sunday*    | *Monday*            | *Tuesday*   | *Wednesday*    | *Thursday*          | *Friday*       |      |
+|----------------+-------------+---------------------+-------------+----------------+---------------------+----------------+------|
+|                | Chat 6 - 10 | Chat 6 - 10         | Chat 6 - 10 | Open 7am - 6pm | Chat 6 - 10         | Open 7am - 6pm |      |
+|----------------+-------------+---------------------+-------------+----------------+---------------------+----------------+------|
+| Andrew         | --          | 9 - 5               | 9 - 5       | 9 - 5          | 9 - 5               | 9 - 5          |   40 |
+| Matt           | --          | *--?                | 1 - 5       | 7 - 11         | *1 - 5; 6 - 10 Chat | 7 - 11         |   20 |
+| Feher          | 6 - 10 Chat | *11 - 3             | 9 - 1       | 1 - 6          | 11 - 2              | --             |   20 |
+| Dante          | --          | 7 - 11              | 4 - 6       | 10 - 2         | 7 - 11              | 9 - 3          |   20 |
+| Brittany       | --          | 1 - 6               | 7 - 9       | --             | 2:30 - 6            | 1 - 6          | 15.5 |
+| James          | --          | *1 - 5; 6 - 10 Chat | 9 - 1       | 1 - 5          | * --?               | 11 - 5         |   20 |
+| Kelsey         | --          | 9 - 3               | 6 - 10 Chat | 9 - 3          | 2 - 5 (or 6)        | 9 - 1          |      |
+

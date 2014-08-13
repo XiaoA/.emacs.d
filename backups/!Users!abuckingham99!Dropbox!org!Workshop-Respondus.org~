@@ -1,0 +1,213 @@
+#+Title: Andrew Buckingham's Respondus 4.0 Workshop
+#+AUTHOR: Andrew Buckingham
+#+STARTUP: indent
+#+OPTIONS: num:nil toc:nil ^:nil
+#+TODO: TODO(t) |  Started(s) | Waiting(w) | Someday/Maybe(m) | Canceled(c) | DONE(d)(@) | Meeting(M) | Note(n)
+#+FILETAGS: :work:
+
+* Respondus 4.0
+** Respondus Training						     :report:
+*** Respondus Workshop Summary for website
+**** Web Description (Old)
+*Creating and Deploying tests with Respondus 4.0*\\
+*Where:* Fine Arts Room 307\\
+*When:* April 30, 2013  1:00 PM - 2:00 PM\\
+*Presenter(s):* Andrew Buckingham\\
+*Prerequisite:* Basic Blackboard experience. No prior knowledge of Respondus is necessary, but participants should be familiar with how tests work in Blackboard.\\
+
+*Level of Difficulty:* Intermediate\\
+
+*Description:* Building tests in Blackboard can be time-consuming, but
+creating tests in Word for Blackboard can lead to potential problems
+with formatting or errors from embedded code. Respondus 4.0 is a
+powerful tool for building tests that can be printed to paper or
+published directly to Blackboard. Respondus offers a fast and
+convenient way to build tests quickly, without the risk of formatting
+issues.
+
+Upon completion of this interactive workshop, instructors will be able
+to use Respondus to build and deploy tests in their own Blackboard
+courses.
+
+
+
+*Workshop Topics*\\
+- A brief introduction to the features and user interface
+- Installing and Setting up Respondus
+- Creating a test in Respondus
+- Importing a test
+- Deploying tests to Blackboard
+- Setting up tests for LockDown Browser
+
+
+**** Web Description (final - 4.9.2013)
+*Creating and Deploying tests with Respondus 4.0*\\
+*Where:* Fine Arts Room 307\\
+*When:* April 26, 2013 1:00 PM - 2:00 PM\\
+*Presenter(s):* Andrew Buckingham\\
+*Prerequisite:* Basic Blackboard experience. No prior knowledge of Respondus is necessary, but participants should be familiar with how tests work in Blackboard. /Note: Respondus 4.0 is only available on Windows./\\
+
+*Level of Difficulty:* Intermediate\\
+
+*Description:* Building tests in Blackboard can be time-consuming. Many instructors prefer to create tests in Word, but this can lead to potential problems with text formatting issues, which can cause issues for students. Respondus 4.0 is a powerful tool for building tests that can be printed to paper or published directly to Blackboard. Respondus offers a fast and convenient way to build tests quickly, without the risk of formatting issues. Exams can be created, edited, and deployed to Blackboard within Respondus, or imported from a program like Word or Notepad.\\
+After a brief overview of the interface and features, participants will learn Respondus by using it to create tests in Blackboard. Upon completion of this interactive workshop, instructors will understand how Respondus can help them build tests and surveys in their own Blackboard course sites.
+
+*Workshop Topics:*
+- A brief introduction to the features and user interface
+- Installing and Setting up Respondus
+- Creating tests in Respondus
+- Importing tests
+- Deploying tests to Blackboard
+
+**** Web Description (final - 4.9.2013)
+Creating and Deploying tests with Respondus 4.0
+Where: Fine Arts Room 307
+When: April 26, 2013 1:00 PM - 2:00 PM
+Presenter(s): Andrew Buckingham
+Prerequisite: Basic Blackboard experience. No prior knowledge of Respondus is necessary, but participants should be familiar with how tests work in Blackboard. Note: Respondus 4.0 is only available on Windows.
+
+Level of Difficulty: Intermediate
+
+Description: Building tests in Blackboard can be time-consuming. Many instructors prefer to create tests in Word, but this can lead to potential problems with text formatting issues, which can cause issues for students. Respondus 4.0 is a powerful tool for building tests that can be printed to paper or published directly to Blackboard. Respondus offers a fast and convenient way to build tests quickly, without the risk of formatting issues. Exams can be created, edited, and deployed to Blackboard within Respondus, or imported from a program like Word or Notepad.
+After a brief overview of the interface and features, participants will learn Respondus by using it to create tests in Blackboard. Upon completion of this interactive workshop, instructors will understand how Respondus can help them build tests and surveys in their own Blackboard course sites.
+
+Workshop Topics:
+A brief introduction to the features and user interface
+Installing and Setting up Respondus
+Creating tests in Respondus
+Importing tests
+Deploying tests to Blackboard
+
+*** RespondusWorkshop
+**** Introduction
+***** Self Introduction
+- Andrew Buckingham
+- Software Support Analyst
+- buckinghama@umkc.edu
+- 816-235-1093
+
+***** Overview
+****** What is Respondus?
+Respondus 4.0 is a powerful tool for creating and deploying tests to Blackboard and other Learning Management Systems.
+
+*Respondus makes it easy to:*
+- Create tests
+- Import tests from Word or text files (as well as from other tests and publisher test banks)
+- Edit existing test content and settings
+- Deploy tests and surveys to current (or future) course sites
+- Deploy tests and surveys to multiple sites at once
+- Create tests for Respondus LockDown Browser
+- Move existing tests from one site to another, or create a printed version
+
+****** Why should I use Respondus?
+- Easily convert Word docs or text files into Blackboard tests, surveys, and pools
+- Create Blackboard, Moodle, or paper-based tests
+- Set up tests for Respondus LockDown Browser
+- Faster/easier to set up tests than within Blackboard
+
+****** System Requirements
+- *Operating System:* Windows 8, 7, Vista, XP
+  - (Mac Users can use it via [[http://www.umkc.edu/is/support/services/homecomputing/remotedesktop/mac/][Remote Desktop]])
+- *Memory:* 32 MB RAM minimum
+- *Hard Disk Space:* 10 MB of free hard disk space for program files
+- *Monitor:* 1024x768 or 1280x720 minimum resolution
+
+****** Workshop Goals
+By the end of this workshop, participants should be able to:
+- Install and configure Respondus
+- Use Respondus to create and import tests, surveys, and pools to Blackboard
+- Understand how Respondus can help make deploying Blackboard tests easier
+- Know where to go for more help
+
+**** User Interface Tour and Useful Settings
+***** The Menu
+The most important options are "File" and "Help."
+- You can access the Preferences and update your license from the "File" menu.
+- You can make check for updates to Respondus from the "Help" menu.
+***** The *Start* tab
+From the Start tab, you can import or create your tests and surveys.
+In the *Open or Create* area, you can:
+- Open
+- Create
+- Test Bank Network
+- Exam Wizard
+- Import Questions
+- Archive Wizard
+
+***** The *Edit* tab
+You can change the types of questions, as well as the settings for your test, in the *Edit* tab.
+
+You can also create the following types of questions:
+- Multiple Choice
+- Essay / Short Answer
+- Matching
+- Ordering
+- Fill in the Blank
+- Multiple Answer
+- Calculated
+- Jumbled Sentence
+- File Response
+- Opinion Scale
+- Numeric
+- Quiz Bowl
+- Fill in Multiple Blanks
+
+(You can also copy questions from another file, or access the Test Bank Network.)
+
+***** The *Settings* tab
+You can change the settings (Test Options) here. For example:
+- Set Random Blocks (randomized question sets)
+- Test instructions, availability, and feedback options, and other settings (like in Blackboard)
+- Respondus LockDown Browser (If you'd like to require LockDown Browser, you must set it up here!)
+
+***** The *Preview and Publish* tab
+You can choose from the following output options:
+- Preview the test
+- Publish to Blackboard
+- Update the Respondus server settings
+- Print out a paper-based test or set of answers
+
+***** The *Retrieval & Reports* tab
+Download test questions and data from your Blackboard site to use in Respondus.
+
+**** Getting Started (Interactive Demo)
+***** Downloading and Configuration
+1. Download from the *Information for UMKC BB Instructors* Organization Site (There was a patch released in July 2013)
+   - Current Version: 
+2. Add the license
+   - The annual license expires every July (The current password is valid through: July 31, 2014)
+3. Check for updates
+****** [File ]
+***** Importing tests
+****** Importing Word documents
+****** Editing test questions
+***** Creating tests in Respondus
+***** Deploying to Blackboard
+****** Setting options
+***** Interactive Demo
+- Please log in to Blackboard and find the "Respondus Workshop" course site. Go to "Test Materials" and download the "Test-1.docx" file.
+
+- Upload the Document to the *Tests* --> *Unit 1* Folder.
+
+****** DONE Create Test-1.docx
+       CLOSED: [2013-09-05 Thu 17:17]
+****** DONE Upload Test-1.docx to the "Respondus Workshop" course site.
+       CLOSED: [2013-09-05 Thu 17:17]
+***** Materials
+****** Test-1.docx
+****** Formatting questions for Blackboard Tests
+******* Format
+Tests must be formatted correctly. The proper format for questions
+***** Useful tips
+- If you'd like to have randomized answers, you must set that option before you import your test. If you have already imported the test, you'll need to either export it and import it again, or import a second copy (with a different name). ***
+
+***** Troubleshooting
+- Problems with test
+  - Fix in Respondus (*Edit* tab)
+  - Fix in Word and re-import
+- Can't connect to Blackboard server
+  - Check for updates (*Help --> Check for Updates*)
+  - Create new server connection
+  - Call ITS
+
+*** Respondus Question Types

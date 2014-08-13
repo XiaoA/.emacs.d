@@ -1,0 +1,16 @@
+#contributor : Andrew Buckingham (abuckingham99@gmail.com)
+#name : html5 template
+# --
+<DOCTYPE html>
+<html>
+<head>
+<!-- <meta name="robots" content="noindex,follow">
+<meta name="description" content="$2">
+<meta name="keywords" content="$3"> -->
+<meta charset=“UTF-8">
+<title>$1</title>
+</head>
+<body>
+$0
+</body>
+</html>

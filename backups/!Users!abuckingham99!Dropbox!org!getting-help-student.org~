@@ -1,0 +1,34 @@
+#+Title: Getting Help
+#+AUTHOR: Andrew Buckingham
+#+STARTUP: indent
+#+OPTIONS: num:nil
+
+* General Tips for Troubleshooting
+    - Computers are just like cars. Or your body. It's your responsibility to maintain them and learn enough to use them effectively.
+    - Be prepared. Don't wait until the last minute to complete your assessments. Keep your computer OS, browser, and plugins (especially Java) up-to-date.
+    - If you contact our office, please be sure to give us as much detail as possible, so that we can isolate the issue. Depending on the issue, that could include (but is not limited to):
+      - Your SSO Username
+      - The *exact* course name and *exact* location of the course
+      - Which OS and browser(s) you're using
+      - A detailed description of exactly what you did, and what you saw. (i.e., "The video for N446 doesn't work" is a useless report. This is a much better report: "I'm using Windows 7. When I click on the 'July 7th' Tegrity video in my N446 course, I get a pop-up screen, but nothing loads. When I ran the diagnostic, it said that a firewall might be blocking my connection.")
+      - Send screenshots, please! (...Because a picture is worth its weight in gold.)
+    - If something does go wrong, don't panic, and don't touch anything. Contact our office, or visit our website.
+    - Don't forget to check the UMKC homepage, our ITS support page, or even Google.
+* Common Issues and Solutions
+** Login Issues
+   - Trying logging in to Pathway
+     - If you can't log in to Pathway, reset your password online or call the UMKC Call Center
+     - If you can log in to Pathway, try a different browser. Or contact ITS.
+   - Try logging in at the top of Blackboard
+** Finding and Uploading Assignments
+   - If you need help finding an assessment, please contact your instructor
+   - If you have problems uploading your assignment, make sure your Java is updated. Go to [[http://java.com/en/download/installed.jsp]] and click on "Verify Java Version."
+** Taking Tests
+   - Most test issues are the result of outdated Java installations. To make sure your Java is updated. Go to [[http://java.com/en/download/installed.jsp]] and click on "Verify Java Version."
+   - Most instructors allow a limited number of attempts to take at test. Read over the Test Tips and make sure your computer's OS and browser, as well as Java, are updated, and that you have a good internet connection. If you have a problem with the test and you can't retake it, you'll need to contact your instructor. We cannot reset the test for you.
+** Accessing Wimba
+   - Run the Setup wizard. 
+   - Make sure your Java is updated. Go to [[http://java.com/en/download/installed.jsp]] and click on "Verify Java Version."  
+** Viewing Tegrity Lectures
+   - Run through the Tegrity Common fixes, starting with the Diagnostic Test. Follow the instructions to set up Tegrity.
+   

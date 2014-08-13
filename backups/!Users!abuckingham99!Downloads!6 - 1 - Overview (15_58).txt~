@@ -1,0 +1,459 @@
+
+Hi, welcome back to Statistics One.
+We're up to lecture 5, and the topic of
+this lecture is correlation.
+This is a big topic in statistics.
+I'm sure you've heard lots about
+correlations, or seen
+correlations reported in the news or on
+the Internet.
+Or perhaps in research studies.
+And this first lecture, I'm going to start
+with
+a broad overview, just to talk about the
+concept.
+And then we'll do some actual
+mathematical calculations.
+And then we'll talk about some
+of the assumptions underlying
+correlational analysis.
+So this lecture is split into three
+segments.
+As I said in the first segment, what I'd
+like to do is
+just give you a broad overview of the
+concept of correlation and some examples.
+In the second segment, we'll walk
+through the mathematical calculation of
+the correlation
+coefficient r, that's Pearson's product
+moment correlation.
+Which I'll have a lot to say about in
+segment two.
+And then finally in segment three, we'll
+talk about
+some of the assumptions underlying a
+typical correlation analysis.
+So let's launch into segment one.
+The important concepts and topics to take
+away from this first segment.
+This first, obviously, what is
+correlation?
+And then, what are they used for?
+and we're also going to look at a lot of
+scatterplots.
+You saw some scatterplots in Lecture Two,
+when
+I talked about the method of correlational
+studies.
+But now we'll really investigate
+scatterplots and look at all the details.
+then there's
+a lot of words of caution.
+[LAUGH]
+So, I can talk about what are correlations
+used to do?
+And I'm, and with the caution I'm going to
+say
+what are correlations not supposed to be
+used for?
+so we'll go through a lot of a lot of
+cautionary notes toward the end.
+And then I'll just list some other types
+of correlations beyond the
+Pearson product moment correlation which
+is the one we're going to emphasize today.
+So first, what is a correlation procedure?
+It's just a statistical analysis used to
+measure or describe the relationship
+between two variables.
+Correlation coefficients can range between
+positive 1 and negative 1.
+A positive one indicates a perfect
+positive correlation.
+A negative 1 indicates a perfect negative
+correlation.
+0 of course, indicates there's no
+relationship at all.
+That's independence.
+So perfect positive correlation means, as
+the scores on one
+variable go up, the scores on the other
+variable go up.
+Perfect negative correlation would be, as
+the scores go up
+on one variable, the scores go down on the
+other.
+And I'll show you exa, examples of that in
+scatterplots.
+It's best to just look at it in a
+scatterplot.
+So, what are they used for?
+Well, we've already seen some, uses of
+correlation in lecture 2.
+Very simply, if we have two variables,
+let's call
+them X and Y, and they're correlated, if I
+know
+an individual's value on X, then I can
+predict their
+score on Y, particularly if there's a very
+strong correlation.
+And there're lots of these examples that
+you're probably familiar with.
+one is IQ and academic achievement.
+Right?
+So if you're high on IQ, and I know that,
+then
+I'm going to predict you're probably going
+to do pretty well in school.
+some newer research is coming out which is
+very interesting is
+socioeconomic status in very young kids is
+also correlated with academic achievement.
+So if I know socioeconomic status, I might
+be able
+to predict academic achievement years
+later.
+once we know that, hopefully we can
+do something to intervene with that
+relationship.
+Right?
+So, that's what correlation is mainly used
+for,
+to describe relationships and then, it's
+used for predictions.
+Which leads us to the next topic,
+regression.
+So, let's go back to this example of
+working memory capacity and intelligence.
+So I've mentioned that this is my area of
+expertise in my own research.
+And in the first lecture on experimental
+designs, we talked about
+this study and this whole sort of
+literature that's booming right now.
+It's actually an industry that's booming
+online.
+Where people are trying to train their
+working memory to enhance
+their intelligence.
+Well, where did that idea come from?
+Well, it came from years of research.
+Some if it done by my graduate adviser,
+Randy Ingle.
+Some of it done by myself and my
+colleagues showing that.
+Scores on tests of working memory capacity
+are highly
+correlated with traditional standardized
+tests of intelligence or IQ.
+So we know that working
+memory is correlated with IQ.
+So if I know a person's IQ, then I could
+predict how well they're
+going to do in my lab when they come and
+take a working memory task.
+So here is an example of a scatterplot
+illustrating that correlation.
+This is actually really strong
+correlation.
+We exaggerated it to make it clear that
+it's a very strong positive correlation.
+What we're looking at a correlation
+between intelligence and working memory.
+So on the x axis, I have IQ scores.
+And you'll notice that they're
+standardized, right?
+They're standardized on that z scale.
+And I know that, because the mean is 0.
+The same thing is true of the working
+memory task.
+So the working memory task in this example
+is the N-back task.
+That was the task that was used in that
+experimental example that
+I described back in lecture one, where
+subjects had to do that N-back
+task every day for, for weeks.
+That was their working memory training.
+So the N-back task is a measure of working
+memory capacity.
+But more importantly what this shows is
+each
+dot in the scatterplot, each dot is an
+individual
+and the line that runs through the dots
+is called the regression line or the
+prediction line.
+And it just runs right through the middle
+of that scatterplot.
+And what this shows is.
+If, you know, if you're above average on
+IQ, then
+you tend to be above average on working
+memory capacity.
+That's a positive correlation, and it's a
+pretty strong positive correlation.
+If you see up here, little r is 0.8.
+We're going to, in the next segment, I'll
+show you how to calculate
+that little r, but just for now, know that
+that's a really high correlation
+coefficient.
+It's actually rare that we seem that high.
+Now here's where all the cautionary notes
+and tales come in.
+the first one is one that you've all heard
+before,
+but to me it's not really the most
+important one.
+I've put it first because I know most
+people are familiar with it.
+So we know that correlation does not imply
+causation.
+Well, let's unpack that.
+What does that mean?
+It means that working memory capacity
+doesn't cause intelligence.
+And likewise, intelligence doesn't cause
+working memory capacity.
+There could be intervening variables, most
+likely there are lots of
+intervening variables associated with the
+brain,
+particularly prefrontal cortex and
+parietal cortex.
+We know there's certain regions that are
+very important for working memory.
+And for intelligence.
+so we can't say from this correlational
+study, that one causes the other.
+they're just related, we know that they're
+correlated, there's an association there.
+So, correlation does not imply causation.
+A great example my assistant
+[INAUDIBLE]
+came up with.
+Is going to bed with your boots on is
+correlated with hanging, having a headache
+in the morning.
+[LAUGH]
+That's an association.
+It doesn't mean having your boots on
+caused
+the headache, what's more likely is that
+you
+were drunk and fell asleep with your boots
+on and were hung over in the morning.
+And that's why you had the headache.
+There're lots of fun examples of this if
+you Google correlation and fun examples.
+so I think we all know that correlation
+does not imply causation.
+More importantly, and this is what I'm
+going to focus on in lecture six
+primarily, is the magnitude of a
+correlation depends on a lot of factors.
+Including sampling, which we've already
+talked about.
+That idea of getting a random and
+representative sample.
+It also depends critically on measurement
+of
+your variables, so measurement of x and y.
+Specifically, do you have reliable
+measures?
+And do you have valid measures?
+So for example, in the intelligence
+literature.
+We need to know that we have reliable
+assessments of intelligence, we need, we
+need to know
+that they're valid assessments of
+intelligence, in order for
+us to make any sense of the correlation
+analysis.
+So we're going to spend a lot of time
+talking about that in lecture 6.
+For now, let's just look at one of these
+assumptions.
+The idea that we have random and
+representative sampling.
+So, I showed you that there's a strong
+correlation
+between working memory capacity and
+intelligence in healthy young adults.
+And I've seen that in my own research.
+It's been replicated many, many times
+over the last couple of decades, but
+that's if we look at all young,
+healthy adults.
+If we get a heterogeneous sample.
+Of say, all high school graduates.
+What if we relied on a more convenient
+sample, let's say, a prestigious selective
+school of higher
+education like Princeton.
+and we might want to
+ask, what is the correlation between IQ
+and working
+memory among college graduates?
+It's a different kind of sample.
+So let's look at that scatterplot.
+This is a bit exaggerated again.
+We made up the data.
+but now you'll see the correlation is not
+very strong.
+It's only 0.2.
+And why is that?
+Well, if you look at the IQ distribution,
+again we exaggerated this.
+But everybody's above average on IQ
+because they're college graduates.
+They were selected into college most
+likely on the basis
+of some sort of standardized tests like an
+IQ test.
+so this is not that far-fetched.
+And, actually, in my own research, I did
+look at
+the relationship between working memory
+and intelligence
+in a selective institution, not Princeton,
+and
+the correlation was 0.22, where I'm used
+to finding a correlation of about 0.66.
+This is known as attenuation of
+correlation due
+to restriction of range in one of your
+variables.
+So the fact that we only have this really
+smart people restricts our range.
+In other words,
+it restricts our variance.
+Which doesn't allow for us to find
+covariance.
+And finally is, is the last cautionary
+note.
+And it's perhaps the most important for
+general consumers of statistics.
+And particularly correlations.
+Is a lot of people get upset when they
+hear.
+Let's say you know, your score on some
+standardized test predicts how well you're
+going to do in college.
+but it's only a sample statistic.
+A correlation coefficient
+is a sample statistic just like a mean is
+a sample statistic.
+And it may not be representative Of
+everyone
+in the sample, unless the correlation is
+1.0.
+Alright, so, I, I'm, I'm a perfect example
+of this.
+when I took the standardized tests here in
+the US, they're called the
+SAT, I scored really well on the math and
+really poor on the verbal,
+[LAUGH]
+that's why I'm a statistics teacher.
+[LAUGH]
+and in school I tended to have very high
+grades in math and science.
+But not so high in things like history and
+language despite the fact that those
+things are correlated, right?
+If you go back to lecture two on
+correlational studies we saw that this was
+the example I used for a moderate
+correlation between say math and language.
+So, if you look at the dots, you see that
+on average,
+as you go up on one, you go up on the
+other.
+But let's say this is math, and let's say
+this is history.
+You know, I was like this guy out here.
+[LAUGH]
+Off the charts on math, but really below
+average on history.
+frankly because at that age, I didn't have
+the patience to sit down and read long
+texts.
+so I didn't do very well in things like
+History or, or English.
+It wasn't quite that low, maybe about
+there but the point is.
+as you go up on one, as, on average, as
+people go up one one score, they go up on
+the
+other score, that's a positive
+correlation.
+But, it may not be represented if for
+every individual in the sample, okay.
+That's one of the most important things
+to take away from thinking about
+correlations.
+This final note is, there're several types
+of correlation coefficients,
+depending on the types of variables that
+you're looking at.
+So, go back to lecture three, where we
+talked about types of variables.
+I'm going to emphasize this one right
+here,
+the Pearson product-moment correlation
+coefficient, or little r.
+That's what we're going to focus on in the
+next segment.
+and that's the most common one.
+Because it, it provides us with the most
+amount of information.
+We have a continuous variable x and a
+continuous variable
+y and we can look at the correlation
+between the two.
+If one of our variables is continuous and
+one is dichotomous, it's just 0
+or 1 Then there's a different coefficient,
+it's called the point bi-serial
+correlation function.
+Also if we have
+two dichotomous variables, if both x and y
+are dichotomous, then we'll calculate the
+Phi coefficient.
+And if we have both X and Y as ranked or
+ordinal variables, then we can calculate
+what's called the Spearman rank-order
+correlation.
+I'm just listing these here so that you're
+aware of them.
+For now, since this is just an intro stats
+course, we're going to focus on just the
+Pearson product-moment
+correlation, little r.
+It's by far the most common one that
+you'll see, that you'll encounter.
+But just remember and for your own
+knowledge, know that there are other
+types.
+And it depends on what kinds of variables
+you're looking at.
+So to sum up this, this segment, we talked
+about
+just, what is a correlation, what are they
+used for.
+We're going to look at scatter plots a lot
+when we're talking about correlations.
+There's a lot of cautionary notes that you
+have to keep in mind and then
+remember, there're different types of
+correlations depending
+on the types of variables that you're
+analyzing.
+And that wraps up this segment.
+[BLANK_AUDIO]
+

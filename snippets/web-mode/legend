@@ -1,0 +1,5 @@
+#contributor : Andrew Buckingham <abuckingham99@gmail.com>
+#name : legend 
+# --
+<legend>$1</legend>
+$0

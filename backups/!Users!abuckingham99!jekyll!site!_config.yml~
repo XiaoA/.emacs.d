@@ -1,0 +1,13 @@
+# Site settings
+title: Andrew Buckingham | Web Developer
+email: abuckingham99@gmail.com
+description: "I love technology"
+baseurl: ""
+url: "http://localhost:4000"
+twitter_username: abuckingham
+github_username:  XiaoA
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+highlighter: true

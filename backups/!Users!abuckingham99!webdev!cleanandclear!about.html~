@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>About - Clean & Clear</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.css" rel="stylesheet">
+
+	<!-- Your custom styles -->
+	<link href="css/custom.css" rel="stylesheet">
+
+	<!--Include JQuery -->
+	<script src="js/jquery.js"></script>
+
+	<!-- Bootstrap JavaScript -->
+	<script src="js/bootstrap.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="top-bar"></div>
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">  <img class="logo" src="images/logo.png" alt="Clean & Clear" /></a>
+			</div><!-- /.navbar-header -->
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Innovate<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="innovate.html">Learn</a></li>
+							<li><a href="innovate.html">Create</a></li>
+							<li><a href="innovate.html">Teach</a></li>        
+						</ul>
+					</li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+				<!-- Right side of navbar -->
+				<ul class="nav navbar-nav navbar-right">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search Our Site...">
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<li class="login" data-toggle="modal" data-target="#loginModal"><a href="#">Login</a></li>
+					<li class="register" data-toggle="modal" data-target="#regModal"><a href="#">Register</a></li>
+
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<!-- Login Modal -->
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="loginModalLabel">Login Form</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox"> Remember me
+									</label>
+								</div>
+							</div>
+						</div>
+
+					</form>
+				</div>
+				<div class="modal-footer">
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-default">Sign in</button>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+    
+    
+	<!-- Register Modal -->
+	<div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-labelledby="regModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="regModalLabel">Register</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="inputEmail3" placeholder="Enter name">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="inputPassword3" class="col-sm-2 control-label">Confirm Password</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="inputPassword3" placeholder="Confirm Password">
+							</div>
+						</div>
+                    
+
+					</form>
+				</div>
+				<div class="modal-footer">
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-default">Sign up</button>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div class="container">   
+		<div class="row pad-top-30">
+			<div class="inner-page col-md-8">
+				<div id="about" class="well">
+					<h3>About Us</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tellus lacus, ullamcorper et scelerisque eleifend, porttitor consectetur risus. Duis consequat tortor quam, nec auctor magna lobortis quis. Vestibulum tincidunt volutpat nisi, vel sodales est vestibulum in. Maecenas porttitor, tellus sit amet ullamcorper mollis, arcu est dignissim odio, quis fringilla mauris lacus sit amet sapien. In posuere ac erat non sollicitudin. Maecenas ante nibh, imperdiet a nisl quis, semper rhoncus nisl. Phasellus porta adipiscing risus, sed pellentesque elit eleifend sed. Fusce scelerisque cursus sapien. Nullam feugiat sollicitudin diam, id tincidunt sem eleifend at. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In aliquet scelerisque lectus nec imperdiet.</p>
+					<hr>
+					<h3>Teamwork</h3>
+					<img src="images/teamwork.jpg" alt="Teamwork" />
+						
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs">
+					  <li class="active"><a href="#home" data-toggle="tab">What We Do</a></li>
+					  <li><a href="#profile" data-toggle="tab">Meet the Team</a></li>
+					  <li><a href="#messages" data-toggle="tab">Pricing</a></li>
+					  <li><a href="#settings" data-toggle="tab">Terms</a></li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+					  <div class="tab-pane active" id="home">lorem ipsum meow lore, lorrrerev fvdfre fdecgft hhhg ytgh grfggff cadse hgghkg fgffhgf vv</div>
+					  <div class="tab-pane" id="profile">lorem ipsum meow lore, lorrrerev fvdfre fdecgft hhhg ytgh grfggff cadse hgghkg fgffhgf vv</div>
+					  <div class="tab-pane" id="messages">lorem ipsum meow lore, lorrrerev fvdfre fdecgft hhhg ytgh grfggff cadse hgghkg fgffhgf vv</div>
+					  <div class="tab-pane" id="settings">lorem ipsum meow lore, lorrrerev fvdfre fdecgft hhhg ytgh grfggff cadse hgghkg fgffhgf vv</div>
+					</div>
+						
+				</div>
+			</div><!-- /. col-md-8 -->
+
+			<!-- Sidebar -->
+			<div class="col-md-4">   
+				<div class="well graywell">
+					<h3>Quick Contact</h3>
+					<form role="form">
+						<div class="form-group">
+							<label for="exampleInputEmail1">Name</label>
+							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Email address</label>
+							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputPassword1">Message</label>
+							<textarea class="form-control" rows="3"></textarea>
+						</div>
+
+						<button type="submit" class="btn btn-default">Send</button>
+					</form>
+				</div>
+
+				<!--COLLAPSE HERE-->
+					
+				<div class="list-group list-group">
+					<a href="index.html" class="list-group-item">Home</a>
+					<a href="about.html" class="list-group-item active">About</a>
+					<a href="innovate.html" class="list-group-item">Innovate</a>
+					<a href="blog.html" class="list-group-item">Blog</a>
+					<a href="contact.html" class="list-group-item">Contact Us</a>
+				</div><!-- /. list-group -->
+
+			</div><!-- /. col-md-4 -->           
+		</div> <!-- /row -->  
+	</div> <!-- /container -->
+	<footer>
+		Copyright &copy; 2013, Clean & Clear
+	</footer>
+</body>
+</html>

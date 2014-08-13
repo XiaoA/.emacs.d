@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<DOCTYPE html>
+  <html>
+    <head>
+      <!-- <meta name="robots" content="noindex,follow">
+      <meta name="description" content="A basic page">
+      <meta name="keywords" content="udemy, training"> -->
+      <meta charset=“UTF-8">
+      <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+      <title>My Homepage</title>
+    </head>
+    <body>
+<p>Some Text.</p>      
+    </body>
+  </html>

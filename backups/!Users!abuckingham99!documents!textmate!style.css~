@@ -1,0 +1,10 @@
+body {
+	padding-left: 1em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: black;
+	background-color: white;
+}
+
+.intro {
+	background-color: "gray";
+}

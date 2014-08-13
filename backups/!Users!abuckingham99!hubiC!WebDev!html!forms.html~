@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<DOCTYPE html>
+  <html>
+    <head>
+      <!-- <meta name="robots" content="noindex,follow">
+      <meta name="description" content="">
+      <meta name="keywords" content=""> -->
+      <meta charset=“UTF-8">
+      <title>Forms</title>
+    </head>
+    <body>
+      <form action="" method="GET">
+<!-- Never use the "GET" method to submit any kind of sensitive data! -->
+	<input type="text" name="username">
+	<input type="password" name="password">
+	<input type="submit">
+	
+      </form>
+    </body>
+  </html>

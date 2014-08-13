@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>resume-2014</title>
+<!-- 2014-06-08 Sun 11:40 -->
+<meta  charset="utf-8">
+<meta  name="generator" content="Org-mode">
+<meta  name="author" content="Andrew Buckingham">
+<link rel="stylesheet" type="text/css" href="mystyles.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">resume-2014</h1>
+<p>
+#+OPTIONS num:nil
+</p>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Education</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-0-1" class="outline-4">
+<h4 id="sec-1-0-1"><span class="section-number-4">1.0.1</span> 2011 - 2013 (Expected)</h4>
+<div class="outline-text-4" id="text-1-0-1">
+<p>
+<b>M.A. Education, Curriculum and Instruction</b>
+<b>University of Missouri - Kansas City</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-0-2" class="outline-4">
+<h4 id="sec-1-0-2"><span class="section-number-4">1.0.2</span> December 1999</h4>
+<div class="outline-text-4" id="text-1-0-2">
+<p>
+*B.A. Interdisciplinary - Asian/Pacific Rim Studies
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Work Experience</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-0-1" class="outline-4">
+<h4 id="sec-2-0-1"><span class="section-number-4">2.0.1</span> July 2009 - <i>Present</i></h4>
+<div class="outline-text-4" id="text-2-0-1">
+<p>
+<b>Research Associate</b>, <a href="http://fossee.in">FOSSEE</a>, IIT-Bombay
+</p>
+
+<p>
+My work in this team involves design and development of learning
+material for, and training of teachers and students in the area of
+Python for Scientific Computing.  I have been involved in
+development of the course material for an introductory course on
+Software Tools, Techniques and Practices for Scientists and
+Engineers, which is going to be delivered at various places
+including IIT-B, beginning next semester.  I have also ported some
+Control Engineering code from MATLAB to Python.  I have also been
+involved in the initial set-up \&amp; maintenance of the server.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-0-2" class="outline-4">
+<h4 id="sec-2-0-2"><span class="section-number-4">2.0.2</span> Jan - Jun, 2009</h4>
+<div class="outline-text-4" id="text-2-0-2">
+<p>
+<b>Intern</b>, STMicroelectronics India Pvt. Ltd., Bangalore
+</p>
+
+<p>
+Developed a new sub-system for automated testing of a few of the
+processes, for testing the software on a DigitalTV Chip.  The
+sub-system abstracts out the actual function calls for the tests,
+and allows the tests to be conducted by anybody.  This system
+provides a scope for future automation of the testing process.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-0-3" class="outline-4">
+<h4 id="sec-2-0-3"><span class="section-number-4">2.0.3</span> May - Jul 2007</h4>
+<div class="outline-text-4" id="text-2-0-3">
+<p>
+<b>Summer Intern</b>, National Physical Laboratory, New Delhi
+</p>
+
+<p>
+Fabricated transparent nano-structured transparent ZnO thin films,
+doped with MnO, using the Sol-Gel spin coating process.  Also
+carried out characterization of the films using various techniques
+like TEM, SEM, X-Ray diffraction and film stress measurement.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Academic Projects</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-0-1" class="outline-4">
+<h4 id="sec-3-0-1"><span class="section-number-4">3.0.1</span> Aug - Dec, 2008</h4>
+<div class="outline-text-4" id="text-3-0-1">
+<p>
+<b>Designing a room status manager</b>
+</p>
+
+<p>
+Designed and developed a room status manager that keeps track of,
+and shows whether the room is occupied or not. Visitors may choose
+to leave messages, that can be viewed later.  It was designed as a
+part of a course on Embedded System Design.  It involved
+interfacing an LCD and a keypad to an 8051 and coding in assembly.
+</p>
+</div>
+<div id="outline-container-sec-3-0-1-0-1" class="outline-6">
+<h6 id="sec-3-0-1-0-1"><span class="section-number-6">3.0.1.0.1</span> Mentor</h6>
+<div class="outline-text-6" id="text-3-0-1-0-1">
+<p>
+Dr.K.R. Anupama, EEE, BITS-Pilani, Goa Campus
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-0-1-0-2" class="outline-6">
+<h6 id="sec-3-0-1-0-2"><span class="section-number-6">3.0.1.0.2</span> Team-mate</h6>
+<div class="outline-text-6" id="text-3-0-1-0-2">
+<p>
+Ravitheja Tetali, B.E.(Hons.) Electronics \&amp; Instrumentation
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-0-2" class="outline-4">
+<h4 id="sec-3-0-2"><span class="section-number-4">3.0.2</span> Aug - Dec, 2008</h4>
+<div class="outline-text-4" id="text-3-0-2">
+<p>
+<b>Study of phase transitions in mechanical models</b>
+</p>
+
+<p>
+The project involved the study, observation of the phases and
+plotting the phase transitions in a simple mechanical model using
+MATLAB as a tool. A simple model of a sphere rolling down the
+surface of another sphere was considered and the phase transitions
+between the pure rolling, rolling with slipping and detached
+phases were studied.
+</p>
+</div>
+<div id="outline-container-sec-3-0-2-0-1" class="outline-6">
+<h6 id="sec-3-0-2-0-1"><span class="section-number-6">3.0.2.0.1</span> Mentor</h6>
+<div class="outline-text-6" id="text-3-0-2-0-1">
+<p>
+Dr. A.K. Biswas, Physics, BITS-Pilani, Goa Campus
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-0-3" class="outline-4">
+<h4 id="sec-3-0-3"><span class="section-number-4">3.0.3</span> Aug - Dec, 2007</h4>
+<div class="outline-text-4" id="text-3-0-3">
+<p>
+<b>Simulation of class room acoustics</b>
+</p>
+
+<p>
+The project involved simulation of class-room acoustics using the
+method of images, in general, and the Allen-Berkeley algorithm in
+particular, to obtain the reverberation time profile of a cuboid
+shaped classroom and to identify the `acoustically' best
+locations. MATLAB was used to write and simulate the code.
+</p>
+</div>
+<div id="outline-container-sec-3-0-3-0-1" class="outline-6">
+<h6 id="sec-3-0-3-0-1"><span class="section-number-6">3.0.3.0.1</span> Mentor</h6>
+<div class="outline-text-6" id="text-3-0-3-0-1">
+<p>
+Dr. Toby Joseph, Physics, BITS-Pilani, Goa Campus
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-0-3-0-2" class="outline-6">
+<h6 id="sec-3-0-3-0-2"><span class="section-number-6">3.0.3.0.2</span> Team-mate</h6>
+<div class="outline-text-6" id="text-3-0-3-0-2">
+<p>
+Ravitheja Tetali, B.E. (Hons.) Electronics &amp; Instrumentation
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Other Projects</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-0-1" class="outline-4">
+<h4 id="sec-4-0-1"><span class="section-number-4">4.0.1</span> Emacs Org-mode</h4>
+<div class="outline-text-4" id="text-4-0-1">
+<p>
+I am an active contributor to Org-mode which is an Emacs package
+for keeping notes, maintaining ToDo lists, project planning, and
+authoring with a fast and effective plain-text system.
+</p>
+
+<p>
+Apart from patches directly to Org-mode, I have made some
+contributions to the "eco-system" of org-mode. <br >
+</p>
+
+<dl class="org-dl">
+<dt> org2blog </dt><dd>An org-mode based client, that can be used to post
+directly to Wordpress blogs from within Org-mode.
+</dd>
+<dt> Pandoc </dt><dd>Pandoc is a swiss-army knife, to convert files from
+one markup format into another. I added org-mode as
+one of the output formats to it.
+</dd>
+<dt> org-ghi </dt><dd>Org-mode can be used to keep ToDo lists; and each bug
+or issue in your code, can be considered a ToDo
+item. org-ghi provides an interface between GitHub
+Issues and Org-mode.
+</dd>
+<dt> gollum </dt><dd>Gollum is the git-powered wiki system that is used in
+every GitHub Wiki. I have added org-mode support for
+the visual editor of gollum.
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-4-0-2" class="outline-4">
+<h4 id="sec-4-0-2"><span class="section-number-4">4.0.2</span> GetHub</h4>
+<div class="outline-text-4" id="text-4-0-2">
+<p>
+GetHub is a Chrome extension that displays desktop notifications
+for new updates in your Github NewsFeed.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Technical Skills</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-0-1" class="outline-4">
+<h4 id="sec-5-0-1"><span class="section-number-4">5.0.1</span> Languages &amp; Libraries</h4>
+<div class="outline-text-4" id="text-5-0-1">
+<dl class="org-dl">
+<dt> Proficient </dt><dd>Python (Numpy, Scipy, Matplotlib), Emacs Lisp,
+Matlab, C, Bash, HTML, Javascript, CSS
+</dd>
+<dt> Learning </dt><dd>Haskell, C++, OpenCV, CMU Sphinx
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-5-0-2" class="outline-4">
+<h4 id="sec-5-0-2"><span class="section-number-4">5.0.2</span> Authoring</h4>
+<div class="outline-text-4" id="text-5-0-2">
+<dl class="org-dl">
+<dt> Text </dt><dd>Org-mode, LaTeX, reStructured Text, Emacs
+</dd>
+<dt> Graphics </dt><dd>Gimp, Inkscape
+</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-sec-5-0-3" class="outline-4">
+<h4 id="sec-5-0-3"><span class="section-number-4">5.0.3</span> Version Control</h4>
+<div class="outline-text-4" id="text-5-0-3">
+<p>
+Git, Mercurial
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-0-4" class="outline-4">
+<h4 id="sec-5-0-4"><span class="section-number-4">5.0.4</span> Sys Admin</h4>
+<div class="outline-text-4" id="text-5-0-4">
+<p>
+Good experience with system administration on Debian based systems
+and Bash scripting.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-5-0-5" class="outline-4">
+<h4 id="sec-5-0-5"><span class="section-number-4">5.0.5</span> Course Design</h4>
+<div class="outline-text-4" id="text-5-0-5">
+<p>
+Course design and Content development based on instructional
+design principles.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Publications and Paper Presentations</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>M.Deepa, N. Bahadur, A.K. Srivastava, P. Buckingham, K.N. Sood,
+``Optical properties and mechanical characteristics of transperent
+nanostructured \(Zn_{1-x}Mn_{x}O\) thin films'', \emph{Jour. of
+Phy. and Chem. of Solids}, 70 (2009), 291-297
+</li>
+<li>Delivered a beginner level <a href="https://github.com/punchagan/talks/blob/master/scipy.in-2010/slides/outline.pdf?raw=true">talk</a> at Scipy.in 2010 on Image
+Processing, to get beginners enthused about Python and using it
+for Image Processing.
+</li>
+<li>Conducted <a href="https://github.com/punchagan/talks/blob/master/gnunify-2010/slides/gnunify-scipy.pdf?raw=true">workshop</a> on Image Processing using SciPy at Gnunify 2010
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Personal Information</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-sec-7-0-1" class="outline-4">
+<h4 id="sec-7-0-1"><span class="section-number-4">7.0.1</span> Date of Birth</h4>
+<div class="outline-text-4" id="text-7-0-1">
+<p>
+15<sup>th</sup> October, 1987
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7-0-2" class="outline-4">
+<h4 id="sec-7-0-2"><span class="section-number-4">7.0.2</span> Address</h4>
+<div class="outline-text-4" id="text-7-0-2">
+<p>
+
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7-0-3" class="outline-4">
+<h4 id="sec-7-0-3"><span class="section-number-4">7.0.3</span> Phone</h4>
+<div class="outline-text-4" id="text-7-0-3">
+<p>
+
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7-0-4" class="outline-4">
+<h4 id="sec-7-0-4"><span class="section-number-4">7.0.4</span> E-mail</h4>
+<div class="outline-text-4" id="text-7-0-4">
+<p>
+<a href="mailto:punchagan@muse-amuse.in">punchagan@muse-amuse.in</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7-0-5" class="outline-4">
+<h4 id="sec-7-0-5"><span class="section-number-4">7.0.5</span> Blog</h4>
+<div class="outline-text-4" id="text-7-0-5">
+<p>
+<a href="http://punchagan.muse-amuse.in">http://punchagan.muse-amuse.in</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7-0-6" class="outline-4">
+<h4 id="sec-7-0-6"><span class="section-number-4">7.0.6</span> Code</h4>
+<div class="outline-text-4" id="text-7-0-6">
+<p>
+<a href="https://github.com/punchagan">https://github.com/punchagan</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Andrew Buckingham</p>
+<p class="date">Created: 2014-06-08 Sun 11:40</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

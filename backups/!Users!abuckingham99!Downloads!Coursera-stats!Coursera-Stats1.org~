@@ -1,0 +1,519 @@
+* Dired Listing of all files
+  /Users/abuckingham99/Downloads/Coursera-stats:
+  total used in directory 4362136 available 109919469
+  -rw-r--r--@   1 abuckingham99  staff    151393 Dec 25 07:38  
+  drwxr-xr-x  250 abuckingham99  staff      8500 Dec 25 08:06 .
+  drwx------+ 150 abuckingham99  staff      5100 Dec 25 07:40 ..
+  -rw-r--r--@   1 abuckingham99  staff      6148 Dec 25 07:39 .DS_Store
+  -rw-r-----@   1 abuckingham99  staff  45119602 Jun 26  2013 1 - 1 - Course introduction (14_22).mp4
+  -rw-r-----@   1 abuckingham99  staff     18765 Dec 25 07:47 1 - 1 - Course introduction (14_22).srt
+  -rw-r-----@   1 abuckingham99  staff     11454 Dec 25 07:47 1 - 1 - Course introduction (14_22).txt
+  -rw-r-----@   1 abuckingham99  staff  23283476 Aug  5 11:55 10 - 1 - Sampling distributions (11_51).mp4
+  -rw-r-----@   1 abuckingham99  staff     14685 Dec 25 07:47 10 - 1 - Sampling distributions (11_51).srt
+  -rw-r-----@   1 abuckingham99  staff      9019 Dec 25 07:47 10 - 1 - Sampling distributions (11_51).txt
+  -rw-r-----@   1 abuckingham99  staff  27249519 Aug  5 11:57 10 - 2 - The central limit theorem (14_16).mp4
+  -rw-r-----@   1 abuckingham99  staff     17920 Dec 25 07:47 10 - 2 - The central limit theorem (14_16).srt
+  -rw-r-----@   1 abuckingham99  staff     10854 Dec 25 07:47 10 - 2 - The central limit theorem (14_16).txt
+  -rw-r-----@   1 abuckingham99  staff  39428940 Aug  5 12:01 11 - 1 - Confidence intervals for sample means (18_19).mp4
+  -rw-r-----@   1 abuckingham99  staff     24107 Dec 25 07:47 11 - 1 - Confidence intervals for sample means (18_19).srt
+  -rw-r-----@   1 abuckingham99  staff     14521 Dec 25 07:47 11 - 1 - Confidence intervals for sample means (18_19).txt
+  -rw-r-----@   1 abuckingham99  staff  19925592 Aug  5 11:59 11 - 2 - Confidence intervals for regression coefficients (10_23).mp4
+  -rw-r-----@   1 abuckingham99  staff     13801 Dec 25 07:47 11 - 2 - Confidence intervals for regression coefficients (10_23).srt
+  -rw-r-----@   1 abuckingham99  staff      8345 Dec 25 07:47 11 - 2 - Confidence intervals for regression coefficients (10_23).txt
+  -rw-r-----@   1 abuckingham99  staff  31176341 Aug  5 12:05 12 - 1 - Multiple regression (15_28).mp4
+  -rw-r-----@   1 abuckingham99  staff     19706 Dec 25 07:47 12 - 1 - Multiple regression (15_28).srt
+  -rw-r-----@   1 abuckingham99  staff     12115 Dec 25 07:47 12 - 1 - Multiple regression (15_28).txt
+  -rw-r-----@   1 abuckingham99  staff  26238510 Aug  5 12:05 12 - 2 - Matrix algebra (14_50).mp4
+  -rw-r-----@   1 abuckingham99  staff     17409 Dec 25 07:47 12 - 2 - Matrix algebra (14_50).srt
+  -rw-r-----@   1 abuckingham99  staff     10553 Dec 25 07:47 12 - 2 - Matrix algebra (14_50).txt
+  -rw-r-----@   1 abuckingham99  staff  17010669 Aug  5 12:09 12 - 3 - Estimation of coefficients (9_34).mp4
+  -rw-r-----@   1 abuckingham99  staff     11663 Dec 25 07:47 12 - 3 - Estimation of coefficients (9_34).srt
+  -rw-r-----@   1 abuckingham99  staff      6977 Dec 25 07:47 12 - 3 - Estimation of coefficients (9_34).txt
+  -rw-r-----@   1 abuckingham99  staff  16090621 Aug  5 12:05 13 - 1 - The general linear model (7_55).mp4
+  -rw-r-----@   1 abuckingham99  staff     10365 Dec 25 07:47 13 - 1 - The general linear model (7_55).srt
+  -rw-r-----@   1 abuckingham99  staff      6379 Dec 25 07:47 13 - 1 - The general linear model (7_55).txt
+  -rw-r-----@   1 abuckingham99  staff  23449335 Aug  5 12:06 13 - 2 - Dummy coding (12_24).mp4
+  -rw-r-----@   1 abuckingham99  staff     16325 Dec 25 07:47 13 - 2 - Dummy coding (12_24).srt
+  -rw-r-----@   1 abuckingham99  staff      9994 Dec 25 07:47 13 - 2 - Dummy coding (12_24).txt
+  -rw-r-----@   1 abuckingham99  staff  56269034 Aug  5 12:14 14 - 1 - Example 1 (27_13).mp4
+  -rw-r-----@   1 abuckingham99  staff     37086 Dec 25 07:47 14 - 1 - Example 1 (27_13).srt
+  -rw-r-----@   1 abuckingham99  staff     22425 Dec 25 07:47 14 - 1 - Example 1 (27_13).txt
+  -rw-r-----@   1 abuckingham99  staff  30597988 Aug  5 12:21 14 - 2 - Centering predictors (15_15).mp4
+  -rw-r-----@   1 abuckingham99  staff     18468 Dec 25 07:47 14 - 2 - Centering predictors (15_15).srt
+  -rw-r-----@   1 abuckingham99  staff     11437 Dec 25 07:47 14 - 2 - Centering predictors (15_15).txt
+  -rw-r-----@   1 abuckingham99  staff  13340370 Aug  5 12:21 14 - 3 - Example 2 (6_44).mp4
+  -rw-r-----@   1 abuckingham99  staff      8826 Dec 25 07:47 14 - 3 - Example 2 (6_44).srt
+  -rw-r-----@   1 abuckingham99  staff      5260 Dec 25 07:47 14 - 3 - Example 2 (6_44).txt
+  -rw-r-----@   1 abuckingham99  staff  37518571 Aug  5 12:27 15 - 1 - Standard approach (18_33).mp4
+  -rw-r-----@   1 abuckingham99  staff     23317 Dec 25 07:47 15 - 1 - Standard approach (18_33).srt
+  -rw-r-----@   1 abuckingham99  staff     14151 Dec 25 07:47 15 - 1 - Standard approach (18_33).txt
+  -rw-r-----@   1 abuckingham99  staff  29860105 Aug  5 12:24 15 - 2 - Path analysis (14_41).mp4
+  -rw-r-----@   1 abuckingham99  staff     18880 Dec 25 07:47 15 - 2 - Path analysis (14_41).srt
+  -rw-r-----@   1 abuckingham99  staff     11394 Dec 25 07:47 15 - 2 - Path analysis (14_41).txt
+  -rw-r-----@   1 abuckingham99  staff  28717710 Sep 27 08:29 16 - 1 - Introduction (14_12).mp4
+  -rw-r-----@   1 abuckingham99  staff     19561 Dec 25 07:47 16 - 1 - Introduction (14_12).srt
+  -rw-r-----@   1 abuckingham99  staff     11795 Dec 25 07:47 16 - 1 - Introduction (14_12).txt
+  -rw-r-----@   1 abuckingham99  staff  24037976 Sep 27 08:26 16 - 2 - Dependent t-tests (12_48).mp4
+  -rw-r-----@   1 abuckingham99  staff     17153 Dec 25 07:47 16 - 2 - Dependent t-tests (12_48).srt
+  -rw-r-----@   1 abuckingham99  staff     10332 Dec 25 07:47 16 - 2 - Dependent t-tests (12_48).txt
+  -rw-r-----@   1 abuckingham99  staff  34923896 Aug  5 12:19 16 - 3 - Independent t-tests (18_50).mp4
+  -rw-r-----@   1 abuckingham99  staff     25380 Dec 25 07:47 16 - 3 - Independent t-tests (18_50).srt
+  -rw-r-----@   1 abuckingham99  staff     15059 Dec 25 07:47 16 - 3 - Independent t-tests (18_50).txt
+  -rw-r-----@   1 abuckingham99  staff  43285951 Aug  5 12:26 17 - 1 - One-way ANOVA (22_17).mp4
+  -rw-r-----@   1 abuckingham99  staff     30530 Dec 25 07:47 17 - 1 - One-way ANOVA (22_17).srt
+  -rw-r-----@   1 abuckingham99  staff     18319 Dec 25 07:47 17 - 1 - One-way ANOVA (22_17).txt
+  -rw-r-----@   1 abuckingham99  staff  14653862 Aug  5 12:17 17 - 2 - Post-hoc tests (7_35).mp4
+  -rw-r-----@   1 abuckingham99  staff      9746 Dec 25 07:47 17 - 2 - Post-hoc tests (7_35).srt
+  -rw-r-----@   1 abuckingham99  staff      6005 Dec 25 07:47 17 - 2 - Post-hoc tests (7_35).txt
+  -rw-r-----@   1 abuckingham99  staff  32671590 Aug  5 12:22 18 - 1 - Factorial ANOVA (16_37).mp4
+  -rw-r-----@   1 abuckingham99  staff     24086 Dec 25 07:47 18 - 1 - Factorial ANOVA (16_37).srt
+  -rw-r-----@   1 abuckingham99  staff     14325 Dec 25 07:47 18 - 1 - Factorial ANOVA (16_37).txt
+  -rw-r-----@   1 abuckingham99  staff  17092563 Aug  5 12:19 18 - 2 - Example (8_43).mp4
+  -rw-r-----@   1 abuckingham99  staff     11743 Dec 25 07:47 18 - 2 - Example (8_43).srt
+  -rw-r-----@   1 abuckingham99  staff      7057 Dec 25 07:47 18 - 2 - Example (8_43).txt
+  -rw-r-----@   1 abuckingham99  staff  43477368 Sep 26 14:29 19 - 1 - Repeated measures_ Pros and cons (21_33).mp4
+  -rw-r-----@   1 abuckingham99  staff     29894 Dec 25 07:47 19 - 1 - Repeated measures_ Pros and cons (21_33).srt
+  -rw-r-----@   1 abuckingham99  staff     17858 Dec 25 07:47 19 - 1 - Repeated measures_ Pros and cons (21_33).txt
+  -rw-r-----@   1 abuckingham99  staff  24049728 Sep 26 14:28 19 - 2 - Repeated measures ANOVA example (11_36).mp4
+  -rw-r-----@   1 abuckingham99  staff     16053 Dec 25 07:47 19 - 2 - Repeated measures ANOVA example (11_36).srt
+  -rw-r-----@   1 abuckingham99  staff      9617 Dec 25 07:47 19 - 2 - Repeated measures ANOVA example (11_36).txt
+  -rw-r-----@   1 abuckingham99  staff  34002548 Jun 26  2013 2 - 1 - Example 1_ Polio vaccine (11_17).mp4
+  -rw-r-----@   1 abuckingham99  staff     13819 Dec 25 07:47 2 - 1 - Example 1_ Polio vaccine (11_17).srt
+  -rw-r-----@   1 abuckingham99  staff      8468 Dec 25 07:47 2 - 1 - Example 1_ Polio vaccine (11_17).txt
+  -rw-r-----@   1 abuckingham99  staff  44127766 Jun 26  2013 2 - 2 - Example 2_ Memory training (16_21).mp4
+  -rw-r-----@   1 abuckingham99  staff     21810 Dec 25 07:47 2 - 2 - Example 2_ Memory training (16_21).srt
+  -rw-r-----@   1 abuckingham99  staff     13344 Dec 25 07:47 2 - 2 - Example 2_ Memory training (16_21).txt
+  -rw-r-----@   1 abuckingham99  staff  17228665 Jun 26  2013 2 - 3 - Example 3_ The concept of random (6_27).mp4
+  -rw-r-----@   1 abuckingham99  staff      8009 Dec 25 07:47 2 - 3 - Example 3_ The concept of random (6_27).srt
+  -rw-r-----@   1 abuckingham99  staff      4823 Dec 25 07:47 2 - 3 - Example 3_ The concept of random (6_27).txt
+  -rw-r-----@   1 abuckingham99  staff  22652698 Sep 26 14:22 20 - 1 - Chi-square goodness of fit (11_27).mp4
+  -rw-r-----@   1 abuckingham99  staff     14612 Dec 25 07:47 20 - 1 - Chi-square goodness of fit (11_27).srt
+  -rw-r-----@   1 abuckingham99  staff      9121 Dec 25 07:47 20 - 1 - Chi-square goodness of fit (11_27).txt
+  -rw-r-----@   1 abuckingham99  staff  18951236 Sep 26 14:19 20 - 2 - Chi-square test of independence (10_07).mp4
+  -rw-r-----@   1 abuckingham99  staff     12079 Dec 25 07:47 20 - 2 - Chi-square test of independence (10_07).srt
+  -rw-r-----@   1 abuckingham99  staff      7323 Dec 25 07:47 20 - 2 - Chi-square test of independence (10_07).txt
+  -rw-r-----@   1 abuckingham99  staff  23239225 Sep 26 14:19 21 - 1 - Overview (12_15).mp4
+  -rw-r-----@   1 abuckingham99  staff     16093 Dec 25 07:47 21 - 1 - Overview (12_15).srt
+  -rw-r-----@   1 abuckingham99  staff      9692 Dec 25 07:47 21 - 1 - Overview (12_15).txt
+  -rw-r-----@   1 abuckingham99  staff  22641874 Sep 26 14:18 21 - 2 - Example (11_57).mp4
+  -rw-r-----@   1 abuckingham99  staff     15524 Dec 25 07:47 21 - 2 - Example (11_57).srt
+  -rw-r-----@   1 abuckingham99  staff      9228 Dec 25 07:47 21 - 2 - Example (11_57).txt
+  -rw-r-----@   1 abuckingham99  staff  23632159 Sep 26 14:16 22 - 1 - Assumptions (12_36).mp4
+  -rw-r-----@   1 abuckingham99  staff     17025 Dec 25 07:47 22 - 1 - Assumptions (12_36).srt
+  -rw-r-----@   1 abuckingham99  staff     10484 Dec 25 07:47 22 - 1 - Assumptions (12_36).txt
+  -rw-r-----@   1 abuckingham99  staff  12303203 Sep 26 14:13 22 - 2 - Transformations (6_37).mp4
+  -rw-r-----@   1 abuckingham99  staff      8592 Dec 25 07:47 22 - 2 - Transformations (6_37).srt
+  -rw-r-----@   1 abuckingham99  staff      5304 Dec 25 07:47 22 - 2 - Transformations (6_37).txt
+  -rw-r-----@   1 abuckingham99  staff  18435946 Sep 27 08:51 23 - 1 - Parametric vs. non-parametric statistics (10_22).mp4
+  -rw-r-----@   1 abuckingham99  staff     14463 Dec 25 07:47 23 - 1 - Parametric vs. non-parametric statistics (10_22).srt
+  -rw-r-----@   1 abuckingham99  staff      8727 Dec 25 07:47 23 - 1 - Parametric vs. non-parametric statistics (10_22).txt
+  -rw-r-----@   1 abuckingham99  staff  25692874 Sep 27 08:48 23 - 2 - Examples (14_28).mp4
+  -rw-r-----@   1 abuckingham99  staff     18947 Dec 25 07:47 23 - 2 - Examples (14_28).srt
+  -rw-r-----@   1 abuckingham99  staff     11461 Dec 25 07:47 23 - 2 - Examples (14_28).txt
+  -rw-r-----@   1 abuckingham99  staff  15223186 Sep 26 14:10 24 - 1 - Overview (8_32).mp4
+  -rw-r-----@   1 abuckingham99  staff     10806 Dec 25 07:47 24 - 1 - Overview (8_32).srt
+  -rw-r-----@   1 abuckingham99  staff      6680 Dec 25 07:47 24 - 1 - Overview (8_32).txt
+  -rw-r-----@   1 abuckingham99  staff  18001818 Sep 26 14:10 24 - 2 - Examples (10_21).mp4
+  -rw-r-----@   1 abuckingham99  staff     13261 Dec 25 07:47 24 - 2 - Examples (10_21).srt
+  -rw-r-----@   1 abuckingham99  staff      8155 Dec 25 07:47 24 - 2 - Examples (10_21).txt
+  -rw-r-----@   1 abuckingham99  staff   9975698 Sep 26 14:07 25 - 1 - Research methods and descriptive statistics (5_32).mp4
+  -rw-r-----@   1 abuckingham99  staff      7304 Dec 25 07:47 25 - 1 - Research methods and descriptive statistics (5_32).srt
+  -rw-r-----@   1 abuckingham99  staff      4526 Dec 25 07:47 25 - 1 - Research methods and descriptive statistics (5_32).txt
+  -rw-r-----@   1 abuckingham99  staff  13626018 Sep 26 14:07 25 - 2 - Simple and multiple regression (7_42).mp4
+  -rw-r-----@   1 abuckingham99  staff     11132 Dec 25 07:47 25 - 2 - Simple and multiple regression (7_42).srt
+  -rw-r-----@   1 abuckingham99  staff      6796 Dec 25 07:47 25 - 2 - Simple and multiple regression (7_42).txt
+  -rw-r-----@   1 abuckingham99  staff  10370788 Sep 26 14:06 25 - 3 - Group comparisons t-tests and ANOVA (5_52).mp4
+  -rw-r-----@   1 abuckingham99  staff      8402 Dec 25 07:47 25 - 3 - Group comparisons t-tests and ANOVA (5_52).srt
+  -rw-r-----@   1 abuckingham99  staff      5114 Dec 25 07:47 25 - 3 - Group comparisons t-tests and ANOVA (5_52).txt
+  -rw-r-----@   1 abuckingham99  staff   7309732 Sep 26 14:04 25 - 4 - Procedures for non-normal distributions and non-linear models (4_12).mp4
+  -rw-r-----@   1 abuckingham99  staff      5740 Dec 25 07:47 25 - 4 - Procedures for non-normal distributions and non-linear models (4_12).srt
+  -rw-r-----@   1 abuckingham99  staff      3574 Dec 25 07:47 25 - 4 - Procedures for non-normal distributions and non-linear models (4_12).txt
+  -rw-r-----@   1 abuckingham99  staff  12057537 Sep 20 11:53 26 - 1 - Lab 1_ Introduction to R (12_03).mp4
+  -rw-r-----@   1 abuckingham99  staff     14551 Dec 25 07:47 26 - 1 - Lab 1_ Introduction to R (12_03).srt
+  -rw-r-----@   1 abuckingham99  staff      8815 Dec 25 07:47 26 - 1 - Lab 1_ Introduction to R (12_03).txt
+  -rw-r-----@   1 abuckingham99  staff  75016721 Nov 25 12:13 26 - 10 - Lab 10_ Binary logistic regression (18_56).mp4
+  -rw-r-----@   1 abuckingham99  staff     25097 Dec 25 07:47 26 - 10 - Lab 10_ Binary logistic regression (18_56).srt
+  -rw-r-----@   1 abuckingham99  staff     14951 Dec 25 07:47 26 - 10 - Lab 10_ Binary logistic regression (18_56).txt
+  -rw-r-----@   1 abuckingham99  staff  38776091 Sep 27 13:46 26 - 2 - Lab 2_ Histograms and summary statistics (37_04).mp4
+  -rw-r-----@   1 abuckingham99  staff     48541 Dec 25 07:47 26 - 2 - Lab 2_ Histograms and summary statistics (37_04).srt
+  -rw-r-----@   1 abuckingham99  staff     29155 Dec 25 07:47 26 - 2 - Lab 2_ Histograms and summary statistics (37_04).txt
+  -rw-r-----@   1 abuckingham99  staff  23778627 Oct  4 13:16 26 - 3 - Lab 3_ Scatterplots and correlations (20_46).mp4
+  -rw-r-----@   1 abuckingham99  staff     28787 Dec 25 07:47 26 - 3 - Lab 3_ Scatterplots and correlations (20_46).srt
+  -rw-r-----@   1 abuckingham99  staff     17171 Dec 25 07:47 26 - 3 - Lab 3_ Scatterplots and correlations (20_46).txt
+  -rw-r-----@   1 abuckingham99  staff  29707080 Oct 11 16:01 26 - 4 - Lab 4_ Regression (28_33).mp4
+  -rw-r-----@   1 abuckingham99  staff     39005 Dec 25 07:47 26 - 4 - Lab 4_ Regression (28_33).srt
+  -rw-r-----@   1 abuckingham99  staff     23644 Dec 25 07:47 26 - 4 - Lab 4_ Regression (28_33).txt
+  -rw-r-----@   1 abuckingham99  staff  32763790 Oct 19 12:49 26 - 5 - Lab 5_ Confidence intervals (30_10).mp4
+  -rw-r-----@   1 abuckingham99  staff     39322 Dec 25 07:47 26 - 5 - Lab 5_ Confidence intervals (30_10).srt
+  -rw-r-----@   1 abuckingham99  staff     23121 Dec 25 07:47 26 - 5 - Lab 5_ Confidence intervals (30_10).txt
+  -rw-r-----@   1 abuckingham99  staff  68880570 Oct 25 13:58 26 - 6 - Lab 6_ Multiple regression (21_45).mp4
+  -rw-r-----@   1 abuckingham99  staff     28300 Dec 25 07:47 26 - 6 - Lab 6_ Multiple regression (21_45).srt
+  -rw-r-----@   1 abuckingham99  staff     16719 Dec 25 07:47 26 - 6 - Lab 6_ Multiple regression (21_45).txt
+  -rw-r-----@   1 abuckingham99  staff  51189113 Nov  2 13:58 26 - 7 - Lab 7_ Moderation and mediation (15_48).mp4
+  -rw-r-----@   1 abuckingham99  staff     20888 Dec 25 07:47 26 - 7 - Lab 7_ Moderation and mediation (15_48).srt
+  -rw-r-----@   1 abuckingham99  staff     12387 Dec 25 07:47 26 - 7 - Lab 7_ Moderation and mediation (15_48).txt
+  -rw-r-----@   1 abuckingham99  staff  54767970 Nov  8 14:27 26 - 8 - Lab 8_ Group comparisons (18_18).mp4
+  -rw-r-----@   1 abuckingham99  staff     26795 Dec 25 07:47 26 - 8 - Lab 8_ Group comparisons (18_18).srt
+  -rw-r-----@   1 abuckingham99  staff     16264 Dec 25 07:47 26 - 8 - Lab 8_ Group comparisons (18_18).txt
+  -rw-r-----@   1 abuckingham99  staff  39055003 Nov 13 20:13 26 - 9 - Lab 9_  Factorial ANOVA (12_16).mp4
+  -rw-r-----@   1 abuckingham99  staff     16837 Dec 25 07:47 26 - 9 - Lab 9_  Factorial ANOVA (12_16).srt
+  -rw-r-----@   1 abuckingham99  staff     10191 Dec 25 07:47 26 - 9 - Lab 9_  Factorial ANOVA (12_16).txt
+  -rw-r-----@   1 abuckingham99  staff  24737283 Jun 26  2013 3 - 1 - Example 1_ Personality (9_37).mp4
+  -rw-r-----@   1 abuckingham99  staff     12794 Dec 25 07:47 3 - 1 - Example 1_ Personality (9_37).srt
+  -rw-r-----@   1 abuckingham99  staff      7828 Dec 25 07:47 3 - 1 - Example 1_ Personality (9_37).txt
+  -rw-r-----@   1 abuckingham99  staff  24231018 Jun 26  2013 3 - 2 - Example 2_ Intelligence (9_09).mp4
+  -rw-r-----@   1 abuckingham99  staff     11866 Dec 25 07:47 3 - 2 - Example 2_ Intelligence (9_09).srt
+  -rw-r-----@   1 abuckingham99  staff      7285 Dec 25 07:47 3 - 2 - Example 2_ Intelligence (9_09).txt
+  -rw-r-----@   1 abuckingham99  staff  33149227 Jun 26  2013 3 - 3 - Example 3_ Sports-related concussion (11_24).mp4
+  -rw-r-----@   1 abuckingham99  staff     15297 Dec 25 07:47 3 - 3 - Example 3_ Sports-related concussion (11_24).srt
+  -rw-r-----@   1 abuckingham99  staff      9106 Dec 25 07:47 3 - 3 - Example 3_ Sports-related concussion (11_24).txt
+  -rw-r-----@   1 abuckingham99  staff  43106734 Sep  8 10:56 4 - 1 - Types of variables (14_53).mp4
+  -rw-r-----@   1 abuckingham99  staff     19227 Dec 25 07:47 4 - 1 - Types of variables (14_53).srt
+  -rw-r-----@   1 abuckingham99  staff     11741 Dec 25 07:47 4 - 1 - Types of variables (14_53).txt
+  -rw-r-----@   1 abuckingham99  staff  58631343 Jun 26  2013 4 - 2 - Distributions_ Histograms (22_39).mp4
+  -rw-r-----@   1 abuckingham99  staff     30579 Dec 25 07:47 4 - 2 - Distributions_ Histograms (22_39).srt
+  -rw-r-----@   1 abuckingham99  staff     18263 Dec 25 07:47 4 - 2 - Distributions_ Histograms (22_39).txt
+  -rw-r-----@   1 abuckingham99  staff  18398093 Jun 26  2013 4 - 3 - Scales of measurement (6_46).mp4
+  -rw-r-----@   1 abuckingham99  staff      8773 Dec 25 07:47 4 - 3 - Scales of measurement (6_46).srt
+  -rw-r-----@   1 abuckingham99  staff      5312 Dec 25 07:47 4 - 3 - Scales of measurement (6_46).txt
+  -rw-r-----@   1 abuckingham99  staff  43553764 Sep  8 11:10 5 - 1 - Measures of central tendency (15_22).mp4
+  -rw-r-----@   1 abuckingham99  staff     20508 Dec 25 07:47 5 - 1 - Measures of central tendency (15_22).srt
+  -rw-r-----@   1 abuckingham99  staff     12392 Dec 25 07:47 5 - 1 - Measures of central tendency (15_22).txt
+  -rw-r-----@   1 abuckingham99  staff  49386903 Jun 26  2013 5 - 2 - Measures of variability (17_01).mp4
+  -rw-r-----@   1 abuckingham99  staff     22536 Dec 25 07:47 5 - 2 - Measures of variability (17_01).srt
+  -rw-r-----@   1 abuckingham99  staff     13650 Dec 25 07:47 5 - 2 - Measures of variability (17_01).txt
+  -rw-r-----@   1 abuckingham99  staff  49658138 Sep  8 11:33 6 - 1 - Overview (15_58).mp4
+  -rw-r-----@   1 abuckingham99  staff     22666 Dec 25 07:47 6 - 1 - Overview (15_58).srt
+  -rw-r-----@   1 abuckingham99  staff     13640 Dec 25 07:47 6 - 1 - Overview (15_58).txt
+  -rw-r-----@   1 abuckingham99  staff  44141298 Jun 26  2013 6 - 2 - Calculation of R (15_29).mp4
+  -rw-r-----@   1 abuckingham99  staff     20350 Dec 25 07:47 6 - 2 - Calculation of R (15_29).srt
+  -rw-r-----@   1 abuckingham99  staff     12269 Dec 25 07:47 6 - 2 - Calculation of R (15_29).txt
+  -rw-r-----@   1 abuckingham99  staff  31932794 Sep  8 11:52 6 - 3 - Assumptions (12_13).mp4
+  -rw-r-----@   1 abuckingham99  staff     16179 Dec 25 07:47 6 - 3 - Assumptions (12_13).srt
+  -rw-r-----@   1 abuckingham99  staff      9918 Dec 25 07:47 6 - 3 - Assumptions (12_13).txt
+  -rw-r-----@   1 abuckingham99  staff  44421780 Sep  8 12:00 7 - 1 - Reliability (14_31).mp4
+  -rw-r-----@   1 abuckingham99  staff     19812 Dec 25 07:47 7 - 1 - Reliability (14_31).srt
+  -rw-r-----@   1 abuckingham99  staff     11801 Dec 25 07:47 7 - 1 - Reliability (14_31).txt
+  -rw-r-----@   1 abuckingham99  staff  30489908 Sep  8 12:01 7 - 2 - Validity (9_50).mp4
+  -rw-r-----@   1 abuckingham99  staff     13739 Dec 25 07:47 7 - 2 - Validity (9_50).srt
+  -rw-r-----@   1 abuckingham99  staff      8178 Dec 25 07:47 7 - 2 - Validity (9_50).txt
+  -rw-r-----@   1 abuckingham99  staff  21128157 Oct  1 15:19 7 - 3 - Sampling (11_03).mp4
+  -rw-r-----@   1 abuckingham99  staff     13731 Dec 25 07:47 7 - 3 - Sampling (11_03).srt
+  -rw-r-----@   1 abuckingham99  staff      8310 Dec 25 07:47 7 - 3 - Sampling (11_03).txt
+  -rw-r-----@   1 abuckingham99  staff  38622173 Aug  5 11:50 8 - 1 - Overview (19_02).mp4
+  -rw-r-----@   1 abuckingham99  staff     25012 Dec 25 07:47 8 - 1 - Overview (19_02).srt
+  -rw-r-----@   1 abuckingham99  staff     15496 Dec 25 07:47 8 - 1 - Overview (19_02).txt
+  -rw-r-----@   1 abuckingham99  staff  15798175 Aug  5 11:46 8 - 2 - Calculation of regression coefficients (8_22).mp4
+  -rw-r-----@   1 abuckingham99  staff     11444 Dec 25 07:47 8 - 2 - Calculation of regression coefficients (8_22).srt
+  -rw-r-----@   1 abuckingham99  staff      6793 Dec 25 07:47 8 - 2 - Calculation of regression coefficients (8_22).txt
+  -rw-r-----@   1 abuckingham99  staff  14493396 Aug  5 11:47 8 - 3 - Assumptions (7_34).mp4
+  -rw-r-----@   1 abuckingham99  staff      9715 Dec 25 07:47 8 - 3 - Assumptions (7_34).srt
+  -rw-r-----@   1 abuckingham99  staff      5974 Dec 25 07:47 8 - 3 - Assumptions (7_34).txt
+  -rw-r-----@   1 abuckingham99  staff  31618962 Aug  5 11:52 9 - 1 - Overview (17_05).mp4
+  -rw-r-----@   1 abuckingham99  staff     22659 Dec 25 07:47 9 - 1 - Overview (17_05).srt
+  -rw-r-----@   1 abuckingham99  staff     13808 Dec 25 07:47 9 - 1 - Overview (17_05).txt
+  -rw-r-----@   1 abuckingham99  staff  31350748 Aug  5 11:55 9 - 2 - Problems & remedies (15_55).mp4
+  -rw-r-----@   1 abuckingham99  staff     20567 Dec 25 07:47 9 - 2 - Problems & remedies (15_55).srt
+  -rw-r-----@   1 abuckingham99  staff     12591 Dec 25 07:47 9 - 2 - Problems & remedies (15_55).txt
+  -rw-r--r--@   1 abuckingham99  staff    151393 Dec 25 07:39 Coursera-Stats
+  -rw-r-----@   1 abuckingham99  staff   2634059 Sep  6 11:36 Stats1.13.L00.AIR.pdf
+  -rw-r-----@   1 abuckingham99  staff   3435653 Oct 14 19:35 Stats1.13.L01.pdf
+  -rw-r-----@   1 abuckingham99  staff   3376495 Oct 14 19:35 Stats1.13.L02.pdf
+  -rw-r-----@   1 abuckingham99  staff   6728241 Oct 14 19:36 Stats1.13.L03.pdf
+  -rw-r-----@   1 abuckingham99  staff   3955646 Oct 14 19:35 Stats1.13.L04.pdf
+  -rw-r-----@   1 abuckingham99  staff   6009756 Oct 14 19:35 Stats1.13.L05.pdf
+  -rw-r-----@   1 abuckingham99  staff   4891089 Oct 14 19:35 Stats1.13.L06.pdf
+  -rw-r-----@   1 abuckingham99  staff   5365581 Oct 14 19:35 Stats1.13.L07.pdf
+  -rw-r-----@   1 abuckingham99  staff   2884105 Oct 14 19:36 Stats1.13.L08.pdf
+  -rw-r-----@   1 abuckingham99  staff   3411091 Oct 14 19:36 Stats1.13.L09.pdf
+  -rw-r-----@   1 abuckingham99  staff   4028995 Oct 14 19:36 Stats1.13.L10.pdf
+  -rw-r-----@   1 abuckingham99  staff   5794046 Oct 14 19:36 Stats1.13.L11.pdf
+  -rw-r-----@   1 abuckingham99  staff   2937993 Oct 14 19:36 Stats1.13.L12.pdf
+  -rw-r-----@   1 abuckingham99  staff   5511096 Oct 14 19:36 Stats1.13.L13.pdf
+  -rw-r-----@   1 abuckingham99  staff   4819625 Oct 14 19:36 Stats1.13.L14.pdf
+  -rw-r-----@   1 abuckingham99  staff   9146772 Oct 14 19:35 Stats1.13.L15.pdf
+  -rw-r-----@   1 abuckingham99  staff   3666392 Oct 14 19:36 Stats1.13.L16.pdf
+  -rw-r-----@   1 abuckingham99  staff   3889659 Oct 14 19:36 Stats1.13.L17.pdf
+  -rw-r-----@   1 abuckingham99  staff   3742425 Oct 14 19:36 Stats1.13.L18.pdf
+  -rw-r-----@   1 abuckingham99  staff   6198430 Oct 14 19:36 Stats1.13.L19.pdf
+  -rw-r-----@   1 abuckingham99  staff   6606823 Oct 14 19:36 Stats1.13.L20.pdf
+  -rw-r-----@   1 abuckingham99  staff   4980849 Oct 14 19:36 Stats1.13.L21.pdf
+  -rw-r-----@   1 abuckingham99  staff   5550121 Oct 14 19:36 Stats1.13.L22.pdf
+  -rw-r-----@   1 abuckingham99  staff   5117299 Oct 14 19:36 Stats1.13.L23.pdf
+  -rw-r-----@   1 abuckingham99  staff   4097318 Oct 14 19:36 Stats1.13.L24.pdf
+  -rw-r-----@   1 abuckingham99  staff      2469 Sep 25 10:54 Stats1.13.Lab.02.txt
+  -rw-r-----@   1 abuckingham99  staff      2259 Oct  4 13:14 Stats1.13.Lab.03.txt
+  -rw-r-----@   1 abuckingham99  staff      2438 Oct 11 15:55 Stats1.13.Lab.04.txt
+  -rw-r-----@   1 abuckingham99  staff      2438 Oct 19 12:52 Stats1.13.Lab.05.txt
+  -rw-r-----@   1 abuckingham99  staff      1810 Oct 25 13:54 Stats1.13.Lab.06.txt
+  -rw-r-----@   1 abuckingham99  staff      5436 Nov  2 13:59 Stats1.13.Lab.07.txt
+  -rw-r-----@   1 abuckingham99  staff      2395 Nov  2 13:59 Stats1.13.Lab.07b.txt
+  -rw-r-----@   1 abuckingham99  staff      1811 Nov  9 09:37 Stats1.13.Lab.08.txt
+  -rw-r-----@   1 abuckingham99  staff      3886 Nov 13 19:58 Stats1.13.Lab.09.txt
+  -rw-r-----@   1 abuckingham99  staff      1793 Nov 25 11:45 Stats1.13.Lab.10.txt
+
+*** Lectures
+
+NN
+ 01 - 1 - Course introduction (14_22).mp4
+ 01 - 1 - Course introduction (14_22).srt
+ 01 - 1 - Course introduction (14_22).txt
+
+NN
+ 02 - 1 - Example 1_ Polio vaccine (11_17).mp4
+ 02 - 1 - Example 1_ Polio vaccine (11_17).srt
+ 02 - 1 - Example 1_ Polio vaccine (11_17).txt
+ 02 - 2 - Example 2_ Memory training (16_21).mp4
+ 02 - 2 - Example 2_ Memory training (16_21).srt
+ 02 - 2 - Example 2_ Memory training (16_21).txt
+ 02 - 3 - Example 3_ The concept of random (6_27).mp4
+ 02 - 3 - Example 3_ The concept of random (6_27).srt
+ 02 - 3 - Example 3_ The concept of random (6_27).txt
+
+NN
+ 03 - 1 - Example 1_ Personality (9_37).mp4
+ 03 - 1 - Example 1_ Personality (9_37).srt
+ 03 - 1 - Example 1_ Personality (9_37).txt
+ 03 - 2 - Example 2_ Intelligence (9_09).mp4
+ 03 - 2 - Example 2_ Intelligence (9_09).srt
+ 03 - 2 - Example 2_ Intelligence (9_09).txt
+ 03 - 3 - Example 3_ Sports-related concussion (11_24).mp4
+ 03 - 3 - Example 3_ Sports-related concussion (11_24).srt
+ 03 - 3 - Example 3_ Sports-related concussion (11_24).txt
+
+NN
+ 04 - 1 - Types of variables (14_53).mp4
+ 04 - 1 - Types of variables (14_53).srt
+ 04 - 1 - Types of variables (14_53).txt
+ 04 - 2 - Distributions_ Histograms (22_39).mp4
+ 04 - 2 - Distributions_ Histograms (22_39).srt
+ 04 - 2 - Distributions_ Histograms (22_39).txt
+ 04 - 3 - Scales of measurement (6_46).mp4
+ 04 - 3 - Scales of measurement (6_46).srt
+ 04 - 3 - Scales of measurement (6_46).txt
+
+NN
+ 05 - 1 - Measures of central tendency (15_22).mp4
+ 05 - 1 - Measures of central tendency (15_22).srt
+ 05 - 1 - Measures of central tendency (15_22).txt
+ 05 - 2 - Measures of variability (17_01).mp4
+ 05 - 2 - Measures of variability (17_01).srt
+ 05 - 2 - Measures of variability (17_01).txt
+
+NN
+ 06 - 1 - Overview (15_58).mp4
+ 06 - 1 - Overview (15_58).srt
+ 06 - 1 - Overview (15_58).txt
+ 06 - 2 - Calculation of R (15_29).mp4
+ 06 - 2 - Calculation of R (15_29).srt
+ 06 - 2 - Calculation of R (15_29).txt
+ 06 - 3 - Assumptions (12_13).mp4
+ 06 - 3 - Assumptions (12_13).srt
+ 06 - 3 - Assumptions (12_13).txt
+
+NN
+ 07 - 1 - Reliability (14_31).mp4
+ 07 - 1 - Reliability (14_31).srt
+ 07 - 1 - Reliability (14_31).txt
+ 07 - 2 - Validity (9_50).mp4
+ 07 - 2 - Validity (9_50).srt
+ 07 - 2 - Validity (9_50).txt
+ 07 - 3 - Sampling (11_03).mp4
+ 07 - 3 - Sampling (11_03).srt
+ 07 - 3 - Sampling (11_03).txt
+
+NN
+ 08 - 1 - Overview (19_02).mp4
+ 08 - 1 - Overview (19_02).srt
+ 08 - 1 - Overview (19_02).txt
+ 08 - 2 - Calculation of regression coefficients (8_22).mp4
+ 08 - 2 - Calculation of regression coefficients (8_22).srt
+ 08 - 2 - Calculation of regression coefficients (8_22).txt
+ 08 - 3 - Assumptions (7_34).mp4
+ 08 - 3 - Assumptions (7_34).srt
+ 08 - 3 - Assumptions (7_34).txt
+
+NN
+ 09 - 1 - Overview (17_05).mp4
+ 09 - 1 - Overview (17_05).srt
+ 09 - 1 - Overview (17_05).txt
+ 09 - 2 - Problems & remedies (15_55).mp4
+ 09 - 2 - Problems & remedies (15_55).srt
+ 09 - 2 - Problems & remedies (15_55).txt
+ 10 - 1 - Sampling distributions (11_51).mp4
+ 10 - 1 - Sampling distributions (11_51).srt
+ 10 - 1 - Sampling distributions (11_51).txt
+ 10 - 2 - The central limit theorem (14_16).mp4
+ 10 - 2 - The central limit theorem (14_16).srt
+ 10 - 2 - The central limit theorem (14_16).txt
+ 11 - 1 - Confidence intervals for sample means (18_19).mp4
+ 11 - 1 - Confidence intervals for sample means (18_19).srt
+ 11 - 1 - Confidence intervals for sample means (18_19).txt
+ 11 - 2 - Confidence intervals for regression coefficients (10_23).mp4
+ 11 - 2 - Confidence intervals for regression coefficients (10_23).srt
+ 11 - 2 - Confidence intervals for regression coefficients (10_23).txt
+ 12 - 1 - Multiple regression (15_28).mp4
+ 12 - 1 - Multiple regression (15_28).srt
+ 12 - 1 - Multiple regression (15_28).txt
+ 12 - 2 - Matrix algebra (14_50).mp4
+ 12 - 2 - Matrix algebra (14_50).srt
+ 12 - 2 - Matrix algebra (14_50).txt
+ 12 - 3 - Estimation of coefficients (9_34).mp4
+ 12 - 3 - Estimation of coefficients (9_34).srt
+ 12 - 3 - Estimation of coefficients (9_34).txt
+ 13 - 1 - The general linear model (7_55).mp4
+ 13 - 1 - The general linear model (7_55).srt
+ 13 - 1 - The general linear model (7_55).txt
+ 13 - 2 - Dummy coding (12_24).mp4
+ 13 - 2 - Dummy coding (12_24).srt
+ 13 - 2 - Dummy coding (12_24).txt
+ 14 - 1 - Example 1 (27_13).mp4
+ 14 - 1 - Example 1 (27_13).srt
+ 14 - 1 - Example 1 (27_13).txt
+ 14 - 2 - Centering predictors (15_15).mp4
+ 14 - 2 - Centering predictors (15_15).srt
+ 14 - 2 - Centering predictors (15_15).txt
+ 14 - 3 - Example 2 (6_44).mp4
+ 14 - 3 - Example 2 (6_44).srt
+ 14 - 3 - Example 2 (6_44).txt
+ 15 - 1 - Standard approach (18_33).mp4
+ 15 - 1 - Standard approach (18_33).srt
+ 15 - 1 - Standard approach (18_33).txt
+ 15 - 2 - Path analysis (14_41).mp4
+ 15 - 2 - Path analysis (14_41).srt
+ 15 - 2 - Path analysis (14_41).txt
+ 16 - 1 - Introduction (14_12).mp4
+ 16 - 1 - Introduction (14_12).srt
+ 16 - 1 - Introduction (14_12).txt
+ 16 - 2 - Dependent t-tests (12_48).mp4
+ 16 - 2 - Dependent t-tests (12_48).srt
+ 16 - 2 - Dependent t-tests (12_48).txt
+ 16 - 3 - Independent t-tests (18_50).mp4
+ 16 - 3 - Independent t-tests (18_50).srt
+ 16 - 3 - Independent t-tests (18_50).txt
+ 17 - 1 - One-way ANOVA (22_17).mp4
+ 17 - 1 - One-way ANOVA (22_17).srt
+ 17 - 1 - One-way ANOVA (22_17).txt
+ 17 - 2 - Post-hoc tests (7_35).mp4
+ 17 - 2 - Post-hoc tests (7_35).srt
+ 17 - 2 - Post-hoc tests (7_35).txt
+ 18 - 1 - Factorial ANOVA (16_37).mp4
+ 18 - 1 - Factorial ANOVA (16_37).srt
+ 18 - 1 - Factorial ANOVA (16_37).txt
+ 18 - 2 - Example (8_43).mp4
+ 18 - 2 - Example (8_43).srt
+ 18 - 2 - Example (8_43).txt
+ 19 - 1 - Repeated measures_ Pros and cons (21_33).mp4
+ 19 - 1 - Repeated measures_ Pros and cons (21_33).srt
+ 19 - 1 - Repeated measures_ Pros and cons (21_33).txt
+ 19 - 2 - Repeated measures ANOVA example (11_36).mp4
+ 19 - 2 - Repeated measures ANOVA example (11_36).srt
+ 19 - 2 - Repeated measures ANOVA example (11_36).txt
+ 20 - 1 - Chi-square goodness of fit (11_27).mp4
+ 20 - 1 - Chi-square goodness of fit (11_27).srt
+ 20 - 1 - Chi-square goodness of fit (11_27).txt
+ 20 - 2 - Chi-square test of independence (10_07).mp4
+ 20 - 2 - Chi-square test of independence (10_07).srt
+ 20 - 2 - Chi-square test of independence (10_07).txt
+ 21 - 1 - Overview (12_15).mp4
+ 21 - 1 - Overview (12_15).srt
+ 21 - 1 - Overview (12_15).txt
+ 21 - 2 - Example (11_57).mp4
+ 21 - 2 - Example (11_57).srt
+ 21 - 2 - Example (11_57).txt
+ 22 - 1 - Assumptions (12_36).mp4
+ 22 - 1 - Assumptions (12_36).srt
+ 22 - 1 - Assumptions (12_36).txt
+ 22 - 2 - Transformations (6_37).mp4
+ 22 - 2 - Transformations (6_37).srt
+ 22 - 2 - Transformations (6_37).txt
+ 23 - 1 - Parametric vs. non-parametric statistics (10_22).mp4
+ 23 - 1 - Parametric vs. non-parametric statistics (10_22).srt
+ 23 - 1 - Parametric vs. non-parametric statistics (10_22).txt
+ 23 - 2 - Examples (14_28).mp4
+ 23 - 2 - Examples (14_28).srt
+ 23 - 2 - Examples (14_28).txt
+ 24 - 1 - Overview (8_32).mp4
+ 24 - 1 - Overview (8_32).srt
+ 24 - 1 - Overview (8_32).txt
+ 24 - 2 - Examples (10_21).mp4
+ 24 - 2 - Examples (10_21).srt
+ 24 - 2 - Examples (10_21).txt
+ 25 - 1 - Research methods and descriptive statistics (5_32).mp4
+ 25 - 1 - Research methods and descriptive statistics (5_32).srt
+ 25 - 1 - Research methods and descriptive statistics (5_32).txt
+ 25 - 2 - Simple and multiple regression (7_42).mp4
+ 25 - 2 - Simple and multiple regression (7_42).srt
+ 25 - 2 - Simple and multiple regression (7_42).txt
+ 25 - 3 - Group comparisons t-tests and ANOVA (5_52).mp4
+ 25 - 3 - Group comparisons t-tests and ANOVA (5_52).srt
+ 25 - 3 - Group comparisons t-tests and ANOVA (5_52).txt
+ 25 - 4 - Procedures for non-normal distributions and non-linear models (4_12).mp4
+ 25 - 4 - Procedures for non-normal distributions and non-linear models (4_12).srt
+ 25 - 4 - Procedures for non-normal distributions and non-linear models (4_12).txt
+ 26 - 1 - Lab 1_ Introduction to R (12_03).mp4
+ 26 - 1 - Lab 1_ Introduction to R (12_03).srt
+ 26 - 1 - Lab 1_ Introduction to R (12_03).txt
+ 26 - 10 - Lab 10_ Binary logistic regression (18_56).mp4
+ 26 - 10 - Lab 10_ Binary logistic regression (18_56).srt
+ 26 - 10 - Lab 10_ Binary logistic regression (18_56).txt
+ 26 - 2 - Lab 2_ Histograms and summary statistics (37_04).mp4
+ 26 - 2 - Lab 2_ Histograms and summary statistics (37_04).srt
+ 26 - 2 - Lab 2_ Histograms and summary statistics (37_04).txt
+ 26 - 3 - Lab 3_ Scatterplots and correlations (20_46).mp4
+ 26 - 3 - Lab 3_ Scatterplots and correlations (20_46).srt
+ 26 - 3 - Lab 3_ Scatterplots and correlations (20_46).txt
+ 26 - 4 - Lab 4_ Regression (28_33).mp4
+ 26 - 4 - Lab 4_ Regression (28_33).srt
+ 26 - 4 - Lab 4_ Regression (28_33).txt
+ 26 - 5 - Lab 5_ Confidence intervals (30_10).mp4
+ 26 - 5 - Lab 5_ Confidence intervals (30_10).srt
+ 26 - 5 - Lab 5_ Confidence intervals (30_10).txt
+ 26 - 6 - Lab 6_ Multiple regression (21_45).mp4
+ 26 - 6 - Lab 6_ Multiple regression (21_45).srt
+ 26 - 6 - Lab 6_ Multiple regression (21_45).txt
+ 26 - 7 - Lab 7_ Moderation and mediation (15_48).mp4
+ 26 - 7 - Lab 7_ Moderation and mediation (15_48).srt
+ 26 - 7 - Lab 7_ Moderation and mediation (15_48).txt
+ 26 - 8 - Lab 8_ Group comparisons (18_18).mp4
+ 26 - 8 - Lab 8_ Group comparisons (18_18).srt
+ 26 - 8 - Lab 8_ Group comparisons (18_18).txt
+ 26 - 9 - Lab 9_  Factorial ANOVA (12_16).mp4
+ 26 - 9 - Lab 9_  Factorial ANOVA (12_16).srt
+ 26 - 9 - Lab 9_  Factorial ANOVA (12_16).txt
+ Coursera-Stats
+ Stats1.13.L00.AIR.pdf
+ Stats1.13.L01.pdf
+ Stats1.13.L02.pdf
+ Stats1.13.L03.pdf
+ Stats1.13.L04.pdf
+ Stats1.13.L05.pdf
+ Stats1.13.L06.pdf
+ Stats1.13.L07.pdf
+ Stats1.13.L08.pdf
+ Stats1.13.L09.pdf
+ Stats1.13.L10.pdf
+ Stats1.13.L11.pdf
+ Stats1.13.L12.pdf
+ Stats1.13.L13.pdf
+ Stats1.13.L14.pdf
+ Stats1.13.L15.pdf
+ Stats1.13.L16.pdf
+ Stats1.13.L17.pdf
+ Stats1.13.L18.pdf
+ Stats1.13.L19.pdf
+ Stats1.13.L20.pdf
+ Stats1.13.L21.pdf
+ Stats1.13.L22.pdf
+ Stats1.13.L23.pdf
+ Stats1.13.L24.pdf
+ Stats1.13.Lab.02.txt
+ Stats1.13.Lab.03.txt
+ Stats1.13.Lab.04.txt
+ Stats1.13.Lab.05.txt
+ Stats1.13.Lab.06.txt
+ Stats1.13.Lab.07.txt
+ Stats1.13.Lab.07b.txt
+ Stats1.13.Lab.08.txt
+ Stats1.13.Lab.09.txt
+ Stats1.13.Lab.10.txt

@@ -1,0 +1,78 @@
+#+OPTIONS: num:nil
+
+* New Employee Training Documentation
+ 
+** Order of Documents
+
+1. New Employee To Do List
+2. Policy on Accessing Blackboard Course Sites as an Administrator
+3. Confidentiality Agreement
+4. ITS Student Assistant Profile and Policies
+5. Training: Build a Course Site
+6. Blackboard Assignment Tool
+7. Training: Blackboard Admin Role
+8. ITS Call Center Priority List
+9. Daily Task List/Handling Remedy Tickets
+10. Handling the ITS Inbox
+11. Blackboard Request System
+12. Remedy Ticket System
+13. Outlook 2010 (or 2007, if applicable)
+14. Mapping Drives 
+  
+** Blackboard Setup
+1. Assign them Admin accounts
+   * xxTheir System roles should be:
+     - UMKC-USERS
+   * Their Institutional role should be:
+     - UMKC-ADMIN, UMKC-Faculty, UMKC-Students
+     - User Administrator
+     - System Administrator
+2. Have them log in to the BB Dev Server for their Admin training.
+3. Have them log in to the live server (under supervision) to complete the Request System tasks
+4. Enroll users in "Blackboard for Instructors" Group    
+
+** Procedures
+*** Before the employee starts
+- Print out all documents and prepare a folder for the employee.
+- Enroll the employee in the BB Development site.
+
+
+*** On the first day
+- Have the student sign the Confidentiality and Admin Policy documents
+- Brief conversation/Intro
+- Have them login and sign up for FERPA
+- Show them how to access the training videos, and let them look them over.
+- Help them create a sandbox and start building a Testing Site
+- Contact Lyndsey Magrone about AR accounts (Remedy)
+  - If possible, have her reassign old accounts.
+
+- Set up their Outlook accounts
+- Help them map their Y: and Z: drives (Blackboard archives)
+- Setup their Live Chat profiles
+  1. Go to the Provide Support website: http://www.providesupport.com/
+  2. Login
+     * Username: umkc\_blackboard
+     * Password: EagleEye
+  3. Assign the users an Operator login (usually their BB Admin account) and a password (the employee can choose it)
+- Request access to the N: drive for them, and help them set up their OneNote documents (Ask Molly to help)
+
+  
+*** DONE verify System/Institutional roles
+    SCHEDULED: <2012-10-02 Tue 09:00>
+- System: UMKC-USERS
+- Institutional: UMKC-ADMIN, UMKC-Faculty
+
+** DONE Change the outlook server in the tutorials from ... to outlook@umkc.edu.
+
+Please contact us directly at (816) 235-6700. Our office is open
+Monday through Friday, from 7am - 6pm CST. We also offer live online
+chat support, accessible from the Blackboard Login page, on Sundays
+and Mondays from 6pm - 10pm, and Tuesdays from 8pm - 10pm.
+
+816-842-4820
+** TODO Add BB Archive server info (either find the old document or make a new one)
+   DEADLINE: <2012-12-05 Wed>
+   :PROPERTIES:
+   :ID:       43CF8935-F264-4DA9-A368-1591152A1F6C
+   :END:
+

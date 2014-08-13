@@ -1,0 +1,61 @@
+
+# Quick overview of upcoming SP14 Features
+- Date Management
+- Test Availability Exceptions
+- Test Access Log
+- Test IP filtering
+- Group Management Improvement
+- MOOCS by Blackboard
+- GUI Server Monitoring
+- Achievments & Badges
+- MyEdu Profile and Employment (Available Now)
+- Partner Cloud (Available Now)
+- Student Preview
+
+  
+# In Development
+- Profiles for Lifelong Learning Achievement
+- Native html5 Bb Collaborate (No more Java!) - available in 2015(?)
+- Course Links in Content Editor (In Design)
+- Improved SafeAssign Integration
+- Assignment Submission Confirmation
+- Anonymous Grading & Multiple Evaluators (Peermark Killer?)
+- New Gradebook 
+	+ Sticky Settings
+	+ User Search
+	+ Manipulate multiple items simultaneously
+***
+
+- Shared Rubrics
+- Goal Performance - Student (Competency-Based Learning Student Exerience/Performance Progress Tracking Tool)
+- Performance-based Conditional Release (Update to Adaptive Release that adds "Goal Performance" as a criteria)
+- My Blackboard, Portfolios (April 2014 release)
+	+ Kind of like a LiveText tool (not his term)
+	+ Currently Assignments 
+	+ Portfolios can be embedded in other assignments (for a capstone assignment)
+- Hijri Calendar
+- Blackboard Idea Exchange	
+
+# Sneak Preview of Rework (Protected by BIE Non-disclosure Agreement) #
+- More learner-centric
+	+ Stream (system updates, like FB)
+	+ My Learning Network/My Cover page 
+	+ badges, accomplishments, instructors/employers
+	+ prevent instructors from making a tool available but then not having a link for students
+	+ Meta Conversations (missed the explanation because I had to take a call)
+	+ You can see there is content there, but it's grayed out and you can't access it until you have completed prerequisite material
+	+ Online Presence Indicator/Direct Messaging
+
+# Upcoming Mobile Improvements
+- My Courses view
+- Development
+	+ Students: phone first
+	+ Instructors: tablet first
+***
+# Roadmap
+## Thematic Priorities
+1. Quality
+2. Simplify
+3. Mobile
+4. Competency-based Education
+5. International

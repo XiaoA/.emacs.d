@@ -1,0 +1,4 @@
+# contributor : Andrew Buckingham <abuckingham99@gmail.com>
+# name : header
+# --
+<header ${1:$$(yas-choose-value '("id" "class"))}="$2">$3</header>$0

@@ -1,0 +1,219 @@
+﻿<!-- #include virtual="../../includes/header.aspx"-->
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<title>Blackboard Policies - Blackboard Home - Information Access Home - University of Missouri - Kansas City</title>
+<!--#include virtual="../../includes/script.aspx"-->
+<!-- Include Custom Script Here -->
+<link type="text/css" rel="stylesheet" href="includes/bb_responsive.css" />
+<!-- End Custom Script -->
+<!--#include virtual="../../includes/headerbody.aspx"-->
+<!-- Start of Body -->
+<div id="main-container"><div id="body-container">
+<section id="left-body-column">
+<!-- Start of Main Left -->
+<!--#include virtual="../../includes/leftcol.aspx"-->
+
+<!-- End of Main Left -->
+</section>
+<div id="threecolcontainer">
+<nav id="ia-navbar" class="top"></nav>
+<section id="center-body-column">
+<!-- Start of Main Center -->
+<!--#include virtual="/ia/includes/mobilenav.aspx"-->
+<div id="breadcrumb">
+        <p><a title="Home" href="../../default.aspx">Home</a> > 
+		<a title="Instructional Technologies Services" href="../default.aspx">ITS</a> > 
+		<a href="default.aspx">Blackboard</a> &gt;&nbsp; <a href="policies.aspx">UMKC Blackboard Policies</a></p>
+      </div>
+      <div class="center">
+      
+      </div>
+     <a id="top"></a> <h1>Blackboard</h1>
+      <h2>Learning Management System</h2>
+      <h3>UMKC Blackboard Policies</h3>
+      <p>Revised 06/06/2012</p>
+      <hr>
+      <h4>Contents:</h4>
+      <ul>
+      <a href="#purpose"><li>Purpose and Permitted Use</li></a>
+      <a href="#creation"><li>Account Creation</li></a>
+      <a href="#deletion"><li>Account Deletion</li></a>
+      <a href="#coursesite"><li>Course Site Creation</li></a>
+      <a href="#request"><li>Request System</li></a>
+      <a href="#enrollment"><li>User Enrollment</li></a>
+      <a href="#longevity"><li>Site Longevity</li></a>
+      <a href="#retention"><li>Retention of Student Coursework and Grade Data</li></a>
+      <a href="#availability"><li>Site Availability</li></a>
+      <a href="#quota"><li>Disk Quota</li></a>
+      <a href="#maintenance"><li>Maintenance Window</li></a>
+      <a href="#records"><li>Student Records Request</li></a>
+      </ul>
+      <hr>
+      <a id="purpose"></a><h4>Purpose and Permitted Use</h4>
+      <p>While the primary purpose of Blackboard is to support student instruction, anyone with a UMKC affiliation may request the use of a Blackboard site for other purposes that will serve or benefit the campus community.</p> 
+
+<p>Examples of permitted non-instructional uses include sites for departmental communication, for student organizations, for campus-wide training and testing, for collaborative work on special projects, and for administrative purposes</p> 
+
+<p>Users of UMKC’s Blackboard server should be guided by all applicable rules and policies, including the UM and MOREnet Acceptable Use Policies and the Digital Millennium Copyright Act. Links to these and other pertinent policies can be found at <a href="https://www.umkc.edu/IS/policies/Default.asp">https://www.umkc.edu/IS/policies/Default.asp</a>.</p>
+
+<p>In addition, users are responsible for ensuring that the content they post on, or make available from, the Blackboard environment does not violate the owners' intellectual property rights. UMKC Libraries staff have put together a <a href="http://libguides.library.umkc.edu/content.php?pid=31006&sid=226509">Copyright LibGuide</a> 
+to provide guidance to faculty and students on matters of what constitutes fair use of copyrighted material and other issues relevant to online and in-classroom teaching environments. Specific questions about copyright can be addressed to the UMKC Copyright Support Team at UMKCCopyright@umkc.edu.</p>
+    <p><a href="#top">Back to Top</a></p>
+ <hr>
+      <a id="creation"></a><h4>Account Creation</h4>
+      <p><b>UMKC users: primary accounts: </b>All regular faculty, staff, and students will have Blackboard accounts created for them automatically shortly after they are hired or admitted.</p>
+      <p><b>UMKC users: secondary accounts: </b>Secondary accounts will be created at the request of instructors who need an ancillary account for course design or testing purposes. Secondary accounts will use the format <SSOID><"-s"><n>, for the username, e.g. smithjan-s1.</p>
+      <p><b>Non-UM System users:</b> UMKC's site license limits the number of non-UM System users to whom we are allowed to grant Blackboard access without paying extra licensing fees. Because of these restrictions, accounts for non-UM System users are created only under the following conditions:
+</p>
+		<ul>
+		<li>Accounts cannot be created for an indefinite period, but must have a duration date specified. The account's sponsor may request an extension of access prior to the end date.</li>
+		<li>Accounts are created for access to specific sites only; non-UM System users should not be enrolled in other course sites without prior permission from ITS.</li>
+		<li>All requests for Blackboard accounts for non-UM System users must come from an organization site leader or a designated UMKC faculty or staff member. The following procedure must be followed to have the accounts created:
+		<ul>
+						<li>The person requesting the accounts needs to fill out 
+						the Temporary Account Request Excel spreadsheet located 
+						at <a href="http://www.umkc.edu/is/conferences/SCForm.xls">http://www.umkc.edu/is/conferences/SCForm.xls </a>
+						and mail the completed form to the Call Center at
+						<a href="mailto:callcenter@umkc.edu">callcenter@umkc.edu</a>. 
+						A MoCode must be provided, and will be charged $30 per 
+						week for each account, or $90 for each account per 
+						semester. Contact the Call Center at 816-235-2000 if you 
+						have questions about this process.</li>
+						<li>Upon receiving the list of the new users’ SSOs from the Call Center, the requestor can contact ITS (235-6700 or its@umkc.edu) to have the users enrolled in the Blackboard course or organization site.
+						 </li>
+		</ul>
+		</li>
+		
+		
+		<li>Fees for enrolling non-UM System users into Blackboard courses or organization sites are as follows:<ul>
+						<li>$50 set up fee for first 50 users. $10 set-up fee 
+						for each additional 50 users.</li>
+						<li>$25 maintenance.access fee per user per semester.</li>
+		</ul>
+		</li>
+		
+		
+		<li>Technical services include the following items:<ul>
+						<li>Temporary student/participant access to the 
+						designated Blackboard site.</li>
+						<li>Availability to the UMKC ITS call center (235-6700 or ITS@umkc.edu) for questions and problem resolution during normal hours of operation.</li>
+		</ul>
+		</li>
+		</ul>
+<p><b>Anonymous accounts:</b> Anonymous accounts are Blackboard user accounts which give course site access to one or more users whose identities cannot be specified ahead of time. Due to security concerns, anonymous accounts will be created very rarely and only under conditions of demonstrable need and assurance of adequate protection of student information.</p>
+<p>Each anonymous account must have a UMKC faculty or staff sponsor who will be held responsible for all actions taken by people logged into Blackboard using that account. The sponsor must ensure that the account user has no access to student data that would violate FERPA. Sponsors must also be aware of the potential for copyright violations when granting non-student
+ accounts access to content areas containing copyrighted materials. To request an anonymous account, the potential sponsor should email ITS@umkc.edu. In the request, please specify the need for the account, the duration of the need, and the sites to which the account will be given access.</p>
+ <p>The sponsor will be contacted by Instructional Technologies before the termination date. At that time, the sponsor will be given the opportunity to extend the account’s access period; if this is not requested, the account will be deleted at the termination date.</p>      
+ <p><a href="#top">Back to Top</a></p>
+ <hr>
+ <a id="deletion"></a><h4>Account Deletion</h4>
+ <p>UM users' accounts will remain active for the duration of their affiliation with the university. Users whose affiliation with UMKC has ceased will have their Blackboard accounts removed. For students, this will normally occur after two consecutive terms of non-enrollment. For faculty and staff, cessation of affiliation normally means termination of employment.
+</p>
+<p>Faculty who leave the University but need to maintain their involvement in an active course site may request that their UMKC Blackboard accounts be converted to external user accounts; all policies and procedures relating to non-UMKC accounts must be followed.</p>
+<p>Departing faculty who wish to assign ownership of their UMKC Blackboard sites or the sites’ content to another UMKC faculty or staff member may freely do so.</p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<a id="coursesite"></a><h4>Course Site Creation</h4>
+<p>A Blackboard course site is automatically created for each course taught at UMKC. Instructors do not need to request creation of Blackboard sites for courses listed in Pathway.</p>
+<p>Sites for spring and summer semesters are created approximately four weeks before the end of the previous term. Fall semester sites are created at the same time as summer semester sites in order to accommodate the needs of faculty who are not on campus during the summer.</p>
+<p>UMKC faculty and staff who wish to request the creation of a Blackboard site for purposes other than use by students in a regular, semester-based course should submit an Organization Request using the Request System.</p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<a id="request"></a><h4>Request System</h4>
+<p>An integrated Request System was made available to all UMKC faculty and staff in 2006. This system, accessible from a tab within Blackboard, has the following tools:</p>
+<ul>
+<li><b>Your Requests</b> - Check the status of submitted requests</li>
+<li><b>Copy Requests</b> - Allows copying of content and settings from one course site to another</li>
+<li><b>Combo Request</b> - Enables enrollment of students from different courses or sections into a single course site</li>
+<li><b>Course Enrollment</b> - Used for adding or removing non-students users (instructors, graders, teaching assistants) from course sites</li>
+<li><b>Request Organization</b> - Used for requesting creation of a Blackboard site for anything other than a semester-based course</li>
+<li><b>Organization Enrollment</b> - Used for adding or removing users from organization sites.</li>
+</ul>
+<p>All submissions are placed into a central database, ensuring that requests will be processed and tracked in the order in which they were received. Instructors can sign in and check the completion status of their requests at any time using the "Your Requests" link.</p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<a id="enrollment"></a><h4>User Enrollment in Semester Course Sites</h4>
+<p>Effective in 2008, students are automatically added to Blackboard course site rosters on the date that new semester sites are created. By default, course sites are are set to be unavailable to students. Instructors who want their students to have early access to courses must change the availability setting to allow students site access. 
+Step-by-step instructions for changing a course site's availability setting are online. A week before the beginning of the term, all class sites will be updated to make the sites available to students.</p>
+<p>Student site enrollment is based on data in the Pathway system and is updated three times each day.  Students will have access to courses for at least one week after the posting of final grades.</p>
+<p>Instructor enrollment is based on the Pathway "instructor of record." Instructors of record who wish to grant course site access to unofficial instructors, teaching assistants, course builders, graders, guests, or unenrolled students must contact the UMKC Registrar's Office for prior approval. No exceptions to this policy will be made.</p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<a id="longevity"></a><h4>Course Site Longevity</h4>
+<p><b>Students:</b> Student course lists will be "rolled over" from the previous to the upcoming semester approximately one week before the start of the term.</p>
+<p><b>Instructors:</b> Previous semester course sites will be co-listed with current semester course sites for four weeks into the semester to facilitate instructors' copying material from one semester to the other. At the end of this time, the expired term's sites will be archived and removed from the Blackboard server. 
+This removal is necessary in order to maximize hardware resources and ensure that that the Blackboard database, which stores student and test data, performs at its optimum capacity. <b>Instructors will be given advance notice of the course site removal date via both email and a Blackboard system announcement.</b></p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<a id="retention"></a><h4>Retention of Student Coursework and Grade Data</h4>
+<p>Instructional Technologies' data retention policy does not support retention of student grade data or coursework in the Blackboard database after the end of the semester. When course sites are removed from the production server, student data will not be copied or retained. 
+Therefore, <b>prior to the removal date, it is the instructors' responsibility to download a copy of their sites' gradebooks and any other student data which they need to retain in order to comply with the 
+<a href="http://www.umsystem.edu/ums/departments/fa/management/records/guide/academic/01506.shtml">University's policies on Records Retention</a>.</b> </p>
+<p>In the event that an instructor fails to save a copy of their Blackboard gradebook and requests Instructional Technologies to restore this data from backup, there will be a $50 charge associated with this service starting with SS2012 grades. </p>
+<p>To download a copy of a site's gradebook:</p>
+<ul>
+<li>Click on Grade Center > Full Grade Center in the site's control panel </li>
+<li>Select Download from the Work Offline menu at the top of the page </li>
+<li>Select Full Grade Center in the Data area </li>
+<li>Select Comma for the Delimiter Type and elect to Include Hidden Information </li>
+<li>Click the Submit  button at the bottom of the page </li>
+<li>Click the Download button and save the file to your local drive. </li>
+</ul>
+<p>We strongly recommend that instructors create and save a full archive of each of their course sites at the end of each semester. A full archive contains all student data, such as submitted assignments, discussion board postings, and test responses. 
+In case access to this data should become necessary -- for instance, in the event of a grade challenge -- ITS staff can temporarily restore your personal archive file to the active server so that this information may be retrieved.</p>
+<p>To create an archive of your site:</p>
+<ul>
+<li>Go to Packages and Utilities > Export/Archive Course in the site's control panel</li>
+<li>Click the <Archive> button in the toolbar at the top of the page</li>
+<li>Elect to Include Grade Center History </li>
+<li>Click b> <Submit>.</li>
+<li>You will receive an automated email when the course site archive has been completed.</li>
+<li>You can then go back into Control Panel > Packages and Utilities >  > Archive Course and you will see your archive file listed.</li>
+<li>Right-click on the link to the file and select "Save Link As" (Firefox) or "Save Target As" (Internet Explorer) to save the archive file to your local drive./font></li>
+</ul>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<a id="availability"></a><h4>Course Availability</h4>
+<p>Approximately one week before the first day of classes, all Bb Course sites will be set to be available to students. If you do nnot want one of your Blackboard sites to be accessible to students, please contact UMKC Instructional Technologies prior to that date.</p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<a id="quota"></a><h4>Course and File Size Quotas</h4>
+<p>The default course size limit for Blackboard sites is 250 Mb. This is the maximum size recommended by Blackboard and also the maximum size that allows normal copying of site settings and content from one semester to another. 
+When a Blackboard site's size approaches the quota limit, an automatic warning email will be sent to all of the site's instructors. After the warning letter has been sent, there is 50 Mb grace quota before the hard size limit is reached. 
+When a course site reaches the hard size limit, students and instructors will receive an error message when they attempt any action that would further increase the size of the course website. </p>
+<p>Instructors who believe that they need more disk quota may contact Instructional Technologies detailing their need for additional file storage. (In practice, such requests are rarely approved; instead, staff will work with instructors to more effectively manage their space usage through correct file formatting and streaming of media files.)</p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<a id="maintenance"></a><h4>Blackboard Maintenance Window</h4>
+<p>Regular Blackboard system maintenance will be carried out between 12:01 AM 
+and 4 AM on the third Sunday of each month, which is the period with the lowest 
+number of users. Please plan your semester accordingly, and do not schedule 
+events such as online chats or assessments during this period. Outages will be 
+posted on the <a href="http://www.umkc.edu/is">Information Services website</a>.
+</p>
+<p>Major annual maintenance of hardware and software that requires an extended system outage will be carried out between the end of the regular UMKC summer semester and the beginning of the regular UMKC fall semester. Instructors will be given advance notification of the date and expected duration of the maintenance outage.</p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<a id="records"></a><h4>Records Requests</h4>
+<p>Blackboard maintains a record of most actions taken by users logged into the server. Both instructors and students may have occasion for recourse to these records. To request a records search, one of the parties involved must contact the UMKC CIO in writing. A request must have the requester’s name, title (or student status), daytime telephone number and SSO ID. The reason for the request and the time frame for the range of records must also be included. The request is forwarded to the UMKC CIO for review and authorization. The CIO may seek authorization or counsel from other executive level administrators before authorizing or declining the request. Once authorized, the records are reviewed and extracted from the Bb database. The records are printed, along with any notes and observations. The records, in printed form, are copied and a file maintained in the Information Services Office of Administration and Operations. The original printed records and findings are released to the requester.</p>
+<p><a href="#top">Back to Top</a></p>
+<hr>
+<!-- End of Main Center -->
+<section><small class="small"><br>
+Last Updated: <script>
+				document.write(document.lastModified);
+			</script></small></section>
+</section>
+<section id="right-body-column">
+<!-- Start of Main Right -->
+<!--#include virtual="../../includes/etool.aspx"--> <br/>
+<!--#include virtual="includes/rightmenu.aspx"-->
+
+<!-- Start of Main Right -->
+</section>
+</div></div>
+</div>
+<!-- End of Body -->
+<!-- Start of the Footer -->
+
+<!--#include virtual="../../includes/footer.aspx"-->

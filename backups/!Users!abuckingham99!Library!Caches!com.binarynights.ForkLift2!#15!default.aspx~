@@ -1,0 +1,102 @@
+﻿<!-- #include virtual="../../includes/header.aspx"-->
+
+<head>
+<meta name="Keywords" content="webex, cisco webex, video conferencing, collaborative learning, online learning">
+
+<title>UMKC WebEx - Information Access - University of Missouri - Kansas City</title>
+<!--#include virtual="../../includes/script.aspx"-->
+<!-- Include Custom Script Here -->
+<script type="text/javascript" src="/ia/includes/js/sliding_panels.js"></script>
+<link type="text/css" rel="stylesheet" href="button.css" />
+<!-- End Custom Script -->
+<!--#include virtual="../../includes/headerbody.aspx"-->
+<!-- Start of Body -->
+</head>
+
+<div id="main-container">
+<div id="body-container"><section id="left-body-column">
+<!-- Start of Main Left -->
+
+<!--#include virtual="../../includes/leftcol.aspx"-->
+<!-- End of Main Left -->
+</section>
+<div id="threecolcontainer">
+<nav id="ia-navbar" class="top"></nav>
+<section id="center-body-column">
+<!-- Start of Main Center -->
+
+
+<div id="breadcrumb">
+  <p><a title="Home" href="../../default.aspx">Home</a> > 
+	<a href="../default.aspx">ITS</a> &gt; WebEx
+	</div>
+	
+<h1>UMKC WebEx</h1>
+    <img src="wexlogo.jpg" width="50%" height="50%" />
+        <h2>What is WebEx?</h2>
+            <p>Cisco WebEx is software for online video conferencing. Along with conventional telephone conferencing, WebEx allows web-based collaborative sessions to share video, audio (VoIP) and desktop/applications. Users can join a session using telephones, computers, or mobile devices. Since it does not involve downloading or installing any software, WebEx can be used to invite both internal and external participants. Watch this video for <a href="http://wlc.webex.com/learnObj/CWX/en_US/CWX_en_US_WBX11-001/CWX_en_US_WBX11-001.htm" target="_blank">WebEx Basics</a></p>
+        
+    <h2>What Are The Potential Uses Of WebEx?</h2>
+            <ul>
+            <li>In school meetings with employees at remote locations or traveling</li>
+            <li>Tenure committee meetings</li>
+            <li>Interview for prospective hires</li>
+            <li>Admissions and recruiting</li>
+            <li>Online orientation</li>
+            <li>Technical support of faculty/staff/students</li>
+            <li>Focus groups and research</li>
+            </ul>
+        <h2>WebEx Session Types</h2>
+            <p>WebEx Meeting Center, Training Center, Event and Support Center each offer specialized web conferencing services. Click the links below for details of each session type, or this PDF file for a list of <a href="WebExSessionFeatures.pdf" target="_blank">features for each session type</a>.</p>
+                <p><a href="http://www.webex.com/products/web-conferencing.html" target="_blank">Meeting Center</a></p>
+                <p><a href="http://www.webex.com/products/elearning-and-online-training.html" target="_blank">Training Center</a></p>
+                <p><a href="http://www.webex.com/products/webinars-and-online-events.html" target="_blank">Event Center</a></p>
+                <p><a href="http://www.webex.com/products/remote-support.html" target="_blank">Support Center</a></p>
+        <h2>How To Get Started?</h2>
+            <p><b>Request a host account:</b> Email your request to <a href="mailto:zoujing@umkc.edu">zoujing@umkc.edu</a></p>
+            <p><b>Account cost:</b> $750 per year for one host account. (One account limit for each department/school. Each account can host one meeting at a time, for an unlimited number of meetings.)</p>
+            <p><b>Additional cost for audio:</b> Additonal cost may occur for attendees who are using phones to join a meeting.</p>
+            <p><b>UMKC WebEx Portal:</b> Users with host accounts can visit the site below and login to schedule and manage meetings: <a href="http://umkc.webex.com" target="_blank">http://umkc.webex.com</a></p>
+        <h2>Instructions And Tutorials</h2>
+            <p><a href="https://support.webex.com/MyAccountWeb/systemRequirement.do?root=Tools&parent=System" target="_blank">System Requirements</a></p>
+            <p><a href="https://support.webex.com/webex/v1.2/common_docs/en_US/overview/index.htm#27187.htm" target="_blank">Overview of WebEx Meetings</a> (HTML)</p>
+            <p><a href="http://www.webex.com/lp/keyfeatures/" target="_blank">Overview of Key Features</a> (HTML)</p>
+<br>
+            <p><a href="https://support.webex.com/MyAccountWeb/howDoI.do?root=Tools&parent=How%20Do%20I" target="_blank">"How Do I" Videos:</a>To learn how to use features within a WebEx service, click a topic of interest, such as Meeting Center, Training Center, etc. Each topic contains specific tutorials for how to set up a meeting, using the audio, and using in-session tools. Check some of the highlighted tutorials for the Meeting Center below:</p>
+    
+<br>   
+                <p><a href="http://wlc.webex.com/learnObj/MC/EN/MC_EN_T280-318/MC_EN_T280-318.htm" target="_blank">Navigating Your WebEx Site</a> (Video)</p>
+                <p><a href="http://wlc.webex.com/learnObj/MC/EN/MC_EN_T27FR29-537/MC_EN_T27FR29-537.htm" target="_blank">Using the Quick Scheduler</a> (Video)</p>
+                <p><a href="http://wlc.webex.com/players/hdiRTE/HDIFrameset.htm?agg=MC/EN/MC_EN_T27FR29-526_ag" target="_blank">Using the Advanced Scheduler</a> (Video)</p>
+                <p><a href="http://wlc.webex.com/learnObj/MC/EN/MC_EN_T27FR29-503/MC_EN_T27FR29-503.htm" target="_blank">Editing/Cancelling a Meeting</a> (Video)</p>
+                <p><a href="http://wlc.webex.com/learnObj/MC/EN/MC_EN_T29-139/MC_EN_T29-139.htm" target="_blank">Navigating the meeting window</a> (Video)</p>
+                <p><a href="http://wlc.webex.com/players/hdiRTE/HDIFrameset.htm?agg=MC/EN/MC_EN_T29-140_ag" target="_blank">Using the Audio</a> (Video)</p>
+<br>   
+            <p><a href="https://support.webex.com/MyAccountWeb/howDoI.do?root=Tools&parent=How%20Do%20I" target="_blank">WebEx Knowledge Base:</a> Find articles by typing in a sentence that describes the problem, or just browse a list of articles.</p>
+<br>
+            <p><a href="https://support.webex.com/MyAccountWeb/documentation.do?root=Tools&parent=Documentation" target="_blank">Documentation:</a> Find frequently asked questions for different service centers, release note and quick start guide for <b>mobile devices.</b> </p>
+            <p>WebEx is available on most mobile devices, including iPads, iPhones, Android, and Windows 8 phones. Mobile devices can be used to join a meeting, but not to host a meeting. Attendees can join by meeting number or a URL.</p>
+<br>
+            <p><a href="http://university.webex.com/training/student/content/welcome.do" target="_blank">WebEx University</a>: Obtain advanced and personalized training from the WebEx on-line training center.</p>
+        <h2>Support</h2>
+            <p>UMKC Contact: <a href="mailto:zoujing@umkc.edu">zoujing@umkc.edu</a></p>
+            <p>After Hours Technical Support: 866-569-3239 (Available 24/7)</p>
+            <p><a href="https://support.webex.com/MyAccountWeb/supporthome.do" target="_blank">WebEx Support Website</a></p>
+            <p><a href="https://support.webex.com/MyAccountWeb/myrCaseSubmission.do?requestPage=createTicket&root=Contact&parent=Submit" target="_blank">Submit a Support Case</a></p>
+<!-- End of Main Center -->
+<section> <small class="small">Last Updated: <script>
+				document.write(document.lastModified);
+			</script></small> </section>
+</section>
+<section id="right-body-column">
+<!-- Start of Main Right -->
+<!--#include virtual="../../includes/etool.aspx"--> 
+      
+<!--#include virtual="includes/rightcolumn.aspx"-->
+<!-- Start of Main Right -->
+</section></div></div>
+</div>
+<!-- End of Body -->
+<!-- Start of the Footer -->
+
+<!--#include virtual="../../includes/footer.aspx"-->

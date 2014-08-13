@@ -1,0 +1,11 @@
+# contributor: Andrew Buckingham <abuckingham99@gmail.com>
+# name: form
+# key: form
+# --
+
+<form action="$1" method="${2:$$(yas-choose-value '("GET" "POST"))}">
+<fieldset>
+<legend>$3</legend>
+$0
+</fieldset>
+</form>

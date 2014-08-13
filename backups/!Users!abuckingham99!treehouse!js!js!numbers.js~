@@ -1,0 +1,33 @@
+
+var jim = {
+    name: "Jim",
+
+// Notice the changes to the method below...
+    greet: function() {
+	console.log("Hello, I am " + this.name);
+    }
+};
+
+var nick = {
+    name: "Nick",
+    greet: jim.greet
+};
+
+jim.name = "James";
+
+jim["greet"]();
+nick.greet();
+
+var jimGreet = jim.greet; // Hello from " " (window)
+jimGreet(); // <-- This will change
+
+// Using Call:
+
+jim.name = "James";
+
+jim["greet"]();
+nick.greet();
+
+var jimGreet = jim.greet; 
+jimGreet.call(jim) // <-- Note the change: "Hello, I'm Jim"
+jimGreet.call({name: "Andrew"}) // <-- Or we can use an object

@@ -1,0 +1,15 @@
+#contributor : Andrew Buckingham (abuckingham99@gmail.com)
+#name : html5 template
+# --
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<link rel="stylesheet" href="(${1:css/style.css})">
+<title>2</title>
+</head>
+<body>
+$0
+</body>
+</html>

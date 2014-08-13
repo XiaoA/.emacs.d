@@ -1,0 +1,1430 @@
+#+Title: Andrew Buckingham's ITS Worklog, May 2013
+#+AUTHOR: Andrew Buckingham
+#+STARTUP: indent
+#+OPTIONS: num:nil
+#+TODO: TODO(t) | | Started(s) | Waiting(w) | Someday/Maybe(m) | Canceled(c) | DONE(d)(@) | Meeting(M) | Note(n)
+#+FILETAGS: :work:
+
+
+* Projects
+** Training/Workshops
+*** Respondus 4.0
+**** Respondus Training                                              :report:
+***** Respondus Workshop Summary for website
+****** Web Description (Old)
+*Creating and Deploying tests with Respondus 4.0*\\
+*Where:* Fine Arts Room 307\\
+*When:* April 30, 2013  1:00 PM - 2:00 PM\\
+*Presenter(s):* Andrew Buckingham\\
+*Prerequisite:* Basic Blackboard experience. No prior knowledge of Respondus is necessary, but participants should be familiar with how tests work in Blackboard.\\
+
+*Level of Difficulty:* Intermediate\\
+
+*Description:* Building tests in Blackboard can be time-consuming, but
+creating tests in Word for Blackboard can lead to potential problems
+with formatting or errors from embedded code. Respondus 4.0 is a
+powerful tool for building tests that can be printed to paper or
+published directly to Blackboard. Respondus offers a fast and
+convenient way to build tests quickly, without the risk of formatting
+issues.
+
+Upon completion of this interactive workshop, instructors will be able
+to use Respondus to build and deploy tests in their own Blackboard
+courses.
+
+
+
+*Workshop Topics*\\
+- A brief introduction to the features and user interface
+- Installing and Setting up Respondus
+- Creating a test in Respondus
+- Importing a test
+- Deploying tests to Blackboard
+- Setting up tests for LockDown Browser
+
+
+****** Web Description (final - 4.9.2013)
+*Creating and Deploying tests with Respondus 4.0*\\
+*Where:* Fine Arts Room 307\\
+*When:* April 26, 2013 1:00 PM - 2:00 PM\\
+*Presenter(s):* Andrew Buckingham\\
+*Prerequisite:* Basic Blackboard experience. No prior knowledge of Respondus is necessary, but participants should be familiar with how tests work in Blackboard. /Note: Respondus 4.0 is only available on Windows./\\
+
+*Level of Difficulty:* Intermediate\\
+
+*Description:* Building tests in Blackboard can be time-consuming. Many instructors prefer to create tests in Word, but this can lead to potential problems with text formatting issues, which can cause issues for students. Respondus 4.0 is a powerful tool for building tests that can be printed to paper or published directly to Blackboard. Respondus offers a fast and convenient way to build tests quickly, without the risk of formatting issues. Exams can be created, edited, and deployed to Blackboard within Respondus, or imported from a program like Word or Notepad.\\
+After a brief overview of the interface and features, participants will learn Respondus by using it to create tests in Blackboard. Upon completion of this interactive workshop, instructors will understand how Respondus can help them build tests and surveys in their own Blackboard course sites.
+
+*Workshop Topics:*
+- A brief introduction to the features and user interface
+- Installing and Setting up Respondus
+- Creating tests in Respondus
+- Importing tests
+- Deploying tests to Blackboard
+
+****** Web Description (final - 4.9.2013)
+Creating and Deploying tests with Respondus 4.0
+Where: Fine Arts Room 307
+When: April 26, 2013 1:00 PM - 2:00 PM
+Presenter(s): Andrew Buckingham
+Prerequisite: Basic Blackboard experience. No prior knowledge of Respondus is necessary, but participants should be familiar with how tests work in Blackboard. Note: Respondus 4.0 is only available on Windows.
+
+Level of Difficulty: Intermediate
+
+Description: Building tests in Blackboard can be time-consuming. Many instructors prefer to create tests in Word, but this can lead to potential problems with text formatting issues, which can cause issues for students. Respondus 4.0 is a powerful tool for building tests that can be printed to paper or published directly to Blackboard. Respondus offers a fast and convenient way to build tests quickly, without the risk of formatting issues. Exams can be created, edited, and deployed to Blackboard within Respondus, or imported from a program like Word or Notepad.
+After a brief overview of the interface and features, participants will learn Respondus by using it to create tests in Blackboard. Upon completion of this interactive workshop, instructors will understand how Respondus can help them build tests and surveys in their own Blackboard course sites.
+
+Workshop Topics:
+A brief introduction to the features and user interface
+Installing and Setting up Respondus
+Creating tests in Respondus
+Importing tests
+Deploying tests to Blackboard
+
+***** RespondusWorkshop
+****** Introduction
+******* Self Introduction
+- Andrew Buckingham
+- Software Support Analyst
+- buckinghama@umkc.edu
+- 816-235-1093
+
+******* Overview
+******** What is Respondus?
+Respondus 4.0 is a powerful tool for creating and deploying tests to Blackboard and other Learning Management Systems.
+
+*Respondus makes it easy to:*
+- Create tests
+- Import tests from Word or text files (as well as from other tests and publisher test banks)
+- Edit existing test content and settings
+- Deploy tests and surveys to current (or future) course sites
+- Create tests for Respondus LockDown Browser
+******** Respondus is a Bridge 
+
+
+******** Why should I use Respondus?
+- Easily convert Word docs or text files into Blackboard tests, surveys, and pools
+- Set up tests for Respondus LockDown Browser
+- Can be easier to set up tests than within Blackboard
+- You must use it to set up tests for LockDown Browser
+
+******** System Requirements
+- *Operating System:* Windows 8, 7, Vista, XP
+- *Memory:* 32 MB RAM minimum
+
+- *Hard Disk Space:* 10 MB of free hard disk space for program files
+
+- *Monitor:* 1024x768 or 1280x720 minimum resolution
+- Blackboard, Moodle, or paper-based tests
+
+******** Workshop Goals
+By the end of this workshop, participants should be able to:
+- Install and configure Respondus
+- Use Respondus to create and import tests, surveys, and pools to Blackboard
+- Understand how Respondus can help make deploying Blackboard tests easier
+- Know where to go for more help
+
+
+****** User Interface Tour and Useful Settings
+******* The Menu
+The most important options are "File" and "Help."
+- You can access the Preferences and update your license from the "File" menu.
+- You can make check for updates to Respondus from the "Help" menu.
+******* The *Start* tab
+From the Start tab, you can import or create your tests and surveys.
+In the *Open or Create* area, you can:
+- Open
+- Create
+- Test Bank Network
+- Exam Wizard
+- Import Questions
+- Archive Wizard
+
+******* The *Edit* tab
+You can change the types of questions, as well as the settings for your test, in the *Edit* tab.
+
+You can also create the following types of questions:
+- Multiple Choice
+- Essay / Short Answer
+- Matching
+- Ordering
+- Fill in the Blank
+- Multiple Answer
+- Calculated
+- Jumbled Sentence
+- File Response
+- Opinion Scale
+- Numeric
+- Quiz Bowl
+- Fill in Multiple Blanks
+
+(You can also copy questions from another file, or access the Test Bank Network.)
+
+******* The *Settings* tab
+You can change the settings (Test Options) here. For example:
+- Set Random Blocks (randomized question sets)
+- Test instructions, availability, and feedback options, and other settings (like in Blackboard)
+- Respondus LockDown Browser (If you'd like to require LockDown Browser, you must set it up here!)
+
+******* The *Preview and Publish* tab
+You can choose from the following output options:
+- Preview the test
+- Publish to Blackboard
+- Update the Respondus server settings
+- Print out a paper-based test or set of answers
+
+******* The *Retrieval & Reports* tab
+Download test questions and data from your Blackboard site to use in Respondus.
+
+****** Getting Started (Interactive Demo)
+******* Downloading and Configuration
+1. Download from the *Information for UMKC BB Instructors* Organization Site
+2. Add the license
+   - The annual license expires every July (The current password is valid through: July 31, 2013)
+3. Check for updates
+******** [File ]
+******* Importing tests
+******** Importing Word documents
+******** Editing test questions
+******* Creating tests in Respondus
+******* Deploying to Blackboard
+******** Setting options
+******* Interactive Demo
+- Please log in to Blackboard and find the "Respondus Workshop" course site. Go to "Test Materials" and download the "Test-1.docx" file.
+
+- Upload the Document to the *Tests* --> *Unit 1* Folder.
+
+******** TODO Create Test-1.docx
+******** TODO Upload Test-1.docx to the "Respondus Workshop" course site.
+******* Materials
+******** Test-1.docx
+******** Formatting questions for Blackboard Tests
+********* Format
+Tests must be formatted correctly. The proper format for questions
+******* Useful tips
+- If you'd like to have randomized answers, you must set that option before you import your test. If you have already imported the test, you'll need to either export it and import it again, or import a second copy (with a different name). ***
+
+******* Troubleshooting
+- Problems with test
+  - Fix in Respondus (*Edit* tab)
+  - Fix in Word and re-import
+- Can't connect to Blackboard server
+  - Check for updates (*Help --> Check for Updates*)
+  - Create new server connection
+  - Call ITS
+
+***** Respondus Question Types
+
+
+**** Tegrity Support Guidelines
+***** Obtain as much information as possible from the user, including:
+- OS
+- browser(s)
+- the exact course site and name of the recording
+- What exactly does the user see, and how far can he or she get before it "doesn't work?"
+
+
+
+***** Tell the user, "I'm going to test the video. While I'm doing that, could you go to this site, and run the browser settings?"
+***** Test the recording. *Whenever possible, test the recording, even if you are sure it is not a Tegrity outage*. This will accomplish two things:
+- It will prove to the student that Tegrity is not the problem, which will make it more likely that the user will trust you and follow your instructions.
+- It will ensure that there really isn't a problem with Tegrity or the Tegrity server.
+
+
+*****
+*** Take Control of your Course Sites!
+**** Outline
+
+***** The Blackboard Dashboard
+   - Learning Modules
+   - Rearranging and hiding modules
+   - Problem-solving Tips
+     - Login issues
+     - Modules will not load
+   - The Blackboard Browser Test
+
+
+***** Customizing Your Site
+   - Making a course available/unavailable
+   - Making tools available to your students
+   - Customizing the appearance of your course site
+
+***** Using the Request System
+   - Course Copies
+   - Combo Requests
+   - Adding/Removing Users
+
+***** Creating Sandbox/Development Sites
+   - Course Development
+   - Ongoing "Templates"
+
+***** Archiving Student Data
+   - Export vs. Archiving
+   - Exporting the Grade Center
+
+***** Managing Large Course Sites
+   - Disk Quota
+   - Using the Streaming Server
+   - Equella
+
+
+***** Course Reports (Optional)
+
+***** Grade Center (Optional)
+   - Controlling how grade columns are displayed
+     + instructors
+     + students
+
+   - Creating Reports
+*** Mastering the Blackboard Grade Center
+**** Outline
+***** Column Types
+   - Manual Column
+   - Average Column
+   - Minimum/Maximum Column
+   - Total Column
+   - Weighted Column
+zz***** Creating Columns
+***** Hiding Columns
+
+***** Removing Columns
+
+***** Working Offline
+
+***** Creating Reports
+***** Early Warning System
+***** Alignments
+***** Grading Work
+   - Needs Grading
+   - Full Grade Center
+
+*** 2013 DNP Blackboard Introduction (Students)
+
+**** About ITS
+Our offices are located on the third floor of the Fine Arts Building, at 51st and Holmes. We offer support via email, phone, and Live Chat. We do not offer walk-in service for students.
+We can be reached by phone at (816) 235-6700. Our office is open Monday through Friday, from 7am - 6pm CST. We also offer live online chat support, accessible from the Blackboard Login page, on Sundays, Mondays, Tuesdays, and Thursdays, from 6pm - 10pm. 
+http://www.umkc.edu/ia/it/
+
+**** About Me
+Andrew Buckingham
+Software Support Analyst/ITS Call Center Supervisor
+ 
+**** Website
+[[http:www.umkc.edu/ia/it/][Instructional Technologies Homepage]]
+
+***** Products we support
+- Blackboard
+- Moodle
+- Respondus 
+- Clickers/Turning Point
+- Turnitin
+- Wimba
+- Tegrity
+- Respondus LockDown Browser
+- Listserv
+- Sharepoint
+- Wordpress
+- CampusPack Blogs, Wikis, and Journals
+
+***** Products that we do not support
+See this link: http://www.umkc.edu/is/audience/?g=1 or contact the UMKC Call Center (816-235-2000/callcenter@umkc.edu) for assistance with the following issues:
+- Email (including reporting suspicious emails) 
+- Pathway
+- SSO Password reset
+- ILE/Desktop support 
+- Wifi 
+- General computing issues and problems (including hardware or software issues, firewalls, antivirus software, etc.)
+
+***** Other issues that we don't support
+Call the main number at 816-235-1000 or visit http://www.umkc.edu for other issues, including:
+- Textbooks (https://www.umkcbookstore.com/)
+- Grades/Enrollment/Transcripts (Registrar: 816-235-1125)
+- Tuition (http://www.umkc.edu/adminfinance/finance/cashiers/)
+- Financial Aid (http://www.sfa.umkc.edu/site2/index.cfm)
+
+***** Keys to Success with Technology in Education
+- Be proactive. Complete assessments early to allow time to resolve issues when they arise.
+- Keep your computer updated.
+- Learning about computers and technology is as important as learning about your subject matter!
+
+***** Getting Started
+****** Blackboard
+******* Tegrity
+******* Wimba
+******* Moodle
+******* Respondus LockDown Browser
+******* Clickers
+******* CampusPack Blogs, Wikis, and Journals
+******* Turnitin Assignments
+
+* Reports
+
+** Report Template
+
+1. Projects and Areas of Responsibility
+   - Documentation and User Training
+     * Website
+     * OneNote
+     * NewsByte
+     * User Training
+       + One-On-One Training
+       + Workshops
+   - Staff Training and Development
+     * Staff Meetings
+   - Other
+2. Challenges
+3. Goals
+4. Other
+** April 2013 Report
+
+1. Projects and Areas of Responsibility
+   - Documentation and User Training
+     * Website: The Tegrity documentation for Firefox was incorrect. ([[http://www.umkc.edu/ia/it/tegrity/documents/firefox-settings.pdf]["Firefox Browser Settings"]]) I corrected the information and converted the list to an ordered list.
+     * OneNote: I created or edited 48 OneNote documents.
+     * NewsByte: I submitted an article announcing our Open Lab hours for May.
+     * User Training
+       + One-On-One Training: I had three one-on-one training sessions with faculty members.
+       + Workshops: I conducted one workshop: Respondus Training, April 26th. Two participants.
+     * Respondus: In preparation for the workshop, I created a lot of new documentation
+       - I edited the official User Guide to improve readability in some sections. I will replace the file after I finish the rest of the document.
+       - I created simpler guides, including an extensive "visual guide" and templates for importing different kinds of question types. I am planning on adding even more documentation for an entirely online Respondus training workshop, which I hope to begin offering this summer.
+         
+   - Staff Training and Development
+     * Staff Meetings: Once again, I met with all of the staff. We talked about Tegrity training, summer schedules, and I asked if they had any preferences for upcoming training. They said that the Tegrity training was valuable, and they all requested Wimba and Respondus training. After the end of the semester, I will have them work on Respondus training, using material that I've already developed for the Respondus Workshop training. 
+     * Tegrity
+       - Our staff continue to express their uncertainty about exactly how to resolve Tegrity issues, based on the symptoms that our users describe. I've been working with Ali to try to improve this. I wrote a fairly detailed description of how I diagnose Tegrity issues. After asking Ali to look it over, I emailed it to our staff. They said it helped a lot, but they still brought up a few more questions. I told them what I thought was the answer, and verified those answers with Ali, as well. 
+   - Other
+     - I made extensive improvements to our Respondus documentation (including the User Guide, itself.)
+     - Installed Snagit on all the Call Center computers
+
+       
+1. Challenges
+   When I did my Respondus Workshop, none of the computers were set up correctly. We determined the next week that Respondus was not installed properly on the workstations. When the computers are updated at the end of the month, this will be resolved.
+2. Goals
+   - Workshops: I will be giving a number of workshops and one-on-one training sessions in the coming months.
+   - Documentation: This summer, our staff will work on improving our internal/external documentation.
+   - Documentation: I would like to also redo our employee training. Some of our documents are outdated or incorrect, and we need completely new documentation for Live Chat and Remedy.
+3. Other
+** 2/4/2013
+*** Projects
+| Name                                | Status   | Comments                                                                                                                                                                                                                                              |
+|-------------------------------------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| January 17th Conference             | Finished | I believe it went well!                                                                                                                                                                                                                               |
+| Remedy Template Ideas               | Active   | The Call Center staff have been brainstorming on this. I'm looking forward to setting this up.                                                                                                                                                        |
+| Staff Interviews                    | Finished | I'm happy with our choices.                                                                                                                                                                                                                           |
+| Staff Training                      | Active   | They're both off to a great start, and actively helping users.                                                                                                                                                                                        |
+| Live Chat canned responses          | Inactive | I've created a number of canned responses and useful links, available at the press of a button, to everyone working on the chat. I will probably add more later...                                                                                    |
+| Feher Performance Plan              | Active   | Feher seems to be doing better. I will continue to work with him to make sure he continues to perform well.                                                                                                                                           |
+| Update Staff Training Documentation | Active   | Last semester, we only had a folder of documentation, with little organization. I've been working on improving and updating the organization. I hope that eventually, our Student Assistants will be able to take over at least some of the training. |
+| OneNote documentation               | Active   | I've added a lot of content, and have more on my list to create/update.                                                                                                                                                                               |
+| Website documention                 | Active   | I've been working with Kelsey and James; I have more that I'd like to work with them to include.                                                                                                                                                      |
+
+
+*** Goals
+- Work with Molly and Jing to set up Remedy Templates
+- Continue updating Staff Documentation
+
+** 2/14/2013 Report
+*** Projects
+| Name                                | Status   | Comments                                                                                                                                                                                                                                              |
+|-------------------------------------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Remedy Template Ideas               | On Hold  | Jing and I submitted our first set. I would like to add more later.                                                                                                                                                                                   |
+| Staff Training                      | Active   | Dante and Brittney can work by themselves. They're both able to answer email, phone, and chat. They're making good progress.                                                                                                                          |
+| Live Chat canned responses          | Inactive | I've created a number of canned responses and useful links, available at the press of a button, to everyone working on the chat. I will probably add more later...                                                                                    |
+| Feher Performance Plan              | Active   | Feher seems to be doing better. I will continue to work with him to make sure he continues to perform well.                                                                                                                                           |
+| Update Staff Training Documentation | Active   | Last semester, we only had a folder of documentation, with little organization. I've been working on improving and updating the organization. I hope that eventually, our Student Assistants will be able to take over at least some of the training. |
+| OneNote documentation               | Active   | I've added a lot of content, and have more on my list to create/update.                                                                                                                                                                               |
+| Website documention                 | Active   | I've submitted a number of screenshots and revisions to Kelsey and James (especially for the Request System tutorials.                                                                                                                                |
+
+
+
+*** Goals
+- Work with Molly and Jing to set up Remedy Templates
+- Continue updating Staff Documentation
+
+** 3//2013 Report
+*** Projects
+| Name                                | Status   | Comments                                                                                                                                                                                                                                              |
+|-------------------------------------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Remedy Template Ideas               | On Hold  | Jing and I submitted our first set. I would like to add more later.                                                                                                                                                                                   |
+| Staff Training                      | Active   | Dante and Brittney can work by themselves. They're both able to answer email, phone, and chat. They're making good progress.                                                                                                                          |
+| Live Chat canned responses          | Inactive | I've created a number of canned responses and useful links, available at the press of a button, to everyone working on the chat. I will probably add more later...                                                                                    |
+| Feher Performance Plan              | Active   | Feher seems to be doing better. I will continue to work with him to make sure he continues to perform well.                                                                                                                                           |
+| Update Staff Training Documentation | Active   | Last semester, we only had a folder of documentation, with little organization. I've been working on improving and updating the organization. I hope that eventually, our Student Assistants will be able to take over at least some of the training. |
+| OneNote documentation               | Active   | I've added a lot of content, and have more on my list to create/update.                                                                                                                                                                               |
+| Website documention                 | Active   | I've submitted a number of screenshots and revisions to Kelsey and James (especially for the Request System tutorials.                                                                                                                                |
+
+
+
+*** Goals
+- Work with Molly and Jing to set up Remedy Templates
+- Continue updating Staff Documentation
+
+** Projects
+*** External Documentation
+**** Website
+- Worked with James to fix the links on the Respondus help documentation.
+- Worked with Kelsey to update the Request System documentation.
+-
+*** Internal Documentation
+**** OneNote
+- Created/Updated 34 pages from 3/5/2013 - 3/25/2013 OneNote documentation for Equella and Respondus
+
+*** Training
+ - Adapted Tegrity training (developed by Erica in 2011) for ITS employees; deployed on 3/25/2013.
+ - I've begun a monthly (private, informal) face-to-face meeting
+   program with each member of the Call Center staff.
+
+Andrew Brittney    Dante    Feher    James     Jing   Kelsey     Matt
+146        1       33      108       46       11       76       93
+
+
+Date           Time     AM.PM        User.First      User.Last
+22-Jan-2013: 36   10:05:57:  2   AM:169   Andrew   :  9            :227
+12-Mar-2013: 28   11:19:17:  2   PM:345   Crystal  :  8   Smith    :  7
+24-Jan-2013: 26   12:08:33:  2            Charlie  :  6   Nam      :  6
+14-Mar-2013: 22   12:08:52:  2            Deb      :  6   Doss     :  5
+23-Jan-2013: 22   12:10:03:  2            Katherine:  6   Marszalek:  5
+28-Jan-2013: 17   12:53:21:  2            Michele  :  6   Baker    :  4
+(Other)    :363   (Other) :502            (Other)  :473   (Other)  :260
+Operator
+Andrew :146
+Feher  :108
+Matt   : 93
+Kelsey : 76
+James  : 46
+Dante  : 33
+(Other): 12
+> nrow(report)
+[1] 514
+> summary(report$date)
+Length  Class   Mode
+0   NULL   NULL
+> summary(report$Date)
+
+**** summary(report$Date)
+1-Feb-2013 10-Feb-2013 10-Jan-2013 11-Feb-2013 11-Jan-2013 11-Mar-2013
+5           6          10          11           9           6
+
+12-Feb-2013 12-Mar-2013 13-Feb-2013 13-Mar-2013 14-Feb-2013 14-Jan-2013
+8          28           6           7           3           5
+
+14-Mar-2013 15-Feb-2013 15-Jan-2013 15-Mar-2013 16-Jan-2013 17-Feb-2013
+22           4           7           3           8           6
+
+17-Jan-2013 17-Mar-2013 18-Feb-2013 18-Jan-2013 18-Mar-2013 19-Feb-2013
+11           1           7          11          11           7
+
+19-Mar-2013  2-Jan-2013 20-Jan-2013 20-Mar-2013 22-Jan-2013 23-Jan-2013
+4           4           2           2          36          22
+
+24-Feb-2013 24-Jan-2013 25-Feb-2013 25-Jan-2013 26-Feb-2013 27-Feb-2013
+4          26           8          11           1           3
+
+27-Jan-2013 28-Feb-2013 28-Jan-2013 29-Jan-2013  3-Feb-2013  3-Jan-2013
+9           6          17          13           7           6
+
+3-Mar-2013 30-Jan-2013 31-Jan-2013  4-Feb-2013  4-Jan-2013  4-Mar-2013
+3          14          10          14           5           8
+
+5-Feb-2013  5-Mar-2013  6-Feb-2013  6-Mar-2013  7-Feb-2013  7-Jan-2013
+11           4           3           4          14           9
+
+7-Mar-2013  8-Feb-2013  8-Jan-2013  8-Mar-2013  9-Jan-2013
+6          10           4           4           8
+
+
+** Chat Statistics
+
+
+*** Daily Breakdown
+
+*** Monthly Breakdown
+
+*** Summary
+         Date           Time     AM.PM       Operator  Location
+ 2013-01-22: 39   10:05:57:  2   AM:180   Andrew :152  Call Center :
+ 2013-03-12: 28   11:19:17:  2   PM:370   Feher  :119  Evening Chat:
+ 2013-01-24: 26   12:08:33:  2            Matt   : 97
+ 2013-01-23: 22   12:08:52:  2            Kelsey : 78
+ 2013-03-14: 22   12:10:03:  2            James  : 49
+ 2013-01-28: 18   12:53:21:  2            Dante  : 41
+ (Other)   :395   (Other) :538            (Other): 14
+
+
+*** Operators
+  Andrew Brittney    Dante    Feher    James     Jing   Kelsey     Matt
+     152        3       41      119       49       11       78       97
+
+*** Chat Totals
+| *Chat Count* |       |
+|--------------+-------|
+| Jan          |   257 |
+| Feb          |   147 |
+| Mar          |   140 |
+|--------------+-------|
+| *Total*      | *544* |
+
+** (OLD)Chat Statistics
+
+
+*** Daily Breakdown
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-01-02* | *2013-01-03* | *2013-01-04* | *2013-01-07* | *2013-01-08* | *2013-01-09* | *2013-01-10* |
+|            4 |            6 |            5 |            9 |            4 |            8 |           10 |
+|              |              |              |              |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-01-11* | *2013-01-14* | *2013-01-15* | *2013-01-16* | *2013-01-17* | *2013-01-18* | *2013-01-20* |
+|            9 |            5 |            7 |            8 |           11 |           11 |            2 |
+|              |              |              |              |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-01-22* | *2013-01-23* | *2013-01-24* | *2013-01-25* | *2013-01-27* | *2013-01-28* | *2013-01-29* |
+|           36 |           22 |           26 |           11 |            9 |           17 |           13 |
+|              |              |              |              |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-01-30* | *2013-01-31* | *2013-02-01* | *2013-02-03* | *2013-02-04* | *2013-02-05* | *2013-02-06* |
+|           14 |           10 |            5 |            7 |           14 |           11 |            3 |
+|              |              |              |              |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-02-07* | *2013-02-08* | *2013-02-10* | *2013-02-11* | *2013-02-12* | *2013-02-13* | *2013-02-14* |
+|           15 |           10 |            6 |           13 |            8 |            6 |            3 |
+|              |              |              |              |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-02-15* | *2013-02-17* | *2013-02-18* | *2013-02-19* | *2013-02-24* | *2013-02-25* | *2013-02-26* |
+|            4 |            6 |            7 |            7 |            4 |            8 |            1 |
+|              |              |              |              |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-02-27* | *2013-02-28* | *2013-03-03* | *2013-03-04* | *2013-03-05* | *2013-03-06* | *2013-03-07* |
+|            3 |            6 |            3 |            8 |            4 |            4 |            6 |
+|              |              |              |              |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-03-08* | *2013-03-11* | *2013-03-12* | *2013-03-13* | *2013-03-14* | *2013-03-15* | *2013-03-17* |
+|            4 |            6 |           28 |            7 |           22 |            3 |            1 |
+|              |              |              |              |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-03-18* | *2013-03-19* | *2013-03-20* | *2013-03-21* | *2013-03-22* | *2013-03-24* | *2013-03-25* |
+|           11 |            4 |            2 |            5 |            2 |            3 |            4 |
+|              |              |              |              |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+| *2013-03-26* | *2013-03-27* | *2013-03-28* | *2013-03-29* |              |              |              |
+|            3 |            1 |            6 |            3 |              |              |              |
+|--------------+--------------+--------------+--------------+--------------+--------------+--------------|
+
+*** Monthly Breakdown
+
+*** Summary
+|        Date |      |      Time |      | AM.PM  | User.First |     | User.Last     |     |
+|-------------+------+-----------+------+--------+------------+-----+---------------+-----|
+| 2013-01-22: |   36 | 10:05:57: |    2 | AM:180 | Andrew:    |  10 | :             | 238 |
+| 2013-03-12: |   28 | 11:19:17: |    2 | PM:364 | Charlie:   |   6 | Smith       : |   7 |
+| 2013-01-24: |   26 | 12:08:33: |    2 |        | Deb:       |   6 | Nam         : |   6 |
+| 2013-01-23: |   22 | 12:08:52: |    2 |        | Katherine: |   6 | doss        : |   6 |
+| 2013-03-14: |   22 | 12:10:03: |    2 |        | Michele:   |   6 | Marszalek:    |   5 |
+| 2013-01-28: |   17 | 12:18:37: |    2 |        | Ryan:      |   6 | Baker       : |   4 |
+|     (Other) | :393 |   (Other) | :532 |        | (Other):   | 504 | (Other)     : | 278 |
+|             |      |           |      |        |            |     |               |     |
+
+| Operator |         |   |
+|----------+---------+---|
+| Andrew   | :150    |   |
+| Feher    | :117    |   |
+| Matt     | :    96 |   |
+| Kelsey   | :    76 |   |
+| James    | :    48 |   |
+| Dante    | :    42 |   |
+| (Other): | 15      |   |
+
+
+
+*** Operators
+
+  Andrew Brittney    Dante    Feher    James     Jing   Kelsey     Matt
+     150        4       42      117       48       11       76       96
+
+*** Chat Totals
+| *Chat Count* |       |
+|--------------+-------|
+| Jan          |   257 |
+| Feb          |   147 |
+| Mar          |   140 |
+|--------------+-------|
+| *Total*      | *544* |
+
+** (OLD)Chat Statistics
+
+
+*** Daily Breakdown
+| Jan-02-2013        |   4 |
+| Jan-03-2013        |   6 |
+| Jan-10-2013        |  10 |
+| Jan-11-2013        |   9 |
+| Jan-14-2013        |   5 |
+| Jan-15-2013        |   7 |
+| Jan-16-2013        |   8 |
+| Jan-17-2013        |  11 |
+| Jan-18-2013        |  11 |
+| Jan-20-2013        |   2 |
+| Jan-22-2013        |  36 |
+| Jan-23-2013        |  22 |
+| Jan-24-2013        |  26 |
+| Jan-25-2013        |  11 |
+| Jan-27-2013        |   9 |
+| Jan-28-2013        |  17 |
+| Jan-29-2013        |  13 |
+| Jan-30-2013        |  14 |
+| Jan-31-2013        |  10 |
+| Jan-4-2013         |   5 |
+| Jan-7-2013         |   9 |
+| Jan-8-2013         |   4 |
+| Jan-9-2013         |   8 |
+|--------------------+-----|
+| January 2013 Total | 257 |
+
+
+| Feb-01-2013         |   5 |
+| Feb-03-2013         |   7 |
+| Feb-04-2013         |  14 |
+| Feb-05-2013         |  11 |
+| Feb-06-2013         |   3 |
+| Feb-07-2013         |  14 |
+| Feb-08-2013         |  10 |
+| Feb-10-2013         |   6 |
+| Feb-11-2013         |  11 |
+| Feb-12-2013         |   8 |
+| Feb-13-2013         |   6 |
+| Feb-14-2013         |   3 |
+| Feb-15-2013         |   4 |
+| Feb-17-2013         |   6 |
+| Feb-18-2013         |   7 |
+| Feb-19-2013         |   7 |
+| Feb-24-2013         |   4 |
+| Feb-25-2013         |   8 |
+| Feb-26-2013         |   4 |
+| Feb-27-2013         |   4 |
+| Feb-28-2013         |   6 |
+|---------------------+-----|
+| February 2013 Total | 148 |
+
+| Mar-03-2013 |  3 |
+| Mar-04-2013 |  8 |
+| Mar-05-2013 |  4 |
+| Mar-06-2013 |  4 |
+| Mar-07-2013 |  6 |
+| Mar-08-2013 |  4 |
+| Mar-11-2013 |  6 |
+| Mar-12-2013 | 28 |
+| Mar-13-2013 |  7 |
+| Mar-14-2013 | 22 |
+| Mar-15-2013 |  3 |
+| Mar-17-2013 |  1 |
+| Mar-18-2013 | 11 |
+| Mar-19-2013 |  4 |
+| Mar-20-2013 |  2 |
+| March 2013  |    |
+*** Summary
+summary(report)
+Date           Time     AM.PM        User.First      User.Last
+22-Jan-2013: 36   10:05:57:  2   AM:169   Andrew   :  9            :227
+12-Mar-2013: 28   11:19:17:  2   PM:345   Crystal  :  8   Smith    :  7
+24-Jan-2013: 26   12:08:33:  2            Charlie  :  6   Nam      :  6
+14-Mar-2013: 22   12:08:52:  2            Deb      :  6   Doss     :  5
+23-Jan-2013: 22   12:10:03:  2            Katherine:  6   Marszalek:  5
+28-Jan-2013: 17   12:53:21:  2            Michele  :  6   Baker    :  4
+(Other)    :363   (Other) :502            (Other)  :473   (Other)  :260
+Operator
+Andrew :146
+Feher  :108
+Matt   : 93
+Kelsey : 76
+James  : 46
+Dante  : 33
+(Other): 12
+
+*** Operators
+
+  Andrew Brittney    Dante    Feher    James     Jing   Kelsey     Matt
+     150        4       42      117       48       11       76       96
+* Schedule
+** SP 2013
+*** Dante Webb
+Monday: Class from 2:00 - 3:15
+Tuesday: 11:00 - 12:15 and 2:00 - 3:15
+Wednesday: 2:00 - 3:15
+Thursday : 11:00 - 12:15 and 2:00 - 3:15
+Friday: No Classes
+*** Brittany Wright
+Monday: 1pm-6pm
+Tuesday: 2:30pm-6pm
+Wednesday: Unavailable
+Thursday: 2:30pm-6pm
+Friday: 1pm-6pm
+*** Matt Davis
+Here is my schedule for next semester:
+Monday: I'm free in the morning until my class from 12:00-1:20 then free from 1:20-5:30.
+Tuesday: I'm free until my class at 5:30.
+Wednesday: Free until 12:00, then I have classes all afternoon.
+Thursday: Free all day.
+Friday: Free except for class from 12:00-1:20.
+***  *Staff Member* | *Sunday*    | *Monday*            | *Tuesday*   | *Wednesday*    | *Thursday*          | *Friday*       |      |
+|----------------+-------------+---------------------+-------------+----------------+---------------------+----------------+------|
+|                | Chat 6 - 10 | Chat 6 - 10         | Chat 6 - 10 | Open 7am - 6pm | Chat 6 - 10         | Open 7am - 6pm |      |
+|----------------+-------------+---------------------+-------------+----------------+---------------------+----------------+------|
+| Andrew         | --          | 9 - 5               | 9 - 5       | 9 - 5          | 9 - 5               | 9 - 5          |   40 |
+| Matt           | --          | --                  | 1 - 5       | 7 - 11         | *1 - 5; 6 - 10 Chat | 7 - 11         |   20 |
+| Feher          | 6 - 10 Chat | 11 - 3              | 9 - 1       | 1 - 6          | 11 - 2              | --             |   20 |
+| Dante          | --          | 7 - 11              | 4 - 6       | 10 - 2         | 7 - 11              | 9 - 3          |   20 |
+| Brittany       | --          | 1 - 6               | 7 - 9       | --             | 2:30 - 6            | 1 - 6          | 15.5 |
+| James          | --          | *1 - 5; 6 - 10 Chat | 9 - 1       | 1 - 5          | * --?               | 11 - 5         |   20 |
+| Kelsey         | --          | 9 - 3               | 6 - 10 Chat | 9 - 3          | 2 - 5 (or 6)        | 9 - 1          |      |
+
+* Daily Log
+** <2013-04-01 Mon>
+*** Tegrity Issue Workflow
+1. Get details of the course
+2
+** <2013-04-02 Tue>
+**** grahamm Maqual
+equella
+walked her through it
+
+**** bonnie branson
+reordering Tegrity recordings
+sent email
+
+*** TODO we need better documentation for:
+- [ ] turnitin
+- [ ] equella
+
+*** TODO Create Tegrity Support Guidelines
+*** TODO For Wimba and CP wikis, we'll need to have "collaborative learning" exercises.
+** <2013-04-03 Wed>
+*** Canceled Send Tegrity Chat email
+We didn't need to send this, because we discovered that Tegrity was fixed by 1pm.
+CLOSED: [2013-04-04 Thu 11:26]
+Hey everyone,
+
+We're currently working with Tegrity to figure out why users are having issues playing Tegrity though Blackboard. For now, we can have them go to http://roocasts.umkc.edu. But please make sure that you communicate the following:
+
+- Make sure you know the OS and browser they're using, and make a note of it, or have them write that in the chat or email.
+- Find out when they were last able to access Tegrity.
+- Let them know that going to roocast.umkc.edu is just a temporary solution; they should be able to use Blackboard again in the future.
+
+
+*** DONE Install Snagit on Call Center computers                   :report:
+CLOSED: [2013-04-03 Wed 18:16]
+
+** <2013-04-04 Thu>
+CLOCK: [2013-04-04 Thu 09:00]--[2013-04-04 Thu 17:00] =>  8:00
+*** DONE Set up ITS listserv
+CLOSED: [2013-04-04 Thu 11:25]
+**** Add users
+***** Bulk Add Command Template
+QUIET ADD listname DD=X IMPORT
+//X DD *
+user1@address Firstname Lastname
+user2@address Firstname Lastname
+etc
+/*
+
+***** Bulk Add Actual
+QUIET ADD ITS-STAFF DD=X IMPORT
+//X DD *
+frdd4f@mail.umkc.edu Feher Dabbagh
+mad5gd@mail.umkc.edu Matt Davis
+denk99@mail.umkc.edu Dante Webb
+btwc82@mail.umkc.edu Brittney Wright
+kelp8b@mail.umkc.edu Kelsey Leftwich
+wjym98@mail.umkc.edu James Yazell
+crossonm@umkc.edu Mary Crosson
+meadmo@umkc.edu Molly Mead
+zoujing@umkc.edu Jing Zou
+/*
+*** TODO Email Teg training update
+- Deadline extended another week
+- Create a new "Training Site"
+- Copy your recordings to the "Training site"
+
+
+** <2013-04-05 Fri>
+CLOCK: [2013-04-05 Fri 09:00]--[2013-04-05 Fri 17:00] =>  8:00
+
+*** Goals
+- [X] Edit the "Test tips for Students" document
+- [ ] Finalize the Respondus workshop description
+  - [ ] Send to Jing for NewsBytes
+  - [ ] Post to website
+
+
+*** DONE Send paste to html documentation to Carolyn Thompson
+CLOSED: [2013-04-05 Fri 16:48]
+
+*** TODO Email details of Respondus workshop to Professor Keeton
+
+*** DONE Send presentation documents to Dr. Wei
+CLOSED: [2013-04-10 Wed 16:57]
+*** Test Tips for Students ("assess-tips.pdf")
+**** Old Version
+ Blackboard Test-taking Tips & Tricks for Students
+Before the First Test
+Make sure you use a Blackboard-certified or -compatible browser Browsers with these ratings have been extensively
+tested to ensure that they will perform well with all of Blackboard’s critical features, including testing tools. (List of
+Supported Browsers for Blackboard 9.1)
+Add umkc.edu as a trusted site Make sure you add the umkc.edu domain as a trusted site in your browser’s security
+settings to ensure that content won’t be blocked. If you need assistance with this, please contact the UMKC Call Center at
+816-235-6700.
+Disable your popup blocker for umkc.edu domain If you don’t disable your popup blocker, the test may not be able to
+fully display. If you need assistance with this, please contact the UMKC Call Center at 816-235-2000.
+Run through the Blackboard browser tester The Browser Test module is located near the bottom of the left-hand side
+of the Blackboard login page. Click the <Run Browser Check> button to make sure your browser is optimally configured
+for Blackboard.
+Take the practice test If your instructor has provided a practice test, make sure that you access it at least 24 hours prior
+to the start date of your first online assessment in order to provide sufficient time to fix any problems that you may
+discover.
+During the Test
+Wait until the test loads completely Depending on your PC and internet connection speed, it may take a little while to
+load a quiz, especially if the quiz is long. Make sure that, when accessing a quiz, you only click the link once. If you click a
+second time, you may find yourself locked out and unable to access the test.
+Carefully read all instructions Depending on your instructor’s quiz settings, students who leave the test for any reason –
+for instance, to review material on another website or in another area of the Blackboard course site -- may find themselves
+unable to return to complete the quiz. If the instructions for taking the quiz are not clear, please check with your instructor.
+Write answers to essay questions in Word or Notepad Losing your work on an essay question you’ve put a lot of
+thought and work into answering is a frustrating and heartbreaking experience! Give yourself a safety net by writing your
+answers in Word or Notepad and then pasting them into the Blackboard test window. If problems should occur with test
+submission, you will have a backup of your work.
+Don’t double-click the <Save> or <Submit> buttons: Double-clicking may cause an error message and delay
+submission of your answers. If you click <Save> or <Submit> and nothing seems to be happening, wait 60 seconds and
+try again. If you get a blank page, an error message, or no confirmation that your test has been saved or submitted,
+please follow the steps in the “What if Problems Occur” section below.
+Be cautious with the <Backspace> key When using the <backspace> key to correct errors, make certain that your
+cursor is within the text-entry field. Hitting <Backspace> when the cursor is elsewhere on the page may cause your
+browser to return to the previously-displayed page and prevent you from re-accessing a test that allows a signle attempt.
+Navigating through the test Do not use your browser's "Back" button, the <Backspace> key, or <ALT> + Left Arrow to
+navigate to a previous page; use Blackboard's navigation tools instead.
+Be cautious about resizing the test window Some browsers will refresh the screen when you resize the window. This
+should not be an issue for students who are using a Blackboard-compatible browser (List of Supported Browsers for
+Blackboard 9.1)
+When Problems Occur
+Technology is not problem-free, and it’s possible that at some point in your university career you will run into a problem
+during a test, despite following all of the instructions listed above. If this happens:
+Don’t touch anything Waiting a few minutes to see if the issue resolves by itself is generally a safe first step. For
+example, if there is a temporary problem with the Blackboard server, the restart process takes about two minutes. If you
+wait, the test will resume at the point where it left off; however, if you press buttons or attempt to reload the test page, you
+will get a “Page Not Found” error and (depending on the test settings) may lose all of your test answers as well as being
+blocked from re-accessing the test.
+Call ITS Call Instructional Technologies at 816-235-6700. ITS staff can let you know if there are system-wide issues
+affecting Blackboard, attempt to fix your problem, and advise you how to proceed. You can also use the live online chat
+support by clicking the link on the Blackboard login page or at http://www.umkc.edu/ia/its.
+Take a screenshot If the problem occurs after office hours, take a screenshot of your test window and any error
+messages displayed. If your test answers are still visible, make certain that you get all of your answers in a screenshot. As
+well as helping to identify the problem, these screenshots will also document your work on the test to the point when the
+problem occurred.
+Contact your instructor It’s best to open a line of communication with your instructor as soon as testing problems occur.
+In a case where test responses have been lost or you are unable to re-access a test, the decision about how to proceed is
+ultimately up to the instructor. Most faculty will include general information about their course policies related to online
+testing in the class syllabus.
+Helpful Information
+Access Blackboard https://blackboard.umkc.edu
+Blackboard Student Support Site http://www.umkc.edu/ia/its/support/blackboard/students/index.asp
+List of Helpful Resources at UMKC (including a technical support table)
+http://www.umkc.edu/ia/its/support/studenthelp.asp
+Technical Support its@umkc.edu 816.235.6700
+
+
+
+**** Updated Version (4/5/2013)
+***** *Blackboard Test-taking Tips & Tricks for Students*
+
+****** *Before the First Test*
+*Make sure you use a Blackboard-certified or Blackboard-compatible browser.* Browsers with these ratings have been extensively tested to ensure that they will perform well with all of Blackboard’s critical features, including testing tools. ([[http://kb.blackboard.com/pages/viewpage.action?pageId%3D58622338][List of Supported Browsers for Blackboard 9.1]])
+
+
+****** *Make sure you are using the latest version of Java.* Go to [[http://www.java.com]] and click on the "Do I have Java?" link, and then on "Verify Java Installation." If you do not have the latest version of Java, click on the "Download" link at the top, and follow the directions to install Java.
+
+*Add umkc.edu as a trusted site.* Make sure you add the umkc.edu domain as a trusted site in your browser’s security
+settings to ensure that content won’t be blocked. If you need assistance with this, please contact the UMKC Call Center at 816-235-6700.
+
+*Disable your popup blocker for umkc.edu domain.* If you don’t disable your popup blocker, the test may not be able to fully display. If you need assistance with this, please contact the UMKC Call Center at 816-235-2000.
+
+*Run through the Blackboard browser tester.* The Browser Test module is located near the bottom of the left-hand side
+of the Blackboard login page (Click on the "Technical Help" tab under the "UMKC Blackboard" logo at the top left of the login page). Click the <Run Browser Check> button to make sure your browser is optimally configured
+for Blackboard.
+
+*Take the practice test.* If your instructor has provided a practice test, make sure that you access it at least 24 hours prior to the start date of your first online assessment in order to provide sufficient time to fix any problems that you may discover.
+
+****** During the Test
+*Wait until the test loads completely.* Depending on your PC and internet connection speed, it may take a little while to load a quiz, especially if the quiz is long. Make sure that, when accessing a quiz, you only click the link once. If you click a second time, you may find yourself locked out and unable to access the test.
+
+*Carefully read all instructions.* Depending on your instructor’s quiz
+settings, students who leave the test for any reason – for instance,
+to review material on another website or in another area of the
+Blackboard course site -- may find themselves unable to return to
+complete the quiz. If the instructions for taking the quiz are not
+clear, please check with your instructor.
+
+*Write answers to essay questions in Word or Notepad.* Losing your work on an essay question you’ve put a lot of
+thought and work into answering is a frustrating and heartbreaking experience! Give yourself a safety net by writing your
+answers in Word or Notepad and then pasting them into the Blackboard test window. If problems should occur with test
+submission, you will have a backup of your work.
+
+*Don’t double-click the <Save> or <Submit> buttons:* Double-clicking may cause an error message and delay
+submission of your answers. If you click <Save> or <Submit> and nothing seems to be happening, wait 60 seconds and
+try again. If you get a blank page, an error message, or no confirmation that your test has been saved or submitted,
+please follow the steps in the “What if Problems Occur” section below.
+
+*Be cautious with the <Backspace> key.* When using the <backspace> key to correct errors, make certain that your
+cursor is within the text-entry field. Hitting <Backspace> when the cursor is elsewhere on the page may cause your
+browser to return to the previously-displayed page and prevent you from re-accessing a test that allows a signle attempt.
+Navigating through the test Do not use your browser's "Back" button, the <Backspace> key, or <ALT> + Left Arrow to
+navigate to a previous page; use Blackboard's navigation tools instead.
+
+*Be cautious about resizing the test window.* Some browsers will refresh the screen when you resize the window. This
+should not be an issue for students who are using a Blackboard-compatible browser [[http://kb.blackboard.com/pages/viewpage.action?pageId%3D58622338][List of Supported Browsers for Blackboard 9.1]])
+
+****** When Problems Occur
+Technology is not problem-free, and it’s possible that at some point in your university career you will run into a problem
+during a test, despite following all of the instructions listed above. If this happens:
+
+*Don’t touch anything.* Waiting a few minutes to see if the issue resolves by itself is generally a safe first step. For
+example, if there is a temporary problem with the Blackboard server, the restart process takes about two minutes. If you
+wait, the test will resume at the point where it left off; however, if you press buttons or attempt to reload the test page, you
+will get a “Page Not Found” error and (depending on the test settings) may lose all of your test answers as well as being
+blocked from re-accessing the test.
+
+*Call ITS Call Instructional Technologies at 816-235-6700.* ITS staff can let you know if there are system-wide issues
+affecting Blackboard, attempt to fix your problem, and advise you how to proceed. You can also use the live online chat
+support by clicking the link on the Blackboard login page or at http://www.umkc.edu/ia/its.
+
+*Take a screenshot.* If the problem occurs after office hours, take a screenshot of your test window and any error
+messages displayed. If your test answers are still visible, make certain that you get all of your answers in a screenshot. As
+well as helping to identify the problem, these screenshots will also document your work on the test to the point when the
+problem occurred.
+
+*Contact your instructor.* It’s best to open a line of communication with your instructor as soon as testing problems occur.
+In a case where test responses have been lost or you are unable to re-access a test, the decision about how to proceed is
+ultimately up to the instructor. Most faculty will include general information about their course policies related to online
+testing in the class syllabus.
+
+****** Helpful Information
+- Access Blackboard: https://blackboard.umkc.edu
+- Blackboard Student Support Site: http://www.umkc.edu/ia/it/blackboard/getting-started-students.aspx
+- List of Helpful Resources at UMKC (including a technical support table): http://www.umkc.edu/ia/its/support/studenthelp.asp
+- ITS Technical Support:
+  - *Email:* its@umkc.edu
+  - *Phone:* 816.235.6700
+  - *Live Chat*: Available through the Blackboard login page.
+
+* <2013-05-01 Wed>
+* <2013-05-02 Thu>
+* <2013-05-07 Tue>
+** Kevin Bentley Interview
+
+- Quality Matters
+- Web Conferencing
+  - Newton/Pearson Integration
+
+*** Impressions
+Good points
+- strong emphasis on promoting standards (QM)
+- Instructor training/Accountability
+- Faculty/Staff training support
+  - Online case studies
+  - QM-accredited courses
+
+
+
+    Exam Soft
+
+
+** TODO Add to OneNote
+
+In 95% of cases, a user’s Blackboard account will update automatically if their SSO user ID is changed.
+ 
+The only exceptions are cases where either there is no connection between the Blackboard and SSO accounts (e.g. the Bb account was created manually, or the connection was deliberately broken in order to allow the user continued Blackboard access despite not being enrolled, etc.) or there is a data mismatch between what Blackboard has for the user’s student/employee ID number and what AD has.
+ 
+In those cases, a second Blackboard account will be automatically created when the Bb/AD data synch runs and the two Bb accounts will need to be manually merged (ideally before the user logs in and starts generating separate user data under the new user_id.)
+ 
+When a user logs into Blackboard, the authentication process first
+checks whether the username given matches a username in AD. If it
+does, that user authenticates against AD. Only if the Blackboard
+username doesn’t match anything in AD does authentication fail through
+to the Bb users table.
+
+** Nancy Murdock remove member email
+Professor,
+
+Here is a list of all the current leaders in your organization. The members could have been added by any of these Leaders, or possibly by Leaders who are no longer active in the organization.
+
+| SSO ID     | First Name     | Last Name | Email Address        | Role   |
+|------------+----------------+-----------+----------------------+--------|
+| andersonpp | Pamela         | Anderson  | andersonpp@umkc.edu  | Leader |
+| wma628     | William        | Anderson  | wma628@mail.umkc.edu | Leader |
+| berkell    | Laverne        | Berkel    | BerkelL@umkc.edu     | Leader |
+| scvcd      | Soo Whan       | Choi      | scvcd@mail.umkc.edu  | Leader |
+| rk9r7      | Richa Rajendra | Khanna    | rk9r7@mail.umkc.edu  | Leader |
+
+Organization members must be removed in the same way they were
+added. In other words, if a member is added manually by us, they must
+be removed by us; if they were added in the Request System by a
+leader, they would need to be removed by that Leader.
+
+I checked the Request System, and found the following members have been added through the Request System. (I can only see members added since 5/16/2012, as that is the earliest record I can access in the Request System.) All of these members could be removed through the system by you:
+
+| Time     | Date       | Organization ID                      | Last Name          | First Name | SSO ID      | Requested By  |
+|----------+------------+--------------------------------------+--------------------+------------+-------------+---------------|
+| 12:05:pm | 05/07/2013 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Fitzcharles-Keller | Heather    | fitzkellerh | Nancy Murdock |
+| 11:04:am | 04/22/2013 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Gomez              | Kenia      | gomezk      | Nancy Murdock |
+| 11:01:am | 01/17/2013 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Langrehr           | Kimberly   | langrehrk   | Nancy Murdock |
+| 04:01:pm | 01/15/2013 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Narcisse           | Darryl     | djnb8d      | Nancy Murdock |
+| 10:12:am | 12/17/2012 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Nilsson            | Johanna    | nilssonj    | Nancy Murdock |
+| 10:12:am | 12/17/2012 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Watson             | Laurel     | watsonlb    | Nancy Murdock |
+| 10:12:am | 12/17/2012 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Berkel             | Laverne    | berkell     | Nancy Murdock |
+| 03:12:pm | 12/13/2012 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Fisher             | Andrew     | amfn2f      | Nancy Murdock |
+| 04:11:pm | 11/26/2012 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Schneider          | Melinda    | mlsnr8      | Nancy Murdock |
+| 04:11:pm | 11/26/2012 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Mahoney            | Valerie    | vmmkyc      | Nancy Murdock |
+| 04:11:pm | 11/26/2012 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Sherk              | Gretchen   | ghl526      | Nancy Murdock |
+| 04:11:pm | 11/26/2012 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Oxandale           | Sherry     | slsb76      | Nancy Murdock |
+| 04:11:pm | 11/26/2012 | UMKC-ORG-STU-CCAS-PRACTICUM-STUDENTS | Hilliard           | Sara       | sehkd6      | Nancy Murdock |
+
+There could be members who were added before 5/16. Without knowing the names of the members you'd like to remove, I suspect that some or all of them might have been added manually by us. We received an email from Soo Whan Choi, asking us to add a group of members on 8/21/2012. Those members can be removed manually by us.
+
+If you have any members that you'd like to remove, and that you are unable to remove through the Request System, please send us a list of their names and SSO usernames, and we'll be happy to help.
+
+
+
+
+
+
+* <2013-05-08 Wed>
+CLOCK: [2013-05-08 Wed 09:00]--[2013-05-08 Wed 17:05] =>  8:05
+
+** Just for fun: Mel Survey
+*** How would you characterize your political views?
+How would you characterize your political views?
+- [ ] Socially liberal, fiscally liberal
+- [ ] Socially liberal, fiscally conservative
+- [ ] Socially conservative, fiscally liberal
+- [ ] Socially conservative, fiscally conservative
+Do you affiliate with a political party?
+Do you affiliate with a political party?
+- [ ] Yes, I'm a Republican.
+- [ ] Yes, I'm a Democrat.
+- [ ] No, I'm an independent.
+      Did you vote in the last presidential election?
+- [ ] Yes
+- [ ] No
+
+
+*** Should the Supreme Court overturn Roe vs. Wade (the decision that legalizes abortions under most conditions throughout the United States)?
+- [ ] Yes
+- [ ] No
+- [ ] Undecided
+- [ ] No opinion
+Should military service be required of all U.S. citizens?
+Should military service be required of all U.S. citizens?
+- [ ] Yes
+- [ ] No
+- [ ] Undecided
+- [ ] No opinion
+
+Should community service be required of all U.S. citizens?
+- [ ] Yes
+- [ ] No
+- [ ] Undecided
+- [ ] No opinion
+Should the government create a shortened path toward citizenship for immigrants who are in the country illegally?
+- [ ] Yes
+- [ ] No
+- [ ] Undecided
+- [ ] No opinion
+
+
+- [ ] Yes
+- [ ] No
+- [ ] Undecided
+- [ ] No opinion
+
+
+- [ ] Yes
+- [ ] No
+- [ ] Undecided
+- [ ] No opinion
+
+
+What do you think about human nature?
+- [ ] People are inherently good
+- [ ] People are inherently bad
+- [ ] I never think about it
+
+
+How often do you participate in volunteer work?
+- [ ] 0 hours per month
+- [ ] 1-3 hours per month
+- [ ] 4-6 hours per month
+- [ ] More than 6 hours per month
+
+
+How often do you exercise?
+- [ ] Never
+- [ ] 1-4 hours a week
+- [ ] 5-7 hours a week
+- [ ] More than 7 hours per week
+
+
+Do you smoke?
+- [ ] Never
+- [ ] Yes
+- [ ] Used to but stopped
+
+Do you use recreational drugs?
+- [ ] Never
+- [ ] Yes
+- [ ] Used to but stopped
+
+Have you ever used drugs that were prescribed for someone else?
+- [ ] Yes
+- [ ] No
+
+
+Do you believe in a god?
+- [ ] Yes
+- [ ] No
+- [ ] No, but I believe in a higher power
+
+
+Do you attend religious services regularly?
+- [ ] Yes
+- [ ] No
+
+Which best describes your sex life?
+- [ ] I have no sex life
+- [ ] I hook up when possible
+- [ ] I'm in an exclusive relationship with someone I love
+
+What is MOST essential or important when selecting sexual partners?
+- [ ] Physical attraction
+- [ ] Sense of humor
+- [ ] Intelligence
+- [ ] Shared values
+
+Have you ever been in a committed relationship?
+- [ ] Yes
+- [ ] No
+
+Have you ever been unfaithful when in a committed relationship?
+- [ ] Yes
+- [ ] No
+
+How often do you discuss the following topics with your parents?
+
+- [ ] Never
+- [ ] Occasionally
+- [ ] Frequenlty
+
+      Finances
+ 
+ 
+ 
+Politics
+ 
+ 
+ 
+Drugs or alcohol
+ 
+ 
+ 
+Your sex life
+ 
+ 
+ 
+Your grades
+ 
+ 
+ 
+Please answer the following questions about your parents.
+How involved are your parents in your life?
+How involved are your parents in your life?  Not enough
+Just enough
+Too involved
+How often do your parents give you money?
+How often do your parents give you money?  Never
+Once a week
+Once a month
+Once a year
+Other (please specify)
+What do you wish your parents understood better about you or your life?
+ 
+What do you wish your parents understood better about you or your life?
+Would you like to have children someday?
+Would you like to have children someday?  Yes
+No
+It's too soon to know
+If you have kids someday, what will you do differently than your parents?
+ 
+Do you send handwritten letters or greeting cards?
+Do you send handwritten letters or greeting cards?  Yes
+No
+"If I can't communicate electronically, ..."
+"If I can't communicate electronically, ..."  I dig out my pen and paper
+I call
+I don't communicate at all
+What electronic device could you not live without?
+What electronic device could you not live without?  Personal computer/laptop
+Cellphone
+iPod
+IPad
+Other (please specify)
+What item are you living without that you most covet?
+What item are you living without that you most covet?  Nothing
+iPhone or smartphone
+Car
+Other (please specify)
+What's your favorite TV show?
+ 
+What's your favorite TV show?
+What's your favorite music to play on your iPod or iPhone?
+ 
+What's your favorite music to play on your iPod or iPhone?
+ 
+How important is it to find a job that pays a lot of money?
+How important is it to find a job that pays a lot of money?  Not important at all compared to doing what I love
+Less important than doing what I love
+Equally as important as doing what I love
+More important than doing what I love
+Far more important that doing what I love
+Will you graduate with debt?
+Will you graduate with debt?  No
+Yes, less than $10,000
+Yes, $10,000-$30,000
+Yes, $31,000-$60,000
+Yes, more than $60,000
+Which is most true about your finances?
+Which is most true about your finances?  I'm never in debt
+I'm always in debt
+Do you keep a budget to track where your money goes?
+Do you keep a budget to track where your money goes?  No
+Yes, but I'm not very good at it
+Yes, consistently
+Do you have a job outside of schoolwork?
+Do you have a job outside of schoolwork?  No
+Yes, one
+Yes, more than one
+Is your job on campus?
+Is your job on campus?  Yes
+No
+How many hours a week do you work at your job?
+How many hours a week do you work at your job?  1-6 hours a week
+7-12 hours a week
+13-19 hours a week
+20-30 hours a week
+31-40 hours a week
+More than 40 hours per week
+How do you rank yourself intellectually compared to your fellow students?
+How do you rank yourself intellectually compared to your fellow students?  I'm in the top
+I'm in the middle of the pack
+I struggle to keep up
+Have you ever cheated on an exam or assignment?
+Have you ever cheated on an exam or assignment?  Yes
+No
+Do you know other students who have cheated?
+Do you know other students who have cheated?  Yes
+No
+Have you ever lied to your parents about your grades in college?
+Have you ever lied to your parents about your grades in college?  Yes
+No
+Would you rather be attractive or smart?
+Would you rather be attractive or smart?  Attractive
+Smart
+Would you be happy being less attractive if you were smarter?
+Would you be happy being less attractive if you were smarter?  Yes
+No
+Would you shave a few points off your IQ in return for improving your looks?
+Would you shave a few points off your IQ in return for improving your looks?  Yes
+No
+My time at UMKC so far has been:
+My time at UMKC so far has been:  Better than expected
+Just as expected
+Worse than expected
+Do you plan to graduate from UMKC?
+Do you plan to graduate from UMKC?  Yes
+No
+If you could go back, knowing what you know now, would you still choose to attend UMKC?
+If you could go back, knowing what you know now, would you still choose to attend UMKC?  Yes
+No
+Gender
+Gender  Male
+Female
+Sexual orientation
+Sexual orientation  Heterosexual
+Bisexual
+Gay
+Other (please specify)
+Are you affiliated with a Greek organization?
+Are you affiliated with a Greek organization?  Yes
+No
+We appreciate your time and participation! 
+
+If you would like to enter into a raffle for a chance to win one of the following 25 prizes, please click the following link to submit your name and contact information. Note that supplying this information will not tie you to the responses in this survey; your anonymity will be maintained. 
+
+Click here to enter the raffle 
+
+Prizes:
+1 $500 gift certificate to the UMKC bookstore
+4 $75 gift cards to the plaza
+10 UMKC hats
+10 UMKC t-shirts
+** Birthday lunches
+Today, we went to Minksy's and Glace for Molly and Jing's birthday.
+
+* <2013-05-14 Tue>
+* TODO Give Mary a list of all users to convert to BB Admin User
+* <2013-05-15 Wed>
+** Testing Center 9am - 12pm                                        :report:
+* <2013-05-16 Thu>
+* TODO Fix the Add users to BB course sites info on website
+- [ ] Add info about self-enrollment
+
+* <2013-05-17 Fri>
+
+
+** Canceled Send Professor King an email about her hidden columns (snagit)
+CLOSED: [2013-08-27 Tue 09:32] DEADLINE: <2013-05-21 Tue>
+
+* <2013-05-23 Thu>
+** May 23, 2013 Staff Meeting
+*** Andrew's Input
+I plan on focusing on training and documentation this summer. If you have any projects that you'd like our staff to work on, please feel free to ask them, and/or let me know.
+**** Training
+Feedback on the Tegrity training was very positive. I am planning on continuing to train our staff on the following products:
+- Respondus
+- Wimba
+- Campus Pack
+If you have any other suggestions, or would like to propose other areas where our staff can improve their knowledge, please let me know.
+**** Documentation
+We're off to a good start with the website, and OneNote is proving to be a valuable tool. We still have a lot of weaknesses in our internal/external documentation. I know that David is working with Kelsey and James are working on videos. We also need a lot more PDFs. I also have found some problems with where information is placed. I've made notes on that and will either change that myself or give that to Kelsey and James.
+
+I will oversee the following documentation projects:
+- Updated Remedy tutorials
+- Chat tutorials
+- Updating the overall ITS Student Staff Training (I've asked recent new hires to keep notes and submit problems that they discovered.)
+- More turnkey tutorials in OneNote for common issues (Personally, I'm averaging about 1.5 new OneNotes per day...). 
+- More website tutorials
+**** Other
+- Bug testing
+- Temporary Projects at your discretion...?
+*** Meeting Notes
+**** Strategic Departmental Goals: We need to define service goals and show how we've met them. (We need a framework that shows how we set goals and how we meet them).
+***** TODO Define a set of goals or metrics for showing the quality and impact of our service.
+**** Monthly Reports
+***** Andy mostly cares about updates and new rollouts.
+**** Starfish
+***** TODO find out what calls we've had about Starfish so far.
+**** Tech Learning Lab 
+- We need new training
+- We need a space for training (Miller-Nichols 121...?)
+***** TODO Check out [[http://www.tidebreak.com/][Tidebreak]] software
+
+
+
+
+
+

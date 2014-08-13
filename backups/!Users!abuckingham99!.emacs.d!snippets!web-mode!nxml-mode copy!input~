@@ -1,0 +1,6 @@
+<h6> />
+</h6>
+# contributor : Andrew Buckingham <abuckingham99@gmail.com>
+# name : <input ... />
+# --
+<input type="$1" name="$2" value="$3" />

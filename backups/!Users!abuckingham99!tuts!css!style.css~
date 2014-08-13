@@ -1,0 +1,26 @@
+body {
+  background-color: #e3e3e3;
+  font-family: sans-serif;
+}
+
+.wrap {
+  width: 500px;
+  margin: auto;  
+}
+blockquote {
+
+border: 1px solid white;
+text-align: center;
+margin-left: 0px;
+
+//  margin-left: 50px;
+//  border-style: solid;
+//  border: 1px;
+//  border-width: auto;
+//  border-color: white;
+}
+
+
+
+
+

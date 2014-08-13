@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "Hello Again, World!"
+date:   2014-07-15 18:34:51
+categories: announcements
+---
+
+I'm back at it again. A new blog. A new purpose.
+
+{% highlight ruby %}
+# conditional.rb
+
+puts "Put in a number"
+a = gets.chomp.to_i
+if a == 3
+  puts "a is 3"
+elsif a == 4
+  puts "a is 4"
+else
+  puts "a is neither 3, nor 4"
+end
+
+{% endhighlight %}
+
+Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh].
+
+[jekyll-gh]: https://github.com/jekyll/jekyll
+[jekyll]:    http://jekyllrb.com

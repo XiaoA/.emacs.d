@@ -1,0 +1,178 @@
+#+TITLE: My GTD File 
+#+AUTHOR: Andrew Buckingham
+
+** TODO Finish taxes
+   SCHEDULED: C<2011-08-25 Thu 11:00>
+** TODO Turn in taxes
+** DONE Get SS # for YH
+   - State "DONE"       from "TODO"       [2011-08-24 Wed 22:11]
+** DONE Take computer and 10.6 installation disk to set up Dad's Mac :Dad:mac:
+   - State "DONE"       from "TODO"       [2011-07-17 Sun 22:21]
+** DONE Set up Dad's Mac Mini                                           :Dad:
+   - State "DONE"       from "TODO"       [2011-07-17 Sun 22:22]
+** DONE Finish setting up the Mac Mini (10.7; iWork)                    :Dad:
+   - State "DONE"       from "STARTED"    [2011-07-31 Sun 11:31]
+** CANCELLED Give Dad the [[~/org/Mac%20Tutorial.org][Mac Tutorial]]                            :CANCELLED:
+   - State "CANCELLED"  from "TODO"       [2011-08-24 Wed 22:12]
+
+** SOMEDAY Find out how to set up Tetris scores file   :emacs:online:WAITING:
+   - State "SOMEDAY"    from "TODO"       [2011-09-02 Fri 18:19]
+   
+** CANCELLED Set up [[http://emacs-fu.blogspot.com/search/label/org-mode][XeLaTeX export from Org-Mode]]                  :CANCELLED:
+   - State "CANCELLED"  from "TODO"       [2011-12-09 Fri 09:05]
+** TODO Set up [[http://kjhealy.github.com/latex-custom-kjh/][KJHealy XeLaTeX System ]](Already downloaded)
+** DONE Ask Melissa about background check and start date              :work:
+   SCHEDULED: <2011-08-25 Thu>
+   - State "DONE"       from "TODO"       [2011-08-26 Fri 18:52]
+
+** CANCELLED Buy black slacks                       :work:shopping:CANCELLED:
+   - State "CANCELLED"  from "TODO"       [2011-12-09 Fri 09:05]
+
+** CANCELLED Apply for Apple Store job                            :CANCELLED:
+** DONE Apply to Pizza Hut
+   - State "DONE"       from ""           [2011-07-18 Mon 20:51]
+
+
+** SOMEDAY Read and implement the outlining exercise [[http://www.omnioutlinerpro.com/omnioutliner-and-your-values-part-2-the-state-of-the-you-nion/][here]].          :WAITING:
+   - State "SOMEDAY"    from ""           [2011-07-14 Thu 12:16]
+
+
+** DONE Pay Mom and Dad back first half
+   CLOSED: [2012-12-24 Mon 21:41]
+   - State "TODO"       from "WAITING"    [2011-09-02 Fri 18:20]
+   - State "WAITING"    from "TODO"       [2011-08-26 Fri 19:01] \\
+     waiting for financial aid
+** WAITING Pay Dom back                                             :WAITING:
+   - State "WAITING"    from "TODO"       [2011-09-02 Fri 18:20] \\
+     Waiting for:
+      - The funds to be available to Paypal
+      - Dominic to confirm his account
+** TODO Contact Justice Dept: See if you can get check reissued
+** TODO Write monthly Future Andrew email
+
+** TODO Add scratchpad items to cedict
+
+** SOMEDAY Ask mom for the laundry rack                             :WAITING:
+   - State "SOMEDAY"    from "STARTED"    [2011-08-28 Sun 12:09]
+
+** TODO Check 12/10-浜離宮-お台場__110 in building dodge seems wrong :flickr:online:
+
+** TODO Check downloaded videos
+** TODO Check http://ma.tt/2011/05/incomplete-mani--for-growth/
+** TODO Check http://www.1on1mandarin.com/blog/dow--chinese-subtitles-for-movies/
+** TODO Check out http://eldonreeves.wordpress.com/201-/05/13/diy-karaoke-vol-2-and-l2ir/
+** TODO Check out mac app: FileSorter
+** TODO Check out nvalt website list
+** TODO Check out sidesleeper pro
+** TODO Checkout mac app: XMenu
+** TODO Send typing link to Dom if it is good http://typeonline.co.uk/lesson1.html
+** TODO Subscribe http://5by5.tv/talkshow/43
+
+
+** CLOSED Turn in FAFSA                                                 :mac:
+   - State "CLOSED"     from "DONE"       [2011-12-16 Fri 08:58]
+   - State "DONE"       from "TODO"       [2011-08-24 Wed 22:17]
+   SCHEDULED: <2011-07-13 Wed 11:0
+** CLOSED Decide on aa course of study with Dr. Wei
+   - State "CLOSED"     from "DONE"       [2011-12-16 Fri 08:59]
+   - State "DONE"       from ""           [2011-08-24 Wed 22:17]
+
+** WAITING Buy school supplies [0/3]                                :WAITING:
+   - State "WAITING"    from ""           [2011-08-26 Fri 18:59] \\
+     waiting for financial aid
+   - [ ] bag
+   - [ ] folders
+   - [ ] notebooks
+   - [ ] large umbrella
+
+** CLOSED Buy clothes
+   - State "CLOSED"     from "WAITING"    [2011-12-16 Fri 08:58]
+   - State "WAITING"    from ""           [2011-08-26 Fri 18:59] \\
+     waiting for financial aid
+ [%] 
+   - [ ] jeans
+   - [ ] shoes
+   - [ ] shirts
+   - [ ] slacks
+
+
+** TODO Watch next jake and amir after 'Vest'
+
+5525 is a hard class (online)
+
+** CLOSED Contact UMKC help desk: ask them to change email display name
+   - State "CLOSED"     from "TODO"       [2011-12-16 Fri 08:58]
+
+Org-Wiki Settings
+http://lists.gnu.org/archive/html/emacs-orgmode/2011-01/msg00255.html
+http://www.amazon.com/How-Luckiest-Person-Alive-ebook/dp/B0051XX724%3FSubscriptionId%3D0JJEH4PKQM4ZHS8QY102%26tag%3Dthehuffingtop-20%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0051XX724
+
+** DONE Call Melissa for training schedule (816)942-2391
+   SCHEDULED: <2011-08-26 Fri 14:00>
+   - State "DONE"       from "TODO"       [2011-08-26 Fri 19:00]
+
+** DONE Check Bird, A. and Stevens, M.J. (2003) Toward an emergent global culture and the effects of globalisation on obsolescing national cultures. Journal of International Management, 9 (4), 395-407. (online UMKC library)
+   SCHEDULED: <2011-08-30 Tue 21:00>
+   - State "DONE"       from "TODO"       [2011-09-02 Fri 18:22]
+
+** CLOSED Read [[file:~/Desktop/culteu.pdf][THE IMPACT OF CULTURE ON INTERACTIONS: FIVE LESSONS LEARNED FROM THE EUROPEAN COMMISSION]]
+   SCHEDULED: <2011-08-29 Mon 14:00>
+   - State "CLOSED"     from "TODO"       [2011-12-16 Fri 09:04]
+** CLOSED Buy Clinique moisturizer @ Macy's
+   SCHEDULED: <2011-09-03 Sat>
+   - State "CLOSED"     from "TODO"       [2011-12-16 Fri 08:58]
+** DONE Help at Mom and Dad's
+   SCHEDULED: <2011-08-30 Tue>
+   - State "DONE"       from "STARTED"    [2011-09-02 Fri 17:55]
+
+
+
+
+
+
+
+
+
+
+
+** Shopping List
+
+*** Whole Foods
+    - [ ]  toothpaste
+    - [ ] Salt-free chips 
+
+*** CVS/Walgreen's
+    - [ ]  toothbrushes
+    - [ ] insoles
+
+*** Dillard's
+    - [ ]  Clinique moisturizer
+
+*** Fossil
+*** Hahn's/Matress Firm/
+    - [X] bed
+    - [X]  pillow
+
+*** Asian Food
+    - [X] buy food
+    - [X] check rice cookers (?) (Amazon)
+
+*** Off Broadway/Gary Gribble's
+    - [ ]  shoes
+
+*** Other
+
+    - [ ] toilet brush
+    - [X]  clothes
+    - [ ] scissors
+
+*** Amazon
+    - [ ] rice cooker
+
+*** Target 
+    - [ ] floss
+    - [ ] baking soda
+
+** CLOSED Print [[http://zh.wikipedia.org/wiki/%25E5%25A8%2581%25E5%25A6%25A5%25E7%2591%25AA%25E6%258B%25BC%25E9%259F%25B3][Wade-Giles article for Chia-Hua]]
+   - State "CLOSED"     from "TODO"       [2011-12-16 Fri 08:58]
+

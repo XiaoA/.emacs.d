@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Blackboard Administrator Notes</title>
+<!-- 2013-12-27 Fri 14:50 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Andrew Buckingham" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Blackboard Administrator Notes</h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Knowledge Transfer</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">Blackboard:</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Contact information and support history located at <a href="http://behind.blackboard.com/">http://behind.blackboard.com/</a>.
+
+<p>
+<i>Andrew's Note: I've had access to this since August.</i>
+</p>
+</li>
+
+<li>Local/historical system and policy documentation is located at N:\Groups\IA\ITS\Elearning\Blackboard\System Info
+
+<p>
+<i>Andrew's Note: Looks old. Last update was about a year ago. Most files are from 2008 - 2011. Is this still information still relevant?</i>
+</p>
+</li>
+
+<li>Current system and policy documentation is located at <a href="https://sharepoint.umsl.edu/its/ltic/default.aspx">https://sharepoint.umsl.edu/its/ltic/default.aspx</a>
+</li>
+</ul>
+
+<p>
+<i>Andrew's Note: I don't have access.</i>
+</p>
+
+<ul class="org-ul">
+<li>Paper documentation of server customizations is located in binder labeled “Blackboard Server Settings (Doomsday Backup)” shelved in my office. In a worst-case scenario, this documentation could be used to restore to a pre-look-and-feel-change state.  Addendum “Blackboard changes.txt” tucked into the front contains list of recent cosmetic updates to restore current look and feel.
+</li>
+</ul>
+
+<p>
+<i>Andrew's Note: I've seen this before. I'll check it again.</i>
+</p>
+
+<ul class="org-ul">
+<li>Database schema documentation is located at <a href="http://library.blackboard.com/ref/fea8bb86-1720-4b14-bb81-542d973b5338/index.htm">http://library.blackboard.com/ref/fea8bb86-1720-4b14-bb81-542d973b5338/index.htm</a>
+</li>
+</ul>
+
+<p>
+<i>Andrew's Note: I've checked this. Very useful. To save time, I should try to pull out the most useful schemas.</i>
+</p>
+
+
+<ul class="org-ul">
+<li>Web application for setting dates related to data loading is located at <a href="https://kc-csrv-ora4.kc.umkc.edu/oracle-Login.html">https://kc-csrv-ora4.kc.umkc.edu/oracle-Login.html</a>
+</li>
+</ul>
+
+<p>
+<i>Andrew's Note: Can't access.</i>
+</p>
+
+<ul class="org-ul">
+<li>Public-facing policies and procedures are located at     <a href="http://www.umkc.edu/ia/it/blackboard/bbpolicies.aspx">http://www.umkc.edu/ia/it/blackboard/bbpolicies.aspx</a>
+</li>
+</ul>
+
+<p>
+<i>Andrew's Note: I access this all the time. (I updated this link to point to our new website URL in March 2013).</i>
+</p>
+
+<ul class="org-ul">
+<li>Public-facing webpages are located at  <a href="http://www.umkc.edu/ia/it/blackboard/default.aspx">http://www.umkc.edu/ia/it/blackboard/default.aspx</a>
+</li>
+</ul>
+
+<p>
+<i>Andrew's Note: I access this all the time. (I updated this link to point to our new website URL in March 2013).</i>
+</p>
+
+<ul class="org-ul">
+<li>Hints and tips are documented in the organization site “Blackboard Wiki” housed on UMKC’s Blackboard server
+</li>
+</ul>
+<p>
+<i>Andrew's Note: I'm enrolled in the wiki and I've gone through it.</i>
+</p>
+
+<ul class="org-ul">
+<li>Documentation for various plug-ins and ancillary software are located on the vendor/distributor websites
+</li>
+</ul>
+<p>
+<i>Andrew's Note: Do we have a list of those, or should we compile that?</i>
+</p>
+
+<ul class="org-ul">
+<li>Future instance (currently Bb 9.1 SP11) hosted at <a href="https://blackboard-future.missouri.edu/webapps/portal/frameset.jsp?tab_tab_group_id=_148_1">https://blackboard-future.missouri.edu/webapps/portal/frameset.jsp?tab_tab_group_id=_148_1</a>. Testing of SP10 is underway. The earliest date for production update would be Winter Break. Impetus for update is resolution of java issues with MathML/WebEQ use (e.g. MET.)
+</li>
+</ul>
+<p>
+<i>Andrew's Note: Can't access.</i>
+</p>
+
+<ul class="org-ul">
+<li>Columbia DB Administration and Technical Services – Ticketing/Request System: <a href="https://doit.sharepoint.missouri.edu/eas/dats/Lists/servicerequest/allrequestsid.aspx">https://doit.sharepoint.missouri.edu/eas/dats/Lists/servicerequest/allrequestsid.aspx</a>
+</li>
+</ul>
+<p>
+<i>Andrew's Note: I can access this. Is there anything special I'd need to look for or know about this site?</i>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">Equella:</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Contacts and documentation housed at <a href="https://doit.sharepoint.missouri.edu/css/projects/equella/default.aspx">https://doit.sharepoint.missouri.edu/css/projects/equella/default.aspx</a>
+</li>
+</ul>
+<p>
+<i>Andrew's Note: I can't access this site.</i>
+</p>
+
+<ul class="org-ul">
+<li>Are there key people (internal/external contacts) other than those identified in the Project Status Report to whom we should be introduced before you leave the organization? If yes, please list and indicate when we might plan for such introductions?
+
+<ul class="org-ul">
+<li>Steve Steinacker at UMKC for Equella
+</li>
+<li>George Robb and Luke Baker in Columbia for Blackboard
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+<i>Andrew's Note: Do they know that I will be Mary's backup?</i>
+</p>
+
+
+<ul class="org-ul">
+<li>Identify external agencies and regulatory groups (i.e. City/State/Federal) with whom it is necessary for us to interact in order to fulfill duties of your position.
+</li>
+</ul>
+<p>
+Not applicable
+</p>
+
+<ul class="org-ul">
+<li>Are there specific files/records related to current or past projects that should be retained over a defined period of time? If yes, please list, identify the location of each, and include the retention period. 
+</li>
+</ul>
+
+<p>
+Blackboard site archives dating back to 2002 are located in \\kc-csrv-bbarch\. For program accreditation purposes, these files have a retention period of 10 years.
+</p>
+
+<ul class="org-ul">
+<li>List important historical/reference documents, if any, in your possession.
+
+<ul class="org-ul">
+<li>See #1, above
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+352-577-8475
+</p>
+
+<p>
+<i>Andrew's Note: I think this number needs to be updated in Mary's Knowledge Transfer. I have 816-349-8587. Also, in <a href="https://umkc.sharepoint.missouri.edu/SiteDirectory/ia/Lists/Contacts/AllItems.aspx">Sharepoint</a>, her mobile number is listed as 816-446-5207, so I think that will need to be updated, as well.</i>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Andrew Buckingham</p>
+<p class="date">Created: 2013-12-27 Fri 14:50</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.1)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

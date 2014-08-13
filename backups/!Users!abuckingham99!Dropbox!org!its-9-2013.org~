@@ -1,0 +1,946 @@
+#+Title: Andrew Buckingham's ITS Worklog, September 2013
+#+AUTHOR: Andrew Buckingham
+#+STARTUP: indent
+#+OPTIONS: num:nil toc:nil ^:nil
+#+TODO: TODO(t) |  Started(s) | Waiting(w) | Someday/Maybe(m) | Canceled(c) | DONE(d)(@) | Meeting(M) | Note(n)
+#+FILETAGS: :work:
+
+
+
+* Projects
+** Training/Workshops
+*** Respondus 4.0
+**** Respondus Training                                              :report:
+***** Respondus Workshop Summary for website
+****** Web Description (Old)
+*Creating and Deploying tests with Respondus 4.0*\\
+*Where:* Fine Arts Room 307\\
+*When:* April 30, 2013  1:00 PM - 2:00 PM\\
+*Presenter(s):* Andrew Buckingham\\
+*Prerequisite:* Basic Blackboard experience. No prior knowledge of Respondus is necessary, but participants should be familiar with how tests work in Blackboard.\\
+
+*Level of Difficulty:* Intermediate\\
+
+*Description:* Building tests in Blackboard can be time-consuming, but
+creating tests in Word for Blackboard can lead to potential problems
+with formatting or errors from embedded code. Respondus 4.0 is a
+powerful tool for building tests that can be printed to paper or
+published directly to Blackboard. Respondus offers a fast and
+convenient way to build tests quickly, without the risk of formatting
+issues.
+
+Upon completion of this interactive workshop, instructors will be able
+to use Respondus to build and deploy tests in their own Blackboard
+courses.
+
+
+
+*Workshop Topics*\\
+- A brief introduction to the features and user interface
+- Installing and Setting up Respondus
+- Creating a test in Respondus
+- Importing a test
+- Deploying tests to Blackboard
+- Setting up tests for LockDown Browser
+
+
+****** Web Description (final - 4.9.2013)
+*Creating and Deploying tests with Respondus 4.0*\\
+*Where:* Fine Arts Room 307\\
+*When:* April 26, 2013 1:00 PM - 2:00 PM\\
+*Presenter(s):* Andrew Buckingham\\
+*Prerequisite:* Basic Blackboard experience. No prior knowledge of Respondus is necessary, but participants should be familiar with how tests work in Blackboard. /Note: Respondus 4.0 is only available on Windows./\\
+
+*Level of Difficulty:* Intermediate\\
+
+*Description:* Building tests in Blackboard can be time-consuming. Many instructors prefer to create tests in Word, but this can lead to potential problems with text formatting issues, which can cause issues for students. Respondus 4.0 is a powerful tool for building tests that can be printed to paper or published directly to Blackboard. Respondus offers a fast and convenient way to build tests quickly, without the risk of formatting issues. Exams can be created, edited, and deployed to Blackboard within Respondus, or imported from a program like Word or Notepad.\\
+After a brief overview of the interface and features, participants will learn Respondus by using it to create tests in Blackboard. Upon completion of this interactive workshop, instructors will understand how Respondus can help them build tests and surveys in their own Blackboard course sites.
+
+*Workshop Topics:*
+- A brief introduction to the features and user interface
+- Installing and Setting up Respondus
+- Creating tests in Respondus
+- Importing tests
+- Deploying tests to Blackboard
+
+****** Web Description (final - 4.9.2013)
+Creating and Deploying tests with Respondus 4.0
+Where: Fine Arts Room 307
+When: April 26, 2013 1:00 PM - 2:00 PM
+Presenter(s): Andrew Buckingham
+Prerequisite: Basic Blackboard experience. No prior knowledge of Respondus is necessary, but participants should be familiar with how tests work in Blackboard. Note: Respondus 4.0 is only available on Windows.
+
+Level of Difficulty: Intermediate
+
+Description: Building tests in Blackboard can be time-consuming. Many instructors prefer to create tests in Word, but this can lead to potential problems with text formatting issues, which can cause issues for students. Respondus 4.0 is a powerful tool for building tests that can be printed to paper or published directly to Blackboard. Respondus offers a fast and convenient way to build tests quickly, without the risk of formatting issues. Exams can be created, edited, and deployed to Blackboard within Respondus, or imported from a program like Word or Notepad.
+After a brief overview of the interface and features, participants will learn Respondus by using it to create tests in Blackboard. Upon completion of this interactive workshop, instructors will understand how Respondus can help them build tests and surveys in their own Blackboard course sites.
+
+Workshop Topics:
+A brief introduction to the features and user interface
+Installing and Setting up Respondus
+Creating tests in Respondus
+Importing tests
+Deploying tests to Blackboard
+
+***** RespondusWorkshop
+****** Introduction
+******* Self Introduction
+- Andrew Buckingham
+- Software Support Analyst
+- buckinghama@umkc.edu
+- 816-235-1093
+
+******* Overview
+******** What is Respondus?
+Respondus 4.0 is a powerful tool for creating and deploying tests to Blackboard and other Learning Management Systems.
+
+*Respondus makes it easy to:*
+- Create tests
+- Import tests from Word or text files (as well as from other tests and publisher test banks)
+- Edit existing test content and settings
+- Deploy tests and surveys to current (or future) course sites
+- Create tests for Respondus LockDown Browser
+******** Respondus is a Bridge 
+
+
+******** Why should I use Respondus?
+- Easily convert Word docs or text files into Blackboard tests, surveys, and pools
+- Set up tests for Respondus LockDown Browser
+- Can be easier to set up tests than within Blackboard
+- You must use it to set up tests for LockDown Browser
+
+******** System Requirements
+- *Operating System:* Windows 8, 7, Vista, XP
+- *Memory:* 32 MB RAM minimum
+
+- *Hard Disk Space:* 10 MB of free hard disk space for program files
+
+- *Monitor:* 1024x768 or 1280x720 minimum resolution
+- Blackboard, Moodle, or paper-based tests
+
+******** Workshop Goals
+By the end of this workshop, participants should be able to:
+- Install and configure Respondus
+- Use Respondus to create and import tests, surveys, and pools to Blackboard
+- Understand how Respondus can help make deploying Blackboard tests easier
+- Know where to go for more help
+
+
+****** User Interface Tour and Useful Settings
+******* The Menu
+The most important options are "File" and "Help."
+- You can access the Preferences and update your license from the "File" menu.
+- You can make check for updates to Respondus from the "Help" menu.
+******* The *Start* tab
+From the Start tab, you can import or create your tests and surveys.
+In the *Open or Create* area, you can:
+- Open
+- Create
+- Test Bank Network
+- Exam Wizard
+- Import Questions
+- Archive Wizard
+
+******* The *Edit* tab
+You can change the types of questions, as well as the settings for your test, in the *Edit* tab.
+
+You can also create the following types of questions:
+- Multiple Choice
+- Essay / Short Answer
+- Matching
+- Ordering
+- Fill in the Blank
+- Multiple Answer
+- Calculated
+- Jumbled Sentence
+- File Response
+- Opinion Scale
+- Numeric
+- Quiz Bowl
+- Fill in Multiple Blanks
+
+(You can also copy questions from another file, or access the Test Bank Network.)
+
+******* The *Settings* tab
+You can change the settings (Test Options) here. For example:
+- Set Random Blocks (randomized question sets)
+- Test instructions, availability, and feedback options, and other settings (like in Blackboard)
+- Respondus LockDown Browser (If you'd like to require LockDown Browser, you must set it up here!)
+
+******* The *Preview and Publish* tab
+You can choose from the following output options:
+- Preview the test
+- Publish to Blackboard
+- Update the Respondus server settings
+- Print out a paper-based test or set of answers
+
+******* The *Retrieval & Reports* tab
+Download test questions and data from your Blackboard site to use in Respondus.
+
+****** Getting Started (Interactive Demo)
+******* Downloading and Configuration
+1. Download from the *Information for UMKC BB Instructors* Organization Site
+2. Add the license
+   - The annual license expires every July (The current password is valid through: July 31, 2013)
+3. Check for updates
+******** [File ]
+******* Importing tests
+******** Importing Word documents
+******** Editing test questions
+******* Creating tests in Respondus
+******* Deploying to Blackboard
+******** Setting options
+******* Interactive Demo
+- Please log in to Blackboard and find the "Respondus Workshop" course site. Go to "Test Materials" and download the "Test-1.docx" file.
+
+- Upload the Document to the *Tests* --> *Unit 1* Folder.
+
+******** DONE Create Test-1.docx
+         CLOSED: [2013-09-05 Thu 17:17]
+******** DONE Upload Test-1.docx to the "Respondus Workshop" course site.
+         CLOSED: [2013-09-05 Thu 17:17]
+******* Materials
+******** Test-1.docx
+******** Formatting questions for Blackboard Tests
+********* Format
+Tests must be formatted correctly. The proper format for questions
+******* Useful tips
+- If you'd like to have randomized answers, you must set that option before you import your test. If you have already imported the test, you'll need to either export it and import it again, or import a second copy (with a different name). ***
+
+******* Troubleshooting
+- Problems with test
+  - Fix in Respondus (*Edit* tab)
+  - Fix in Word and re-import
+- Can't connect to Blackboard server
+  - Check for updates (*Help --> Check for Updates*)
+  - Create new server connection
+  - Call ITS
+
+***** Respondus Question Types
+
+
+**** Tegrity Support Guidelines
+***** Obtain as much information as possible from the user, including:
+- OS
+- browser(s)
+- the exact course site and name of the recording
+- What exactly does the user see, and how far can he or she get before it "doesn't work?"
+
+
+
+***** Tell the user, "I'm going to test the video. While I'm doing that, could you go to this site, and run the browser settings?"
+***** Test the recording. *Whenever possible, test the recording, even if you are sure it is not a Tegrity outage*. This will accomplish two things:
+- It will prove to the student that Tegrity is not the problem, which will make it more likely that the user will trust you and follow your instructions.
+- It will ensure that there really isn't a problem with Tegrity or the Tegrity server.
+
+
+*****
+*** Take Control of your Course Sites!
+**** Outline
+
+***** The Blackboard Dashboard
+   - Learning Modules
+   - Rearranging and hiding modules
+   - Problem-solving Tips
+     - Login issues
+     - Modules will not load
+   - The Blackboard Browser Test
+
+
+***** Customizing Your Site
+   - Making a course available/unavailable
+   - Making tools available to your students
+   - Customizing the appearance of your course site
+
+***** Using the Request System
+   - Course Copies
+   - Combo Requests
+   - Adding/Removing Users
+
+***** Creating Sandbox/Development Sites
+   - Course Development
+   - Ongoing "Templates"
+
+***** Archiving Student Data
+   - Export vs. Archiving
+   - Exporting the Grade Center
+
+***** Managing Large Course Sites
+   - Disk Quota
+   - Using the Streaming Server
+   - Equella
+
+
+***** Course Reports (Optional)
+
+***** Grade Center (Optional)
+   - Controlling how grade columns are displayed
+     + instructors
+     + students
+
+   - Creating Reports
+*** Mastering the Blackboard Grade Center
+**** Outline
+***** Column Types
+   - Manual Column
+   - Average Column
+   - Minimum/Maximum Column
+   - Total Column
+   - Weighted Column
+zz***** Creating Columns
+***** Hiding Columns
+
+***** Removing Columns
+
+***** Working Offline
+
+***** Creating Reports
+***** Early Warning System
+***** Alignments
+***** Grading Work
+   - Needs Grading
+   - Full Grade Center
+
+*** 2013 DNP Blackboard Introduction (Students)
+
+**** About ITS
+Our offices are located on the third floor of the Fine Arts Building, at 51st and Holmes. We offer support via email, phone, and Live Chat. We do not offer walk-in service for students.
+We can be reached by phone at (816) 235-6700. Our office is open Monday through Friday, from 7am - 6pm CST. We also offer live online chat support, accessible from the Blackboard Login page, on Sundays, Mondays, Tuesdays, and Thursdays, from 6pm - 10pm. 
+http://www.umkc.edu/ia/it/
+
+**** About Me
+Andrew Buckingham
+Software Support Analyst/ITS Call Center Supervisor
+ 
+**** Website
+[[http:www.umkc.edu/ia/it/][Instructional Technologies Homepage]]
+
+***** Products we support
+- Blackboard
+- Moodle
+- Respondus 
+- Clickers/Turning Point
+- Turnitin
+- Wimba
+- Tegrity
+- Respondus LockDown Browser
+- Listserv
+- Sharepoint
+- Wordpress
+- CampusPack Blogs, Wikis, and Journals
+
+***** Products that we do not support
+See this link: http://www.umkc.edu/is/audience/?g=1 or contact the UMKC Call Center (816-235-2000/callcenter@umkc.edu) for assistance with the following issues:
+- Email (including reporting suspicious emails) 
+- Pathway
+- SSO Password reset
+- ILE/Desktop support 
+- Wifi 
+- General computing issues and problems (including hardware or software issues, firewalls, antivirus software, etc.)
+
+***** Other issues that we don't support
+Call the main number at 816-235-1000 or visit http://www.umkc.edu for other issues, including:
+- Textbooks (https://www.umkcbookstore.com/)
+- Grades/Enrollment/Transcripts (Registrar: 816-235-1125)
+- Tuition (http://www.umkc.edu/adminfinance/finance/cashiers/)
+- Financial Aid (http://www.sfa.umkc.edu/site2/index.cfm)
+
+***** Keys to Success with Technology in Education
+- Be proactive. Complete assessments early to allow time to resolve issues when they arise.
+- Keep your computer updated.
+- Learning about computers and technology is as important as learning about your subject matter!
+
+***** Getting Started
+****** Blackboard
+******* Tegrity
+******* Wimba
+******* Moodle
+******* Respondus LockDown Browser
+******* Clickers
+******* CampusPack Blogs, Wikis, and Journals
+******* Turnitin Assignments
+
+** UMKC Blackboard Team
+
+
+** Student Assistant Hiring
+*** Rejection Letter I (Interviewed)
+We appreciate that you took the time to apply for the position of (name of position) with our company. We received applications from many people. After reviewing your submitted application materials, we have decided that we will not offer you an interview.
+
+We wish you success with your ongoing job search. Thank you for your interest in our department. 
+ 
+Pasted from <http://humanresources.about.com/od/sample-rejection-letters/a/Rejection-Letter-Sample.htm> 
+*** Rejection Letter II
+Thank you for your interest in the Student Assistant position at UMKC Instructional Technologies. We have reviewed your application, and unfortunately we are unable to offer you a position at this time. Please continue to check on the Roo Career Network site for future opportunities. We wish you the best of luck in your job search.
+*** Rejection Letter III (Interviewed)
+Dear NAME,
+
+Thank you for applying for the position of Student Assistant, Blackboard Support. We appreciate your interest in
+
+working for Instructional Technologies, and enjoyed meeting you.
+
+
+
+I am  writing to inform you that although we were impressed by your credentials, we have
+
+decided to fill the position with another candidate whose qualifications and a background
+
+we felt were a better fit for the job.
+
+
+
+Thank you for your time. We wish you the best of luck in your job search and career.
+
+*** Mine: Interviewed
+ 
+Dear ,
+
+Thank you for applying for the Student Assistant Position at UMKC Instructional Technologies. We enjoyed meeting with you to discuss your experience and qualifications for the job.
+
+We were overwhelmed with the number of applicants. When considering candidates, we looked at a variety of factors, including availability, experience, and other skills. Unfortunately, we have decided to go with another candidate, but if another opportunity in our department opens up, we would invite you to apply. Should we have another job opening, we will advertise it in the Roo Career Network website, at https://umkc-csm.symplicity.com/students/. 
+
+We wish you the best of luck in your job search, and we thank you again for applying for the position.
+
+Sincerely,
+
+The Hiring Committee
+UMKC Instructional Technologies
+
+*** Mine: General
+ 
+Dear ,
+
+Thank you for applying for the Student Assistant Position at UMKC Instructional Technologies. 
+
+We were overwhelmed with the number of applicants. When considering candidates, we looked at a variety of factors, including availability, experience, and other skills. Unfortunately, we have decided to go with another candidate, but if another opportunity in our department opens up, we would invite you to apply. Should we have another job opening, we will advertise it in the Roo Career Network website, at https://umkc-csm.symplicity.com/students/. 
+
+We wish you the best of luck in your job search, and we thank you again for applying for the position.
+
+Sincerely,
+
+The Hiring Committee
+UMKC Instructional Technologies
+
+
+* Reports
+** September 2013 Monthly Report
+*** Projects and Areas of Responsibility
+
+1. *Documentation and User Training*
+
+   - *Website*: Updated "Blackboard Test - Taking Tips & Tricks for Students" (http://www.umkc.edu/ia/it/blackboard/documents/students/Taking%20Tests/assess_tips.pdf).
+
+   - *OneNote*: I created or edited 18 OneNote pages.
+
+   - *User Training*
+
+     + Teresa Torres 9/24: Respondus 4.0/Uploading a test
+
+2. *Staff Training and Development*
+
+   - *Staff Meetings*:
+
+     - Every month, I meet with each staff member individually. No one
+       had any major problems to report this time.
+
+   - *Other*
+
+   - *Staff Hiring*
+
+     + We hired Natalie Bradshaw in August, but there were problems with the HR/Payroll process. She started on 9/19.
+
+     + We hired Erik Schneider. Hopefully, he will be starting soon.
+
+     + I set up a new MS Access database *(N:\Groups\IA\ITS\Andrew\Database\ITS_Applicants)* to track ITS Student Assistant applicants. We've had a huge increase in the number of student applicants, and we needed a way to easily track applicants and send mail merge emails for successful/unsucessful applications. I've trained James Leftwich on how to enter data, and will be training the others so that they can add/remove records and run a few simple queries..
+
+3. *UMKC Blackboard Team*
+   - Monthly Meeting: Friday, 9/6/2013, Cockefair Hall
+   - I've continued to keep daily records of the Snapshot run times. I also started to keep our data source files, just in case we need them.
+
+
+*** Challenges
+- As of 10/1, I still did not have access to the database. I followed all of Nathan's instructions, and spent time looking online for a solution. In the end, it turned out that I didn't have the correct username/password. (I got those when I visited Nathan's office on 10/3).
+
+*** Goals
+- Three workshops in October
+- Prepare a set of the most useful SQL queries, links, and information I'll need to cover for Mary.
+- Oversee Erik's training
+
+
+
+** September 2013 Monthly Report
+*** Projects and Areas of Responsibility
+
+1. *Documentation and User Training*
+
+   - *Website*: 
+
+   - *OneNote*:
+
+   - *User Training*
+
+     + Teresa Torres 9/24: Respondus 4.0/Uploading a test
+
+     + Patricia Rebert 9/9: Setting up assignments and tests
+
+2. *Staff Training and Development*
+
+   - *Staff Meetings*:
+
+     - Every month, I meet with each staff member individually. No one
+       had any major problems to report this time.
+
+   - *Other*
+
+   - *Staff Hiring*
+
+     + We hired Natalie Bradshaw in August, but there were problems with the HR/Payroll process. She started on 9/19.
+
+     + We hired Erik Schneider. We're waiting for him to finish the HR hiring process, so that he can begin.
+
+     + I set up a new MS Access database to track ITS Student Assistant applicants. We've had a huge increase in the number of student applicants, and we needed a way to easily track applicants and send mail merge emails for successful/unsucessful applications. I've trained James Leftwich on how to enter data, and will be training the others so that they can add/remove records and run a few simple queries. We had over 150 applicants from June to September. I'll have one of our staff enter in all of the applicants from the past into the database, to improve our records.
+
+3. *UMKC Blackboard Team*
+   - Monthly Meeting: Friday, 9/6/2013, Cockefair Hall
+   - I 
+
+*** Challenges
+- Understaffing has continued to limit our effectiveness. I'm glad we're getting more help.
+- *BB Administrator Progress*: I installed the SQL Developer software that Nathan suggested, but had a lot of trouble getting it to work. It turns out that he forgot to give me the username and password. Mary still needs to help me train.
+*** Goals
+- Oversee the training of Natalie and Erik
+- I have four workshops planned for October 2013, plus some one-on-one and small group training sessions.
+- Update my Knowledge Transfer information, and ask Mary to give me training time.
+
+** September Chat Statistics
+*** Summary
+- In September 2013, we had an increase of 24 chats from 2012 (199 in 2012; 223 in 2013).
+- Three of our busiest days were Tuesdays.
+- Our two busiest days were Monday, 9/9 (31) and Tuesday, 9/10 (28).
+
+
+*** Operators
+| Andrew | Brittney | Dante | Feher | James  Leftwich | James  Yazell | Jing |
+|--------+----------+-------+-------+-----------------+---------------+------|
+|     41 |       45 |    53 |    42 |              25 |            16 |    1 |
+
+*** Location Breakdown
+
+| 2013         |       |            |   |  2012 |            |
+|--------------+-------+------------+---+-------+------------|
+| Location     | Total | Percentage |   | Total | Percentage |
+|              |       |            |   |       |            |
+| Call Center  |   170 |         76 |   |   160 |         80 |
+| Evening Chat |    53 |         24 |   |    39 |         20 |
+| Total        |   223 |        100 |   |   199 |        100 |
+
+*** Top Five Busiest Days
+
+|       Date | Day | Total |
+|------------+-----+-------|
+| 09-09-2013 | Mon |    31 |
+| 09-10-2013 | Tue |    28 |
+| 09-04-2013 | Wed |    15 |
+| 09-17-2013 | Tue |    15 |
+| 09-24-2013 | Tue |    15 |
+
+*** Daily Breakdown
+
+
+|       Date | Day | Total |
+|------------+-----+-------|
+| 09-01-2013 | Sun |     3 |
+| 09-03-2013 | Tue |     8 |
+| 09-04-2013 | Wed |    15 |
+| 09-05-2013 | Thu |     8 |
+| 09-06-2013 | Fri |     6 |
+| 09-08-2013 | Sun |     4 |
+| 09-09-2013 | Mon |    31 |
+| 09-10-2013 | Tue |    28 |
+| 09-11-2013 | Wed |     7 |
+| 09-13-2013 | Fri |     6 |
+| 09-15-2013 | Sun |     2 |
+| 09-16-2013 | Mon |     9 |
+| 09-17-2013 | Tue |    15 |
+| 09-18-2013 | Wed |     9 |
+| 09-19-2013 | Thu |     9 |
+| 09-20-2013 | Fri |     3 |
+| 09-22-2013 | Sun |     4 |
+| 09-23-2013 | Mon |    10 |
+| 09-24-2013 | Tue |    15 |
+| 09-25-2013 | Wed |     7 |
+| 09-26-2013 | Thu |    10 |
+| 09-27-2013 | Fri |     3 |
+| 09-29-2013 | Sun |     3 |
+| 09-30-2013 | Mon |     8 |
+
+* Schedule
+
+* Daily Log
+** <2013-09-03 Tue>
+- James L. was late.
+- Dante was off.
+- Natalie came by to sign her FICA form. I scanned it and sent that to Teresa.
+
+** <2013-09-05 Thu>
+
+** DONE Tell Mary about powelllar. I added him to Equella but he had "nothing to contribute."
+   CLOSED: [2013-09-06 Fri 12:17] DEADLINE: <2013-09-06 Fri 09:00>
+
+She said it should be done. It can take a few minutes, and he might need to log out of Windows completely to reset everything.
+
+** DONE Change four students to "Instructors" in Gail Levy's class
+   CLOSED: [2013-09-06 Fri 16:26] DEADLINE: <2013-09-06 Fri 10:00>
+(I had James L. do it.)
+
+UMKC-HONORS101-0001-41827-FS2013
+UMKC-HONORS101-0001-41827-FS2013-SANDBOX-STUDENT-INSTRUCTORS
+
+Hunter Faris
+Alexandria Cockrell
+Alaina Shine
+
+Honors 401:
+Bradley Hook
+
+
+** <2013-09-06 Fri>
+
+
+*** UMKC BB Meeting 15:00 @ Cockefair
+**** Website to get enrollment info
+kc csrv website
+
+**** DONE Find out what the "KC CSRV website is. I might need to access it."
+CLOSED: [2013-11-05 Tue 08:41] SCHEDULED: <2013-09-09 Mon>
+
+**** Intersession Codes
+
+
+
+
+
+** <2013-09-09 Mon>
+
+*** Met with Patricia Rebeck to help her deploy her tests
+*** Canceled Tell Patricia Rebeck about Respondus training
+CLOSED: [2013-10-23 Wed 14:49]
+ (online workshop).
+   SCHEDULED: <2013-09-23 Mon>
+*** TODO Tell Diana Carter about Respondus Training
+*** DONE Update Website Browser Compatibility link                :website:
+**** Browser Support for SP11 (Instructor's Getting Started)
+
+<a href="https://help.blackboard.com/en-us/Learn/9.1_SP_10_and_SP_11/Administrator/003_Browser_Support_SP_11">Supported Browsers for UMKC's Blackboard</a>
+
+*** Started Update Website Browser 
+Compatibility link             :website:
+**** Browser Support for SP11 (Student's Getting Started)
+
+<a href="https://help.blackboard.com/en-us/Learn/9.1_SP_10_and_SP_11/Administrator/003_Browser_Support_SP_11">Supported Browsers for UMKC's Blackboard</a>
+
+*** DONE Update the Student Test tips                      :website:report:
+CLOSED: [2013-09-13 Fri 17:02] SCHEDULED: <2013-09-09 Mon 12:00>
+   
+*** TODO Tell Teresa Torres about Respondus Training
+
+** <2013-09-10 Tue>
+*** Discovered an Inline Grading bug: Attaching documents with spaces causes a 404. (Waltonle)
+*** TODO Create OneNote tutorial about Inline Grading bug (Attaching documents with spaces causes a 404). :OneNote:documentation:
+*** Many students reported a bug with the Notifications system. They were unable to see their grades/announcements.
+*** DONE Email students who contacted us to let them know that the issue was resolved.
+CLOSED: [2013-09-11 Wed 18:19]
+** <2013-09-11 Wed>
+*** Notifications issue
+This morning, I tested out the notifications, and they seemed to work. I'll verify this with some of the users who contacted us yesterday.
+*** DONE bring USB home for XiaoXue
+*** Applicants
+Worked with James Leftwich to go through the recent applicants. He checked their availability and came up with a list for me.
+
+
+** <2013-09-12 Thu>
+*** DONE Talk with Mary about changing First name to nickname
+CLOSED: [2013-09-12 Thu 11:16] SCHEDULED: <2013-09-12 Thu 13:00>
+hjr5f6: Honglan --> Angel
+She said it was changed before but reverted.
+
+Checked with Mary. It turns out that Duane had changed something to allow the Snapshot run to update first names. She changed it back.
+*** DONE email Angel Reid and tell her the issue has been resolved.
+CLOSED: [2013-09-13 Fri 18:01]
+** <2013-09-13 Fri>
+*** TODO email Gail Levy with instructions for how to set up next year's Honors course.
+*** DONE Talk to Mary about how we want Gail Levy to set up next year's Honors course
+CLOSED: [2013-10-09 Wed 17:58] SCHEDULED: <2013-09-16 Mon>
+- Should she do the combos?
+*** DONE Ask Duane about Laura Begley's organization site (why is she unable to remove these two users?)
+CLOSED: [2013-09-16 Mon 14:36] SCHEDULED: <2013-09-16 Mon>
+- webm8d
+- jdb8zc
+*** TODO create OneNote tutorial about changing modules
+** <2013-09-16 Mon>
+** Interviews
+*** Meeting Erik Schneider 8:00                                   :Meeting:
+*** Meeting Casondra Watson 8:30                                  :Meeting:
+*** Meeting Manoj Mardhannasetti 10:00                            :Meeting:
+*** TODO Create tutorial about deleting old org member requests from the Request System
+*** arckf9 notification
+*** ajsy77 16145093
+	UMKC-PHYSICS220-0001-43858-FS2013
+	UMKC-PHYSICS220-003L-43974-FS2013
+
+Duane,
+
+User ajsy77 reports that he's enrolled in two courses that he dropped before the semester begain: 
+
+**** ajsy77
+- UMKC-PHYSICS220-0001-43858-FS2013
+- UMKC-PHYSICS220-003L-43974-FS2013
+*** DONE email Pepjin about my certification
+CLOSED: [2013-09-24 Tue 15:00]
+I got an email with the certificate!
+
+*** More students who see extra courses
+
+djn69
+====
+UMKC-BIOLOGY108-0001-40140-FS2013 (dropped)
+UMKC-BIOLOGY108L-0006-45615-FS2013 (dropped) 
+
+We made her unavailable in those courses, but she's still enrolled.
+
+arcbrf
+====
+UMKC-FRENCH120-0001-41583-FS2013 (dropped)
+
+hnsc7d
+=====
+- UMKC-ACCTNG311-0001-30005-SS2013 (completed last semester)
+- UMKC-ACCTNG350-0001-32796-SS2013 (completed last semester)
+- UMKC-ACCTNG408-0001-40012-FS2013 (dropped before the start of FS2013)
+- UMKC-ACCTNG420-0001-40013-FS2013 (dropped before the start of FS2013)
+- UMKC-DSOM309-0002-43868-FS2013 (dropped before the start of FS2013)
+- UMKC-FIN325-0002-40160-FS2013 (dropped before the start of FS2013)
+
+
+
+
+
+*** DONE Send Tusha email
+CLOSED: [2013-09-16 Mon 14:45] SCHEDULED: <2013-09-16 Mon 08:00>
+Hello, Tusha.
+
+To request an organization site on Blackboard, you don't have to contact the Registrar's office. Our office can take care of that for you. Normally, to do that, you would need to use the Request System to make the request. Here are instructions for doing that: 
+
+After we've created the organization site, you can send us an Excel file with the first names, last names, and usernames of the users you'd like enrolled, as well as their roles. 
+
+This is something I've done for Rion in the past, so I can take of this on your behalf this time. We'll contact you when your oganization site is ready. It's also possible to copy materials from previous course sites. Let us know if you're interested in doing that.
+
+** <2013-09-17 Tue>
+*** Note Dante in 11-3
+
+*** DONE Check to see if students were re-enrolled in begleyl org site: UMKC-ORG-STU-MASTER-OF-SCIENCE-IN-ANESTHESIA
+CLOSED: [2013-09-17 Tue 19:49] SCHEDULED: <2013-09-17 Tue 10:00>
+- webm8d
+- jdb8zc
+
+*** Meeting Briana Interview                                        :Meeting:
+SCHEDULED: <2013-09-17 Tue 14:00>
+
+*** Meeting Chary Interview                                         :Meeting:
+SCHEDULED: <2013-09-17 Tue 14:30>
+
+*** Meeting Federico Interview                                      :Meeting:
+SCHEDULED: <2013-09-17 Tue 15:00>
+
+** <2013-09-18 Wed>
+*** Note Dante off (Dr. Appt) 
+*** Canceled Email begleyl and let her know that her students were not re-enrolled in org site: UMKC-ORG-STU-MASTER-OF-SCIENCE-IN-ANESTHESIA
+CLOSED: [2013-09-19 Thu 22:24] SCHEDULED: <2013-09-18 Wed 07:00>
+- webm8d
+- jdb8zc
+She emailed us before I could, and asked for more people to be removed. Someone else took the email.
+  
+*** Meeting ITS                                                   :Meeting:
+SCHEDULED: <2013-09-18 Wed 10:30>
+We talked about the ramification of Molly and David leaving our dept.
+
+** <2013-09-19 Thu>
+*** DONE (Check the iMac) Find out about The Grade Center on Macs and Chrome/Firefox
+CLOSED: [2013-09-28 Sat 10:59] SCHEDULED: <2013-09-25 Wed>
+for Mark Brodwin 2508. On Chrome, he doesn't see the scroll bars in Chrome on his Mac.
+
+*Issue:* On OSX 10.7, some browsers do now allow users to scroll vertically or horizontally (Firefox 23 and earlier do, but the latest version of 24, which was just released, also has this problem). 
+
+*Here's what I've found:*
+
+- On OSX 10.8 (the latest version), all browsers work with the Grade Center correctly. But I don't recommend updating to 10.8 now, as OSX 10.9 should be released sometime in October.
+- On OSX 10.7, I tested the latest version of Safari, Webkit, Firefox, Google Chrome, and OmniWeb. The only browsers that work properly are Firefox 23 and OmniWeb. Yesterday, my Firefox automatically updated me to Firefox 24, and the scrollbars have now disappeared.
+
+*If you're using OSX 10.7.5 or earlier, you have some choices:*
+
+1. Immediately update to 10.8 (I'd recommend waiting).
+2. It's possible to revert to an older version of Firefox (scrollbars worked perfectly on Version 23). See this page for more information: https://support.mozilla.org/en-US/kb/install-older-version-of-firefox or download version 23 (the previous version) here: https://ftp.mozilla.org/pub/mozilla.org/firefox/releases/23.0.1/mac/en-US/Firefox%2023.0.1.dmg
+3. OmniWeb (a free browser from the makers of famous Mac software like OmniFocus and OmniOutliner) is an excellent browser, and the current version works fine with scrollbars. You can download that here: http://www.omnigroup.com/more
+4. Use Windows on your Mac, on a different computer, or via Remote Desktop: http://www.umkc.edu/is/support/services/homecomputing/remotedesktop/mac/
+
+*I'd recommend Option 3 (download OmniWeb). It's an excellent browser, and it's easy to download and use it for Blackboard.* These days, it's not as popular as it used to be, but it has been around for a long time, works well. Or you can try option 2 (reverting to Firefox 23).
+
+This is a temporary issue, limited to users of 10.7 (and possibly 10.6 or earlier; I don't have a version to test). Future updates to Safari, Firefox, or Chrome might fix this problem with OSX. I'll bet Firefox will fix this issue very quickly with an update. OSX 10.9 will be released, and it should work there, as well. 
+
+Please let me know if you have any questions.
+
+
+
+*** Note Natalie Bradshaw started today, at 5pm.
+She completed the FERPA and I got her started with a very basic overview of the job and Blackboard.
+*** Canceled Check the organization site enrollment  
+CLOSED: [2013-09-25 Wed 06:07] DEADLINE: <2013-09-20 Fri 10:00>
+I have no idea what I was trying to do here. :(
+*** DONE Check the TII screenshots for powelllar
+CLOSED: [2013-09-23 Mon 17:12] SCHEDULED: <2013-09-20 Fri>
+*** DONE Check ITS Test scores
+CLOSED: [2013-09-23 Mon 17:13]
+- [X] Scores
+  - [X] Erik
+  - [X] Briana
+  - [X] Federico
+*** DONE Reply to Erik's email. 
+CLOSED: [2013-09-20 Fri 16:13]
+- Ask him to call back for job offer.
+*** DONE Email Briana - ask her to call
+CLOSED: [2013-09-24 Tue 03:27]
+*** DONE Email Federico - ask him to call
+CLOSED: [2013-09-24 Tue 03:29]
+*** DONE Fix Test-Taking Tips                                      :report:
+CLOSED: [2013-09-23 Mon 17:28]
+- [X] Add link to Java Help Page
+- [X] Add link to take-a-screenshot.org
+
+
+*** DONE Make sure we've changed the teginstructor email to itvhelp-hsb@umkc.edu.
+CLOSED: [2013-09-23 Mon 17:36]
+
+- Also: Update OneNote.
+
+** <2013-09-20 Fri>
+*** DONE Talk to Leftwich about Natalie's admin account
+CLOSED: [2013-09-20 Fri 17:37]
+- Good job; you set it up correctly
+- (FYI for next time): I forgot to mention that you should make it unavailable.
+
+*** TODO email auto-reply text
+
+Thank you for contacting Instructional Technologies. We have received your email, and will respond to your request as soon as possible. Our office is open Monday through Friday, 9am to 6pm. We also offer live chat (while school is session), on Sunday, Monday, Tuesday, and Thursday, from 6pm to 10pm. You can access live chat through the Blackboard login page.
+
+Our office supports Blackboard, Tegrity, Wimba, and other related instructional technologies. Many common issues can be resolved by visiting our website at http://www.umkc.edu/ia/it/ and choosing the appropriate application from the menu. Here are direct links to some of the most common issues:
+
+**** Blackboard Support 
+http://www.umkc.edu/ia/it/blackboard/default.aspx
+
+**** Tegrity Support 
+For tutorials on Tegrity, the Tegrity Recorder, or general usage, please see the Tegrity Homepage: 
+http://www.umkc.edu/ia/it/tegrity/default.aspx
+
+Most Tegrity issues can be resolved by running through the Diagnostic test, and then following the instructions on our Tegrity Common Fixes page to install any required plugins. (We recommend that you start from the bottom and work down to the bottom of the page):
+http://www.umkc.edu/ia/it/tegrity/common-fixes.aspx
+
+**** Wimba/Blackboard Collaborate
+Our ITS documentation for Wimba is at http://www.umkc.edu/ia/it/wimba/defualt.aspx.
+
+If our office is closed, feel free to contact Wimba support directly, at 
+
+
+KC-IA-DJZ4QW1.kc.umkc.edu
+*** TODO email ITS staff
+- For training, outline the process and send to everyone.
+- Professional email on ITS email
+- Professional standards/language
+
+
+
+
+** <2013-09-23 Mon>
+*** TODO Create tutorial about checking for bad html messing up the the china discussion board in 47785.
+
+*** DONE Add chat account for Natalie
+CLOSED: [2013-09-23 Mon 15:55]
+
+*** DONE Fax her signed confidentiality agreement to the Call Center. Will let them know when she has completed the training.
+CLOSED: [2013-09-23 Mon 15:55]
+
+*** TODO Contact Vishal and ask him what he'd like for the BB GUI record
+** <2013-09-24 Tue>
+*** DONE Have student go through the ITS Service Catalog and look for bad links or things that should be added
+CLOSED: [2013-09-26 Thu 09:53] SCHEDULED: <2013-09-25 Wed>
+*** DONE Retrieve bad links from James L and Feher's OneNotes and email to Vishal.
+CLOSED: [2013-10-01 Tue 11:13] SCHEDULED: <2013-09-26 Thu 10:30>
+- [X] Progress
+  - [X] James L.
+  - [X] Feher
+  - [X] Send email
+** <2013-09-27 Fri>
+*** DONE Email HR to request a new Student position for Erik
+CLOSED: [2013-09-30 Mon 11:13] SCHEDULED: <2013-09-27 Fri 12:00>
+*** Canceled Upload "student video upload" Tutorial with David's video on video anywhere
+CLOSED: [2013-09-27 Fri 17:24]
+**** Options for Student-Uploaded Videos
+
+
+| *Option*                      | *Advantages*                                                                                                          | *Disadvantages*                                                        |
+|-------------------------------+-----------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------|
+| *Blackboard Video Everywhere* | - Students can record within Blackboard (webcam) or on YouTube and link the video to Blackboard (webcam/camera/phone) | - Requires a Google Account                                            |
+|                               | - Recordings are privately stored on [[http://www.youtube.com][YouTube]] and managed by students                                                  |                                                                        |
+|                               | - Unlimited storage (does not count against Blackboard Course Quota).                                                 |                                                                        |
+|                               |                                                                                                                       |                                                                        |
+| *Tegrity Recorder             | - Students can record videos and upload them directly to Tegrity, and all of the videos will be in one area.          | - Many users require setup to access Tegrity                           |
+|                               |                                                                                                                       | - Requires students to download Tegrity Recorder                       |
+|                               |                                                                                                                       | - Potentially less flexible options for recording videos (webcam only) |
+|                               |                                                                                                                       |                                                                        |
+
+
+**** *Blackboard Video Everywhere*
+
+***** *Advantages*
+- Students can record within Blackboard (webcam) or on YouTube and link the video to Blackboard (webcam/camera/phone)
+- Recordings are privately stored on [[http://www.youtube.com][YouTube]] and managed by students
+- Unlimited storage (does not count against Blackboard Course Quota).
+
+***** *Disadvantages*
+- Requires a Google Account
+
+**** *Tegrity Recorder*
+
+***** *Advantages*
+- Students can record videos and upload them directly to Tegrity, and all of the videos will be in one area.
+
+***** *Disadvantages*
+- Many users require setup to access Tegrity
+- Requires students to download Tegrity Recorder
+- Potentially less flexible options for recording videos (webcam only)
+- 
+
+
+***** Tegrity Notes
+- External 
+*** Canceled email ( ) with a tutorial about options for 
+CLOSED: [2013-10-09 Wed 17:59]
+*** DONE email Mary about Friday Phil's course: 41418 
+CLOSED: [2013-10-09 Wed 17:59]
+Course: 41418
+Organization: Grammar Adjuncts has the same issue
+*** TODO Remind James and everyone again to please fix their OneNotes. 
+I can't access James' bad links page.
+
+** <2013-09-30 Mon>
+*** TODO create tutorial for Anette Quick's Central Line 
+SCHEDULED: <2013-10-30 Wed>
+- (How to self-enroll in an organization)
+- Then upload it to the website
+*** SQL Developer Meeting
+BB_RO
+y9se5M4NIIKiOhwBi22X
+* Remote Computer IDs
+** My PC
+KC-IA-DJZ4QW1.kc.umkc.edu
+** iMac
+** 

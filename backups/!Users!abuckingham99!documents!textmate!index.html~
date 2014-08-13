@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>
+      Title
+    </title>
+    <link rel="stylesheet" href="style.css">
+    
+</style>
+  </head>
+  <body id="Intro" onload="">
+    <h2 id="Intro">Greeting</h2>		
+    <p>
+      Hello. I'm Xiao A.
+    </p>
+    <h3 id="">An unordered list</h3>
+    <ul>
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+      <li>four</li>
+      <li>five</li>
+      <li>ji</li>
+    </ul>
+    <h3 id="">An ordered list</h3>
+    <ol>
+      <li>another
+      </li>
+      <li>yet another
+      </li>
+    </ol>
+    <h3>More fun</h3>
+    <p>I love this. I want to make a really kick ass website.</p>
+  </body>
+</html>

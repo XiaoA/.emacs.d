@@ -1,0 +1,8 @@
+<h6> />
+</h6>
+# contributor : Andrew Buckingham <abuckingham99@gmail.com>
+# name :<form method="..." action="..."></form>
+# --
+<form method="$1" action="$2">
+  $0
+</form>

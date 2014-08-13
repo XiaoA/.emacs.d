@@ -1,0 +1,30 @@
+
+
+<!DOCTYPE html>
+<DOCTYPE html>
+  <html>
+    <head>
+      <!-- <meta name="robots" content="noindex,follow">
+      <meta name="description" content="">
+      <meta name="keywords" content=""> -->
+      <meta charset=“UTF-8">
+      <title>HTML5 Attributes</title>
+      
+    </head>
+    <body>
+
+    
+      <form action="thank_you.html" method="GET">
+	<fieldset>
+	  <legend>Cast your vote!</legend>
+
+
+
+
+
+
+	</fieldset>
+      </form>
+
+    </body>
+  </html>

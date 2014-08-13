@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="generator" content="VoodooPad Blog" />
+        
+        <title>Techo Logos</title>
+        
+        <style type="text/css">
+            body {
+                margin-top:         0px;
+                margin-left:        0px;
+                margin-right:       0px;
+                background-color:   #fff;
+                font-size:          15px;
+                font-family:        "HelveticaNeue",  "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                text-rendering:     optimizeLegibility;
+            }
+            
+            .main {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 800px;
+            }
+            
+            .nav {
+                background-color:#fff;
+            }
+
+            .header {
+                font-weight: bold;
+                font-size: 4em;
+                padding: 0px;
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
+            
+            .header a {
+                color: #000;
+            }
+            
+            .headerFoot {
+                font-weight: normal;
+                font-size: 13px;
+                color: #999;
+            }
+            
+            .date {
+                color: #999;
+                font-size: .8em;
+            }
+            
+            .post {
+                font-size: 15px;
+            }
+            
+            .postTitle {
+                font-size: 19px;
+                font-weight: bold;
+                padding-bottom: 0px;
+            }
+            
+            .postTitle a {
+                color: #000;
+                text-decoration: none;
+            }
+            .postTitle a:hover {
+                color: #253253;
+                text-decoration: underline;
+            }
+            
+            #copyright {
+                font-size: 9pt;
+                color: #555;
+            }
+            
+            .quote, blockquote {
+                color: #444;
+                background: #fafafa;
+                border-left: solid 1px #ddd;
+                padding: 5px;
+                padding-left: 15px;
+                margin-bottom: -1.5em;
+                margin: 0px;
+            }
+            
+            .post {
+                padding-bottom: 40px;
+                color: #000;
+                font-size: 15px;
+                width: 660px;
+            }
+            
+            .main a {
+                color: #253253;
+                text-decoration: solid;
+            }
+            
+            
+            </style>
+        
+    </head>
+    <body>
+<header>
+<nav>
+  <a href="/Home/">Home</a> |
+  <a href="/Blog/">Blog</a> |
+  <a href="/About/">About</a> |
+  <a href="/Wiki/">Wiki</a>
+</nav> 
+</header>        
+        <div class="main">
+            
+            <div class="header"><a href="/" style="text-decoration: none;">Techo Logos</a><br/>
+                <span class="headerFoot">At the Intersection of Education and Technology</span>
+            </div>
+            
+            
+
+<div class="post">
+    <div class="postTitle"><a href="archives/2014/3/hello_world.html">Hello World</a></strong></div>
+    <div class="date">Published Mar 2, 2014</div>
+    <h1 id="helloworld">Hello, World!</h1>
+
+<p>This is your very first post!</p>
+
+<ul>
+<li>Use the View ▸ HTML Preview menu item to preview it.</li>
+<li>Edit the VPStaticPageEntryTemplate page to modify how your posts look.</li>
+<li>Edit the VPWebExportPageTemplate to modify how your site looks.</li>
+<li>Edit the VPStaticExportScript to change various settings for your site.</li>
+</ul>
+
+<p>You can find <a href="http://flyingmeat.com/voodoopad/docs/static%20publishing.html">more documentation online</a>.</p>
+</div>
+            
+            <div id="archives">
+                <center>
+                     <a href="/archive.html">Archives</a><br/>
+                </center>
+            <div id="copyright">
+                <center>
+                    &copy; 2014 Andrew E. Buckingham.
+                </center>
+            </div>
+            
+            </div>
+        </div>
+    </body>
+</html>

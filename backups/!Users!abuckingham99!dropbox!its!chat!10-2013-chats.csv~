@@ -1,0 +1,218 @@
+Record,Date,Time,AM.PM,Operator,Location
+1,10-01-2013,11:17:10,AM,Andrew,Office
+2,10-01-2013,12:07:07,PM,Andrew,Office
+3,10-01-2013,12:36:01,PM,Dante,Office
+4,10-01-2013,1:22:31,PM,Dante,Office
+5,10-01-2013,4:01:04,PM,Feher,Office
+6,10-01-2013,4:01:04,PM,Feher,Office
+7,10-01-2013,4:19:18,PM,Feher,Office
+8,10-01-2013,5:50:52,PM,Natalie,Office
+9,10-01-2013,5:54:37,PM,Natalie,Office
+10,10-01-2013,8:06:44,PM,Brittney,Home
+11,10-02-2013,3:11:41,PM,James L.,Office
+12,10-02-2013,9:08:02,AM,Dante,Office
+13,10-03-2013,10:02:56,AM,James L.,Office
+14,10-03-2013,11:29:25,AM,Andrew,Office
+15,10-03-2013,11:36:28,AM,Andrew,Office
+16,10-03-2013,4:20:13,PM,Natalie,Office
+17,10-03-2013,6:20:06,PM,Brittney,Home
+18,10-03-2013,9:24:52,PM,Brittney,Home
+19,10-04-2013,9:59:37,AM,Natalie,Office
+20,10-06-2013,7:05:38,PM,Feher,Home
+21,10-06-2013,7:53:54,PM,Feher,Home
+22,10-07-2013,11:47:29,AM,James L.,Home
+23,10-07-2013,3:50:21,PM,James L.,Home
+24,10-07-2013,6:10:20,PM,James Y.,Home
+25,10-07-2013,6:27:21,PM,James Y.,Home
+26,10-07-2013,8:30:14,PM,James Y.,Home
+27,10-07-2013,9:26:45,PM,James Y.,Home
+28,10-08-2013,10:08:43,PM,Brittney,Home
+29,10-08-2013,10:20:24,AM,James L.,Office
+30,10-08-2013,11:26:07,AM,Andrew,Office
+31,10-08-2013,3:17:19,PM,Andrew,Office
+32,10-08-2013,3:47:54,PM,Feher,Office
+33,10-08-2013,6:50:22,PM,Brittney,Home
+34,10-08-2013,7:30:45,PM,Brittney,Home
+35,10-08-2013,9:51:00,AM,James L.,Office
+36,10-08-2013,9:52:57,PM,Brittney,Office
+37,10-09-2013,12:51:32,PM,James Y.,Office
+38,10-09-2013,4:09:55,PM,Feher,Office
+39,10-09-2013,9:42:10,AM,Natalie,Office
+40,10-10-2013,10:42:15,AM,James L.,Office
+41,10-10-2013,10:46:00,AM,James L.,Office
+42,10-10-2013,12:00:38,PM,Andrew,Office
+43,10-10-2013,1:18:43,PM,Feher,Office
+44,10-10-2013,2:02:18,PM,Feher,Office
+45,10-10-2013,2:35:31,PM,Dante,Office
+46,10-10-2013,2:59:10,PM,Feher,Office
+47,10-10-2013,6:22:40,PM,James L.,Home
+48,10-10-2013,7:15:57,PM,James L.,Home
+49,10-10-2013,8:30:42,AM,James L.,Office
+50,10-10-2013,9:16:46,PM,James L.,Home
+51,10-10-2013,9:32:12,PM,James L.,Home
+52,10-11-2013,10:17:06,AM,James Y.,Office
+53,10-11-2013,10:40:50,AM,Dante,Office
+54,10-11-2013,5:16:32,PM,Natalie,Office
+55,10-11-2013,9:32:11,AM,Natalie,Office
+56,10-14-2013,10:44:58,AM,Dante,Office
+57,10-14-2013,10:57:19,AM,Dante,Office
+58,10-14-2013,12:32:31,PM,James L.,Office
+59,10-14-2013,2:26:27,PM,James L.,Office
+60,10-14-2013,4:50:26,PM,James L.,Office
+61,10-14-2013,7:30:22,PM,James Y.,Home
+62,10-14-2013,7:56:59,PM,James Y.,Home
+63,10-14-2013,8:24:51,AM,Andrew,Office
+64,10-14-2013,9:35:53,PM,James Y.,Home
+65,10-15-2013,3:03:57,PM,Feher,Office
+66,10-15-2013,4:39:46,PM,Feher,Office
+67,10-15-2013,5:08:08,PM,Andrew,Office
+68,10-15-2013,7:19:21,PM,James L.,Home
+69,10-15-2013,8:23:22,AM,Natalie,Office
+70,10-15-2013,8:35:46,PM,James L.,Home
+71,10-15-2013,9:10:14,PM,James L.,Home
+72,10-15-2013,9:18:24,AM,Natalie,Office
+73,10-16-2013,10:07:48,AM,Dante,Office
+74,10-16-2013,11:13:14,AM,Andrew,Office
+75,10-16-2013,12:06:48,PM,Brittney,Office
+76,10-16-2013,12:41:53,PM,Brittney,Office
+77,10-16-2013,4:21:49,PM,James L.,Office
+78,10-16-2013,4:45:11,PM,James L.,Office
+79,10-17-2013,10:46:33,AM,James L.,Office
+80,10-17-2013,10:51:13,AM,Andrew,Office
+81,10-17-2013,5:51:56,PM,Natalie,Office
+82,10-17-2013,6:28:05,PM,Brittney,Home
+83,10-17-2013,7:52:09,PM,Brittney,Home
+84,10-17-2013,8:10:21,PM,Brittney,Home
+85,10-18-2013,11:13:36,AM,Dante,Office
+86,10-18-2013,1:42:43,PM,James L.,Office
+87,10-18-2013,2:14:42,PM,James L.,Office
+88,10-18-2013,2:41:31,PM,James L.,Office
+89,10-18-2013,3:09:38,PM,James L.,Office
+90,10-18-2013,3:12:47,PM,Natalie,Office
+91,10-18-2013,3:30:58,PM,James L.,Office
+92,10-18-2013,9:17:31,AM,Natalie,Office
+93,10-18-2013,9:19:31,AM,Dante,Office
+94,10-18-2013,9:26:08,AM,Dante,Office
+95,10-20-2013,8:02:50,PM,Feher,Home
+96,10-21-2013,11:22:27,AM,James L.,Office
+97,10-21-2013,3:50:12,PM,James L.,Office
+98,10-21-2013,8:01:51,PM,James Y.,Home
+99,10-21-2013,9:31:24,PM,James Y.,Home
+100,10-22-2013,10:34:56,AM,Dante,Office
+101,10-22-2013,10:43:27,AM,Dante,Office
+102,10-22-2013,11:24:59,AM,Dante,Office
+103,10-22-2013,11:26:56,AM,Dante,Office
+104,10-22-2013,11:35:29,AM,Dante,Office
+105,10-22-2013,11:45:42,AM,Dante,Office
+106,10-22-2013,12:08:16,PM,Dante,Office
+107,10-22-2013,12:24:38,PM,Dante,Office
+108,10-22-2013,12:36:22,PM,Dante,Office
+109,10-22-2013,12:59:59,PM,Dante,Office
+110,10-22-2013,1:01:16,PM,Dante,Office
+111,10-22-2013,1:18:07,PM,James Y.,Home
+112,10-22-2013,1:51:54,PM,Feher,Office
+113,10-22-2013,2:09:42,PM,Feher,Office
+114,10-22-2013,2:19:01,PM,Feher,Office
+115,10-22-2013,2:32:03,PM,Andrew,Office
+116,10-22-2013,2:46:23,PM,Feher,Office
+117,10-22-2013,3:00:56,PM,Andrew,Office
+118,10-22-2013,3:06:04,PM,Andrew,Office
+119,10-22-2013,3:11:22,PM,Andrew,Office
+120,10-22-2013,3:13:21,PM,Feher,Office
+121,10-22-2013,3:15:25,PM,Andrew,Office
+122,10-22-2013,3:15:35,PM,Feher,Office
+123,10-22-2013,3:30:42,PM,Andrew,Office
+124,10-22-2013,4:11:34,PM,Andrew,Office
+125,10-22-2013,4:18:12,PM,Feher,Office
+126,10-22-2013,4:29:11,PM,Andrew,Office
+127,10-22-2013,4:46:07,PM,Feher,Office
+128,10-22-2013,5:20:55,PM,Natalie,Office
+129,10-22-2013,5:22:07,PM,Natalie,Office
+130,10-22-2013,5:22:12,PM,Natalie,Office
+131,10-22-2013,5:32:23,PM,Natalie,Office
+132,10-22-2013,5:40:20,PM,Natalie,Office
+133,10-22-2013,5:42:54,PM,Natalie,Office
+134,10-22-2013,5:57:47,PM,Natalie,Office
+135,10-22-2013,6:07:25,PM,Brittney,Home
+136,10-22-2013,6:21:08,PM,Brittney,Home
+137,10-22-2013,6:21:23,PM,Brittney,Home
+138,10-22-2013,6:36:49,PM,Brittney,Home
+139,10-22-2013,7:23:37,PM,Brittney,Home
+140,10-22-2013,7:34:11,AM,James L.,Office
+141,10-22-2013,7:39:24,PM,Brittney,Home
+142,10-22-2013,8:11:14,AM,Natalie,Office
+143,10-22-2013,8:15:42,PM,Brittney,Home
+144,10-22-2013,8:21:07,PM,Brittney,Home
+145,10-22-2013,8:31:19,PM,Brittney,Home
+146,10-22-2013,8:44:10,AM,Natalie,Office
+147,10-22-2013,9:11:04,AM,Natalie,Office
+148,10-22-2013,9:11:31,PM,Brittney,Home
+149,10-22-2013,9:14:05,PM,Brittney,Home
+150,10-22-2013,9:26:32,PM,Brittney,Home
+151,10-22-2013,9:28:17,PM,Brittney,Home
+152,10-22-2013,9:30:17,PM,Brittney,Home
+153,10-22-2013,9:52:48,PM,Brittney,Home
+154,10-23-2013,10:47:21,AM,Natalie,Office
+155,10-23-2013,10:54:41,AM,Andrew,Office
+156,10-23-2013,11:38:49,AM,Brittney,Office
+157,10-23-2013,12:31:52,PM,Brittney,Office
+158,10-23-2013,12:32:28,PM,Brittney,Office
+159,10-23-2013,12:32:53,PM,Brittney,Office
+160,10-23-2013,12:44:15,PM,Brittney,Office
+161,10-23-2013,12:52:38,PM,Brittney,Office
+162,10-23-2013,1:04:55,PM,Brittney,Office
+163,10-23-2013,1:15:58,PM,Brittney,Office
+164,10-23-2013,1:36:54,PM,Brittney,Office
+165,10-23-2013,1:53:21,PM,Brittney,Office
+166,10-23-2013,1:56:29,PM,Brittney,Office
+167,10-23-2013,2:08:38,PM,Brittney,Office
+168,10-23-2013,2:11:38,PM,Brittney,Office
+169,10-23-2013,2:20:16,PM,Feher,Office
+170,10-23-2013,2:22:16,PM,Brittney,Office
+171,10-23-2013,2:50:34,PM,Andrew,Office
+172,10-23-2013,3:49:11,PM,James L.,Office
+173,10-23-2013,4:26:44,PM,James L.,Office
+174,10-23-2013,5:32:46,PM,James L.,Office
+175,10-23-2013,8:44:15,AM,Dante,Office
+176,10-23-2013,8:47:08,AM,Dante,Office
+177,10-23-2013,9:03:31,AM,Natalie,Office
+178,10-23-2013,9:30:01,AM,Natalie,Office
+179,10-23-2013,9:44:31,AM,Dante,Office
+180,10-23-2013,9:49:48,AM,Dante,Office
+181,10-24-2013,1:35:40,PM,Feher,Office
+182,10-24-2013,5:08:51,PM,Natalie,Office
+183,10-24-2013,6:08:13,PM,Brittney,Home
+184,10-24-2013,7:07:00,PM,Brittney,Home
+185,10-24-2013,9:06:23,AM,Natalie,Office
+186,10-25-2013,12:15:43,PM,James Y.,Office
+187,10-25-2013,2:13:47,PM,Natalie,Office
+188,10-25-2013,4:15:11,PM,James L.,Office
+189,10-25-2013,4:20:39,PM,Natalie,Office
+190,10-25-2013,4:22:39,PM,James L..,Office
+191,10-25-2013,5:53:03,PM,Natalie,Office
+192,10-27-2013,6:00:26,PM,Feher,Home
+193,10-27-2013,6:44:00,PM,Feher,Home
+194,10-27-2013,7:24:45,PM,Feher,Home
+195,10-27-2013,7:47:26,PM,Feher,Home
+196,10-28-2013,12:51:35,PM,Brittney,Office
+197,10-28-2013,6:06:23,PM,James Y.,Home
+198,10-28-2013,7:32:52,PM,James Y.,Home
+199,10-28-2013,8:25:16,AM,Andrew,Office
+200,10-28-2013,9:17:38,AM,Natalie,Office
+201,10-28-2013,9:54:33,AM,Natalie,Office
+202,10-28-2013,9:56:33,AM,Dante,Office
+203,10-29-2013,10:58:11,AM,Dante,Office
+204,10-29-2013,11:06:35,AM,Dante,Office
+205,10-29-2013,11:23:09,AM,Dante,Office
+206,10-29-2013,12:04:22,PM,Andrew,Office
+207,10-29-2013,5:47:44,PM,Natalie,Office
+208,10-29-2013,6:20:27,PM,James L.,Home
+209,10-29-2013,8:20:42,PM,James L.,Home
+210,10-30-2013,4:32:28,PM,James L.,Office
+211,10-30-2013,5:05:56,PM,James L.,Office
+212,10-31-2013,10:52:19,AM,James L.,Office
+213,10-31-2013,5:24:02,PM,Natalie,Office
+214,10-31-2013,5:44:01,PM,Natalie,Office
+215,10-31-2013,8:18:33,PM,Brittney,Home
+216,10-31-2013,8:38:45,AM,James L.,Office
+217,10-31-2013,9:20:21,PM,Brittney,Home

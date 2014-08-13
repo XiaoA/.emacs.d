@@ -1,0 +1,202 @@
+body {
+    background:#ececec url(../images/sos.png);
+    font-size:87.5%;
+    font-family:arial, sans-serif;
+    color:#666666;
+    line-height:1.7em;
+    text-align:left;
+}
+
+a {
+    text-decoration:none;
+    color:#781a26;
+}
+
+a:hover {
+    color:#666666;
+}
+
+h2 {
+    color:#781a26;
+}
+
+.clr {
+    clear:both;
+}
+
+#container {
+    width:80%;
+    margin:0 auto;
+    overflow:auto;
+    clear:both;
+}
+
+.main-header #logo {
+    width:45%;
+    margin: 10px 0;
+}
+
+.main-header .main-nav {
+    background:#882433;
+    height:40px;
+    border-radius:5px;
+    border:1px #c13046 solid;
+}
+
+.main-header .main-nav ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.main-header .main-nav li {
+    color:#ffffff;
+    display:inline;
+    float:left;
+    margin-right:3px;
+}
+
+.main-header .main-nav li a {
+    color:#ffffff;
+    display:inline-block;
+    padding:10px 20px;
+    height:20px;
+}
+
+.main-header .main-nav li a:hover, .main-header .main-nav li a:active {
+    background:#efeadd;
+    color:#666666;
+    border-radius:5px;
+}
+
+#content {
+    width:70%;
+    float:left;
+    overflow:auto;
+}
+
+#content article {
+    border-radius:5px;
+    background:#fff;
+    overflow:auto;
+    padding:10px 20px;
+    margin-top:10px:
+}
+
+#content article span {
+    font-style:italic;
+    color:#000;
+}
+
+#content a.readmore {
+    display:block:
+    float:right;
+    color:#fff;
+    padding:5px 9px;
+    background:#c13046;
+    border-radius:5px;
+}
+
+#content a.readmore:hover {
+	background:#000;
+}
+
+
+#sidebar {
+    width:30%;
+    float:left;
+}
+
+#sidebar .block {
+    border-radius:5px;
+    background:#fff;
+    overflow:auto;
+    padding:10px 15px;
+    margin:10px 0 0 10px;
+}
+
+footer {
+    background:#882433;
+    height:40px;
+    border:1px solid #c13046;
+    margin-top:10px;
+    border-radius:5px;
+}
+
+footer p {
+    color:#fff;
+    margin:0;
+    padding:10px 0 0 0;
+    text-align:center;
+}
+
+/* Tablet/iPads (Portrait and Landscape) */
+@media only screen and (min-width : 768px) and (max-width : 960px) {
+    #container {
+	width:95%;
+    }
+    
+    .main-header img#logo {
+	margin:auto;
+	display:block;
+	width:65%;
+    }
+
+    #content {
+	width:100%;
+	float:none;
+    }
+
+    #sidebar {
+	width:100%;
+	float:none;
+    }
+
+    #sidebar .block {
+	margin-left:0;
+    }
+}
+
+/* Smaller Tablets /iPad Mini (Portrait and Landscape) */
+@media only screen and (min-width : 569px) and (max-width : 676px) {
+    #container {
+	width:95%;
+    }
+
+    .main-header img#logo {
+	margin:auto;
+	display:block;
+	width:65%;
+    }
+
+    .main-header .main-nav{
+	height:auto:
+	display:block;
+	overflow:hidden;
+	width:99%;
+    }
+
+    .main-header .main-nav ul {
+	padding:2% 1%;
+	text-align:center;
+	width:98%;
+    }
+
+    .main-header .main-nav li {
+	float:none;
+	display:block;
+	margin-right:0;
+	width:100%;
+	border-bottom:1px solid #a3293b;
+    }
+
+    .main-header .main-nav li a {
+	margin-bottom:2px;
+	text-align:center;
+    }
+
+    .main-header .main-nav li a:hover, .main-header .main-nav li a:active {
+	display:block;
+    }
+
+}

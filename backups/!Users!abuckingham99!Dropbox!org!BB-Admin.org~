@@ -1,0 +1,3903 @@
+
+#+Title: Blackboard Administrator Notes
+#+AUTHOR: Andrew Buckingham
+#+STARTUP: indent
+#+OPTIONS: num:nil toc:nil ^:nil
+#+TODO: TODO(t) |  Started(s) | Waiting(w) | Someday/Maybe(m) | Canceled(c) | DONE(d)(@) | Meeting(M) | Note(n)
+#+FILETAGS: :work:
+
+* Getting Started: DB Access
+
+** Read-Only Accounts
+*** PROD Blackboard
+BB_RO
+y9se5M4NIIKiOhwBi22X
+*** DEV Blackboard
+BBLEARN_ADMIN
+U9yAXkgObTxIhp4Ws7Oc
+** Read-Write Accounts
+*** PROD Blackboard
+BB_BB60
+*** DEV Blackboard 
+
+* Useful resources
+
+** SQL Tutorials
+*** ORACLE SQL*PLUS TUTORIAL: holowczak.com
+http://holowczak.com/oracle-sqlplus-tutorial/5/
+*** SQL Tutorial by Michael Gertz
+http://www.mathcs.emory.edu/~cheung/Courses/377/Others/tutorial.pdf
+*** Ask the Oracle
+http://www.asktheoracle.net
+
+* Most Useful Stuff
+** DSKs
+- 117 = Unavailable
+- 2 = Manual
+- DATA_SRC_PK1 = 411:
+- DATA_SRC_PK1 = 2:
+** Most useful tables
+
+| Table                | Contains              | Comments                                                                   |
+|----------------------+-----------------------+----------------------------------------------------------------------------|
+| USERS                | User Data             | The PK1 from this table is referenced in many other tables as users_pk1.   |
+| COURSE_USERS         | User Enrollment Data  |                                                                            |
+| COURSE_MAIN          | Course Data           | The PK1 from this table is referenced in many other tables as crsmain_pk1. |
+| COURSE_TOC           | Course Menu Settings  |                                                                            |
+| GRADEBOOK_MAIN       | Gradebook Data        |                                                                            |
+| Activity_ACCUMULATOR | User Activity Logs    | Logins, user activity, and assessment attempts are here.                   |
+| FORUM_MAIN           | Discussion Board Data |                                                                            |
+
+
+* Remote Computer IDs
+** My PC
+KC-IA-DJZ4QW1.kc.umkc.edu
+
+* SQL Query Cookbook
+
+** Common Tasks
+
+*** Check for Assessments (How do I check the logs to verify whether a student has finished a test?)
+
+Mary: Check the user’s activity_accumulator records for a cluster of data like this where the content_pk1 matches the pk1 of the test. ‘Submitted’ is the important line, but the rest is good confirmation in case there is a question of the student’s having actually taken the test. NB that this will not have a record for a user who took the test with the BbMobile app.  
+
+| EVENT_TYPE    | USER_PK1 | COURSE_PK1 |                 CONTENT_PK1 | DATA                                             | TIMESTAMP       |
+|---------------+----------+------------+-----------------------------+--------------------------------------------------+-----------------|
+| COURSE_ACCESS |   256346 |      91211 | 1133415 (Folder with tests) | Participation Point Quizzes                      | 11/3/2013 16:30 |
+| COURSE_ACCESS |   256346 |      91211 |     "1133435 (Actual test)" | /webapps/blackboard/content/launchAssessment.jsp | 11/3/2013 16:30 |
+| COURSE_ACCESS |   256346 |      91211 |                     1133435 | /webapps/assessment/take/launch.jsp              | 11/3/2013 16:30 |
+| COURSE_ACCESS |   256346 |      91211 |                     1133435 | /webapps/assessment/take/submitted.jsp           | 11/3/2013 16:31 |
+| COURSE_ACCESS |   256346 |      91211 |                     1133435 | /webapps/assessment/review/review.jsp            | 11/3/2013 16:31 |
+
+*** Step-by-Step Instructions 
+Andrew: The following example shows how to prove that one of my fake students, luncherstew, completed a test in one of my sandbox course sites. Here are the steps:
+- Find the user's PK1. (users_pk1)
+- Find the course PK1 (crsmain_pk1)
+- Use the User_pk1 and crsmain_pk1 to find all activity in the course site. *note*: If the user has completed a test, you'll find the answers in QTI_ASA_DATA.
+- Verify the content_pk1 for the 
+
+***** Example One: Find the *User PK1* for *luncherstew* and the *Course PK1* for *"MY First Course" Sandbox* (Long version):
+- Find the user's PK1
+*Example: luncherstew:*
+#+BEGIN_SRC SQL 
+SELECT pk1 FROM users WHERE user_id = 'luncherstew';
+#+END_SRC
+*USER_PK= '1752678'*
+
+- Find the course PK1 (crsmain_pk1)
+You can either do this from the URL in your browser, or with SQL:
+
+*Example: UMKC-SANDBOX-BUCKINGHAMA:*
+#+BEGIN_SRC SQL 
+SELECT pk1 FROM course_main WHERE course_id = 'UMKC-SANDBOX-BUCKINGHAMA';
+#+END_SRC 
+*50141*
+
+***** Example Two: Find the *User PK1* for *luncherstew* and the *Course PK1* for *"MY First Course" Sandbox* (Short version):
+You can find both values from the output of this query:
+
+#+BEGIN_SRC SQL 
+SELECT     USERS.USER_ID,  COURSE_MAIN.COURSE_ID, COURSE_USERS.ENROLLMENT_DATE, COURSE_USERS.DTMODIFIED, COURSE_USERS."ROLE", COURSE_USERS.PK1, COURSE_USERS.ROW_STATUS,
+                      COURSE_USERS.DATA_SRC_PK1, COURSE_USERS.CRSMAIN_PK1, COURSE_USERS.USERS_PK1
+FROM         COURSE_USERS INNER JOIN
+                      USERS ON COURSE_USERS.USERS_PK1 = USERS.PK1 INNER JOIN
+                      COURSE_MAIN ON COURSE_USERS.CRSMAIN_PK1 = COURSE_MAIN.PK1
+WHERE     (USERS.USER_ID = 'luncherstew')
+#+END_SRC
+
+*Output:*
+(See last two columns)
+
+| USER_ID     | COURSE_ID                | ENROLLMENT_DATE | DTMODIFIED | ROLE |      PK1 | ROW_STATUS | DATA_SRC_PK1 | CRSMAIN_PK1 | USERS_PK1 |
+|-------------+--------------------------+-----------------+------------+------+----------+------------+--------------+-------------+-----------|
+| luncherstew | UMKC-SANDBOX-BUCKINGHAMA | 28-SEP-11       | 11-NOV-13  | S    | 14912909 |          0 |            2 |       50141 |   1752678 |
+
+*** Print list of Course IDs for FS2013 
+#+BEGIN_SRC SQL 
+select course_id from bb_bb60.course_main where data_src_pk1 = '411'
+#+END_SRC
+
+Mary: This will work. The table data_source has info about all data source keys.
+
+*** Print list of data_source_pk1 values used in Blackboard           :new:
+#+BEGIN_SRC SQL 
+select * from data_source
+#+END_SRC
+
+*** Change values in course menu                                      :new:
+<2013-11-18 Mon>
+
+**** Steps:
+1. Find crsmain_pk1 value (see [[Find Course PK1][Find Course PK1]])
+2. The Course Menu data is contained in *COURSE_TOC*. If you know the name of the column you'd like to change, you can specify it. Otherwise, just use '*'.
+
+/Example:/ The instructor of course UMKC-MEDICINE9570-0007-44358-FS2013 contacted us because her 'Mid-Month' Course Menu item was not visible to students. When she tried to click "Show Link" it didn't make the link visible, because it was not available. Without database access, you could create a new link, make it available, and duplicate the content from the unavailable link, and then delete the original. In the database, it's easier:
+
+- Course ID: UMKC-MEDICINE9570-0007-44358-FS2013
+- Instructor: carterd
+
+First, [[Find Course PK1][Find the Course PK1]] (AKA: CRSMAIN_PK1). Here's one way:
+
+#+BEGIN_SRC SQL 
+select pk1 from course_main where course_id= 'UMKC-MEDICINE9570-0007-44358-FS2013'
+#+END_SRC
+
+Or, if you have the USER ID, but not the Course ID, you can find the correct *CRSMAIN_PK1* from all of the user's courses, like this:
+
+#+BEGIN_SRC SQL 
+SELECT     USERS.USER_ID,  COURSE_MAIN.COURSE_ID, COURSE_USERS.ENROLLMENT_DATE, COURSE_USERS.DTMODIFIED, COURSE_USERS."ROLE", COURSE_USERS.PK1, COURSE_USERS.ROW_STATUS,
+                      COURSE_USERS.DATA_SRC_PK1, COURSE_USERS.CRSMAIN_PK1, COURSE_USERS.USERS_PK1
+FROM         COURSE_USERS INNER JOIN
+                      USERS ON COURSE_USERS.USERS_PK1 = USERS.PK1 INNER JOIN
+                      COURSE_MAIN ON COURSE_USERS.CRSMAIN_PK1 = COURSE_MAIN.PK1
+WHERE     (USERS.USER_ID = 'carterd')
+#+END_SRC
+
+Once you have the Course PK1/CRSMAIN_PK1 (in this case, it's 90355), You can update the Course Menu. First, select all of the available links in the course menu:
+
+#+BEGIN_SRC SQL 
+select * from course_toc where crsmain_pk1 = '90355'
+#+END_SRC
+
+Partial Output:
+
+|  "PK1" | "CRSMAIN_PK1" | "COURSE_CONTENTS_PK1" | "LABEL"                | "TARGET_TYPE"  | "POSITION" | "LAUNCH_IND" | "ENABLED_IND"   |
+|--------+---------------+-----------------------+------------------------+----------------+------------+--------------+-----------------|
+| 774716 |         90355 |                       | "Discussion Board"     | "APPLICATION"  |          4 | "N"          | "Y"             |
+| 849654 |         90355 |               1164767 | "Mid-Month"            | "CONTENT_LINK" |          5 | "N"          | "N"             |
+| 717596 |         90355 |                       | "Announcements"        | "APPLICATION"  |          0 | "Y"          | "Y"             |
+| 776856 |         90355 |               1136561 | "Course Content"       | "CONTENT_LINK" |          2 | "N"          | "Y"             |
+| 774713 |         90355 |               1121951 | "Personal Reflections" | "CONTENT_LINK" |          3 | "N"          | "Y"             |
+| 774714 |         90355 |               1121952 | "Exam"                 | "CONTENT_LINK" |          6 | "N"          | "N"             |
+| 774715 |         90355 |               1121953 | "Syllabus"             | "CONTENT_LINK" |          1 | "N"          | "Y"             |
+   
+In this case, the instructor would like "Mid-Month" to be available, but it's not available ("ENABLED_IND" = "N"). To make it available:
+
+#+BEGIN_SRC SQL 
+UPDATE course_toc SET Enabled_IND = 'Y' WHERE crsmain_pk1 = 90355'; Commit;
+#+END_SRC
+
+Partial Output:
+|  "PK1" | "CRSMAIN_PK1" | "COURSE_CONTENTS_PK1" | "LABEL"                | "TARGET_TYPE"  | "POSITION" | "LAUNCH_IND" | "ENABLED_IND"   |
+|--------+---------------+-----------------------+------------------------+----------------+------------+--------------+-----------------|
+| 774716 |         90355 |                       | "Discussion Board"     | "APPLICATION"  |          4 | "N"          | "Y"             |
+| 849654 |         90355 |               1164767 | "Mid-Month"            | "CONTENT_LINK" |          5 | "N"          | "Y"             |
+| 717596 |         90355 |                       | "Announcements"        | "APPLICATION"  |          0 | "Y"          | "Y"             |
+| 776856 |         90355 |               1136561 | "Course Content"       | "CONTENT_LINK" |          2 | "N"          | "Y"             |
+| 774713 |         90355 |               1121951 | "Personal Reflections" | "CONTENT_LINK" |          3 | "N"          | "Y"             |
+| 774714 |         90355 |               1121952 | "Exam"                 | "CONTENT_LINK" |          6 | "N"          | "N"             |
+| 774715 |         90355 |               1121953 | "Syllabus"             | "CONTENT_LINK" |          1 | "N"          | "Y"             |
+   
+*** Flip User batch_uid                                               :new:
+*** Delete Assignments via Db 
+#+BEGIN_SRC SQL 
+exec PURGE\_CORRUPT\_ASMT\_ASSIGNMENT(46261);
+#+END_SRC
+/Where the number is the pk1 of the course.  You probably need a commit; after that.  You can get the pk1 by looking at the course url, or: select pk1 from course_main where course_id='visible-course-id-here';/
+
+Mary: This will work.
+
+*** Disable User                                               :unfinished:
+
+#+BEGIN_SRC SQL 
+
+#+END_SRC
+
+Mary: This is not going to disable the user, just make Bb unavailable to them. If they rightfully have access, the next time the data feed runs they’ll be able to log in again. What you need to do is break the connection between the user and the data feed. In general, you won’t need to pull anyone’s access to Blackboard. That’s handled automatically. If for some weird and unusual reason you DO need to do this – and the only reason off the top of my head I can think of that you would is something like a disgruntled fired employee that you need to block access ASAP while maintaining their history --  then change these values:  users.data_src_pk1 = ‘2’ users.row_status = ‘0’ users.batch_uid and student_id =  ‘was-16079485’ or something similar. 
+
+*** Enable User 
+
+#+BEGIN_SRC SQL 
+
+#+END_SRC
+Mary: If you want to enable/disable them in a particular course, change the course_users.row_status instead. NB that you’ll need to break the data feed connection or they’ll revert right back to the default value next time snapshot runs.  users.row_status = ‘0’ -> enabled users.row_status = ‘2’ -> disabled  Use a semi-colon between your update and your commit.
+
+*** Find out why a user is enrolled in Pathway but not in Blackboard 
+Sometimes, Mary can find out more info that I can from Active Directory (?) 
+
+Mary: Our Pathway access should be exactly the same, and that’s where any relevant info will be ☺
+
+*** Flip User DSK 
+
+#+BEGIN_SRC SQL 
+update BB_BB60.users set data_src_pk1 = '117' where user_id = 'luncherstew'; commit;  
+#+END_SRC
+
+Mary: This will work. Use a semi-colon between your update and your commit.
+
+*** Find all courses users is enrolled in 
+Find course 
+#+BEGIN_SRC SQL 
+SELECT * FROM COURSE\_MAIN WHERE PK1 = ''  
+#+END_SRC
+No. User enrollment is in the course_users table, and first you need to grab the users.pk1. This is actually something that’s easier to do from the GUI, if all you need is list of course sites someone is enrolled in. 
+
+**** A general query to get an overview of someone’s enrolment situation is:  
+#+BEGIN_SRC SQL 
+
+SELECT     USERS.USER_ID,  COURSE_MAIN.COURSE_ID, COURSE_USERS.ENROLLMENT_DATE, COURSE_USERS.DTMODIFIED, COURSE_USERS."ROLE", COURSE_USERS.PK1, COURSE_USERS.ROW_STATUS,
+                      COURSE_USERS.DATA_SRC_PK1, COURSE_USERS.CRSMAIN_PK1, COURSE_USERS.USERS_PK1
+FROM         COURSE_USERS INNER JOIN
+                      USERS ON COURSE_USERS.USERS_PK1 = USERS.PK1 INNER JOIN
+                      COURSE_MAIN ON COURSE_USERS.CRSMAIN_PK1 = COURSE_MAIN.PK1
+WHERE     (USERS.USER_ID = 'gsz5d')
+#+END_SRC
+
+*** Find all USER IDs associated with an email address 
+
+#+BEGIN_SRC SQL 
+Select * from BB_BB60.users  where email = 'buckinghama@umkc.edu' 
+#+END_SRC
+
+Mary: No point in using ‘like’ unless you have a wildcard. 
+
+*** Archive, Import Oversized
+
+*** Rotate Server Logs (Device Error) 
+Steps:
+
+- Do a df -Th  
+- If > 80%, rotate logs 
+- Sudo to bbuser 
+- sh /usr/local/blackboard/tools/admin/RotateLogs.sh
+
+*** Update User Information 
+#+BEGIN_SRC SQL 
+UPDATE BB_BB60.users SET <FIELD = VALUE> where USER_ID = 'buckinghama'; COMMIT;  
+#+END_SRC
+Mary: Stick a semicolon after your update. Unless you break the connection with the data feed, this is going to revert with the next snapshot (if it’s a value that gets updated)
+
+*** <<Find Course PK1>> Find Course PK1 
+
+#+BEGIN_SRC SQL 
+select pk1 from bb_bb60.course_main where course_id like '%45551%'  
+#+END_SRC
+
+Mary: This works, or just look for it in the course site’s URL
+
+*** Find all available courses 
+#+BEGIN_SRC SQL 
+select count(*) from BB_BB60.course_main where available_ind = 'Y'
+#+END_SRC
+
+Use “.... where available_ind = ‘Y’ and row_status = ‘0’”  In general, course sites are not made unavailable, they are disabled via row_status value.
+
+** Knowledge Transfer
+*** Web application for setting dates related to data loading is located at https://kc-csrv-ora4.kc.umkc.edu/oracle-Login.html
+  - Andrew's Note: Can't access.
+  - Mary’s note: Dates already set up through April 2014. Duane can give you access.
+
+
+*** Documentation for various plug-ins and ancillary software are located on the vendor/distributor websites
+
+Andrew's Note: Do we have a list of those, or should we compile that?
+
+Mary’s note: See the “Vendor” column in the Building Blocks > Installed Tools area for links.
+
+*** Future instance (currently Bb 9.1 SP11) hosted at https://blackboard-future.missouri.edu/webapps/portal/frameset.jsp?tab_tab_group_id=_148_1. 
+
+- Andrew's Note: Can't access.
+
+- Mary’s note: Columbia isn’t contemplating an update right now, so there’s nothing to see on their future instance.
+
+*** Columbia DB Administration and Technical Services – Ticketing/Request System: https://doit.sharepoint.missouri.edu/eas/dats/Lists/servicerequest/allrequestsid.aspx
+
+- Andrew's Note: I can access this. Is there anything special I'd need to look for or know about this site?
+
+- Mary’s note: No, but I would honestly recommend making requests personally rather than using the ticketing system. In my experience, you get better results.
+
+*** Local historical system and policy documentation is located at N:\Groups\IA\ITS\Elearning\Blackboard\System Info
+
+- Andrew's Note: Looks old. Last update was about a year ago. Most files are from 2008 - 2011. Is this still information still relevant?
+
+- Mary’s note: It’s historical documentation.
+
+*** Current system and policy documentation is located at https://sharepoint.umsl.edu/its/ltic/default.aspx
+
+- Andrew's Note: I don't have access.
+
+- Mary’s note: Will get you access. Honestly, though, you will never, ever look at this for anything unless you get roped into line editing the annual Report to the CIOs.
+
+ 
+*** Database schema documentation is located at http://library.blackboard.com/ref/fea8bb86-1720-4b14-bb81-542d973b5338/index.htm
+
+- Andrew's Note: I've checked this. Very useful. To save time, I should try to pull out the most useful schemas.
+
+- Mary: The most useful: users, course_users, course_main, course_toc, gradebook_main, activity_accumulator, forum_main. Anything else you’ll need to look at will probably be referenced in one of these tables.
+
+ 
+
+*** Are there key people (internal/external contacts) other than those identified in the Project Status Report to whom we should be introduced before you leave the organization? If yes, please list and indicate when we might plan for such introductions?
+
+1. Steve Steinacker at UMKC for Equella
+2. George Robb and Luke Baker in Columbia for Blackboard
+
+- Andrew's Note: Do they know that I will be Mary's backup?
+- Mary’s note: Yup.
+
+
+* Mary's Recurring Tasks
+** 1. Create a ‘Final Grade’ column 
+(this is the column that allows faculty to pull grades into Pathway) in each of the semester’s course sites. 
+/Typically done early to mid-semester. Uses the addfinalgrade DB procedure./
+
+** 2. Clean up the ‘Users’ table. 
+Steps are: 
+- Identifying non-privileged, non-system-required accounts that have existed for at least one year and either have never had a login or the last login was > 1 year ago; 
+- Disabling and setting the DSK of these accounts to umkc.to.be.deleted; 
+- Giving ITS folks a chance to object to any deletions and doing an eyeball check of the accounts to be killed; and 
+- Doing a DSM purge on the disabled accounts. 
+/Typically done once in late summer and once over winter break./
+
+** 3. Flip semester for students. 
+Steps are: 
+- Inform instructors ahead of time about the availability switch; 
+- Help Desk collects exception requests from faculty; 
+- Make upcoming term course sites available to students (unless an exception request has been made); 
+- Disable student enrollment in previous term’s course sites. 
+/Typically done one week before start of classes for new semester./
+
+** 4. Flip semester” for faculty. 
+Steps: 
+- Generate list of emails for users with a role of ‘P’ in previous term’s sites. 
+- Update LML Blackboard-Announce with this list. 
+- Send email warning users that access to previous term’s sites will be pulled approximately 30 days into the next semester, instructions for self-archive, etc. Same info should also be posted in a Bb announcement available to UMKC-FACULTY role, listed in Jing’s newsletter, etc. 
+- Handle exceptions for ongoing sites, etc. 
+- Change row_status and DSK to ‘2’ in course_users for folks with role of ‘P’ in a site where crsmain_pk1 belongs to a previous term course site.
+/Typically completed 30 days into the subsequent semester. Warning notices need to go out earlier./
+
+** 5. Archive sites. 
+Steps: 
+- Get DSK of sites to be archived 
+- Get count of sites with that DSK 
+- Generate list of course IDs 
+- Create a folder for the archives in app3 /DEV_Caution 
+- Create input file in /usr/local/blackboard/apps/content-exchange/bin. Each line should consist of <site id>,<destination folder>, e.g. UMKC-COMP-SCI5599-0002-34944-SS2013,/DEV_Caution/SS2013_Archives/ 
+- Run archive script 
+- ./batch_ImportExport.sh -f YourInputFile.txt -l 1 -t archive) 
+- When finished, verify count. 
+- FTP archives to permanent storage 
+- Delete archives from /DEV_Archives.
+/Typically done some time after completion of the term in order to catch late changes./
+
+** 6. Purge sites. 
+Steps: 
+- Archive the sites as above 
+- Make exception list of sites with size > 250 Mb 
+- Tell Duane you are about to remove the sites so that he can add data to table used by BBUR search tool  
+- Change DSK of remaining sites to 186/umkc.to.be.deleted. 
+- Use DSM tools to count, count_disabled, purge sites with that DSK.
+/Typically done 1 year + 1 month after close of semester in order to facilitate course copying for Help Desk, i.e. FS2012 sites would be purged a month into FS2013./
+
+** 7. Set up site creation, enrollment, active, etc. dates for upcoming semesters. 
+Summer and  Fall should be done together. Use web tool at https://kc-csrv-ora4.kc.umkc.edu/oracle-Login.html to fix dates.
+/Typically done several months before start of the semester./
+
+** 8. As needed: update/install extensions & building blocks; patch; purge old logs and other files to maintain sufficient free space on app servers; etc.
+ 
+** 9. Gradebook export from previous semester. 
+/Typically done immediately prior to flipping semester for students./
+
+* Knowledge Transfer
+** Blackboard:
+
+- Contact information and support history located at http://behind.blackboard.com/.
+
+  /Andrew's Note: I've had access to this since August./
+
+- Local/historical system and policy documentation is located at N:\Groups\IA\ITS\Elearning\Blackboard\System Info
+
+  /Andrew's Note: Looks old. Last update was about a year ago. Most files are from 2008 - 2011. Is this still information still relevant?/
+
+- Current system and policy documentation is located at https://sharepoint.umsl.edu/its/ltic/default.aspx
+
+/Andrew's Note: I don't have access./
+
+- Paper documentation of server customizations is located in binder labeled “Blackboard Server Settings (Doomsday Backup)” shelved in my office. In a worst-case scenario, this documentation could be used to restore to a pre-look-and-feel-change state.  Addendum “Blackboard changes.txt” tucked into the front contains list of recent cosmetic updates to restore current look and feel.
+
+/Andrew's Note: I've seen this before. I'll check it again./
+
+- Database schema documentation is located at http://library.blackboard.com/ref/fea8bb86-1720-4b14-bb81-542d973b5338/index.htm
+
+/Andrew's Note: I've checked this. Very useful. To save time, I should try to pull out the most useful schemas./
+
+
+- Web application for setting dates related to data loading is located at https://kc-csrv-ora4.kc.umkc.edu/oracle-Login.html
+
+/Andrew's Note: Can't access./
+
+ - Public-facing policies and procedures are located at     http://www.umkc.edu/ia/it/blackboard/bbpolicies.aspx
+
+/Andrew's Note: I access this all the time. (I updated this link to point to our new website URL in March 2013)./
+
+ - Public-facing webpages are located at  http://www.umkc.edu/ia/it/blackboard/default.aspx
+
+/Andrew's Note: I access this all the time. (I updated this link to point to our new website URL in March 2013)./
+
+ - Hints and tips are documented in the organization site “Blackboard Wiki” housed on UMKC’s Blackboard server
+/Andrew's Note: I'm enrolled in the wiki and I've gone through it./
+
+- Documentation for various plug-ins and ancillary software are located on the vendor/distributor websites
+/Andrew's Note: Do we have a list of those, or should we compile that?/
+
+- Future instance (currently Bb 9.1 SP11) hosted at https://blackboard-future.missouri.edu/webapps/portal/frameset.jsp?tab_tab_group_id=_148_1. Testing of SP10 is underway. The earliest date for production update would be Winter Break. Impetus for update is resolution of java issues with MathML/WebEQ use (e.g. MET.)
+/Andrew's Note: Can't access./
+
+- Columbia DB Administration and Technical Services – Ticketing/Request System: https://doit.sharepoint.missouri.edu/eas/dats/Lists/servicerequest/allrequestsid.aspx
+/Andrew's Note: I can access this. Is there anything special I'd need to look for or know about this site?/
+
+** Equella:
+- Contacts and documentation housed at https://doit.sharepoint.missouri.edu/css/projects/equella/default.aspx
+/Andrew's Note: I can't access this site./
+
+- Are there key people (internal/external contacts) other than those identified in the Project Status Report to whom we should be introduced before you leave the organization? If yes, please list and indicate when we might plan for such introductions?
+
+  - Steve Steinacker at UMKC for Equella
+  - George Robb and Luke Baker in Columbia for Blackboard
+
+/Andrew's Note: Do they know that I will be Mary's backup?/
+
+
+- Identify external agencies and regulatory groups (i.e. City/State/Federal) with whom it is necessary for us to interact in order to fulfill duties of your position.
+Not applicable
+
+- Are there specific files/records related to current or past projects that should be retained over a defined period of time? If yes, please list, identify the location of each, and include the retention period. 
+
+Blackboard site archives dating back to 2002 are located in \\kc-csrv-bbarch\. For program accreditation purposes, these files have a retention period of 10 years.
+
+- List important historical/reference documents, if any, in your possession.
+
+  - See #1, above
+
+352-577-8475
+
+/Andrew's Note: I think this number needs to be updated in Mary's Knowledge Transfer. I have 816-349-8587. Also, in [[https://umkc.sharepoint.missouri.edu/SiteDirectory/ia/Lists/Contacts/AllItems.aspx][Sharepoint]], her mobile number is listed as 816-446-5207, so I think that will need to be updated, as well./
+
+
+* Organization Wiki (10/24/2013)
+
+** Home
+
+Edited by Marilyn Dean, 3/30/2011 11:20 AM
+
+Author Tags:
+
+This wiki is basically intended for my personal reference and use. It's
+absolutely OK if others want to use it, but please don't edit or delete
+any of the contents.
+
+If you're itching to make changes, get your own wiki
+[[/Groups/Marys_Blackboard_Wiki/Organization_Wiki/tongeout][]]
+
+ 
+
+--
+
+Mary
+
+** assessments, format for text question upload                    :Updated:
+
+Edited by Mary Crosson, 5/21/2010 1:36 PM
+
+Author Tags:
+
+This website gives the required format for assessment questions uploaded
+from a text file into Blackboard:
+[[http://www.blackboard.niu.edu/blackboard/assessments/tests.shtml#uploadquestions][http://www.blackboard.niu.edu/blackboard/assessments/tests.shtml#uploadquestions]]
+
+*Update*: The link above is broken. Here are some alternative links:
+- https://help.blackboard.com/en-us/Learn/9.1_SP_10_and_SP_11/Instructor/070_Tests_Surveys_Pools/106_Uploading_Questions
+- http://www.fau.edu/oit/blackboard/pdf/Bb9_HDI_uploadquestionstoblackboard.pdf
+- http://it.unh.edu/media/blackboard/bb91-docs/Bb9-1_upload_test-questions_using_excel-txt.pdf
+
+** assignments, "undeletable"
+
+Edited by Mary Crosson, 5/21/2010 1:37 PM
+
+Author Tags:
+
+ 
+
+Delete assignment via Db:
+ You can verify this with your TSM, but you can fix the problem of not
+being able to delete assignments at the database level:
+ Date:    Sun, 18 Feb 2007 18:46:22 -0500
+ From:    David Carter-Tod <dcartertod@VCCS.EDU>
+ Subject: Fix for being unable to delete assignments (was Re: Corrupted
+Word Documents)
+ You can verify this with your TSM, but you can fix the problem of not
+being able to delete assignments at the database level:
+ exec PURGE\_CORRUPT\_ASMT\_ASSIGNMENT(46261);
+ Where the number is the pk1 of the course.  You probably need a commit;
+after that.  You can get the pk1 by looking at the course url, or
+#+begin_src SQL
+ select pk1 from course\_main where course\_id='visible-course-id-here';
+ #+end_src
+David
+
+** Batch archives, the definitive guide
+
+Edited by Mary Crosson, 8/31/2011 2:34 PM
+
+Author Tags:
+
+1. Get the data source key of the sites to be archived.
+    /select * from data\_source/ to get list.
+2. Identify the correct key for the semester you're archiving:
+   umkc.course.ss2010 (text)
+   62 (numeric)
+3. Get a count of course sites with that DSK.
+    /select count(*)/
+    /from course\_main/
+    /where data\_src\_pk1 = '62'/'
+4. Log into App3, sudo to bbuser, and cd to /DEV\_Caution. Make a folder
+   there for the archives to go into.
+   $ /mkdir SS2010\_archives/
+5. Create the input file in Excel:
+    /select course\_id/
+    /from course\_main/
+    /where data\_src\_pk1 = '62'/to get list of course\_IDs
+   file should look like this. Save it as a .CSV file:
+   UMKC-COMP-SCI5599-0002-34944-SS2010,/DEV\_Caution/SS2010\_Archives/
+   UMKC-EDUC5589Q-0017-34943-SS2010,/DEV\_Caution/SS2010\_Archives/
+   UMKC-LIFE-SCI399-0014-34945-SS2010,/DEV\_Caution/SS2010\_Archives/
+   UMKC-EDUC-CI5595-0002-34164-SS2010,/DEV\_Caution/SS2010\_Archives/
+6. On app3, cd to /usr/local/blackboard/apps/content-exchange/bin and
+   dump the input file into a text file. I usually call it bob.txt.
+7. Start the archive
+   $ ./ /batch\_ImportExport.sh -f bob.txt -l 1 -t archive/
+8. Wait.
+c
+** BB, Inc., support contact
+
+Edited by Mary Crosson, 5/21/2010 2:49 PM
+
+Author Tags:
+
+As senior vice president of Blackboard's North America Higher Education
+team, it's my pleasure to communicate some of the positive changes
+happening at Blackboard in support of University of Missouri at Kansas
+City.
+
+In my recent travels across North America speaking with your colleagues
+at peer institutions, it's clear that technology is now a mission
+critical component of the entire higher education experience.  I've also
+received consistent feedback about how our clients want to engage with
+Blackboard.  We've heard clients ask for a named point of contact that
+is responsible for the entire relationship, as well as periodic account
+reviews so that we may better leverage our global community of practice
+in support of your success.  Further, our clients want Blackboard to
+continue the improvements already under way in our support organization.
+
+Many of our clients have already noted the tremendous improvements made
+in the responsiveness and case handling of the Blackboard client support
+team - and we will continue that improvement under the guidance of Ray
+Henderson, president of Blackboard Learn.  Ray is also emphasizing
+product development that is standards-based, and embraces true
+outside-in feature prioritization and design.  Now, with over 70
+established Connections User Community groups, 2,000 development
+partners, an extended Beta program, Bug Squads and the Blackboard Idea
+Exchange, the Blackboard Product Teams are collaborating with the
+educational technology community like never before.
+
+Our first proof point of this evolved Product Development methodology is
+Blackboard Learn Release 9.1 - which you will hear about shortly.
+
+As of today, the North America Higher Education team is also evolving
+with a significant reorganization to improve our support of University
+of Missouri at Kansas City.  Now, there is one named Blackboard
+representative who is accountable for the entire relationship.
+
+Keith Giltner, Strategic Account Executive
+ keith.giltner@blackboard.com, 630-230-0866
+
+ This new alignment of our account management team allows us to better
+focus on your goals, build collaborative relationships, and operate as a
+strategic partner in your success.  It is not intended for Keith to
+handle every operational detail - we have a robust and improving support
+team in place for day-to-day issues.  Rather, it is expected that Keith
+will be your point of escalation to help bring resolution as needed. 
+Most importantly, Keith will be responsible for ensuring close alignment
+with your institution's goals and objectives.   
+
+Click here for our new
+[[http://bb.blackboard.com/g/?NJ56LMWER2:PU8XT8LWQF=ssID:637518526,email:mary@umkc.edu][Client Success Guide]], designed to help you navigate the variety of resources
+and points of support available within Blackboard - a utility requested
+by our clients.
+
+Keith will be reaching out to you and other primary contacts to arrange
+a collaborative dialogue about how we can work closely together with the
+key stakeholders to support your success.
+
+At the same time, I invite your feedback on the information in this
+letter.  I can be reached at 202.463.4860 x2747 or at
+[[mailto:brett.frazier@blackboard.com][brett.frazier@blackboard.com]].
+
+Thank you for your time, your partnership, and your feedback.  On behalf
+of the entire Blackboard team, I look forward to embarking on this next
+phase of our relationship.
+
+ 
+
+Brett Frazier
+ Senior Vice President, North America Higher Education, Blackboard, Inc.
+[[mailto:brett.frazier@blackboard.com][
+ brett.frazier@blackboard.com]] or 202.463.4860 x 2747
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/support_contacts][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** Bb9, system banner
+
+Edited by Mary Crosson, 5/21/2010 1:37 PM
+
+Author Tags:
+
+ 
+
+In Brands, set the "real" My UMKC banner as the top frame background.
+Then create a one-pixel white graphic and load THAT as the banner. Only
+way you can get the top frame to look correct.
+
+** Bb9, button color import bug
+
+Edited by Mary Crosson, 5/21/2010 1:38 PM
+
+Author Tags:
+
+ 
+
+ 
+
+Bb9 import, button color issue (
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/Bb9_import_button_color_issue][permalink]])
+
+last edited by
+[[https://blackboard8.umkc.edu/webapps/lobj-expo-bb_bb60/user/9E4983A3C283BA16/][Mary
+Crosson]] on Thursday, 03/18/2010 12:33 PM
+
+The following case has been updated:
+
+Case ID: 657838
+
+Case Summary: Course Menu colors will not display on course import from
+vers 8
+
+Note Detail:
+
+ 
+
+This issue is caused by a bug in the BB updater.  The format for storing
+the color values has changed from release 8 to 9, but the existing
+values are not changed by the updater.  Similarly, bringing a course
+over from 8 to 9 via an archive or export will bring with it the old
+format of the color values, causing the issue here as well.  As a
+workaround, here are two queries you can run against the bb\_bb60
+schema:
+
+UPDATE course\_main SET textcolor='#' || textcolor WHERE textcolor IS
+NOT NULL AND textcolor NOT LIKE '#%'; UPDATE course\_main SET
+background\_color='#' || background\_color WHERE background\_color IS
+NOT NULL AND background\_color NOT LIKE '#%'; COMMIT;
+
+ 
+
+You will need to do this any time you bring in a course from a
+Blackboard 8 system for the reason I explained above.  However, I have
+tested this on our systems and it does work.  The relevant bug report is
+AS-139492.  Since this should solve your issue, I will change the status
+of this case to “Resolved Pending Client”.  The case will close in three
+weeks if it is not updated.  If updated, it will revert to “Open Needs
+Attention”.  If you have any questions or issues, please feel free to
+update the case and I will be happy to provide additional assistance.
+
+ 
+
+Regards,
+
+Matthew West
+
+Technical Support Manager
+
+Blackboard Client Support
+
+1-888-788-5264
+
+ 
+
+ 
+
+ 
+
+** Blackboard DB: Course menu items
+
+Edited by Mary Crosson, 5/21/2010 4:25 PM
+
+Author Tags:
+
+Course menu items are stored in the contents\_toc table. Can easily
+update links in all sites by setting the HREF value.
+
+*** TODO Ask about this.
+- Where is the contents.toc table?
+- How do you set the HREF value?
+
+** building blocks, location of files                             :Verified:
+
+Edited by Mary Crosson, 7/12/2010 12:48 PM
+
+Author Tags:
+
+/usr/local/blackboard/content/vi/bb\_bb60/plugins
+
+** course content, location of                                    :Outdated:
+
+Edited by Mary Crosson, 5/21/2010 1:39 PM
+
+Author Tags:
+
+ 
+
+\/blackboard/bb/content/vi/bb\_bb60/courses/1/
+ /course\_id
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/Course_content_location_of][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** course content, undeletable
+
+Edited by Mary Crosson, 5/21/2010 1:40 PM
+
+Author Tags:
+
+ 
+
+There's probably bad code in the description field. This can happen when
+someone copies parts of webpage or Word html into the field, but not
+everything, or if there is some basic problem with the code.
+
+To fix, identify the item in course\_contents and replace the existing
+main\_data value with something innocuous like 'hello world'. This
+should bring back the <Remove> button for the item.
+
+** course sites, undeletable
+
+Edited by Mary Crosson, 5/21/2010 1:40 PM
+
+Author Tags:
+
+ 
+
+To remove an "undeletable" site:
+
+ 1.Verfy the pk1 value of the course that can not be deleted from the
+GUI (you can obtain this by pointing to the course link in the GUI and
+observing the course\_id at the end of the URL in the address bar after
+entering the course).
+ 2. Run the following script within the Bb\_bb60 database to remove the
+course
+ exec course\_main\_rm(p1=>21436);
+ commit;
+ The number 21436 indicates the pk1 value for the course you're wanting
+to remove - please adjust as needed!
+ 3. After running the script, you may want to verify that the course was
+removed from the database and from the GUI.
+ In Oracle, type:
+ SELECT * FROM COURSE\_MAIN WHERE PK1 = '21436';
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/course_sites_undeletable_][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** cron jobs, editing
+
+Edited by Mary Crosson, 5/21/2010 1:40 PM
+
+Author Tags:
+
+ 
+
+-  sudo /bin/su - bbuser
+-  crontab -l (to view current entries)
+-  crontab -e (to edit)
+-  Comment out ("# ") entries to stop them running, uncomment them to
+   start them.
+
+** discussion board, recover deleted attachments
+
+Edited by Mary Crosson, 5/21/2010 1:41 PM
+
+Author Tags:
+
+ 
+
+ 
+
+ Note -- no one knows how long the files stay on the server once the
+postings are deleted. Presumably, Bb runs some sort of job to clean up
+these files every so often.
+ 1) CD to the course content folder, e.g. 
+UMKC-LAW8532-0006-14039-SP2008
+ 2) CD to the db folder
+ 3)If you know the name of the attachment, you can verify that it is
+still on the server with the find command. For example: find . -name
+lacroixlemon.txt
+ 4)Grab the file
+ 5) If you need to grab ALL of the attachments, tar them up first: tar
+-cvvf file.tar * ("file6.tar" being the name of the tar file you
+create)and FTP put them to your local machine.
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/discussion_board_attachments_][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** discussion board, connection to gradebook lost
+
+Edited by Mary Crosson, 5/21/2010 1:41 PM
+
+Author Tags:
+
+ 
+
+ 
+
+*Problem Description:*
+Clicking discussion forum Grade icon gives an error message: The
+connection for the gradebook has been lost. It must be redefined in
+Modify Forum. Clicking on Modify Forum gives the same error message.
+
+ 
+
+--------------
+
+*Fix from Blackboard (Works!):*
+
+ 
+
+Note Detail: Mary,
+
+ 
+
+It seems that I called while you were out. Here is our standard
+resolution for this issue:
+
+ 
+
+**UNIX STEPS**
+
+ 
+
+Start by running the following query, which will give us the current
+registry value (linkrefid) and the pk1 for that entry, which we might
+need later:
+
+ 
+
+SELECT r.registry\_value, r.pk1, m.name
+
+FROM bb\_bb60.forum\_registry r, bb\_bb60.forum\_main m WHERE
+r.forummain\_pk1 IN (
+
+      SELECT f.pk1
+
+      FROM bb\_bb60.forum\_main f, bb\_bb60.conference\_main cm,
+bb\_bb60.conference\_owner co, bb\_bb60.forum\_registry r
+
+      WHERE co.owner\_pk1 = (select pk1 from bb\_bb60.course\_main where
+course\_id = 'test101')
+
+      AND cm.conference\_owner\_pk1 = co.pk1
+
+      AND f.confmain\_pk1 = cm.pk1)
+
+AND r.forummain\_pk1 = m.pk1
+
+AND registry\_key='FORUM\_GRADE\_HANDLE';
+
+ 
+
+Please replace test101 with the course\_id of the course with the
+problem. Look for the value of this forums linkrefid. Then, you will
+have to confirm that this linkrefid is unique, if one exists. If it
+doesn't, please skip the next query. Assuming that there is a linkrefid,
+confirming it's uniqueness can be done in the following way:
+
+ 
+
+SELECT count(*)
+
+FROM bb\_bb60.gradebook\_main
+
+WHERE linkrefid = '302ae2d5-5cd8-438e-8d95-2e1243a2480a'
+
+ 
+
+Make sure to update the value '302ae2d5-5cd8-438e-8d95-2e1243a2480a'
+with the actual linkrefid, obtained through the first query. If it is
+unique, then skip the next step. If it is not, it will need to be
+updated. Decide on a random string to test of the same length (in
+hexidecimal, so 0-9 a-f are the valid characters), and run that select
+statement again to make sure it is unique. Then run:
+
+ 
+
+UPDATE bb\_bb60.forum\_registry
+
+SET registry\_value = '310ed4f3-5cd8-438e-8d95-2e1243a2480a'
+
+WHERE pk1 = 477;
+
+COMMIT;
+
+ 
+
+Replace the registry\_value with the new value you decided on, after
+confirming that is is not in use. Also replace the numbers 477 with the
+pk1 result of the first query.
+
+Once you have this information, you will need to do one of two things.
+If there is no gradebook column associated with this forum, create a
+column in the gradebook via the GUI. If you are correcting a duplicate
+linkrefid problem, obtain the pk1 value of the existing gradebook
+column. Then run the next query:
+
+ 
+
+UPDATE bb\_bb60.gradebook\_main
+
+SET linkrefid = '310ed4f3-5cd8-438e-8d95-2e1243a2480a'
+
+WHERE pk1 = (
+
+      SELECT pk1
+
+      FROM bb\_bb60.gradebook\_main
+
+      WHERE title = 'test2' AND crsmain\_pk1 = (
+
+            SELECT pk1
+
+            FROM bb\_bb60.course\_main
+
+            WHERE course\_id = 'test101' ) ); COMMIT;
+
+ 
+
+This time, replace 310ed4f3-5cd8-438e-8d95-2e1243a2480a with the
+linkrefid you decided on in the previous step, replace testdiscussion
+with the title of the gradebook column you are linking to, and replace
+test101 with the course\_id of your course. Finally run the following
+query, to make sure that these changes are reflected in the application:
+
+ 
+
+UPDATE bb\_bb60.cache\_tokens SET last\_modified = SYSDATE; COMMIT;
+
+ 
+
+This should fix the problem.
+
+ 
+
+Regards,
+
+ 
+
+Colton Shepard
+
+Technical Support Manager
+
+Blackboard, Inc.
+
+888.788.5264}
+
+ 
+
+** contact info, Learning Objects
+
+Edited by Mary Crosson, 9/7/2010 11:47 AM
+
+Author Tags:
+
+*Contacts for tickets: 
+[[mailto:support@learningobjects.com][support@learningobjects.com]]*
+
+* *
+
+*Client Services Manager:  Sharon Della*
+ 202.265.3276 x153 office
+ 727.505.9859 mobile
+ [[mailto:sdella@learningobjects.com][sdella@learningobjects.com]]
+
+* *
+
+*BLACKBOARD SETUP and LO SERVER ACCESS*
+
+*Campus Pack Test Server*
+
+System ID:  umkc-bb-test2
+
+Shared Secret Key:  7970116ad6a6bfdb1cf1a5e1239d2f14ace6387a
+
+URL to CP Server: * *
+[[https://umkc-test.campuspack.net/][https://umkc-test.campuspack.net/]]
+
+Blackboard URL:  
+[[https://kcbb-dev.missouri.edu/][https://kcbb-dev.missouri.edu:443/]]
+
+Connector Version:  4.2.4.10672-attila-daily
+
+Administrator Login:  [[mailto:deanm@umkc.edu][deanm@umkc.edu]] *
+*Password: * *UMKCCP4
+
+ 
+
+*Campus Pack Production*
+
+System  ID: umkc-bb-prod
+
+Shared Secret:  e6f68b88ac3be10a5236709b7f19d70aed077c14
+
+URL to CP Server:* *[[/][https://umkc.campuspack.net/]]
+
+Blackboard URL: 
+[[https://blackboard.umkc.edu/][https://blackboard.umkc.edu]]
+
+Connector Version:  4.2.4.10672-attila-daily
+
+Administrator Login:  [[mailto:deanm@umkc.edu][deanm@umkc.edu]]
+
+Password:  UMKCCP4
+
+** DSM tools, problem
+
+Edited by Mary Crosson, 5/21/2010 1:44 PM
+
+Author Tags:
+
+ 
+
+If DSM purge fails after a few deletions, it's probable that a SQL
+update needs to be run. There are two versions. If one doesn't work, try
+the other (have Duane run them.)
+
+ 
+
+[[#index/_course_contents_rm_fixed_0.sql][course\_contents\_rm\_fixed.sql]]
+
+ 
+
+[[#index/_course_contents_rmNEW_0.sql][course\_contents\_rmNEW.sql]]
+
+** Equella - Enabling Contributors
+
+Edited by Mary Crosson, 10/11/2012 11:34 AM
+
+Author Tags:
+
+Admin Console -> User Management -> Internal Roles
+
+Choose 'Demo Contributor' role
+
+Enter a user\_id in the 'Search for' field.
+
+When user is found, right-carat them to get them into the 'Match Any'
+pane
+
+ 
+
+ 
+
+** files, stopping student download
+
+Edited by Mary Crosson, 9/23/2010 5:23 PM
+
+Author Tags:
+
+The best solution would be to use an online PowerPoint Hosting site
+like, [[http://www.slideshare.com/][www.slideshare.com]] Upload your
+PowerPoints to the site, in the settings, make it private and uncheck
+the option to download it. Then use the embed code in a course item in
+Blackboard to embed the presentation back in your course.  This method
+streams the presentation from slideshare into your Blackboard site via a
+flash player. They wouldn't be able to download the presentation.
+
+** final grade column, adding
+
+Edited by Mary Crosson, 4/19/2012 10:23 AM
+
+Author Tags:
+
+SQL> *exec addfinalgrade('SS2008');*
+
+ 
+
+*(substituting whatever string identifies course\_id's for the semester
+needing the column)
+*
+
+** gradebook, extra credit with grade weighting
+
+Edited by Mary Crosson, 5/21/2010 2:24 PM
+
+Author Tags:
+
+ 
+
+Here's a workaround for giving extra credit when your grades are being
+weighted. It's a little clunky, but it seems to work. Create a new
+column in the gradebook and list the category as "Extra Credit" (or any
+other category that isn't currently in use) and make it worth 1
+point. Weight the category so that it's worth 1% of the grade, and give
+everyone in the class 1 point (that's the clunky part.) Each additional
+point you give someone in the gradebook will raise their final score 1%.
+So, if someone is getting an overall 89%, giving them 3 points (1
+default and 2 earned) in the class will bring their final grade up to
+91%.
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/gradebook_extra_credit_with_][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** gradebook, extra credit without grade weighting
+
+Edited by Mary Crosson, 5/21/2010 2:25 PM
+
+Author Tags:
+
+ 
+
+ 
+
+Create the bonus points column and make it worth 0 points (as you have
+already done.) Then go to *Modify*Column for the TOTAL column. In the
+"Select Columns" area, choose *Selected Grade Columns, Calculated
+Columns, and Categories.*Use the little right-pointing arrowhead to move
+all of your columns (except for Weighted Total) from the "Columns to
+Select" area to the "Selected Columns" area. Make sure that the
+*Calculate as running total* option is set to "No" and click the
+*<Submit>* button at the bottom of the page.
+
+** gradebook, disappearing grades
+
+Edited by Mary Crosson, 5/21/2010 2:25 PM
+
+Author Tags:
+
+ 
+
+This is an IE issue, and the solution is to change the browser cache
+settings.
+
+*Tools > Internet Options > General Tab > Browsing History Settings >
+"Every time I visit the web page"*
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/gradebook_grades_disappearing_][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** gradebook, instructor sees only one student at a time
+
+Edited by Mary Crosson, 5/21/2010 2:26 PM
+
+Author Tags:
+
+ 
+
+This problem can be caused by some versions of the Symantec anti-virus
+software. Temp fix is to turn off Symantec while working with Bb.
+Symantec website has instructions on turning off anti-virus:
+[[http://www.symantec.com/][http://www.symantec.com]].
+
+More generally, the issue is screen resolutions, particularly with
+laptops. Screen resolution should be set to at least 1024 X 768.
+
+** gradebook, known issues
+
+Edited by Mary Crosson, 5/21/2010 2:26 PM
+
+Author Tags:
+
+ 
+
+-  There is a known issue with grade weighting by item when there are >
+   29 items. The excess items may be ignored in the grade calculations.
+   This issue may be more general and affect GC's with > 29 items
+   whether weighted or not.
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/gradebook_known_issues][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** gradebook, name sorting issue
+
+Edited by Mary Crosson, 5/21/2010 2:28 PM
+
+Author Tags:
+
+ 
+
+Problem:
+
+The new grade center in Blackboard sorts students by last name
+alphabetically, but not first name.  For instance, the two Greens are
+reversed, and the 3 Whites are out of order.   This is only a problem if
+you use a class roster (Excel for instance) that is sorted by last and
+then first names, and you enter scores on that, assuming you can simply
+paste the scores into the Blackboard grade center.  You may want
+to caution other first year faculty that use Blackboard.
+
+Solution:
+
+We reported the problem to Blackboard several weeks ago after another
+faculty member brought the issue to our attention. In the GUI view, you
+can sort by first name and then by last name to get the students into
+the correct order. There isn't a good workaround, though, for people who
+are exporting the gradebook to work with in Excel. We expect Blackboard
+to address the issue in an upcoming service pack.
+
+ 
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/gradebook_name_sorting_issue][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** gradebook, no scroll bars                                      :Outdated:
+
+Edited by Mary Crosson, 5/21/2010 2:28 PM
+
+Author Tags:
+
+ 
+
+Fix #1
+
+<><>Firefox-only, Windows only, scrollbar issue affects ALL courses.
+From BLKBRD-L:
+
+<><>
+ Right click on the desktop
+ go into properties
+ go to the Appearance tab
+ Then click the Advanced button
+ Click the item dropdown list and select scroll bar Make sure the size
+is under 20 (17 is the default setting).
+ Once this change is made their scroll bars should be back. :)
+
+ 
+
+Fix #2:
+
+All browsers. Only affects horizontal scroll bar, and should be
+course-specific. From BLKBRD-L
+
+I had one instructor who had no horizontal scrollbar, so that the only
+columns displayed were the ones that could fit on the screen.
+ The issue ended up being a problem with with "frozen" columns.  It's
+assumed that there will only be a few columns frozen on the left side,
+so the "frozen" columns have no horizontal scrollbar under them.  It
+turns out this instructor had been trying to figure out the new Grade
+Center and had frozen *all* the colums.  What's more, there's a bug in
+the display of the "freeze bar" (the marker that you move up or down to
+select which columns to freeze), so if you have all the columns moved to
+the upper "Display in all views setting" section and move the freeze bar
+down past the last column, it's no longer visible so you can't
+"unfreeze" the columns.
+ So, look under Manage -> Organize Grade Center and see if all the
+columns are frozen.
+ The only fix I found for having all the columns frozen and no visible
+freeze bar is to adjust the settings for that gradebook in the database
+record.
+
+** install a patch                                              :Unverified:
+
+Edited by Mary Crosson, 7/12/2011 3:19 PM
+
+Author Tags:
+
+Upload the patch to "/usr/local/blackboard/content/bb\_patches". The
+patch file will end with ".bbp"
+Browse to "/usr/local/blackboard/content/bbpatch"
+Apply the patch, "./bbpatch.sh apply -p
+/usr/local/blackboard/content/bb\_patches/AS-154473.bbp -c" (replace
+with real patch file name)
+You will be prompted to apply, choose yes. Note that you will most
+likely need to restart the application for the patch to be fully
+applied.
+
+** identify tomcat temporary files to delete
+
+Edited by Mary Crosson, 4/19/2012 10:21 AM
+
+Author Tags:
+
+find /usr/local/blackboard/apps/tomcat/temp/ -type f -mtime 0
+
+will show the files that have been created today (on each app server)
+
+can run cleanbb.sh to remove them
+
+/usr/local/maintenance/cleanbb.sh
+
+but this will only remove files > 24 hours old. Cleanbb runs as a cron
+job at 5:30 every morning, so manually running it won't get rid of any
+files unless for some reason the cron job failed to run. If recovering
+disk space is a pressing need, use the 'find' command to list the temp
+files and then manually delete them.
+
+*** Note: Had trouble with this command:
+find /usr/local/blackboard/apps/tomcat/temp/ -type f -mtime 0
+
+
+
+** linux commands, handy
+
+Edited by Mary Crosson, 5/21/2010 2:29 PM
+
+Author Tags:
+
+-  *sudo /bin/su - bbuser* (switch to bbuser)
+-  *du -hs ** (for the current size in human readable format sumarized)
+-  *df -Th * (for a macro-level summary of disk usage)
+-  (first) *sync* (next) *rm -rf sp2009* (remove a directory)
+-  *sudo chown bbuser.bbuser\<filename>* (change ownership of file)
+
+** LiveText building block
+
+Edited by Mary Crosson, 10/25/2012 11:00 AM
+
+Author Tags:
+
+ 
+
+URL:
+[[https://c1.livetext.com/misk5/sso_login][https://c1.livetext.com/misk5/sso\_login]]
+
+School Code: MOUMKC1424
+
+Secret code: 3ad3839ba56c
+
+ 
+
+[[attach/186476467/s2ujzrG7_LiveTextSSOBb8_9_1.0.9.war][s2ujzrG7\_LiveTextSSOBb8\_9\_1.0.9.war]]
+
+** Load balancer, removing server
+
+Edited by Mary Crosson, 10/8/2010 5:09 PM
+
+Author Tags:
+
+Bearfoot, Michael J. 
+
+so, I have the script ready for you guys
+
+when you want to take an app out of the load balancer you run this
+command as bbuser:
+
+sudo /usr/local/sbin/firewall.sh close
+
+when you want to add it back in, you do the following as bbuser:
+
+sudo /usr/local/sbin/firewall.sh open
+
+** logout, custom
+
+Edited by Mary Crosson, 1/6/2011 9:09 AM
+
+Author Tags:
+
+*Enabling Custom Login/Logout*
+
+ 
+
+Custom login module is called *UMKC Portal Login.*
+
+1.      Add the module to the default content of the *UMKC Portal Login
+Page* tab.
+
+2.      Edit the ng\_top\_frame.jsp file (on each app server)
+
+a.       cd /usr/local/blackboard/webapps/portal
+
+b.      back up file before editing: cp ng\_top\_frame.jsp
+ng\_top\_frame.jsp.bak
+
+c.       edit the file: vi ng\_top\_frame.jsp
+
+d.      search for the text to replace: /<li><a target="\_top" href="${
+viewHelper.loginUrl }" class="logout topLevel">${loginLabel}</a></li>
+
+e.       replace with  * *<li><a target="\_top"
+https://sso.umkc.edu/perl/login.pl?service=Blackboard class="logout
+topLevel">${loginLabel}</a></li>* *
+
+f.       search for text: <li><a target="\_top" href="${
+viewHelper.logoutUrl }" class="logout topLevel">${logoutLabel}</a></li>
+
+g.      replace with  <li><a target="\_top"
+href=https://sso.umkc.edu/perl/logout.pl  class="logout
+topLevel">${logoutLabel}</a></li>
+
+3.      Edit
+
+a.       Comment out in:
+/usr/local/blackboard/webapps/portal/WEB-INF/web.xml
+ <!-- commented out for custom UMKC config
+
+    <servlet-mapping>
+
+       
+<servlet-name>blackboard.web.ng\_005ftop\_005fframe\_jsp</servlet-name>
+
+        <url-pattern>/ng\_top\_frame.jsp</url-pattern>
+
+    </servlet-mapping>
+
+end custom config -->
+
+** Logs to purge/space regain
+
+Edited by Mary Crosson, 8/28/2013 10:13 AM
+
+Author Tags:
+
+/usr/local/blackboard/apps/tomcat/logs   
+
+ 
+
+/usr/local/blackboard/content/vi/bb\_bb60/plugins/Bb-mobile/config/logs
+
+> /usr/local/blackboard/content/vi/bb\_bb60/plugins/mdb-sa/config/logs
+
+>
+/usr/local/blackboard/content/vi/bb\_bb60/plugins/wvms-bb/webapp/WEB-IN
+
+F/var/logs
+
+ 
+
+ 
+
+How much space used?  *df -Th*
+
+ 
+
+How to remove directories and all?  *rm -rf ** (be careful!)* *
+
+** mail, searching logs
+
+Edited by Mary Crosson, 5/21/2010 2:36 PM
+
+Author Tags:
+
+Mail logs in Blackboard
+Normal mail is logged in bb-email-log.txt, which located in
+blackboard/logs/. Mail that's get sent out some way other than the Mail
+Tool (e.g. emailed announcements) is logged in email.log.
+To search logs, use grep as follows
+Example:
+grep -w waterborg bb-email-log.txt > output.txt
+... will search the file bb-email-log.txt for the string "FAIL" and spit
+into a file called output.txt all lines in which the string is found. No
+quotes around the search string needed, but search is case -sensitive.
+To ignore case, use -i switch:
+grep -wi fail bb-email-log.txt
+
+** oracle version, query to identify                              :Verified:
+
+Edited by Mary Crosson, 5/21/2010 2:37 PM
+
+Author Tags:
+
+ 
+
+This query returns info about Oracle version.
+
+select * from v$version where banner like ‘Oracle%';
+
+** performance reports, running
+
+Edited by Mary Crosson, 5/21/2010 2:48 PM
+
+Author Tags:
+
+ 
+
+Run perf\_report
+ Cd to
+ /blackboard/bb/blackboard/tools/perf\_reports
+ Command is
+ run\_sql\_reports.sh
+ A dated file of when the perf report was run is located in
+logs/perf\_reports
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/performance_report_running][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** pushconfig
+
+Edited by Mary Crosson, 7/12/2011 3:28 PM
+
+Author Tags:
+
+sudo /usr/local/blackboard/tools/admin/PushConfigUpdates.sh
+
+** recycle bin, path to
+
+Edited by Mary Crosson, 7/27/2010 12:04 PM
+
+Author Tags:
+
+/usr/local/blackboard/content/vi/bb\_bb60/recyclebin/1
+
+** Restart app server (new)
+
+Edited by Mary Crosson, 12/2/2010 10:41 AM
+
+Author Tags:
+
+fix\_service.sh
+
+ 
+
+it compresses "all logs" and puts them in a package to be able to send
+to Bb.  It firewalls off service.  It stops app
+
+fixes permissions
+
+then restarts app
+
+waits
+
+then opens back up firewall
+
+ 
+
+ 
+
+----
+
+#!/bin/bash
+
+ 
+
+lock="/tmp/auto\_restart\_inprog.lock"
+
+hn=`hostname`
+
+ 
+
+# 
+
+# General Commands
+
+#
+
+ 
+
+firewall="/usr/local/sbin/firewall.sh"
+
+ 
+
+#
+
+# Service specific commands
+
+#
+
+ 
+
+perf\_report='/usr/local/blackboard/tools/perf\_reports/run\_reports.sh'
+
+restart\_service='/usr/local/maintenance/daily\_maintenance.sh'
+
+ 
+
+#
+
+# Main
+
+#
+
+ 
+
+# Don't run if 'lock' file exists
+
+if [ -e ${lock} ]
+
+then
+
+        echo 'Lock exists, exiting..'
+
+        exit 
+
+else
+
+        touch ${lock}
+
+        echo 'Lock does not exist, creating lock file proceeding with
+application restart'
+
+ 
+
+        # Drop\_firewall
+
+        echo -e "Dropping 80,443 \n"
+
+        $firewall close
+
+ 
+
+  $perf\_report
+
+  $restart\_service
+
+ 
+
+        if [ $? -eq 0 ]
+
+        then
+
+    sleep 30
+
+                $firewall open
+
+ 
+
+                rm ${lock}
+
+    echo "`hostname` recovered from a problem, check logs" | mail -s
+'Automated recovery message' mudoitcsglinux@missouri.edu
+
+        fi
+
+fi
+
+ 
+
+will require sudo
+
+and full path...
+
+standby
+
+fixing permissions
+
+so that you can restart
+
+but... fire walling off and waiting 2 minutes will do the exact same
+trick (and will call the script)
+
+ 
+
+ 
+
+** Server queries                                                 :Outdated:
+
+Edited by Mary Crosson, 11/16/2010 9:46 AM
+
+Author Tags:
+
+-  How many unique users are connected to all servers right now?
+
+CD to /usr/local/maintenance/
+
+then type
+
+/usr/local/maintenance/uniqIDs.pl
+
+ 
+
+-  How many users are hitting individual servers?
+
+netstat -an | grep -v '127.0.0.1' | grep EST | grep -v 'ffff'
+
+ 
+
+Results:
+
+tcp        0      0 128.206.13.117:443         
+65.69.71.187:11580          ESTABLISHED
+
+tcp is the protocol
+
+second column is sent
+
+third is received
+
+fourth is the IP of the node their on (the node YOU'RE on)
+
+fifth is IP node they are connecting FROM
+
+( More detailed explanation of column data above:
+
+  Active Internet connections (TCP, UDP, raw)
+
+   Proto
+
+       The protocol (tcp, udp, raw) used by the socket.
+
+ 
+
+   Recv-Q
+
+       The count of bytes not copied by the user program connected to
+this socket.
+
+ 
+
+   Send-Q
+
+       The count of bytes not acknowledged by the remote host.
+
+ 
+
+   Local Address
+
+       Address  and  port  number  of the local end of the socket.
+ Unless the --numeric (-n) option is specified, the socket address is
+resolved to its canonical
+
+       host name (FQDN), and the port number is translated into the
+corresponding service name.
+
+ 
+
+   Foreign Address
+
+       Address and port number of the remote end of the socket.
+ Analogous to "Local Address.")
+
+ 
+
+-  Same query as above, from the database side:
+
+"SELECT min(TIMESTAMP),max(TIMESTAMP),count(distinct USER\_ID) FROM
+bb\_bb60.sessions WHERE USER\_ID != 'guest'"
+
+ 
+
+-  Who are the 'heavy hitters' on a node?
+
+awk '{counts[$1]+=1}; END {for(ip in counts) print counts[ip], ip}'
+/usr/local/blackboard/logs/httpd/access\_log | sort -n
+
+ 
+
+ 
+
+ 
+
+** snapshot, enable/disable/change times
+
+Edited by Mary Crosson, 5/21/2010 2:48 PM
+
+Author Tags:
+
+-  sudo /bin/su - bbuser
+-  crontab -e
+-  Comment out ("# ") entries to stop them running, uncomment them to
+   start them.
+
+** snapshot, is Duane's program hung?
+
+Edited by Mary Crosson, 7/28/2010 8:37 PM
+
+Author Tags:
+
+From Kirk:
+
+ 
+
+Thanks for everyone's help.
+Okay...
+You might want to keep the following for your bag 'o tricks...
+The Blackboard\_Feed dbms\_scheduler job appeared to have been 'running'
+and "hung" since 9:30 am the July 26th. I did a:
+SELECT *
+FROM DBA\_SCHEDULER\_JOBS
+WHERE JOB\_NAME = 'BLACKBOARD\_FEED';   --while logged on as sysadm, and
+found it's STATE was 'RUNNING'
+I Then, Logged onto "Snapshot" with SQL*Plus, I then did a:
+BEGIN
+DBMS\_SCHEDULER.STOP\_JOB('BLACKBOARD\_FEED');
+END;
+/
+to kill it, the system acknowledged it, but said the process would not
+stop right away (in so many words). So I actually logged onto the
+KCORA4.umkc.edu server and using the ORAKILL process to kill the process
+through Windows OS.  
+The dbms\_schedlure job STATE then became 'Scheduled'.
+While Logged onto "Snapshot" with SQL*Plus, I then re-ran the job by:
+BEGIN
+DBMS\_SCHEDULER.RUN\_JOB('BLACKBOARD\_FEED');
+END;
+/
+Then the dbms\_schedlure job STATE then became 'Scheduled' (After a few
+minutes).
+The job is scheduled to run again at 6:30 am again tomorrow.
+If this didn't work, please let me know.
+Thanks,
+Kirk
+
+** snapshot, running manually                                     :Outdated:
+
+Edited by Mary Crosson, 10/21/2010 11:27 AM
+
+Author Tags:
+
+-  Open an SSH Secure Shell Client or similar program
+-  Connect to the UMC Application Server (kcbbapp1.missouri.edu) or the
+   UMC Development Application Server (kcbb-dev.missouri.edu)
+-  Login as yourself  **
+-  Issue this command once logged in
+
+   -  Sudo /bin/su -- bbuser
+
+-  Enter your SSO ID password when prompted
+-  Issue this command once authenticated
+
+   -  cd/usr/local/umkc/bbscripts/controllers/
+
+-  Issue this command to run snapshot
+
+   -  sh run.sh
+
+** SQL tips
+
+Edited by Mary Crosson, 8/12/2010 12:08 PM
+
+Author Tags:
+
+To make a backup copy of a table:
+
+create table attempts\_bak as select * from attempt;
+
+** staff info, not showing
+
+Edited by Mary Crosson, 5/21/2010 2:49 PM
+
+Author Tags:
+
+ 
+
+This sometimes happens in copied sites with multiple staff profiles.
+Swapping order of the first and last profiles will fix it
+
+** Total disk use
+
+Edited by Mary Crosson, 9/20/2011 5:55 PM
+
+Author Tags:
+
+df -Th
+
+** web logs
+
+Edited by Mary Crosson, 5/21/2010 2:50 PM
+
+Author Tags:
+
+Bb Weblog Search
+ Weblogs are located in /blackboard/bb/blackboard/logs/httpd/
+ ls -alhtr to find the most recent log
+ less to read the log
+
+[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/wiki/UMKC-INTERN-MARY-WIKI/course/weblogs][[[https://blackboard8.umkc.edu/webapps/lobj-wiki-bb_bb60/img/closedRevealer.png]]]]
+
+** wps files
+
+Edited by Mary Crosson, 7/31/2010 10:43 PM
+
+Author Tags:
+
+If an instructor has students who submit assignments in .wps (MS Works)
+format, the instructor will need to download a file converter in order
+to open the files in Word. This converter is available from
+http://www.microsoft.com/downloads/details.aspx?familyid=CF196DF0-70E5-4595-8A98-370278F40C57&displaylang=en#QuickInfoContainer.
+
+ 
+
+Edit
+
+** Test - delete afterwards
+
+Edited by Mary Crosson, 12/6/2011 2:52 PM
+
+Author Tags:
+
+popokpok[[attach/133149190/Modified_date.xls][Modified\_date.xls]]
+
+** Blackboard Collaborate support
+
+Edited by Mary Crosson, 11/14/2012 11:21 AM
+
+Author Tags:
+
+Blackboard Collaborate products are supported via their own dedicated
+team. Go to
+
+[[http://www.blackboard.com/Platforms/Collaborate/Support/Support-for-Blackboard-Collaborate.aspx][http://www.blackboard.com/Platforms/Collaborate/Support/Support-for-Blackboard-Collaborate.aspx]]
+ and click "Contact Technical Support" and open a support case or call
+Toll Free: 1 (877) 382-2293. If you call the phone number, you'll be on
+hold for a while but it is still faster than waiting for a ticket to be
+picked up from the web submission tool.
+
+** assignment, student saved as draft?
+
+Edited by Mary Crosson, 11/15/2012 10:53 AM
+
+Author Tags:
+
+If a student saved, rather than submitted an assignment, then
+attempt.status will be '3'. A submitted assignment has attempt.status =
+'6'
+
+ 
+
+select GRADEBOOK\_GRADE\_PK1,ATTEMPT\_DATE, LATEST\_IND,
+NOTES\_FORMAT\_TYPE, QTI\_RESULT\_DATA\_PK1, SCORE, STATUS
+from attempt
+where gradebook\_grade\_pk1 in
+(select pk1
+from gradebook\_grade
+where course\_users\_pk1 = '<USER'S COURSE\_MAIN\_PK1>'
+and gradebook\_main\_pk1 in
+(select pk1 from gradebook\_main
+where title = '<TITLE OF THE ASSIGNMENT>'))
+
+** Examsoft, notes from Bb demo
+
+Edited by Mary Crosson, 11/16/2012 9:40 AM
+
+Author Tags:
+
+Overview
+
+1. 1.       Prof or admin banks items and creates exams to web based
+   item bank
+2. 2.       Student downloads securexam file. It's encrypted, so they
+   say it cannot be opened until the start time
+3. 3.       Proctor announces password, student unlocks exam
+4. 4.       Software uploads answer file
+
+ 
+
+Blackboard integration
+
+-  o   Send up-to-date course and student information: sync roster data,
+   courses, students. Replicates nightly, handles add/drops
+-  o   Push grades to Bb gradebook
+-  o   Use existing gradebook entries or create new ones
+-  o   Send raw score or percentage
+
+ 
+
+No extra fee for site licensees for the Blackboard integration.
+
+Administrator training provided
+
+Students just need to know how to download SoftTest and register their
+software. No real training needed.
+
+Backup yes
+
+Never deleted data
+
+Autosave on student side every 30 seconds
+
+Can send log file with one click from student PC to Examsoft support
+manager
+
+ 
+
+** SP11 Update
+
+Edited by Mary Crosson, 4/8/2013 2:38 PM
+
+Author Tags:
+
+This is the history file for the collaborative updating session with
+George Robb. Both of us were signed in to a shared bbuser session.
+
+ 
+
+ 521 2013-04-08 13:29:53 - echo can you see this?
+ 522 2013-04-08 13:30:20 - heyo
+ 523 2013-04-08 13:30:24 - echo heyo
+ 524 2013-04-08 13:31:48 - ps aux | grep java
+ 525 2013-04-08 13:31:51 - pgrep java
+ 526 2013-04-08 13:31:56 - watch pgrep java
+ 527 2013-04-08 13:33:15 - pgrep java
+ 528 2013-04-08 13:33:43 - pgrep java
+ 529 2013-04-08 13:34:00 - echo "now for java.. we will do this in the
+root side standby"
+ 530 2013-04-08 13:35:43 - kk
+ 531 2013-04-08 13:36:00 - echo " with quotes and echo you can actually
+hit enter"
+ 532 2013-04-08 13:36:17 - echo "yep, much nicer, plus it's in the
+history for me to refer to..."
+ 533 2013-04-08 13:36:29 - echo " ooh good call auto docs hhehe"
+ 534 2013-04-08 13:36:45 - echo "so now lets ls -la /usr/java"
+ 535 2013-04-08 13:36:57 - echo "so... me do it?"
+ 536 2013-04-08 13:37:09 - echo " yup yup your terminal from here on
+out"
+ 537 2013-04-08 13:37:16 - ls -la /usr/java
+ 538 2013-04-08 13:37:35 - echo " next we'll need to get the bb-as *.jar
+get on this box"
+ 539 2013-04-08 13:38:04 - echo "it's in my /usr right now. where to put
+it? /usr/local/blackboard?"
+ 540 2013-04-08 13:38:23 - echo " /usr/local/blackboard/content is a
+great spot (shared among servers if more than one node) and easy to
+cleanup after"
+ 541 2013-04-08 13:38:53 - echo "so do i just cp it there or do i need
+to change owner first?"
+ 542 2013-04-08 13:40:27 - echo "oops... chown it first then cp it
+there"
+ 543 2013-04-08 13:40:48 - echo "if perms come up we can alwasy hit it
+with root's hammer and find a better way"
+ 544 2013-04-08 13:42:02 - echo "permission issue? result is chown:
+changing ownership of `bb-as-linux-9.1.110082.0.jar': Operation not
+permitted
+"
+ 545 2013-04-08 13:42:17 - echo "no worries"
+ 546 2013-04-08 13:42:22 - ls -la /home/crossonm/
+ 547 2013-04-08 13:42:36 - ls -la /home/crossonm/
+ 548 2013-04-08 13:42:43 - echo " we are bbuser..."
+ 549 2013-04-08 13:42:46 - whoami
+ 550 2013-04-08 13:43:00 - echo "d'oh"
+ 551 2013-04-08 13:43:11 - ls -la /usr/local/blackboard/content/
+ 552 2013-04-08 13:43:30 - echo "to save time I'll hit it with root
+hammer"
+ 553 2013-04-08 13:43:41 - echo "are you on a Mac or PC? (ssh keys)"
+ 554 2013-04-08 13:43:48 - echo "right now, a PC"
+ 555 2013-04-08 13:44:24 - echo "copy in progress"
+ 556 2013-04-08 13:44:30 - ls -la
+/usr/local/blackboard/content/bb-as-linux-9.1.110082.0.jar
+ 557 2013-04-08 13:45:04 - ls -la
+/usr/local/blackboard/content/bb-as-linux-9.1.110082.0.jar
+ 558 2013-04-08 13:45:10 - echo yeay
+ 559 2013-04-08 13:45:22 - echo "ok we now need to do some backup work"
+ 560 2013-04-08 13:45:31 - echo " the ssl certs, keys, and crts"
+ 561 2013-04-08 13:45:51 - ls -la
+/usr/local/blackboard/apps/httpd/conf/ssl.*
+ 562 2013-04-08 13:46:04 - echo lol, snakeoil...
+ 563 2013-04-08 13:46:11 - echeocho qtes not needed, it seems
+ 564 2013-04-08 13:46:23 - echo hehe ya those are the defaults
+ 565 2013-04-08 13:46:37 - echo we'll need to verify the bb-config to
+find what they are pointing at
+ 566 2013-04-08 13:47:00 - echo I bet server.key
+ 567 2013-04-08 13:47:12 - echo and others...
+ 568 2013-04-08 13:47:52 - echo "lets make a directory in
+/usr/local/blackboard/content called SSL\_stuff"
+ 569 2013-04-08 13:48:10 - echo or whatever is most logical to you
+ 570 2013-04-08 13:48:25 - mkdir
+/usr/local/blackboard/content/SSL\_stuff
+ 571 2013-04-08 13:48:39 - pwd
+ 572 2013-04-08 13:48:52 - ls -ls /usr/local/blackboard/content
+ 573 2013-04-08 13:49:01 - echo ok
+ 574 2013-04-08 13:49:41 - echo "ok lets go grab some certs"
+ 575 2013-04-08 13:49:47 - cd /usr/local/blackboard/apps/httpd/
+ 576 2013-04-08 13:49:48 - ls
+ 577 2013-04-08 13:49:51 - cd conf/
+ 578 2013-04-08 13:49:51 - ls
+ 579 2013-04-08 13:50:10 - ls -la ssl.* | grep server
+ 580 2013-04-08 13:50:34 - cp ssl.crt/server.crt
+/usr/local/blackboard/content/SSL\_stuff/
+ 581 2013-04-08 13:50:47 - cp ssl.key/server.key
+/usr/local/blackboard/content/SSL\_stuff/
+ 582 2013-04-08 13:51:04 - grep ssl.conf.bb | grep server
+ 583 2013-04-08 13:51:22 - grep server ssl.conf.bb
+ 584 2013-04-08 13:51:27 - cat ssl.conf.bb
+ 585 2013-04-08 13:51:41 - grep server.key
+/usr/local/blackboard/config/bb-config.properties
+ 586 2013-04-08 13:52:01 - echo woot... that is why server.key vs the
+name... may work out of box...
+ 587 2013-04-08 13:52:06 - echo coolies
+ 588 2013-04-08 13:52:54 - echo "So we have upgraded java, backed up the
+prod ssl crt and key and put the jar right where it needs to be, oh and
+we are in a screen session so even if we get disconnected the server
+will keep upgrading"
+ 589 2013-04-08 13:53:15 - echo \_prod\_ SSL cert works also for dev
+then?
+ 590 2013-04-08 13:53:25 - echo "neg, I consider prod what I'm workign
+on "
+ 591 2013-04-08 13:54:03 - openssl x509 -in
+/usr/local/blackboard/content/SSL\_stuff/server.crt -noout -text
+ 592 2013-04-08 13:54:09 - openssl x509 -in
+/usr/local/blackboard/content/SSL\_stuff/server.crt -noout -text | grep
+DNS
+ 593 2013-04-08 13:54:25 - echo "the cert is only for dev
+
+594 2013-04-08 13:54:31 - echo ok
+ 595 2013-04-08 13:54:44 - echo "now for the actual upgrade ready"
+ 596 2013-04-08 13:54:57 - echo was just about to ask if we're almost
+there :D
+echo for the exciting part, I mean
+ 597 2013-04-08 13:55:25 - echo "java -jar
+/full/path/to/bb-as-version.jar"
+ 598 2013-04-08 13:55:32 - echo k, hold on
+ 599 2013-04-08 13:56:29 - java -jar
+/usr/local/blackboard/content/bb-as-linux-9.1.110082.0.jar
+ 600 2013-04-08 14:15:53 - recall/all | /home/crossom/upgrade\_stuff.txt
+ 601 2013-04-08 14:16:03 - recall /all
+ 602 2013-04-08 14:16:17 - history | /home/crossom/upgrade\_stuff.txt
+ 603 2013-04-08 14:16:50 - history > /home/crossom/upgrade\_stuff.txt
+ 604 2013-04-08 14:16:58 - history > /home/crossom/
+ 605 2013-04-08 14:17:33 - history > /home/bbuser/upgrade\_talk.txt
+
+** SlideShare credentials
+
+Edited by Mary Crosson, 4/24/2013 3:34 PM
+
+Author Tags:
+
+Hey marycrosson,
+
+Here are your keys for using the SlideShare API:
+ *API Key:*8Nr5OMxh
+ *Shared Secret:* ajy3HkG8
+
+*** How to proceed now
+
+1. Read the
+[[http://slidesharemailer.com/wf/click?upn=uO6HrIECmgsMyMFzOPMkJS9WsH3bfBE0idV0vp7qVW5g2Sy5nm4xCOv5DEqYOd2ZTExp3JWo3CnRwkD7MIBZqg-3D-3D_wEwKBPrRpMt3wCtyXag4wy5Ixpjr3eDul01r9Aqy2gsH8qwgE8oskAjyJpQZkLoyUGJWNGjpUe6VChZiAZP7psJGO7XRGVheFdp2irQ-2BcJe-2FNXDDMTUFyh4thEhcffjI4BMGGJ80ZVKw-2BnuhyTvCCwbfHMz-2BChSseSg-2BywnKoAW6f7jiEUfnUte7iEkuPdSxQbJG2p1HB78m7jj2BFOZ9a5eWiqBIWuQAVZk58QQrCuFKXM3ntPYCWTGdgjBtV-2FK][API
+documentation]] for complete information about the API calls available.
+ 2. See the
+[[http://slidesharemailer.com/wf/click?upn=uO6HrIECmgsMyMFzOPMkJS9WsH3bfBE0idV0vp7qVW56qr1vSrSlJfjsGj8qUUmxT3N2gr1RrJNsKIaDzUEM5g-3D-3D_wEwKBPrRpMt3wCtyXag4wy5Ixpjr3eDul01r9Aqy2gsH8qwgE8oskAjyJpQZkLoyUGJWNGjpUe6VChZiAZP7psJGO7XRGVheFdp2irQ-2BcJcvvalN6UA2tBN718LZvdtLwro7jLZh2wm-2B-2BHuJkuyw9Uo35fUMyciibcqbSs648uA-2FjkoPAgyQONRcbgWLsqGzS59WJFuhYWI9kuR2WmwwZ0naJ02olqvfsroqPP1hoSSWwvrNFcCKtGJSJuKGszyv][resources
+section]] for useful links and implementation basics. Our developer
+community has developed API wrappers in various languages to help you
+make the API calls more easily, using your favorite language. More can
+be found
+[[http://slidesharemailer.com/wf/click?upn=uO6HrIECmgsMyMFzOPMkJS9WsH3bfBE0idV0vp7qVW7oxwqYHgnvfjfUaozWwIKf_wEwKBPrRpMt3wCtyXag4wy5Ixpjr3eDul01r9Aqy2gsH8qwgE8oskAjyJpQZkLoyUGJWNGjpUe6VChZiAZP7psJGO7XRGVheFdp2irQ-2BcJeI6G9zWfaZlAPbzXuf-2Bf5Kt-2B0WvLyK8DeCHh9PMISAOi8Byw-2FDtD7dY3OUyzEY8K77oI15lwAjmZhEUrp-2FQZAmyKk4AwjABI-2BNUkPhRll4bTIykXLyDk9SrCuLdnbq20dW9Jo-2FfqNSrchnuN4aQahO][here]].
+ 3. Join the
+[[http://slidesharemailer.com/wf/click?upn=sd-2BfmHRMzCkACBBYNJk-2FOjf-2FLdBZvCyhdv7d5TubEQPofzUrKWsl1mwKg7HdZc1nx8S0XJcRBdt-2Fm9t9s2P7rA-3D-3D_wEwKBPrRpMt3wCtyXag4wy5Ixpjr3eDul01r9Aqy2gsH8qwgE8oskAjyJpQZkLoyUGJWNGjpUe6VChZiAZP7psJGO7XRGVheFdp2irQ-2BcJcappj4zcRAmW1-2Brm1BnhzTMt1qKYxyRyMVrzeRNwvaVEChdcPVyNTObf74Q-2B22da0IPKHiIr-2FCFErs0Qg5jEr4QD6gykYikl-2BPZa2shACd1PMBZYLGdhVsCvIRALMnxz151usaCN0YlRqm4ZWGCCQE][Slideshare
+Developers Group]] to keep in touch with the Slideshare developer
+community.
+ 4. Tell us about your cool application you built using Slideshare API
+and get your
+[[http://slidesharemailer.com/wf/click?upn=uO6HrIECmgsMyMFzOPMkJS9WsH3bfBE0idV0vp7qVW7EH924zRyg0ObVcqvMO7gy_wEwKBPrRpMt3wCtyXag4wy5Ixpjr3eDul01r9Aqy2gsH8qwgE8oskAjyJpQZkLoyUGJWNGjpUe6VChZiAZP7psJGO7XRGVheFdp2irQ-2BcJc1iBo43hnoYajASXDtfr5hQ-2FZKPbC0M4vcjjoJXAGe7mofFmwXvv8XSWag3nJRSKh9S7q8kZOLTcYT99q7bnU8eMkAKz8EicOh-2BscNHP9EjaWKajELFnr-2FojRLewQEi1sw5Jcf-2B8tX7xGJGx4bLxow][app
+featured on Slideshare]]
+ If you have any questions about using the API or need any help to get
+you started, please e-mai l us at
+[[mailto:api@slideshare.com][api@slideshare.com]]
+
+|     |
+
+** Pearson MyLab/Mastering Server Credentials
+
+Edited by Mary Crosson, 7/29/2013 10:28 AM
+
+Author Tags:
+
+For development environment:
+
+ 
+
+** *Pearson URL:* http://tpi.bb.pearsoncmg.com/api
+*Consumer Key:* missourikansascity.blackboard.com
+
+-  *Consumer Secret:* uotpDrFv
+
+Instructor rights on Pearson are given to those with Instructor, TA, or
+Grader rights in the corresponding Bb site.
+
+ 
+
+For production environment:
+
+ 
+
+-  *Pearson URL:* http://tpi.bb.pearsoncmg.com/api
+-  *Consumer Key:* missourikansascity1.blackboard.com
+-  *Consumer Secret:* JxWoUMUA
+-  
+
+ 
+
+ 
+
+** chown/upload files
+
+Edited by Mary Crosson, 7/23/2013 2:56 PM
+
+Author Tags:
+
+sudo /bin/chown bbuser.bbuser testing.txt 
+
+ 
+
+Confirmed that this works now.
+
+ 
+
+Also: can copy directly to the /usr/local/blackboard directory from an
+SFTP client as long as the directory mode is set to 2770
+(SecureFX/SecureCRT)<
+
+ 
+
+ 
+
+** Semester purge, DSM Tools
+
+Edited by Mary Crosson, 8/8/2013 11:35 AM
+
+Author Tags:
+
+DSM Data Source Management Tool
+
+First thing to remember is that this is a VERY powerful tool that can do
+major damage. Double and triple check that you're on the dev gear before
+running any of these commands.
+DSM SHAREPOINT DOCUMENT
+The full document explaining the DSM (data source management) tool can
+be found on pages 31-35 of
+http://spdev.umsl.edu/sites/ITS/UMBB/Shared%20Documents/Phase%20One/Technical%20Documents/bbas\_r7\_1\_data\_integration.pdf
+DSM OVERVIEW
+Get a list of datasource keys currently in your database. You can get
+this easily by looking at the “batch\_uid” field in the following query:
+select * from bb\_bb60.DATA\_SOURCE
+
+New Server Examples
+[bbuser@kcbbapp3 bin]$ /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f
+COUNTS\_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+[bbuser@kcbbapp1 bin]$ /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f
+COUNTS\_ALL -b umkc.misc.operations2 -V kcbbapp1.missouri.edu
+Dev server: /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f
+COUNTS\_ALL -b umkc.misc.operations1 -V kcbb-dev.missouri.edu
+
+The DSM tool can only remove objects that are disabled, so after
+verifying you want to remove all objects with a particular datasource,
+disable them all:
+/blackboard/bb/blackboard/apps/snapshot/bin/dsm.sh -f DISABLE\_ALL -b
+umkc.course.ws2007 -V umkcbb1.umsl.edu
+
+[bbuser@kcbbapp1 bin]$ /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f
+DISABLE\_ALL -b umkc.misc.operations2 -V kcbbapp1.missouri.edu
+Dev server: /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f
+DISABLE\_ALL -b umkc.misc.operations1 -V kcbb-dev.missouri.edu
+Now you can count how many are disabled:
+/blackboard/bb/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS\_DISABLED
+-b umkc.course.ws2007 -V umkcbb1.umsl.edu
+
+/usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS\_DISABLED -b
+umkc.to.be.deleted -V kcbbapp3.missouri.edu
+Dev server: /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f
+COUNTS\_DISABLED -b umkc.misc.operations1 -V kcbb-dev.missouri.edu
+You can proceed to remove all those objects:
+/blackboard/bb/blackboard/apps/snapshot/bin/dsm.sh -f PURGE\_All -b
+umkc.course.ws2007 -V umkcbb1.umsl.edu
+
+/usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE\_ALL -b
+umkc.to.be.deleted -V kcbbapp3.missouri.edu
+dev server: /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE\_ALL
+-b umkc.misc.operations1 -V kcbb-dev.missouri.edu
+Running the above command to remove all UMKCCOURSEFS2006 objects took a
+little over 2 hours to remove the 4116 associated courses.
+DON'T USE ***\_ALL IN PRODUCTION
+The --f command of ***\_ALL is fine for development, but in production,
+you would probably want to limit what you're trying to remove by
+specifying PURGE\_GROUP (if deleting courses/orgs) or PURGE\_MEMBERSHIP
+(if deleting enrollment). Of course, if you delete a course, it will
+delete all the enrollments associated with it. What I did was delete all
+courses, then all users.
+Also keep in mind that the associated datasource key in the actual
+Blackboard tables (such as bb\_bb60.users, bb\_bb60.course\_main,
+bb\_bb60.course\_users, etc.) will be the PK1 of the associated
+BATCH\_UID in the bb\_bb60.data\_source table. Any manually created
+users, courses, etc. cannot be removed by the DSM tool. If you want to
+remove these by batch, you can flip their data\_src\_pk1 value in the
+appropriate tables to some umkc datasource key, then run the
+disable/purge commands.
+DELETING OLD/TEST DATASOURCE KEYS
+I've noticed there are extra datasource keys in your database (such as
+UMKCFACCRSWS2007WS2007WS2007WS2007WS2007WS2007WS2007WS2007) that must
+have been created from bad data that was in your snapshot schemas at
+some point. These can be removed by the following command after the
+“COUNTS\_ALL” has confirmed that there aren't any records associated
+with the key:
+/blackboard/bb/blackboard/apps/snapshot/bin/dsm.sh -f REMOVE -b
+UMKCFACCRSWS2007WS2007WS2007WS2007WS2007WS2007WS2007WS2007 -V
+umkcbb1dev.umsl.edu
+It will throw error “DSM application fault. Review the log.” If there
+are any records associated with the key when you try to delete it.
+WHICH DATASOURCES TO USE?
+Here is a short rundown of which snapshot tables in UMKCDW relate to the
+Blackboard UMKCBB database. I would use a “select distinct
+data\_src\_pk1 from bb\_bb60.[table\_name]” command to determine which
+still have objects related to the datasource key.
+ UMKCDW UMKCBB
+ Snapshot.bb\_users Bb\_bb60.users
+ Snapshot.bb\_user\_roles Bb\_bb60.users (primary role)
+Bb\_bb60.user\_roles (secondary roles)
+ Snapshot.bb\_courses Bb\_bb60.course\_main
+ Snapshot.bb\_enrollment Bb\_bb60.course\_users
+ Snapshot.bb\_categories Bb\_bb60.gateway\_categories
+ Snapshot.bb\_course\_categories Bb\_bb60.gateway\_course\_categories
+
+** Pushconfig
+
+Edited by Mary Crosson, 8/22/2013 10:38 AM
+
+Author Tags:
+
+sudo /usr/local/blackboard/tools/admin/PushConfigUpdates.sh
+
+** Check server load
+
+Edited by Mary Crosson, 8/22/2013 10:52 AM
+
+Author Tags:
+
+Robb III, George B.
+
+ 
+
+you can burn another terminal and issue the command "w"
+
+ 
+
+to see load numbers
+
+ 
+
+e.g. -
+
+ 
+
+[gbrqy3@localhost ~]$ w
+ 10:50:29 up 2:31, 3 users, load average: 0.51, 0.48, 0.44
+
+ 
+
+ 
+
+10:50 AMCrosson, M.
+
+ 
+
+I'm using app3, which doesn't get much load
+
+ 
+
+ 
+
+10:50 AMRobb III, George B.
+
+ 
+
+first number is "instant" == 0.51
+
+ 
+
+second is 5 minute average
+
+ 
+
+last is 15 min
+
+ 
+
+ 
+
+ 
+
+10:51 AMCrosson, M.
+
+ 
+
+Oh, cool. Good to know.
+
+ 
+
+ 
+
+10:51 AMRobb III, George B.
+
+ 
+
+w also tells you who is logged in
+
+** Database DB Tablespace Size
+
+Edited by Mary Crosson, 8/22/2013 1:24 PM
+
+Author Tags:
+
+** Restart web services/httpd *only*
+
+Edited by Mary Crosson, 8/22/2013 2:42 PM
+
+Author Tags:
+
+sudo /etc/init.d/httpd {restart|stop|start|reload}
+
+** Gradebook export
+
+Edited by Mary Crosson, 8/27/2013 4:42 PM
+
+Author Tags:
+
+[[http://www.umkc.edu/IA/Blackboard-Grade/index.cfm][http://www.umkc.edu/IA/Blackboard-Grade/index.cfm]] to
+start the export. Results appear in :/Groups/IA/ITS/grade\_exports/ .
+
+** rotate logs manually
+
+Edited by Mary Crosson, 9/4/2013 11:19 AM
+
+Author Tags:
+
+/usr/local/blackboard/tools/admin/RotateLogs.sh
+
+** Activity accumulator purge
+
+Edited by Mary Crosson, 9/10/2013 10:06 AM
+
+Author Tags:
+
+Steps from phone call:
+
+Determine date of X days ago:
+
+1.  date --date='-180 days'
+
+blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB\_BB60
+$DAYS\_TO\_KEEP
+
+sh PurgeAccumulator.sh purge-stats BB\_BB60 243 or 
+
+./PurgeAccumulator.sh purge-stats BB\_BB60 243
+
+ 
+
+Email from Blake:
+
+ 
+
+Mary,
+Call me and we can walk through this. 573-884-6345
+Do not do it all in one job, it will put a strain on the database for a
+long time.
+Schedule the job in the wee hours of the night using bbuser crontab on
+the management node.
+The job will last hours so start it early in the wee hours. haha
+The incremental backups are running from 4-4:35, 6 days a week, the
+off-day, Tuesday, the full backup runs 4-6:45.
+So midnight to 4 would be a good run window.
+I think the 'purge-live' run, copies the data from live tables to the
+stats tables and purges the data in live tables older than
+days\_to\_keep.
+The second run, 'purge-stats', purges data older than days\_to\_keep
+from the stats tables.
+I do not know about the paths on the app nodes, so these may be wrong. I
+think the 'su - bbuser' is in there to pick up the environment.
+days\_to\_keep or date formatted as specified.
+Here is what my notes looks like from ages past:
+1 0 * * * su - bbuser -c "blackboard/tools/admin/PurgeAccumulator.sh
+purge-live bb\_bb60" 180
+1 0 * * * su - bbuser -c "blackboard/tools/admin/PurgeAccumulator.sh
+purge-stats bb\_bb60" YYYY-MM-DD|days\_to\_keep
+I would put the commands in shell scripts with a datestamp before and
+after the jobs so you can see how long it takes.
+1 0 * * * /home/bbuser/bin/live\_purge.sh >>/tmp/purge\_live.log 2>&1
+1 0 * * * /home/bbuser/bin/stats\_purge.sh >>/tmp/purge\_stats.log 2>&1
+----------------- live\_purge.sh ------------------
+#!/bin/bash
+. /home/bbuser/.bash\_profile
+DAYS\_TO\_KEEP=365
+echo 'start live job'
+date
+#put a fake command here to test it out like 'ls -l
+blackboard/tools/admin/PurgeAccumulator.sh & echo $DAYS\_TO\_KEEP'
+blackboard/tools/admin/PurgeAccumulator.sh purge-live BB\_BB60
+$DAYS\_TO\_KEEP
+date
+echo 'end live job'
+-------------------------------------------------------------
+----------------- stats\_purge.sh ------------------
+#!/bin/bash
+. /home/bbuser/.bash\_profile
+DAYS\_TO\_KEEP=365
+echo 'start stats job'
+date
+blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB\_BB60
+$DAYS\_TO\_KEEP
+date
+echo 'end stats job'
+----------------------------------------------------------
+These queries are long and hard on the database. I run them at 6 am.
+What the most recent entries are:
+select 'bb60\_max: '||to\_char(max(timestamp),
+'dd-MON-yyyy\_hh24:mi:ss') from bb\_bb60.activity\_accumulator;
+select 'stat\_max: '||to\_char(max(timestamp),
+'dd-MON-yyyy\_hh24:mi:ss') from bb\_bb60\_stats.activity\_accumulator;
+What the oldest entries are:
+select 'bb60\_min: '||to\_char(min(timestamp),
+'dd-MON-yyyy\_hh24:mi:ss') from bb\_bb60.activity\_accumulator;
+select 'stat\_min: '||to\_char(min(timestamp),
+'dd-MON-yyyy\_hh24:mi:ss') from bb\_bb60\_stats.activity\_accumulator;
+The run this morning:
+should be the same day,w ith bb60\_max being close to time of run and
+stat\_max being the purge run time.
+bb60\_max: 2013-09-09 05:57:43
+stat\_max: 2013-07-08 00:53:42
+These should be 180 days ago, '2013-03-13':
+bb60\_min: 2011-12-13 07:30:27
+stat\_min: 2013-01-08 00:00:03
+date --date='-180 days'
+Blake
+* Kcbbapp3.missouri.edu
+
+** <2013-10-28 Mon> History
+
+[bbuser@kcbbapp3 ~]$ history
+*** Bulk Archive 8-14-2013
+    2  2013-08-14 15:30:33 - rmArchiveFile_UMKC-VOICE5601-0006-11765-SP2012.zip
+    3  2013-08-14 15:30:33 - rmArchiveFile_UMKC-VOICE5601-0007-11766-SP2012.zip
+    4  2013-08-14 15:30:33 - rmArchiveFile_UMKC-VOICE5601-0008-11767-SP2012.zip
+    5  2013-08-14 15:30:33 - rmArchiveFile_UMKC-VOICE5601-0009-11768-SP2012.zip
+    6  2013-08-14 15:30:33 - rmArchiveFile_UMKC-VOICE5601-0010-11859-SP2012.zip
+    7  2013-08-14 15:30:33 - rmArchiveFile_UMKC-VOICE5601-0011-11860-SP2012.zip
+    8  2013-08-14 15:30:33 - rmArchiveFile_UMKC-VOICE5601-0012-11861-SP2012.zip
+    9  2013-08-14 15:30:33 - rmArchiveFile_UMKC-VOICE5601-0013-11862-SP2012.zip
+   10  2013-08-14 15:30:33 - rmArchiveFile_UMKC-VOICE5601-0014-11863-SP2012.zip
+   11  2013-08-14 15:30:33 - rmArchiveFile_UMKC-WGS460CC-0001-17759-SP2012.zip
+   12  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0005-11646-SP2012.zip
+   13  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0006-11647-SP2012.zip
+   14  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0007-11648-SP2012.zip
+   15  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0008-11649-SP2012.zip
+   16  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0009-11650-SP2012.zip
+   17  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0010-11651-SP2012.zip
+   18  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0011-11652-SP2012.zip
+   19  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0012-11653-SP2012.zip
+   20  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0013-11654-SP2012.zip
+   21  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0014-11655-SP2012.zip
+   22  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE201-0015-11656-SP2012.zip
+   23  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0001-11657-SP2012.zip
+   24  2013-08-14 15:31:13 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0002-11658-SP2012.zip
+   25  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0003-11659-SP2012.zip
+   26  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0004-11660-SP2012.zip
+   27  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0005-11661-SP2012.zip
+   28  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0006-11662-SP2012.zip
+   29  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0007-11663-SP2012.zip
+   30  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0008-11664-SP2012.zip
+   31  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0009-11665-SP2012.zip
+   32  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0010-11666-SP2012.zip
+   33  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0011-11667-SP2012.zip
+   34  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0012-11668-SP2012.zip
+   35  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0013-11669-SP2012.zip
+   36  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0014-11670-SP2012.zip
+   37  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE202-0015-11671-SP2012.zip
+   38  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0001-11672-SP2012.zip
+   39  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0002-11673-SP2012.zip
+   40  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0003-11674-SP2012.zip
+   41  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0004-11675-SP2012.zip
+   42  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0005-11676-SP2012.zip
+   43  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0006-11677-SP2012.zip
+   44  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0007-11678-SP2012.zip
+   45  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0008-11679-SP2012.zip
+   46  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0009-11680-SP2012.zip
+   47  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0010-11681-SP2012.zip
+   48  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0011-11682-SP2012.zip
+   49  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0012-11683-SP2012.zip
+   50  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0013-11684-SP2012.zip
+   51  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0014-11685-SP2012.zip
+   52  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE301-0015-11686-SP2012.zip
+   53  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0001-11687-SP2012.zip
+   54  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0002-11688-SP2012.zip
+   55  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0003-11689-SP2012.zip
+   56  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0004-11690-SP2012.zip
+   57  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0005-11691-SP2012.zip
+   58  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0006-11692-SP2012.zip
+   59  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0007-11693-SP2012.zip
+   60  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0008-11694-SP2012.zip
+   61  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0009-11695-SP2012.zip
+   62  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0010-11696-SP2012.zip
+   63  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0011-11697-SP2012.zip
+   64  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0012-11698-SP2012.zip
+   65  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0013-11699-SP2012.zip
+   66  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0014-11700-SP2012.zip
+   67  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0015-11701-SP2012.zip
+   68  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE302-0016-11702-SP2012.zip
+   69  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0001-11703-SP2012.zip
+   70  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0002-11704-SP2012.zip
+   71  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0003-11705-SP2012.zip
+   72  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0004-11706-SP2012.zip
+   73  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0005-11707-SP2012.zip
+   74  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0006-11708-SP2012.zip
+   75  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0007-11709-SP2012.zip
+   76  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0008-11710-SP2012.zip
+   77  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0009-11711-SP2012.zip
+   78  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0010-11712-SP2012.zip
+   79  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0011-11713-SP2012.zip
+   80  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0012-11714-SP2012.zip
+   81  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0013-11715-SP2012.zip
+   82  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0014-11716-SP2012.zip
+   83  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE401-0015-11717-SP2012.zip
+   84  2013-08-14 15:31:14 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0001-11718-SP2012.zip
+   85  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0002-11719-SP2012.zip
+   86  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0003-11720-SP2012.zip
+   87  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0004-11721-SP2012.zip
+   88  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0005-11722-SP2012.zip
+   89  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0006-11723-SP2012.zip
+   90  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0007-11724-SP2012.zip
+   91  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0008-11725-SP2012.zip
+   92  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0009-11726-SP2012.zip
+   93  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0010-11727-SP2012.zip
+   94  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0011-11728-SP2012.zip
+   95  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0012-11729-SP2012.zip
+   96  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0013-11730-SP2012.zip
+   97  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0014-15269-SP2012.zip
+   98  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0015-11731-SP2012.zip
+   99  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0001-11732-SP2012.zip
+  100  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0002-11733-SP2012.zip
+  101  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0003-11734-SP2012.zip
+  102  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0004-11735-SP2012.zip
+  103  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0005-11736-SP2012.zip
+  104  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0006-11737-SP2012.zip
+  105  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0007-11738-SP2012.zip
+  106  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0008-11739-SP2012.zip
+  107  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0009-11832-SP2012.zip
+  108  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0010-11833-SP2012.zip
+  109  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0011-11834-SP2012.zip
+  110  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0012-11835-SP2012.zip
+  111  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0013-11836-SP2012.zip
+  112  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0014-11837-SP2012.zip
+  113  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500A-0015-15349-SP2012.zip
+  114  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0001-11740-SP2012.zip
+  115  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0002-11741-SP2012.zip
+  116  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0003-11742-SP2012.zip
+  117  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0004-11743-SP2012.zip
+  118  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0005-11744-SP2012.zip
+  119  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0006-11745-SP2012.zip
+  120  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0007-11746-SP2012.zip
+  121  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0008-11838-SP2012.zip
+  122  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0009-11839-SP2012.zip
+  123  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0010-11840-SP2012.zip
+  124  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0011-11841-SP2012.zip
+  125  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0012-11842-SP2012.zip
+  126  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0013-11843-SP2012.zip
+  127  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500B-0014-11844-SP2012.zip
+  128  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0001-11747-SP2012.zip
+  129  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0002-11748-SP2012.zip
+  130  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0003-11749-SP2012.zip
+  131  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0004-11750-SP2012.zip
+  132  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0005-11751-SP2012.zip
+  133  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0006-11752-SP2012.zip
+  134  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0007-11753-SP2012.zip
+  135  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0008-11780-SP2012.zip
+  136  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0009-11781-SP2012.zip
+  137  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0010-11845-SP2012.zip
+  138  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0011-11846-SP2012.zip
+  139  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0012-11847-SP2012.zip
+  140  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0013-11848-SP2012.zip
+  141  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0014-11849-SP2012.zip
+  142  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5500C-0015-11850-SP2012.zip
+  143  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0001-11754-SP2012.zip
+  144  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0002-11755-SP2012.zip
+  145  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0003-11756-SP2012.zip
+  146  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0004-11757-SP2012.zip
+  147  2013-08-14 15:31:15 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0005-11758-SP2012.zi
+  148  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0006-11759-SP2012.zi
+  149  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0007-11782-SP2012.zi
+  150  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0008-11783-SP2012.zi
+  151  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0009-11851-SP2012.zi
+  152  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0010-11852-SP2012.zi
+  153  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0011-11853-SP2012.zi
+  154  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0012-11854-SP2012.zi
+  155  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0013-11855-SP2012.zi
+  156  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0014-11856-SP2012.zi
+  157  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0015-11857-SP2012.zi
+  158  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5501-0016-11858-SP2012.zi
+  159  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0001-11760-SP2012.zi
+  160  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0002-11761-SP2012.zi
+  161  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0003-11762-SP2012.zi
+  162  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0004-11763-SP2012.zi
+  163  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0005-11764-SP2012.zi
+  164  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0006-11765-SP2012.zi
+  165  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0007-11766-SP2012.zi
+  166  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0008-11767-SP2012.zi
+  167  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0009-11768-SP2012.zi
+  168  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0010-11859-SP2012.zi
+  169  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0011-11860-SP2012.zi
+  170  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0012-11861-SP2012.zi
+  171  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0013-11862-SP2012.zi
+  172  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE5601-0014-11863-SP2012.zi
+  173  2013-08-14 15:31:16 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-WGS460CC-0001-17759-SP2012.zip
+  174  2013-08-14 15:31:40 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0007-11724-SP2012.zip
+  175  2013-08-14 15:31:40 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0008-11725-SP2012.zip
+  176  2013-08-14 15:31:40 - rm ArchiveFile_UMKC-ArchiveFile_UMKC-VOICE402-0009-11726-SP2012.zip
+  177  2013-08-14 15:31:55 - cd ..
+  178  2013-08-14 15:31:57 - ls
+  179  2013-08-14 15:32:09 - rm -rf SP2012
+  180  2013-08-14 15:33:02 - df -Th
+  181  2013-08-14 15:33:44 - df -Th
+  182  2013-08-14 15:34:08 - df -Th
+  183  2013-08-14 15:34:25 - cd ..
+  184  2013-08-14 15:34:26 - ls
+  185  2013-08-14 15:34:33 - cd /DEV_Caution
+  186  2013-08-14 15:34:35 - ls
+  187  2013-08-14 15:34:51 - rm -rf  FS2010_Archives
+  188  2013-08-14 15:34:54 - ls
+  189  2013-08-14 15:35:46 - rm -rf FS2011_archives
+  190  2013-08-14 15:39:13 - df -Th
+  191  2013-08-14 15:39:33 - ls
+  192  2013-08-14 15:41:47 - history
+  193  2013-08-14 15:42:25 - cd /usr/local/blackboard/apps/content-exchange/bin
+  194  2013-08-14 15:42:29 - vi bob.txt
+  195  2013-08-14 15:45:39 -  ./batch_ImportExport.sh -f bob.txt -l 1 -t archive
+  196  2013-08-14 15:54:09 - cd /DEV_Caution
+  197  2013-08-14 15:54:11 - ls
+  198  2013-08-14 15:54:26 - rm -rf  SS2012_Archives
+  199  2013-08-14 15:54:50 - cd /usr/local/blackboard/apps/content-exchange/bin
+  200  2013-08-14 15:54:55 -  ./batch_ImportExport.sh -f bob.txt -l 1 -t archive
+  201  2013-08-16 10:55:52 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+  202  2013-08-16 10:56:50 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f DISABLES_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+  203  2013-08-16 10:57:47 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f DISABLE_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+  204  2013-08-16 11:00:40 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+  205  2013-08-16 15:07:56 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+  206  2013-08-16 15:12:07 - cd /usr/loca/blackboard/logs/snapshot/
+  207  2013-08-16 15:12:09 - cd /usr/loca/blackboard/logs/snapshot
+  208  2013-08-16 15:12:15 - cd /usr/local/blackboard/logs/snapshot
+  209  2013-08-16 15:12:17 - ls
+  210  2013-08-16 15:12:26 - vi bb-services-log-snapshot-jdbc.txt
+  211  2013-08-21 13:53:07 - history
+  212  2013-08-21 15:35:14 - pwd
+  213  2013-08-21 15:35:24 - cd blackboard/config
+  214  2013-08-21 15:35:28 - cd blackboard
+  215  2013-08-21 15:35:30 - pwd
+  216  2013-08-21 15:35:36 - cd /usr/local/blackboard
+  217  2013-08-21 15:35:37 - ls
+  218  2013-08-21 15:35:43 - cd config
+  219  2013-08-21 15:35:45 - ls
+  220  2013-08-21 15:36:26 - /usr/local/blackboard/apps/snapshot
+  221  2013-08-21 15:36:28 - cd /usr/local/blackboard/apps/snapshot
+  222  2013-08-21 15:36:30 - ls
+  223  2013-08-21 15:36:34 - cd config
+  224  2013-08-21 15:36:36 - ls
+  225  2013-08-21 15:37:22 - cd ..
+  226  2013-08-21 15:37:23 - ls
+  227  2013-08-21 15:37:26 - cd bin
+  228  2013-08-21 15:37:27 - ls
+  229  2013-08-21 15:39:48 - find snapshot.properties
+  230  2013-08-21 15:50:35 - cd /usr/local/blackboard
+  231  2013-08-21 15:50:51 - find -name snapshot.properties
+  232  2013-08-22 10:25:18 - cd apps/snapshot/data
+  233  2013-08-22 10:25:21 - pwd
+  234  2013-08-22 10:25:22 - ls
+  235  2013-08-22 10:25:30 - vi snapshot.properties
+  236  2013-08-22 10:27:12 - pwd
+  237  2013-08-22 10:28:25 - exit
+  238  2013-08-22 10:33:46 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+  239  2013-08-22 10:36:45 - sudo /usr/local/blackboard/tools/admin/PushConfigUpdates.sh
+  240  2013-08-22 10:37:17 - exit
+  241  2013-08-22 10:37:19 - exit
+  242  2013-08-22 10:52:42 - w
+  243  2013-08-22 11:52:26 - cd /
+  244  2013-08-22 11:52:36 - sudo locate snapshot.properties
+  245  2013-08-22 11:53:55 -  locate snapshot.properties
+  246  2013-08-22 10:49:42 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+  247  2013-08-22 10:49:56 - du -hs /usr/local/blackboard/content
+  248  2013-08-22 13:52:09 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNT_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+  249  2013-08-22 13:52:52 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V umkcbb3.missouri.edu
+  250  2013-08-27 16:50:38 - history
+  251  2013-08-27 16:53:09 - /usr/local/blackboard/tools/admin/B2Manager.sh -l
+  252  2013-09-09 16:46:27 - cd .ssh/
+  253  2013-09-09 16:46:28 - ls -al
+  254  2013-09-09 16:46:37 - chmod g-w authorized_keys 
+  255  2013-09-09 16:46:53 - ls -al
+  256  2013-09-09 16:46:55 - cd .ssh/
+  257  2013-09-09 16:46:56 - ls -al
+  258  2013-09-09 16:48:35 - cd /usr/local/blackboard/
+  259  2013-09-09 16:48:38 - ls -al
+  260  2013-09-09 16:48:44 - ls /etc
+  261  2013-09-09 16:48:49 - ls
+  262  2013-09-09 16:48:55 - cd config
+  263  2013-09-09 16:48:56 - ls -al
+  264  2013-09-09 16:49:08 - cd oracle
+  265  2013-09-09 16:49:08 - ls -al
+  266  2013-09-09 16:49:10 - cd network/
+  267  2013-09-09 16:49:11 - ls -al
+  268  2013-09-09 16:49:12 - cd admin/
+  269  2013-09-09 16:49:13 - ls -al
+  270  2013-09-09 16:49:17 - vim tnsnames.ora
+  271  2013-09-09 16:50:03 - ls -al
+  272  2013-09-09 16:50:09 - cat tnsnames.ora.b
+  273  2013-09-09 16:50:11 - cat tnsnames.ora.bak 
+  274  2013-09-09 16:50:38 - vim /usr/local/blackboard/system/tooldefs/install/CoreClientInstall/tool.xml
+  275  2013-09-09 16:51:49 - ls
+  276  2013-09-09 16:51:51 - cd ..
+  277  2013-09-09 16:51:51 - ls
+  278  2013-09-09 16:51:52 - cd ..
+  279  2013-09-09 16:51:53 - ls
+  280  2013-09-09 16:51:54 - cd ..
+  281  2013-09-09 16:51:55 - ls -l
+  282  2013-09-09 16:52:03 - vim logging.properties 
+  283  2013-09-09 16:52:14 - cd ..
+  284  2013-09-09 16:52:14 - ls
+  285  2013-09-09 16:52:16 - cd logs/
+  286  2013-09-09 16:52:17 - ls -al
+  287  2013-09-09 16:52:23 - cd update-tools/
+  288  2013-09-09 16:52:25 - vim update-tool-log.txt 
+  289  2013-09-09 16:52:43 - ls -al /usr/local/blackboard/systemlib/bb-embedded.jar
+  290  2013-09-09 16:53:26 - cd  /usr/local/blackboard/systemlib/
+  291  2013-09-09 16:53:27 - ls -al
+  292  2013-09-09 16:54:54 - chown bbuser:bbuser bb-embedded.jar
+  293  2013-09-09 16:56:56 - pwd
+  294  2013-09-09 16:57:50 - ls -al bb-embedded.jar 
+  295  2013-09-09 16:57:52 - ls -al bb-embedded.jar 
+  296  2013-09-09 16:58:24 - ls -al bb-embedded.jar 
+  297  2013-09-09 17:06:19 - ls
+  298  2013-09-09 17:06:21 - cd ..
+  299  2013-09-09 17:06:21 - ls
+  300  2013-09-09 17:06:26 - cd config/
+  301  2013-09-09 17:06:27 - ls -al
+  302  2013-09-09 17:06:36 - cd oracle-client/
+  303  2013-09-09 17:06:37 - ls -al
+  304  2013-09-09 17:06:41 - vim tnsnames.ora
+  305  2013-09-09 17:06:54 - vim tnsnames.ora
+  306  2013-09-09 17:07:10 - pwd
+  307  2013-09-09 17:07:23 - diff tnsnames.ora tnsnames.ora.bak 
+  308  2013-09-09 17:07:30 - vim tnsnames.ora
+  309  2013-09-09 17:08:04 - diff tnsnames.ora tnsnames.ora.bak 
+  310  2013-09-09 17:08:12 - ls
+  311  2013-09-09 17:08:14 - cd ..
+  312  2013-09-09 17:08:18 - cd oracle
+  313  2013-09-09 17:08:19 - ls -al
+  314  2013-09-09 17:08:22 - cd network/
+  315  2013-09-09 17:08:22 - ls -al
+  316  2013-09-09 17:08:24 - cd admin/
+  317  2013-09-09 17:08:25 - ls -al
+  318  2013-09-09 17:08:29 - diff tnsnames.ora tnsnames.ora.bak 
+  319  2013-09-09 17:08:32 - vim tnsnames.ora
+  320  2013-09-09 17:08:53 - cd /usr/local/blackboard/apps/oracle-client
+  321  2013-09-09 17:08:55 - pwd
+  322  2013-09-09 17:08:58 - ls
+  323  2013-09-09 17:09:01 - cd network/admin/
+  324  2013-09-09 17:09:02 - ls -al
+  325  2013-09-09 17:09:05 - vim tnsnames.ora
+  326  2013-09-09 17:09:43 - cd ../../
+  327  2013-09-09 17:09:43 - ls -al
+  328  2013-09-09 17:09:54 - cd ..
+  329  2013-09-09 17:09:55 - ls -al
+  330  2013-09-09 17:10:23 - cd oracle-client/
+  331  2013-09-09 17:10:25 - ls
+  332  2013-09-09 17:10:28 - cd network/
+  333  2013-09-09 17:10:28 - ls
+  334  2013-09-09 17:10:29 - cd admin/
+  335  2013-09-09 17:10:30 - ls -al
+  336  2013-09-09 17:10:32 - vim tnsnames.ora
+  337  2013-09-09 17:11:03 - cd /usr/local/blackboard/apps/
+  338  2013-09-09 17:11:04 - ls -al
+  339  2013-09-09 17:11:13 - cd
+  340  2013-09-09 17:11:26 - cd /usr/local/blackboard/
+  341  2013-09-09 17:11:26 - ls
+  342  2013-09-09 17:11:30 - cd config/
+  343  2013-09-09 17:11:30 - ls -al
+  344  2013-09-09 17:11:38 - cd oracle-client/
+  345  2013-09-09 17:11:41 - vim tnsnames.ora
+  346  2013-09-09 17:11:54 - cd ../oracle
+  347  2013-09-09 17:11:59 - ls
+  348  2013-09-09 17:12:01 - cd network/admin/
+  349  2013-09-09 17:12:04 - vim tnsnames.ora
+  350  2013-09-09 17:12:24 - vim tnsnames.ora
+  351  2013-09-09 17:12:37 - cd ..
+  352  2013-09-09 17:12:38 - cd ..
+  353  2013-09-09 17:12:40 - ls -al
+  354  2013-09-09 17:12:41 - cd ..
+  355  2013-09-09 17:12:42 - ls -al
+  356  2013-09-09 17:12:54 - vim bb-tasks.xml
+  357  2013-09-09 17:14:17 - vim bb-tasks.unix.xml
+  358  2013-09-09 17:14:59 - cat bb-tasks.unix.xml
+  359  2013-09-09 17:15:43 - grep purge *
+  360  2013-09-09 17:15:56 - grep Purge *
+  361  2013-09-09 17:17:26 - grep -i Purge *
+  362  2013-09-09 17:18:03 - grep -i activity *
+  363  2013-09-10 09:30:27 - cd /usr/local/blackboard/
+  364  2013-09-10 09:30:28 - ls -al
+  365  2013-09-10 09:30:33 - cd backups/
+  366  2013-09-10 09:30:34 - ls -al
+  367  2013-09-10 09:30:36 - cd ..
+  368  2013-09-10 09:30:37 - ls -al
+  369  2013-09-10 09:30:49 - find ./ -name tnsnames.ora 
+  370  2013-09-10 10:26:52 - ls
+  371  2013-09-10 10:27:05 - find system -name tnsnames.ora 
+  372  2013-09-10 10:27:10 - find systemlib -name tnsnames.ora 
+  373  2013-09-10 10:27:16 - find tools -name tnsnames.ora 
+  374  2013-09-10 10:27:23 - find webapps -name tnsnames.ora 
+  375  2013-09-10 10:27:28 - cd webapps/
+  376  2013-09-10 10:27:29 - ls -al
+  377  2013-09-10 10:27:41 - ls assessment/
+  378  2013-09-10 10:27:47 - ls assessment/WEB-INF/
+  379  2013-09-10 10:27:50 - ls assessment/WEB-INF/config/
+  380  2013-09-10 10:28:00 - ls assessment/WEB-INF/classes/
+  381  2013-09-10 10:28:02 - ls assessment/WEB-INF/classes/blackboard/
+  382  2013-09-10 10:28:09 - CD ..
+  383  2013-09-10 10:28:10 - LS
+  384  2013-09-10 10:28:14 - ls -al
+  385  2013-09-10 10:28:17 - cd ..
+  386  2013-09-10 10:28:18 - ls -al
+  387  2013-09-10 10:28:22 - ls tools/
+  388  2013-09-10 10:28:24 - ls tools/admin/
+  389  2013-09-10 10:28:34 - vim tools/admin/readme.txt 
+  390  2013-09-10 10:28:48 - cd ..
+  391  2013-09-10 10:28:49 - ls -al
+  392  2013-09-10 10:29:08 - cd blackboard/tools/admin/
+  393  2013-09-10 10:29:16 - vim PurgeAccumulator.sh
+  394  2013-09-10 10:29:37 - cd ../../
+  395  2013-09-10 10:29:40 - cd update-tool-vm/system-tool-vm-servicedef.propertie
+  396  2013-09-10 10:29:44 - ls
+  397  2013-09-10 10:29:47 - cd config/
+  398  2013-09-10 10:29:48 - ls -al
+  399  2013-09-10 10:30:02 - ls
+  400  2013-09-10 10:30:15 - vim update-tool-vm/system-tool-vm-servicedef.properties 
+  401  2013-09-10 10:33:34 - vim bb-datastores-standalone.xml
+  402  2013-09-10 10:35:54 - ls -al
+  403  2013-09-10 10:36:23 - vim bb-datastores.xml
+  404  2013-09-10 10:37:33 - ls /etc/
+  405  2013-09-10 10:38:37 - ls
+  406  2013-09-10 10:38:47 - vim bb-datastores.xml.bb 
+  407  2013-09-10 10:39:07 - cat oracle-client/tnsnames.ora
+  408  2013-09-10 10:39:47 - export ORACLE_HOME=/usr/local/blackboard/apps/oracle-client/
+  409  2013-09-10 10:40:04 - export LD_LIBRARY_PATH=/usr/local/blackboard/apps/oracle-client/lib64/
+  410  2013-09-10 10:40:24 - env |grep PATH
+  411  2013-09-10 10:40:36 - export PATH=${PATH}:/usr/local/blackboard/apps/oracle-client/bin
+  412  2013-09-10 10:40:49 - cat bb-datastores.xml
+  413  2013-09-10 10:40:57 - cat oracle-client/tnsnames.ora
+  414  2013-09-10 10:41:53 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(SERVICE_NAME=KCDB9)))"
+  415  2013-09-10 10:42:03 - env |grep PATH
+  416  2013-09-10 10:42:11 - ls /usr/local/blackboard/apps/oracle-client/bin
+  417  2013-09-10 10:42:20 - ls /usr/local/blackboard/apps/oracle-client/bin64
+  418  2013-09-10 10:42:43 - export PATH=/usr/local/bin:/bin:/usr/bin<:/home/bbuser/bin:/usr/local/blackboard/apps/oracle-client/bin64
+  419  2013-09-10 10:42:47 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(SERVICE_NAME=KCDB9)))"
+  420  2013-09-10 10:43:33 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=KCDB9)))"
+  421  2013-09-10 10:43:45 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=KCDB9)))"
+  422  2013-09-10 10:43:55 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=KCDB9.missouri.edu)))"
+  423  2013-09-10 10:45:44 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=KCDB9)))"
+  424  2013-09-10 10:55:40 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=KCDB9.missouri.edu)))"
+  425  2013-09-10 10:55:50 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=KCDB9)))"
+  426  2013-09-10 11:01:49 - /sbin/ifconfig
+  427  2013-09-10 11:08:26 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=kcdb9)))"
+  428  2013-09-10 11:09:31 - sqlplus BB_BB60_STATS/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=kcdb9)))"
+  429  2013-09-10 11:10:06 - sqlplus BB_BB60_STATS/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=kcdb9)))"
+  430  2013-09-10 11:14:00 - sqlplus BB_BB60_STATS/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=KCDB9)))"
+  431  2013-09-10 16:08:50 - /sbin/ifconfig
+  432  2013-09-10 16:11:59 - * /usr/local/blackboard/tools/admin/PurgeAccumulator.sh purge-stats bb_bb60 244
+  433  2013-09-10 16:12:05 - /usr/local/blackboard/tools/admin/PurgeAccumulator.sh purge-stats bb_bb60 244
+  434  2013-09-10 16:25:11 - date;
+  435  2013-09-10 16:57:13 - crontab -e
+  436  2013-09-10 16:58:34 - ls
+  437  2013-09-10 16:58:37 - mkdir bin
+  438  2013-09-10 16:58:45 - vim bin/purge-stats.sh
+  439  2013-09-10 16:59:52 - fg
+  440  2013-09-10 17:00:41 - vim bin/purge-live.sh
+  441  2013-09-10 17:01:17 - crontab -e
+  442  2013-09-10 17:01:45 - vim bin/purge-stats.sh 
+  443  2013-09-10 17:02:18 - crontab -e
+  444  2013-09-10 17:02:38 - cat bin/purge-stats.sh 
+  445  2013-09-10 17:02:41 - q
+  446  2013-09-10 17:02:43 - ls /tmp
+  447  2013-09-10 17:03:07 - ls /tmp
+  448  2013-09-10 17:03:09 - ls /tmp
+  449  2013-09-10 17:03:10 - ls /tmp
+  450  2013-09-10 17:03:14 - crontab -e
+  451  2013-09-10 17:03:25 - ls /tmp
+  452  2013-09-10 17:03:42 - crontab -e
+  453  2013-09-10 17:04:13 - ls /tmp
+  454  2013-09-10 17:04:18 - cat /tmp/purge-stats.log 
+  455  2013-09-10 17:04:21 - cat /tmp/purge-stats.log 
+  456  2013-09-10 17:04:24 - mail
+  457  2013-09-10 17:05:18 - crontab -e
+  458  2013-09-10 17:05:52 - su - bbuser
+  459  2013-09-10 17:06:02 - cd bin
+  460  2013-09-10 17:06:03 - ls -al
+  461  2013-09-10 17:06:07 - vim purge-stats.sh 
+  462  2013-09-10 17:06:22 - pwd
+  463  2013-09-10 17:06:26 - vim purge-stats.sh 
+  464  2013-09-10 17:06:39 - vim purge-live.sh 
+  465  2013-09-10 17:07:02 - vim purge-live.sh 
+  466  2013-09-10 17:07:17 - vim purge-stats.sh 
+  467  2013-09-10 17:07:23 - crontab -e
+  468  2013-09-10 17:08:19 - cat /tmp/purge-stats.log 
+  469  2013-09-10 17:08:22 - mail
+  470  2013-09-10 17:08:39 - ls -al
+  471  2013-09-10 17:08:44 - chmod 700 *
+  472  2013-09-10 17:08:44 - ls -al
+  473  2013-09-10 17:08:48 - crontab -e
+  474  2013-09-10 17:10:39 - cat /tmp/purge-stats.log 
+  475  2013-09-10 17:10:53 - crontab -e
+  476  2013-09-10 17:11:08 - vim purge-stats.sh 
+  477  2013-09-11 10:20:26 - cd /tmp
+  478  2013-09-11 10:20:26 - ls
+  479  2013-09-11 10:20:29 - cat purge-stats.log 
+  480  2013-09-11 10:22:35 - cd
+  481  2013-09-11 10:22:36 - cd bin
+  482  2013-09-11 10:22:37 - ls -al
+  483  2013-09-11 10:22:40 - vim purge-stats.sh 
+  484  2013-09-11 10:28:28 - vim purge-live.sh
+  485  2013-09-11 10:28:46 - vim purge-stats.sh 
+  486  2013-09-11 10:29:02 - vim purge-live.sh
+  487  2013-09-11 10:44:54 - crotnab -e
+  488  2013-09-11 10:44:58 - crontab -e
+  489  2013-09-11 10:46:30 - man 5 crontab
+  490  2013-09-11 10:46:47 - fg
+  491  2013-09-11 10:48:01 - ls -al
+  492  2013-09-11 10:48:13 - ls -al
+  493  2013-09-11 10:48:20 - ls -al
+  494  2013-09-12 08:58:13 - cd /tmp
+  495  2013-09-12 08:58:14 - ls
+  496  2013-09-12 08:58:16 - cat purge-stats.log 
+  497  2013-09-12 09:01:14 - crontab -e
+  498  2013-09-12 09:23:08 - cd
+  499  2013-09-12 09:23:10 - ls -al bin
+  500  2013-09-12 09:23:24 - cd bin
+  501  2013-09-12 09:23:31 - diff purge-live.sh purge-stats.sh 
+  502  2013-09-12 09:23:43 - vim purge-live.sh 
+  503  2013-09-12 09:23:55 - diff purge-live.sh purge-stats.sh 
+  504  2013-09-12 09:24:04 - vim purge-live.sh 
+  505  2013-09-12 09:24:10 - diff purge-live.sh purge-stats.sh 
+  506  2013-09-12 09:24:24 -  :q
+  507  2013-09-12 09:24:27 - ls -al
+  508  2013-09-12 09:24:30 - cd ..
+  509  2013-09-12 09:24:31 - ls -al
+  510  2013-09-12 09:24:36 - cd .ssh/
+  511  2013-09-12 09:24:37 - ls -al
+  512  2013-09-12 09:24:40 - cat authorized_keys 
+  513  2013-09-12 09:24:43 - ls
+  514  2013-09-12 09:24:46 - cat known_hosts 
+  515  2013-09-12 09:24:48 - cd ..
+  516  2013-09-12 09:24:56 - ls -al
+  517  2013-09-12 09:25:07 - cat .viminfo 
+  518  2013-10-28 13:51:14 - /usr/local/blackboard/tools/admin/PurgeAccumulator.sh purge-stats bb_bb60  180
+  519  2013-10-28 13:51:14 - cat /tmp/purge-live.log 
+  520  2013-10-28 13:51:14 - crontab -e
+  521  2013-09-13 08:39:23 - cd /tmp
+  522  2013-09-13 08:39:29 - vim purge-live.log 
+  523  2013-09-13 08:56:02 - cd
+  524  2013-09-13 08:56:04 - cd bin
+  525  2013-09-13 08:56:07 - ls
+  526  2013-09-13 08:56:14 - cat purge-stats.sh 
+  527  2013-09-13 08:56:24 - screen
+  528  2013-09-13 09:11:38 - ls
+  529  2013-09-09 14:54:37 - crontab -e
+  530  2013-09-09 15:06:39 - date --date='-180 days'
+  531  2013-09-09 15:06:45 - date --date='-180 days'
+  532  2013-09-09 15:06:57 -  date --date='-240 days'
+  533  2013-09-09 15:07:21 -  date --date='-243 days'
+  534  2013-09-09 15:08:28 - blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB_BB60 $DAYS_TO_KEEP
+  535  2013-09-09 15:08:35 - blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB_BB60 $243
+  536  2013-09-09 15:08:42 - sh blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB_BB60 $DAYS_TO_KEEP
+  537  2013-09-09 15:08:57 - sh blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB_BB60 $243
+  538  2013-09-09 15:09:08 - cd /user/local/blackboard
+  539  2013-09-09 15:09:16 - cd /usr/local/blackboard
+  540  2013-09-09 15:09:21 - cd tools
+  541  2013-09-09 15:09:22 - ls
+  542  2013-09-09 15:09:27 - cd admin
+  543  2013-09-09 15:09:29 - ls
+  544  2013-09-09 15:09:36 - pwd
+  545  2013-09-09 15:10:15 - sh PurgeAccumulator.sh
+  546  2013-09-09 15:11:11 - sh PurgeAccumulator.sh BB_BB60 $243
+  547  2013-09-09 15:11:55 - sh PurgeAccumulator.sh purge_stats BB_BB60 $243
+  548  2013-09-09 15:12:58 - sh PurgeAccumulator.sh purge_stats BB_BB60 243
+  549  2013-09-09 15:13:59 - ./PurgeAccumulator.sh purge_stats BB_BB60 243
+  550  2013-09-09 15:14:50 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  551  2013-09-09 15:30:10 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  552  2013-09-09 15:35:02 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  553  2013-09-09 15:41:19 - vi PurgeAccumulator.sh
+  554  2013-09-09 15:42:59 - cd /usr/local/blackboard/system/lib
+  555  2013-09-09 15:43:00 - ls
+  556  2013-09-09 15:43:06 - more bb-common.sh
+  557  2013-09-09 15:50:17 - cd /user/local/blackboard
+  558  2013-09-09 15:50:30 - cd /usr/local/blackboard
+  559  2013-09-09 15:50:39 - cd tools
+  560  2013-09-09 15:50:46 - cd admin
+  561  2013-09-09 15:50:56 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  562  2013-09-09 16:17:14 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  563  2013-09-09 17:02:53 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  564  2013-09-09 17:09:47 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  565  2013-09-09 17:12:35 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  566  2013-09-09 17:15:21 - cd ..
+  567  2013-09-09 17:15:23 - cd ..
+  568  2013-09-09 17:15:25 - cd config
+  569  2013-09-09 17:15:27 - ls
+  570  2013-09-09 17:15:44 - more 
+  571  2013-09-09 17:15:44 - bb-tasks.unix.xml
+  572  2013-09-09 17:15:51 - more bb-tasks.unix.xml
+  573  2013-09-10 16:03:23 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  574  2013-09-10 16:03:31 - history
+  575  2013-09-10 16:03:58 - cd /usr/local/blackboard/tools/admin
+  576  2013-09-10 16:04:01 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  577  2013-09-10 16:06:09 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  578  2013-09-10 16:26:46 - date; /usr/local/blackboard/tools/admin/PurgeAccumulator.sh purge-stats bb_bb60 243 ;date
+  579  2013-09-11 10:27:13 - date --date='-180 days'
+  580  2013-09-11 10:27:21 - date --date='-230 days'
+  581  2013-09-09 16:38:51 - pwd
+  582  2013-09-09 16:38:56 - ls
+  583  2013-09-09 16:39:03 - ls -a
+  584  2013-09-09 16:39:24 - ssh localhost
+  585  2013-09-09 16:39:42 - ls
+  586  2013-09-09 16:39:46 - ls -a
+  587  2013-09-09 16:39:54 - cd .ssh
+  588  2013-09-09 16:40:07 - vi authorized_keys
+  589  2013-09-09 16:40:34 - ls
+  590  2013-09-09 16:40:54 - ls al ~
+  591  2013-09-09 16:41:03 - ls -al ~
+  592  2013-09-09 16:42:14 - ls
+  593  2013-09-09 16:42:20 - ls -l
+  594  2013-09-09 16:47:21 - ls -al ~
+  595  2013-09-17 08:58:19 - cd /tmp
+  596  2013-09-17 08:58:20 - ls
+  597  2013-09-17 08:58:29 - tail -n80 purge-live.log
+  598  2013-09-17 09:01:25 - tail -n180 purge-live.log
+  599  2013-09-17 09:01:52 - tail -n180 purge-stats.log 
+  600  2013-09-17 09:02:19 - crontab -e
+  601  2013-09-17 09:03:30 - tail -n180 purge-live.log
+  602  2013-09-17 09:04:09 - crontab -e
+  603  2013-09-18 09:40:27 - cd /tmp
+  604  2013-09-18 09:40:28 - ls
+  605  2013-09-18 09:40:33 - tail -80 purge-live.log 
+  606  2013-09-18 09:40:51 - tail -80 purge-stats.log 
+  607  2013-09-18 09:41:06 - tail -80 purge-live.log 
+  608  2013-09-18 09:41:12 - tail -80 purge-stats.log 
+  609  2013-09-18 09:41:27 - crontab -e
+  610  2013-09-18 09:43:01 - crontab -e
+  611  2013-09-18 09:43:21 - cd
+  612  2013-09-18 09:43:25 - ls
+  613  2013-09-18 09:43:29 - cat blah.txt 
+  614  2013-09-18 09:43:37 - crontab -e
+  615  2013-09-18 09:44:04 - cat blah.txt 
+  616  2013-09-18 09:44:07 - rm blah.txt 
+  617  2013-09-18 09:44:11 - crontab -e
+  618  2013-09-18 09:44:25 - ls -al
+  619  2013-09-16 11:03:21 - history
+  620  2013-09-16 11:05:52 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_DISABLED -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  621  2013-09-16 11:06:34 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  622  2013-09-17 10:14:07 - s -a
+  623  2013-09-17 10:14:10 - ps -a
+  624  2013-09-17 10:14:18 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_DISABLED -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  625  2013-09-17 10:17:46 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  626  2013-09-18 15:11:12 - pwd
+  627  2013-09-18 15:11:23 - cd /usr/local/blackboard/config
+  628  2013-09-18 15:11:23 - ls
+  629  2013-09-18 15:11:44 - cp bb-tasks.xml
+  630  2013-09-18 15:11:52 - cp bb-tasks.xml bb-tasks.xml
+  631  2013-09-18 15:11:57 - cp bb-tasks.xml bb-tasks.xml.bak
+  632  2013-09-18 15:14:11 - vi bb-tasks.xml
+  633  2013-09-19 09:52:48 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_DISABLED -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  634  2013-09-19 09:53:12 - /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  635  2013-09-19 10:34:10 - cd ..
+  636  2013-09-19 10:34:12 - pwd
+  637  2013-09-19 10:34:14 - ls
+  638  2013-09-19 10:34:17 - cd content
+  639  2013-09-19 10:34:26 - ls
+  640  2013-09-23 10:21:45 - netstat -putan | grep 61616
+  641  2013-09-23 10:25:05 - PWD
+  642  2013-09-23 10:25:10 - pwd
+  643  2013-09-23 10:25:22 - cd /usr/local/blackboard/tools/admin
+  644  2013-09-23 10:25:33 - ServiceController.sh services.appserver.threaddump
+  645  2013-09-23 10:25:39 - sh ServiceController.sh services.appserver.threaddump
+  646  2013-09-23 10:27:07 - sh ServiceController.sh services.appserver.threaddump
+  647  2013-09-23 10:30:03 - sh ServiceController.sh services.appserver.threaddump
+  648  2013-09-23 12:09:31 - cd ..
+  649  2013-09-23 12:09:33 - ls
+  650  2013-09-23 12:09:39 - cd perf_reports
+  651  2013-09-23 12:09:49 - sh run_reports.sh
+  652  2013-09-23 12:10:31 - sh run_reports.sh | PR.txt
+  653  2013-09-23 12:11:43 - sh run_reports.sh > PR.txt
+  654  2013-09-25 10:19:42 - cd /usr/local/blackboard/confid
+  655  2013-09-25 10:19:44 - cd /usr/local/blackboard/config
+  656  2013-09-25 10:19:46 - ls
+  657  2013-09-25 10:19:58 - vi bb-config.properties
+  658  2013-10-04 11:05:51 - history
+  659  2013-10-04 11:05:59 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_DISABLED -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  660  2013-10-04 11:06:27 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  661  2013-10-04 11:21:32 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  662  2013-10-04 11:21:52 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  663  2013-10-04 11:23:56 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  664  2013-10-04 11:28:18 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  665  2013-10-04 11:57:36 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  666  2013-10-04 12:14:51 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  667  2013-10-04 13:25:44 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  668  2013-10-04 13:26:23 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_DISABLED -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  669  2013-10-04 13:26:40 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f PURGE_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  670  2013-10-04 13:30:07 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  671  2013-10-04 13:41:53 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  672  2013-10-04 13:46:59 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  673  2013-10-04 14:20:48 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  674  2013-10-04 14:52:19 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  675  2013-10-04 15:40:51 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  676  2013-10-04 15:56:12 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  677  2013-10-04 16:12:25 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  678  2013-10-04 16:48:48 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  679  2013-10-07 09:35:57 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  680  2013-10-07 09:55:03 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  681  2013-10-07 09:59:12 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  682  2013-10-07 10:01:50 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  683  2013-10-07 10:02:17 - history
+  684  2013-10-07 10:02:48 - history
+  685  2013-10-07 10:02:50 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  686  2013-10-07 10:04:03 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  687  2013-10-07 10:05:48 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  688  2013-10-07 10:15:59 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  689  2013-10-07 10:21:43 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  690  2013-10-07 10:31:09 -  /usr/local/blackboard/apps/snapshot/bin/dsm.sh -f COUNTS_ALL -b umkc.to.be.deleted -V kcbbapp3.missouri.edu
+  691  2013-10-25 11:23:50 - cd /DEV_Caution
+  692  2013-10-25 11:23:55 - ls *2012*
+  693  2013-10-25 11:24:10 - ls *SP2012*
+  694  2013-10-25 11:24:18 - ls
+  695  2013-10-25 11:25:15 - exit
+  696  2013-10-25 13:26:24 - cd  /usr/local/blackboard/apps/content-exchange/bin
+  697  2013-10-25 13:26:27 - ls
+  698  2013-10-25 13:26:41 - vi barb.txt
+  699  2013-10-25 13:28:31 - vi barb.txt
+  700  2013-10-25 13:29:17 -  ./batch_ImportExport.sh -f bob.txt -l 1 -t restore
+  701  2013-10-25 13:30:04 -  ./batch_ImportExport.sh -f barb.txt -l 1 -t restore
+  702  2013-10-25 13:30:38 - vi barb.txt
+  703  2013-10-25 13:30:59 - rm barb.txt
+  704  2013-10-25 13:31:03 - vi barb.txt
+  705  2013-10-25 13:31:18 - vi bob2.txt
+  706  2013-10-25 13:32:27 -  ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore
+  707  2013-10-25 13:33:18 - pwd
+  708  2013-10-25 13:33:32 - cd /tmp
+  709  2013-10-25 13:33:34 - ls
+  710  2013-10-25 13:33:37 - ls -l
+  711  2013-10-25 13:33:45 - cp bob.zip /usr/local/blackboard/apps/content-exchange/bin
+  712  2013-10-25 13:33:59 - cp bob.zip /usr/local/blackboard/apps/content-exchange/bin/bob.zip
+  713  2013-10-25 13:34:02 - cd /usr/local/blackboard/apps/content-exchange/bin
+  714  2013-10-25 13:34:05 - ls
+  715  2013-10-25 13:34:20 - ls -l
+  716  2013-10-25 13:34:27 - vi bob2.txt
+  717  2013-10-25 13:38:52 -  ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore
+  718  2013-10-25 13:42:08 - vi bob2.txt
+  719  2013-10-25 13:42:37 -  ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore
+  720  2013-10-25 13:43:14 - cd /usr/local/blackboard/logs/content-exchange
+  721  2013-10-25 13:43:16 - la
+  722  2013-10-25 13:43:18 - ls
+  723  2013-10-25 13:43:39 - vi content-exchange-log.txt
+  724  2013-10-25 14:12:05 - exit
+  725  2013-10-25 14:12:09 - exit
+  726  2013-10-25 13:44:34 - pwd
+  727  2013-10-25 13:45:17 - cd /usr/local/blackboard/apps/content-exchange/bin
+  728  2013-10-25 13:45:20 - ls
+  729  2013-10-25 13:45:35 - vi bob2.txt
+  730  2013-10-25 13:46:38 - more bob2.txt
+  731  2013-10-25 13:47:34 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore
+  732  2013-10-25 13:51:04 - more bob2.txt
+  733  2013-10-25 13:51:53 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t import
+  734  2013-10-25 14:14:25 - more bob2.txt
+  735  2013-10-25 14:14:31 - vi bob2.txt
+  736  2013-10-25 14:15:14 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore
+  737  2013-10-25 14:17:17 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore
+  738  2013-10-25 14:18:27 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t import
+  739  2013-10-28 12:41:44 - history
+  740  2013-10-28 12:42:14 - history > history-ab.txt
+  741  2013-10-28 12:42:16 - ls
+  742  2013-10-28 12:42:35 - mv histor-ab.txt /home/buckinghama/
+  743  2013-10-28 12:43:12 - mv history-ab.txt /home/buckinghama/
+  744  2013-10-28 12:43:30 - sudo mv history-ab.txt /home/buckinghama/
+  745  2013-10-28 12:44:13 - sudo /bin/su - buckinghama
+  746  2013-10-28 12:45:23 - history
+  747  2013-10-28 12:47:19 -   587  2013-09-09 17:09:05 - vim tnsnames.ora
+  748  2013-10-28 12:47:19 -   588  2013-09-09 17:09:43 - cd ../../
+  749  2013-10-28 12:47:19 -   589  2013-09-09 17:09:43 - ls -al
+  750  2013-10-28 12:47:20 -   590  2013-09-09 17:09:54 - cd ..
+  751  2013-10-28 12:47:20 -   591  2013-09-09 17:09:55 - ls -al
+  752  2013-10-28 12:47:20 -   592  2013-09-09 17:10:23 - cd oracle-client/
+  753  2013-10-28 12:47:20 -   593  2013-09-09 17:10:25 - ls
+  754  2013-10-28 12:47:20 -   594  2013-09-09 17:10:28 - cd network/
+  755  2013-10-28 12:47:20 -   595  2013-09-09 17:10:28 - ls
+  756  2013-10-28 12:47:20 -   596  2013-09-09 17:10:29 - cd admin/
+  757  2013-10-28 12:47:20 -   597  2013-09-09 17:10:30 - ls -al
+  758  2013-10-28 12:47:20 -   598  2013-09-09 17:10:32 - vim tnsnames.ora
+  759  2013-10-28 12:47:20 -   599  2013-09-09 17:11:03 - cd /usr/local/blackboard/apps/
+  760  2013-10-28 12:47:20 -   600  2013-09-09 17:11:04 - ls -al
+  761  2013-10-28 12:47:20 -   601  2013-09-09 17:11:13 - cd
+  762  2013-10-28 12:47:20 -   602  2013-09-09 17:11:26 - cd /usr/local/blackboard/
+  763  2013-10-28 12:47:20 -   603  2013-09-09 17:11:26 - ls
+  764  2013-10-28 12:47:20 -   604  2013-09-09 17:11:30 - cd config/
+  765  2013-10-28 12:47:20 -   605  2013-09-09 17:11:30 - ls -al
+  766  2013-10-28 12:47:20 -   606  2013-09-09 17:11:38 - cd oracle-client/
+  767  2013-10-28 12:47:20 -   607  2013-09-09 17:11:41 - vim tnsnames.ora
+  768  2013-10-28 12:47:20 -   608  2013-09-09 17:11:54 - cd ../oracle
+  769  2013-10-28 12:47:20 -   609  2013-09-09 17:11:59 - ls
+  770  2013-10-28 12:47:20 -   610  2013-09-09 17:12:01 - cd network/admin/
+  771  2013-10-28 12:47:20 -   611  2013-09-09 17:12:04 - vim tnsnames.ora
+  772  2013-10-28 12:47:20 -   612  2013-09-09 17:12:24 - vim tnsnames.ora
+  773  2013-10-28 12:47:20 -   613  2013-09-09 17:12:37 - cd ..
+  774  2013-10-28 12:47:20 -   614  2013-09-09 17:12:38 - cd ..
+  775  2013-10-28 12:47:20 -   615  2013-09-09 17:12:40 - ls -al
+  776  2013-10-28 12:47:20 -   616  2013-09-09 17:12:41 - cd ..
+  777  2013-10-28 12:47:20 -   617  2013-09-09 17:12:42 - ls -al
+  778  2013-10-28 12:47:20 -   618  2013-09-09 17:12:54 - vim bb-tasks.xml
+  779  2013-10-28 12:47:20 -   619  2013-09-09 17:14:17 - vim bb-tasks.unix.xml
+  780  2013-10-28 12:47:20 -   620  2013-09-09 17:14:59 - cat bb-tasks.unix.xml
+  781  2013-10-28 12:47:20 -   621  2013-09-09 17:15:43 - grep purge *
+  782  2013-10-28 12:47:20 -   622  2013-09-09 17:15:56 - grep Purge *
+  783  2013-10-28 12:47:20 -   623  2013-09-09 17:17:26 - grep -i Purge *
+  784  2013-10-28 12:47:20 -   624  2013-09-09 17:18:03 - grep -i activity *
+  785  2013-10-28 12:47:20 -   625  2013-09-10 09:30:27 - cd /usr/local/blackboard/
+  786  2013-10-28 12:47:20 -   626  2013-09-10 09:30:28 - ls -al
+  787  2013-10-28 12:47:20 -   627  2013-09-10 09:30:33 - cd backups/
+  788  2013-10-28 12:47:20 -   628  2013-09-10 09:30:34 - ls -al
+  789  2013-10-28 12:47:20 -   629  2013-09-10 09:30:36 - cd ..
+  790  2013-10-28 12:47:20 -   630  2013-09-10 09:30:37 - ls -al
+  791  2013-10-28 12:47:20 -   631  2013-09-10 09:30:49 - find ./ -name tnsnames.ora
+  792  2013-10-28 12:47:20 -   632  2013-09-10 10:26:52 - ls
+  793  2013-10-28 12:47:20 -   633  2013-09-10 10:27:05 - find system -name tnsnames.ora
+  794  2013-10-28 12:47:20 -   634  2013-09-10 10:27:10 - find systemlib -name tnsnames.ora
+  795  2013-10-28 12:47:20 -   635  2013-09-10 10:27:16 - find tools -name tnsnames.ora
+  796  2013-10-28 12:47:20 -   636  2013-09-10 10:27:23 - find webapps -name tnsnames.ora
+  797  2013-10-28 12:47:20 -   637  2013-09-10 10:27:28 - cd webapps/
+  798  2013-10-28 12:47:20 -   638  2013-09-10 10:27:29 - ls -al
+  799  2013-10-28 12:47:20 -   639  2013-09-10 10:27:41 - ls assessment/
+  800  2013-10-28 12:47:20 -   640  2013-09-10 10:27:47 - ls assessment/WEB-INF/
+  801  2013-10-28 12:47:20 -   641  2013-09-10 10:27:50 - ls assessment/WEB-INF/config/
+  802  2013-10-28 12:47:20 -   642  2013-09-10 10:28:00 - ls assessment/WEB-INF/classes/
+  803  2013-10-28 12:47:20 -   643  2013-09-10 10:28:02 - ls assessment/WEB-INF/classes/blackboard/
+  804  2013-10-28 12:47:20 -   644  2013-09-10 10:28:09 - CD ..
+  805  2013-10-28 12:47:20 -   645  2013-09-10 10:28:10 - LS
+  806  2013-10-28 12:47:20 -   646  2013-09-10 10:28:14 - ls -al
+  807  2013-10-28 12:47:20 -   647  2013-09-10 10:28:17 - cd ..
+  808  2013-10-28 12:47:20 -   648  2013-09-10 10:28:18 - ls -al
+  809  2013-10-28 12:47:20 -   649  2013-09-10 10:28:22 - ls tools/
+  810  2013-10-28 12:47:20 -   650  2013-09-10 10:28:24 - ls tools/admin/
+  811  2013-10-28 12:47:20 -   651  2013-09-10 10:28:34 - vim tools/admin/readme.txt
+  812  2013-10-28 12:47:20 -   652  2013-09-10 10:28:48 - cd ..
+  813  2013-10-28 12:47:20 -   653  2013-09-10 10:28:49 - ls -al
+  814  2013-10-28 12:47:20 -   654  2013-09-10 10:29:08 - cd blackboard/tools/admin/
+  815  2013-10-28 12:47:20 -   655  2013-09-10 10:29:16 - vim PurgeAccumulator.sh
+  816  2013-10-28 12:47:20 -   656  2013-09-10 10:29:37 - cd ../../
+  817  2013-10-28 12:47:20 -   657  2013-09-10 10:29:40 - cd update-tool-vm/system-tool-vm-servicedef.propertie
+  818  2013-10-28 12:47:20 -   658  2013-09-10 10:29:44 - ls
+  819  2013-10-28 12:47:20 -   659  2013-09-10 10:29:47 - cd config/
+  820  2013-10-28 12:47:20 -   660  2013-09-10 10:29:48 - ls -al
+  821  2013-10-28 12:47:20 -   661  2013-09-10 10:30:02 - ls
+  822  2013-10-28 12:47:20 -   662  2013-09-10 10:30:15 - vim update-tool-vm/system-tool-vm-servicedef.properties
+  823  2013-10-28 12:47:20 -   663  2013-09-10 10:33:34 - vim bb-datastores-standalone.xml
+  824  2013-10-28 12:47:20 -   664  2013-09-10 10:35:54 - ls -al
+  825  2013-10-28 12:47:20 -   665  2013-09-10 10:36:23 - vim bb-datastores.xml
+  826  2013-10-28 12:47:20 -   666  2013-09-10 10:37:33 - ls /etc/
+  827  2013-10-28 12:47:20 -   667  2013-09-10 10:38:37 - ls
+  828  2013-10-28 12:47:20 -   668  2013-09-10 10:38:47 - vim bb-datastores.xml.bb
+  829  2013-10-28 12:47:20 -   669  2013-09-10 10:39:07 - cat oracle-client/tnsnames.ora
+  830  2013-10-28 12:47:20 -   670  2013-09-10 10:39:47 - export ORACLE_HOME=/usr/local/blackboard/apps/oracle-client/
+  831  2013-10-28 12:47:20 -   671  2013-09-10 10:40:04 - export LD_LIBRARY_PATH=/usr/local/blackboard/apps/oracle-client/lib64/
+  832  2013-10-28 12:47:20 -   672  2013-09-10 10:40:24 - env |grep PATH
+  833  2013-10-28 12:47:20 -   673  2013-09-10 10:40:36 - export PATH=${PATH}:/usr/local/blackboard/apps/oracle-client/bin
+  834  2013-10-28 12:47:20 -   674  2013-09-10 10:40:49 - cat bb-datastores.xml
+  835  2013-10-28 12:47:20 -   675  2013-09-10 10:40:57 - cat oracle-client/tnsnames.ora
+  836  2013-10-28 12:47:20 -   676  2013-09-10 10:41:53 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(SERVICE_NAME=KCDB9)))"
+  837  2013-10-28 12:47:20 -   677  2013-09-10 10:42:03 - env |grep PATH
+  838  2013-10-28 12:47:20 -   678  2013-09-10 10:42:11 - ls /usr/local/blackboard/apps/oracle-client/bin
+  839  2013-10-28 12:47:20 -   679  2013-09-10 10:42:20 - ls /usr/local/blackboard/apps/oracle-client/bin64
+  840  2013-10-28 12:47:20 -   680  2013-09-10 10:42:43 - export PATH=/usr/local/bin:/bin:/usr/bin:/home/bbuser/bin:/usr/local/blackboard/apps/oracle-client/bin64
+  841  2013-10-28 12:47:20 -   681  2013-09-10 10:42:47 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(SERVICE_NAME=KCDB9)))"
+  842  2013-10-28 12:47:20 -   682  2013-09-10 10:43:33 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=KCDB9)))"
+  843  2013-10-28 12:47:20 -   683  2013-09-10 10:43:45 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=KCDB9)))"
+  844  2013-10-28 12:47:20 -   684  2013-09-10 10:43:55 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=KCDB9.missouri.edu)))"
+  845  2013-10-28 12:47:20 -   685  2013-09-10 10:45:44 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=KCDB9)))"
+  846  2013-10-28 12:47:20 -   686  2013-09-10 10:55:40 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=KCDB9.missouri.edu)))"
+  847  2013-10-28 12:47:20 -   687  2013-09-10 10:55:50 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=KCDB9)))"
+  848  2013-10-28 12:47:20 -   688  2013-09-10 11:01:49 - /sbin/ifconfig
+  849  2013-10-28 12:47:20 -   689  2013-09-10 11:08:26 - sqlplus BB_BB60/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=kcdb9)))"
+  850  2013-10-28 12:47:20 -   690  2013-09-10 11:09:31 - sqlplus BB_BB60_STATS/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=kcdb9)))"
+  851  2013-10-28 12:47:20 -   691  2013-09-10 11:10:06 - sqlplus BB_BB60_STATS/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=kcdb9)))"
+  852  2013-10-28 12:47:20 -   692  2013-09-10 11:14:00 - sqlplus BB_BB60_STATS/ak68xk36@"(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kcdb9.missouri.edu)(PORT=1521))(CONNECT_DATA=(SID=KCDB9)))"
+  853  2013-10-28 12:47:20 -   693  2013-09-10 16:08:50 - /sbin/ifconfig
+  854  2013-10-28 12:47:20 -   694  2013-09-10 16:11:59 - * /usr/local/blackboard/tools/admin/PurgeAccumulator.sh purge-stats bb_bb60 244
+  855  2013-10-28 12:47:20 -   695  2013-09-10 16:12:05 - /usr/local/blackboard/tools/admin/PurgeAccumulator.sh purge-stats bb_bb60 244
+  856  2013-10-28 12:47:20 -   696  2013-09-10 16:25:11 - date;
+  857  2013-10-28 12:47:20 -   697  2013-09-10 16:57:13 - crontab -e
+  858  2013-10-28 12:47:20 -   698  2013-09-10 16:58:34 - ls
+  859  2013-10-28 12:47:20 -   699  2013-09-10 16:58:37 - mkdir bin
+  860  2013-10-28 12:47:20 -   700  2013-09-10 16:58:45 - vim bin/purge-stats.sh
+  861  2013-10-28 12:47:20 -   701  2013-09-10 16:59:52 - fg
+  862  2013-10-28 12:47:20 -   702  2013-09-10 17:00:41 - vim bin/purge-live.sh
+  863  2013-10-28 12:47:20 -   703  2013-09-10 17:01:17 - crontab -e
+  864  2013-10-28 12:47:20 -   704  2013-09-10 17:01:45 - vim bin/purge-stats.sh
+  865  2013-10-28 12:47:20 -   705  2013-09-10 17:02:18 - crontab -e
+  866  2013-10-28 12:47:20 -   706  2013-09-10 17:02:38 - cat bin/purge-stats.sh
+  867  2013-10-28 12:47:20 -   707  2013-09-10 17:02:41 - q
+  868  2013-10-28 12:47:20 -   708  2013-09-10 17:02:43 - ls /tmp
+  869  2013-10-28 12:47:20 -   709  2013-09-10 17:03:07 - ls /tmp
+  870  2013-10-28 12:47:20 -   710  2013-09-10 17:03:09 - ls /tmp
+  871  2013-10-28 12:47:20 -   711  2013-09-10 17:03:10 - ls /tmp
+  872  2013-10-28 12:47:20 -   712  2013-09-10 17:03:14 - crontab -e
+  873  2013-10-28 12:47:20 -   713  2013-09-10 17:03:25 - ls /tmp
+  874  2013-10-28 12:47:20 -   714  2013-09-10 17:03:42 - crontab -e
+  875  2013-10-28 12:47:20 -   715  2013-09-10 17:04:13 - ls /tmp
+  876  2013-10-28 12:47:20 -   716  2013-09-10 17:04:18 - cat /tmp/purge-stats.log
+  877  2013-10-28 12:47:20 -   717  2013-09-10 17:04:21 - cat /tmp/purge-stats.log
+  878  2013-10-28 12:47:20 -   718  2013-09-10 17:04:24 - mail
+  879  2013-10-28 12:47:20 -   719  2013-09-10 17:05:18 - crontab -e
+  880  2013-10-28 12:47:20 -   720  2013-09-10 17:05:52 - su - bbuser
+  881  2013-10-28 12:47:20 -   721  2013-09-10 17:06:02 - cd bin
+  882  2013-10-28 12:47:20 -   722  2013-09-10 17:06:03 - ls -al
+  883  2013-10-28 12:47:20 -   723  2013-09-10 17:06:07 - vim purge-stats.sh
+  884  2013-10-28 12:47:20 -   724  2013-09-10 17:06:22 - pwd
+  885  2013-10-28 12:47:20 -   725  2013-09-10 17:06:26 - vim purge-stats.sh
+  886  2013-10-28 12:47:20 -   726  2013-09-10 17:06:39 - vim purge-live.sh
+  887  2013-10-28 12:47:20 -   727  2013-09-10 17:07:02 - vim purge-live.sh
+  888  2013-10-28 12:47:20 -   728  2013-09-10 17:07:17 - vim purge-stats.sh
+  889  2013-10-28 12:47:20 -   729  2013-09-10 17:07:23 - crontab -e
+  890  2013-10-28 12:47:20 -   730  2013-09-10 17:08:19 - cat /tmp/purge-stats.log
+  891  2013-10-28 12:47:20 -   731  2013-09-10 17:08:22 - mail
+  892  2013-10-28 12:47:20 -   732  2013-09-10 17:08:39 - ls -al
+  893  2013-10-28 12:47:20 -   733  2013-09-10 17:08:44 - chmod 700 *
+  894  2013-10-28 12:47:20 -   734  2013-09-10 17:08:44 - ls -al
+  895  2013-10-28 12:47:20 -   735  2013-09-10 17:08:48 - crontab -e
+  896  2013-10-28 12:47:20 -   736  2013-09-10 17:10:39 - cat /tmp/purge-stats.log
+  897  2013-10-28 12:47:20 -   737  2013-09-10 17:10:53 - crontab -e
+  898  2013-10-28 12:47:20 -   738  2013-09-10 17:11:08 - vim purge-stats.sh
+  899  2013-10-28 12:47:20 -   739  2013-09-11 10:20:26 - cd /tmp
+  900  2013-10-28 12:47:20 -   740  2013-09-11 10:20:26 - ls
+  901  2013-10-28 12:47:20 -   741  2013-09-11 10:20:29 - cat purge-stats.log
+  902  2013-10-28 12:47:20 -   742  2013-09-11 10:22:35 - cd
+  903  2013-10-28 12:47:20 -   743  2013-09-11 10:22:36 - cd bin
+  904  2013-10-28 12:47:20 -   744  2013-09-11 10:22:37 - ls -al
+  905  2013-10-28 12:47:20 -   745  2013-09-11 10:22:40 - vim purge-stats.sh
+  906  2013-10-28 12:47:20 -   746  2013-09-11 10:28:28 - vim purge-live.sh
+  907  2013-10-28 12:47:20 -   747  2013-09-11 10:28:46 - vim purge-stats.sh
+  908  2013-10-28 12:47:20 -   748  2013-09-11 10:29:02 - vim purge-live.sh
+  909  2013-10-28 12:47:20 -   749  2013-09-11 10:44:54 - crotnab -e
+  910  2013-10-28 12:47:20 -   750  2013-09-11 10:44:58 - crontab -e
+  911  2013-10-28 12:47:20 -   751  2013-09-11 10:46:30 - man 5 crontab
+  912  2013-10-28 12:47:20 -   752  2013-09-11 10:46:47 - fg
+  913  2013-10-28 12:47:20 -   753  2013-09-11 10:48:01 - ls -al
+  914  2013-10-28 12:47:20 -   754  2013-09-11 10:48:13 - ls -al
+  915  2013-10-28 12:47:20 -   755  2013-09-11 10:48:20 - ls -al
+  916  2013-10-28 12:47:20 -   756  2013-09-12 08:58:13 - cd /tmp
+  917  2013-10-28 12:47:20 -   757  2013-09-12 08:58:14 - ls
+  918  2013-10-28 12:47:20 -   758  2013-09-12 08:58:16 - cat purge-stats.log
+  919  2013-10-28 12:47:20 -   759  2013-09-12 09:01:14 - crontab -e
+  920  2013-10-28 12:47:20 -   760  2013-09-12 09:23:08 - cd
+  921  2013-10-28 12:47:20 -   761  2013-09-12 09:23:10 - ls -al bin
+  922  2013-10-28 12:47:20 -   762  2013-09-12 09:23:24 - cd bin
+  923  2013-10-28 12:47:20 -   763  2013-09-12 09:23:31 - diff purge-live.sh purge-stats.sh
+  924  2013-10-28 12:47:20 -   764  2013-09-12 09:23:43 - vim purge-live.sh
+  925  2013-10-28 12:47:20 -   765  2013-09-12 09:23:55 - diff purge-live.sh purge-stats.sh
+  926  2013-10-28 12:47:20 -   766  2013-09-12 09:24:04 - vim purge-live.sh
+  927  2013-10-28 12:47:20 -   767  2013-09-12 09:24:10 - diff purge-live.sh purge-stats.sh
+  928  2013-10-28 12:47:20 -   768  2013-09-12 09:24:24 -  :q
+  929  2013-10-28 12:47:20 -   769  2013-09-12 09:24:27 - ls -al
+  930  2013-10-28 12:47:20 -   770  2013-09-12 09:24:30 - cd ..
+  931  2013-10-28 12:47:20 -   771  2013-09-12 09:24:31 - ls -al
+  932  2013-10-28 12:47:20 -   772  2013-09-12 09:24:36 - cd .ssh/
+  933  2013-10-28 12:47:20 -   773  2013-09-12 09:24:37 - ls -al
+  934  2013-10-28 12:47:20 -   774  2013-09-12 09:24:40 - cat authorized_keys
+  935  2013-10-28 12:47:20 -   775  2013-09-12 09:24:43 - ls
+  936  2013-10-28 12:47:20 -   776  2013-09-12 09:24:46 - cat known_hosts
+  937  2013-10-28 12:47:20 -   777  2013-09-12 09:24:48 - cd ..
+  938  2013-10-28 12:47:20 -   778  2013-09-12 09:24:56 - ls -al
+  939  2013-10-28 12:47:20 -   779  2013-09-12 09:25:07 - cat .viminfo
+  940  2013-10-28 12:47:20 -   780  2013-10-28 12:39:59 - /usr/local/blackboard/tools/admin/PurgeAccumulator.sh purge-stats bb_bb60  180
+  941  2013-10-28 12:47:20 -   781  2013-10-28 12:39:59 - cat /tmp/purge-live.log
+  942  2013-10-28 12:47:20 -   782  2013-10-28 12:39:59 - crontab -e
+  943  2013-10-28 12:47:20 -   783  2013-09-13 08:39:23 - cd /tmp
+  944  2013-10-28 12:47:20 -   784  2013-09-13 08:39:29 - vim purge-live.log
+  945  2013-10-28 12:47:20 -   785  2013-09-13 08:56:02 - cd
+  946  2013-10-28 12:47:20 -   786  2013-09-13 08:56:04 - cd bin
+  947  2013-10-28 12:47:20 -   787  2013-09-13 08:56:07 - ls
+  948  2013-10-28 12:47:20 -   788  2013-09-13 08:56:14 - cat purge-stats.sh
+  949  2013-10-28 12:47:20 -   789  2013-09-13 08:56:24 - screen
+  950  2013-10-28 12:47:20 -   790  2013-09-13 09:11:38 - ls
+  951  2013-10-28 12:47:20 -   791  2013-09-09 14:54:37 - crontab -e
+  952  2013-10-28 12:47:20 -   792  2013-09-09 15:06:39 - date --date='-180 days'
+  953  2013-10-28 12:47:20 -   793  2013-09-09 15:06:45 - date --date='-180 days'
+  954  2013-10-28 12:47:20 -   794  2013-09-09 15:06:57 -  date --date='-240 days'
+  955  2013-10-28 12:47:20 -   795  2013-09-09 15:07:21 -  date --date='-243 days'
+  956  2013-10-28 12:47:20 -   796  2013-09-09 15:08:28 - blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB_BB60 $DAYS_TO_KEEP
+  957  2013-10-28 12:47:20 -   797  2013-09-09 15:08:35 - blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB_BB60 $243
+  958  2013-10-28 12:47:20 -   798  2013-09-09 15:08:42 - sh blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB_BB60 $DAYS_TO_KEEP
+  959  2013-10-28 12:47:20 -   799  2013-09-09 15:08:57 - sh blackboard/tools/admin/PurgeAccumulator.sh purge-stats BB_BB60 $243
+  960  2013-10-28 12:47:20 -   800  2013-09-09 15:09:08 - cd /user/local/blackboard
+  961  2013-10-28 12:47:20 -   801  2013-09-09 15:09:16 - cd /usr/local/blackboard
+  962  2013-10-28 12:47:20 -   802  2013-09-09 15:09:21 - cd tools
+  963  2013-10-28 12:47:20 -   803  2013-09-09 15:09:22 - ls
+  964  2013-10-28 12:47:20 -   804  2013-09-09 15:09:27 - cd admin
+  965  2013-10-28 12:47:20 -   805  2013-09-09 15:09:29 - ls
+  966  2013-10-28 12:47:20 -   806  2013-09-09 15:09:36 - pwd
+  967  2013-10-28 12:47:20 -   807  2013-09-09 15:10:15 - sh PurgeAccumulator.sh
+  968  2013-10-28 12:47:20 -   808  2013-09-09 15:11:11 - sh PurgeAccumulator.sh BB_BB60 $243
+  969  2013-10-28 12:47:21 -   809  2013-09-09 15:11:55 - sh PurgeAccumulator.sh purge_stats BB_BB60 $243
+  970  2013-10-28 12:47:21 -   810  2013-09-09 15:12:58 - sh PurgeAccumulator.sh purge_stats BB_BB60 243
+  971  2013-10-28 12:47:21 -   811  2013-09-09 15:13:59 - ./PurgeAccumulator.sh purge_stats BB_BB60 243
+  972  2013-10-28 12:47:21 -   812  2013-09-09 15:14:50 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  973  2013-10-28 12:47:21 -   813  2013-09-09 15:30:10 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  974  2013-10-28 12:47:21 -   814  2013-09-09 15:35:02 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  975  2013-10-28 12:47:21 -   815  2013-09-09 15:41:19 - vi PurgeAccumulator.sh
+  976  2013-10-28 12:47:21 -   816  2013-09-09 15:42:59 - cd /usr/local/blackboard/system/lib
+  977  2013-10-28 12:47:21 -   817  2013-09-09 15:43:00 - ls
+  978  2013-10-28 12:47:21 -   818  2013-09-09 15:43:06 - more bb-common.sh
+  979  2013-10-28 12:47:21 -   819  2013-09-09 15:50:17 - cd /user/local/blackboard
+  980  2013-10-28 12:47:21 -   820  2013-09-09 15:50:30 - cd /usr/local/blackboard
+  981  2013-10-28 12:47:21 -   821  2013-09-09 15:50:39 - cd tools
+  982  2013-10-28 12:47:21 -   822  2013-09-09 15:50:46 - cd admin
+  983  2013-10-28 12:47:21 -   823  2013-09-09 15:50:56 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  984  2013-10-28 12:47:21 -   824  2013-09-09 16:17:14 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  985  2013-10-28 12:47:21 -   825  2013-09-09 17:02:53 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  986  2013-10-28 12:47:21 -   826  2013-09-09 17:09:47 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  987  2013-10-28 12:47:21 -   827  2013-09-09 17:12:35 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  988  2013-10-28 12:47:21 -   828  2013-09-09 17:15:21 - cd ..
+  989  2013-10-28 12:47:21 -   829  2013-09-09 17:15:23 - cd ..
+  990  2013-10-28 12:47:21 -   830  2013-09-09 17:15:25 - cd config
+  991  2013-10-28 12:47:21 -   831  2013-09-09 17:15:27 - ls
+  992  2013-10-28 12:47:21 -   832  2013-09-09 17:15:44 - more
+  993  2013-10-28 12:47:21 -   833  2013-09-09 17:15:44 - bb-tasks.unix.xml
+  994  2013-10-28 12:47:21 -   834  2013-09-09 17:15:51 - more bb-tasks.unix.xml
+  995  2013-10-28 12:47:21 -   835  2013-09-10 16:03:23 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  996  2013-10-28 12:47:21 -   836  2013-09-10 16:03:31 - history
+  997  2013-10-28 12:47:21 -   837  2013-09-10 16:03:58 - cd /usr/local/blackboard/tools/admin
+  998  2013-10-28 12:47:21 -   838  2013-09-10 16:04:01 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+  999  2013-10-28 12:47:21 -   839  2013-09-10 16:06:09 - ./PurgeAccumulator.sh purge-stats BB_BB60 243
+ 1000  2013-10-28 12:47:21 -   840  2013-09-10 16:26:46 - date; /usr/local/blackboard/tools/admin/PurgeAccumulator.sh purge-stats bb_bb60 243 ;date
+ 1001  2013-10-28 13:51:18 - history
+[bbuser@kcbbapp3 ~]$ 
+
+* Mary Feedback
+** Check for Assessments
+*(How do I check the logs to verify whether a student has finished a test?)*
+
+Check the user’s activity_accumulator records for a cluster of data like this where the content_pk1 matches the pk1 of the test. ‘Submitted’ is the important line, but the rest is good confirmation in case there is a question of the student’s having actually taken the test. NB that this will not have a record for a user who took the test with the BbMobile 
+
+
+| EVENT_TYPE    | USER_PK1 | COURSE_PK1 |                 CONTENT_PK1 | DATA                                             | TIMESTAMP       |
+|---------------+----------+------------+-----------------------------+--------------------------------------------------+-----------------|
+| COURSE_ACCESS |   256346 |      91211 | 1133415 (Folder with tests) | Participation Point Quizzes                      | 11/3/2013 16:30 |
+| COURSE_ACCESS |   256346 |      91211 |    "1133435  (Actual test)" | /webapps/blackboard/content/launchAssessment.jsp | 11/3/2013 16:30 |
+| COURSE_ACCESS |   256346 |      91211 |                     1133435 | /webapps/assessment/take/launch.jsp              | 11/3/2013 16:30 |
+| COURSE_ACCESS |   256346 |      91211 |                     1133435 | /webapps/assessment/take/submitted.jsp           | 11/3/2013 16:31 |
+| COURSE_ACCESS |   256346 |      91211 |                     1133435 | /webapps/assessment/review/review.jsp            | 11/3/2013 16:31 |
+
+** Print list of Course IDs for FS2013
+#+begin_src SQL
+select course_id from bb_bb60.course_main where data_src_pk1 = '411'
+#+end_src
+
+** Delete Assignments via Db
+ #+begin_src SQL
+exec PURGE\_CORRUPT\_ASMT\_ASSIGNMENT(46261);
+#+end_src
+ Where the number is the pk1 of the course.  You probably need a commit;
+after that.  You can get the pk1 by looking at the course url, or:
+
+#+begin_src SQL
+select pk1 from course\_main where course\_id='visible-course-id-here';
+#+end_src
+
+** Disable User
+#+begin_src SQL
+update BB_BB60.users set available_ind = 'N' where user_id = 'luncherstew'; commit;
+#+end_src
+
+** Enable User
+#+begin_src SQL
+update BB_BB60.users set available_ind = 'Y' where user_id = 'luncherstew' commit;
+#+end_src
+
+** Find out why a user is enrolled in Pathway but not in Blackboard
+Sometimes, Mary can find out more info that I can from Active Directory (?)
+** Flip User DSK
+#+begin_src SQL
+update BB_BB60.users set data_src_pk1 = '117' where user_id = 'luncherstew' commit;
+#+end_src
+
+** Find all courses users is enrolled in
+Find course
+#+begin_src SQL
+SELECT * FROM COURSE\_MAIN WHERE PK1 = ''
+#+end_src
+
+** Find all USER IDs associated with an email address
+#+begin_src SQL
+Select * from BB_BB60.users  where email LIKE 'buckinghama@umkc.edu'
+#+end_src
+
+** Archive, Import oversized                                    :Incomplete:
+
+- If necessary, temporarily increase the course quota for all courses.
+
+
+1. Download the archive and upload it to App 3 (FTP)
+2. Log into App3, sudo to bbuser, and cd to /DEV\_Caution. Make a folder
+   there for the archives to go into.
+   $ /mkdir SS2010\_archives/
+3. Create the input file in Excel:
+    /select course\_id/
+
+    /from course\_main/
+    /where data\_src\_pk1 = '62'/to get list of course\_IDs
+   file should look like this. Save it as a .CSV file:
+   UMKC-COMP-SCI5599-0002-34944-SS2010,/DEV\_Caution/SS2010\_Archives/
+   UMKC-EDUC5589Q-0017-34943-SS2010,/DEV\_Caution/SS2010\_Archives/
+   UMKC-LIFE-SCI399-0014-34945-SS2010,/DEV\_Caution/SS2010\_Archives/
+   UMKC-EDUC-CI5595-0002-34164-SS2010,/DEV\_Caution/SS2010\_Archives/
+4. On app3, cd to /usr/local/blackboard/apps/content-exchange/bin and
+   dump the input file into a text file. I usually call it bob.txt.
+5. Start the archive
+   $ ./ /batch\_ImportExport.sh -f bob.txt -l 1 -t archive/
+6. Wait.
+
+*We stopped before lunch and Mary did the rest after lunch. Here's the history from bbuser:*
+
+  691  2013-10-25 11:23:50 - cd /DEV_Caution \\
+  692  2013-10-25 11:23:55 - ls *2012* \\
+  693  2013-10-25 11:24:10 - ls *SP2012* \\
+  694  2013-10-25 11:24:18 - ls \\
+  695  2013-10-25 11:25:15 - exit \\
+  696  2013-10-25 13:26:24 - cd  /usr/local/blackboard/apps/content-exchange/bin \\
+  697  2013-10-25 13:26:27 - ls \\
+  698  2013-10-25 13:26:41 - vi barb.txt \\
+  699  2013-10-25 13:28:31 - vi barb.txt \\
+  700  2013-10-25 13:29:17 -  ./batch_ImportExport.sh -f bob.txt -l 1 -t restore \\
+  701  2013-10-25 13:30:04 -  ./batch_ImportExport.sh -f barb.txt -l 1 -t restore \\
+  702  2013-10-25 13:30:38 - vi barb.txt \\
+  703  2013-10-25 13:30:59 - rm barb.txt \\
+  704  2013-10-25 13:31:03 - vi barb.txt \\
+  705  2013-10-25 13:31:18 - vi bob2.txt \\
+  706  2013-10-25 13:32:27 -  ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  707  2013-10-25 13:33:18 - pwd \\
+  708  2013-10-25 13:33:32 - cd /tmp \\
+  709  2013-10-25 13:33:34 - ls \\
+  710  2013-10-25 13:33:37 - ls -l \\
+  711  2013-10-25 13:33:45 - cp bob.zip /usr/local/blackboard/apps/content-exchange/bin \\
+  712  2013-10-25 13:33:59 - cp bob.zip /usr/local/blackboard/apps/content-exchange/bin/bob.zip \\
+  713  2013-10-25 13:34:02 - cd /usr/local/blackboard/apps/content-exchange/bin \\
+  714  2013-10-25 13:34:05 - ls \\
+  715  2013-10-25 13:34:20 - ls -l \\
+  716  2013-10-25 13:34:27 - vi bob2.txt \\
+  717  2013-10-25 13:38:52 -  ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  718  2013-10-25 13:42:08 - vi bob2.txt \\
+  719  2013-10-25 13:42:37 -  ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  720  2013-10-25 13:43:14 - cd /usr/local/blackboard/logs/content-exchange \\
+  721  2013-10-25 13:43:16 - la \\
+  722  2013-10-25 13:43:18 - ls \\
+  723  2013-10-25 13:43:39 - vi content-exchange-log.txt \\
+  724  2013-10-25 14:12:05 - exit \\
+  725  2013-10-25 14:12:09 - exit \\
+  726  2013-10-25 13:44:34 - pwd \\
+  727  2013-10-25 13:45:17 - cd /usr/local/blackboard/apps/content-exchange/bin \\
+  728  2013-10-25 13:45:20 - ls \\
+  729  2013-10-25 13:45:35 - vi bob2.txt \\
+  730  2013-10-25 13:46:38 - more bob2.txt \\
+  731  2013-10-25 13:47:34 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  732  2013-10-25 13:51:04 - more bob2.txt \\
+  733  2013-10-25 13:51:53 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t import \\
+  734  2013-10-25 14:14:25 - more bob2.txt \\
+  735  2013-10-25 14:14:31 - vi bob2.txt \\
+  736  2013-10-25 14:15:14 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  737  2013-10-25 14:17:17 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  738  2013-10-25 14:18:27 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t import \\
+
+** Rotate Server Logs (Device Error)
+*** Overview
+- Log into app4, sudo to bbuser
+- Do a df -Th sh /usr/local/blackboard/tools/admin/RotateLogs.sh
+
+
+*** Steps
+1. Do a df -Th 
+2. If > 80%, rotate logs
+3. Sudo to bbuser
+4. sh /usr/local/blackboard/tools/admin/RotateLogs.sh
+   
+** Update User Information
+
+#+begin_src SQL
+UPDATE BB_BB60.users SET <DATA> where USER_ID = 'buckinghama' COMMIT;
+#+end_src
+
+** Find Course PK1
+#+begin_src SQL
+select pk1 from bb_bb60.course_main where course_id like '%45551%'
+#+end_src
+
+** Find all available courses
+#+begin_src SQL
+select count(*) from BB_BB60.course_main where available_ind = 'Y' 
+#+end_src
+
+
+
+
+
+
+* Checklist
+
+** Common Tasks
+- [X]  Check for Assessments 
+- [X]  Print list of Course IDs for FS2013 
+- [X]  Print list of data_source_pk1 values used in Blackboard               :new:
+- [ ]  Delete Assignments via Db 
+- [X]  Disable User                                                   
+- [X]  Enable User 
+- [X]  Find out why a user is enrolled in Pathway but not in Blackboard 
+- [ ]  Flip User DSK 
+- [X]  Find all courses users is enrolled in 
+- [X]  Find all USER IDs associated with an email address 
+- [ ]  Archive, Import Oversized
+- [X]  Rotate Server Logs (Device Error) 
+- [X]  Update User Information 
+- [X]  Find Course PK1 
+- [X]  Find all available courses 
+** Mary's Recurring Tasks
+- [ ]  1. Create a ‘Final Grade’ column 
+- [ ]  2. Clean up the ‘Users’ table. 
+- [ ]  3. Flip semester” for students. 
+- [ ]  4. Flip semester” for faculty. 
+- [ ]  5. Archive sites. 
+- [ ]  6. Purge sites. 
+- [ ]  7. Set up site creation, enrollment, active, etc. dates for upcoming semesters. 
+- [ ]  8. As needed: update/install extensions & building blocks; patch; purge old logs and other files to maintain sufficient free space on app servers; etc.
+- [ ]  9. Gradebook export from previous semester.
+
+* Archive
+** Common Tasks (OLD)
+*** Check for Assessments
+*(How do I check the logs to verify whether a student has finished a test?)*
+
+Check the user’s activity_accumulator records for a cluster of data like this where the content_pk1 matches the pk1 of the test. ‘Submitted’ is the important line, but the rest is good confirmation in case there is a question of the student’s having actually taken the test. NB that this will not have a record for a user who took the test with the BbMobile 
+
+
+| EVENT_TYPE    | USER_PK1 | COURSE_PK1 |                 CONTENT_PK1 | DATA                                             | TIMESTAMP       |
+|---------------+----------+------------+-----------------------------+--------------------------------------------------+-----------------|
+| COURSE_ACCESS |   256346 |      91211 | 1133415 (Folder with tests) | Participation Point Quizzes                      | 11/3/2013 16:30 |
+| COURSE_ACCESS |   256346 |      91211 |    "1133435  (Actual test)" | /webapps/blackboard/content/launchAssessment.jsp | 11/3/2013 16:30 |
+| COURSE_ACCESS |   256346 |      91211 |                     1133435 | /webapps/assessment/take/launch.jsp              | 11/3/2013 16:30 |
+| COURSE_ACCESS |   256346 |      91211 |                     1133435 | /webapps/assessment/take/submitted.jsp           | 11/3/2013 16:31 |
+| COURSE_ACCESS |   256346 |      91211 |                     1133435 | /webapps/assessment/review/review.jsp            | 11/3/2013 16:31 |
+
+*** Print list of Course IDs for FS2013
+#+begin_src SQL
+select course_id from bb_bb60.course_main where data_src_pk1 = '411'
+#+end_src
+**** Mary's Feedback
+This will work. The table data_source has info about all data source keys.
+*** Delete Assignments via Db
+ #+begin_src SQL
+exec PURGE\_CORRUPT\_ASMT\_ASSIGNMENT(46261);
+#+end_src
+ Where the number is the pk1 of the course.  You probably need a commit;
+after that.  You can get the pk1 by looking at the course url, or:
+
+#+begin_src SQL
+select pk1 from course\_main where course\_id='visible-course-id-here';
+#+end_src
+
+*** Disable User
+#+begin_src SQL
+update BB_BB60.users set available_ind = 'N' where user_id = 'luncherstew'; commit;
+#+end_src
+
+*** Enable User
+#+begin_src SQL
+update users set available_ind = 'Y' where user_id = 'luncherstew' commit;
+#+end_src
+
+*** Find out why a user is enrolled in Pathway but not in Blackboard
+Sometimes, Mary can find out more info that I can from Active Directory (?)
+*** Flip User DSK
+#+begin_src SQL
+update BB_BB60.users set data_src_pk1 = '117' where user_id = 'luncherstew' commit;
+#+end_src
+
+*** Find all courses users is enrolled in
+Find course
+#+begin_src SQL
+SELECT * FROM COURSE\_MAIN WHERE PK1 = ''
+#+end_src
+
+*** Find all USER IDs associated with an email address
+#+begin_src SQL
+Select * from BB_BB60.users  where email LIKE 'buckinghama@umkc.edu'
+#+end_src
+
+*** Archive, Import oversized                                  :Incomplete:
+
+- If necessary, temporarily increase the course quota for all courses.
+
+
+1. Download the archive and upload it to App 3 (FTP)
+2. Log into App3, sudo to bbuser, and cd to /DEV\_Caution. Make a folder
+   there for the archives to go into.
+   $ /mkdir SS2010\_archives/
+3. Create the input file in Excel:
+    /select course\_id/
+
+    /from course\_main/
+    /where data\_src\_pk1 = '62'/to get list of course\_IDs
+   file should look like this. Save it as a .CSV file:
+   UMKC-COMP-SCI5599-0002-34944-SS2010,/DEV\_Caution/SS2010\_Archives/
+   UMKC-EDUC5589Q-0017-34943-SS2010,/DEV\_Caution/SS2010\_Archives/
+   UMKC-LIFE-SCI399-0014-34945-SS2010,/DEV\_Caution/SS2010\_Archives/
+   UMKC-EDUC-CI5595-0002-34164-SS2010,/DEV\_Caution/SS2010\_Archives/
+4. On app3, cd to /usr/local/blackboard/apps/content-exchange/bin and
+   dump the input file into a text file. I usually call it bob.txt.
+5. Start the archive
+   $ ./ /batch\_ImportExport.sh -f bob.txt -l 1 -t archive/
+6. Wait.
+
+*We stopped before lunch and Mary did the rest after lunch. Here's the history from bbuser:*
+
+  691  2013-10-25 11:23:50 - cd /DEV_Caution \\
+  692  2013-10-25 11:23:55 - ls *2012* \\
+  693  2013-10-25 11:24:10 - ls *SP2012* \\
+  694  2013-10-25 11:24:18 - ls \\
+  695  2013-10-25 11:25:15 - exit \\
+  696  2013-10-25 13:26:24 - cd  /usr/local/blackboard/apps/content-exchange/bin \\
+  697  2013-10-25 13:26:27 - ls \\
+  698  2013-10-25 13:26:41 - vi barb.txt \\
+  699  2013-10-25 13:28:31 - vi barb.txt \\
+  700  2013-10-25 13:29:17 -  ./batch_ImportExport.sh -f bob.txt -l 1 -t restore \\
+  701  2013-10-25 13:30:04 -  ./batch_ImportExport.sh -f barb.txt -l 1 -t restore \\
+  702  2013-10-25 13:30:38 - vi barb.txt \\
+  703  2013-10-25 13:30:59 - rm barb.txt \\
+  704  2013-10-25 13:31:03 - vi barb.txt \\
+  705  2013-10-25 13:31:18 - vi bob2.txt \\
+  706  2013-10-25 13:32:27 -  ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  707  2013-10-25 13:33:18 - pwd \\
+  708  2013-10-25 13:33:32 - cd /tmp \\
+  709  2013-10-25 13:33:34 - ls \\
+  710  2013-10-25 13:33:37 - ls -l \\
+  711  2013-10-25 13:33:45 - cp bob.zip /usr/local/blackboard/apps/content-exchange/bin \\
+  712  2013-10-25 13:33:59 - cp bob.zip /usr/local/blackboard/apps/content-exchange/bin/bob.zip \\
+  713  2013-10-25 13:34:02 - cd /usr/local/blackboard/apps/content-exchange/bin \\
+  714  2013-10-25 13:34:05 - ls \\
+  715  2013-10-25 13:34:20 - ls -l \\
+  716  2013-10-25 13:34:27 - vi bob2.txt \\
+  717  2013-10-25 13:38:52 -  ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  718  2013-10-25 13:42:08 - vi bob2.txt \\
+  719  2013-10-25 13:42:37 -  ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  720  2013-10-25 13:43:14 - cd /usr/local/blackboard/logs/content-exchange \\
+  721  2013-10-25 13:43:16 - la \\
+  722  2013-10-25 13:43:18 - ls \\
+  723  2013-10-25 13:43:39 - vi content-exchange-log.txt \\
+  724  2013-10-25 14:12:05 - exit \\
+  725  2013-10-25 14:12:09 - exit \\
+  726  2013-10-25 13:44:34 - pwd \\
+  727  2013-10-25 13:45:17 - cd /usr/local/blackboard/apps/content-exchange/bin \\
+  728  2013-10-25 13:45:20 - ls \\
+  729  2013-10-25 13:45:35 - vi bob2.txt \\
+  730  2013-10-25 13:46:38 - more bob2.txt \\
+  731  2013-10-25 13:47:34 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  732  2013-10-25 13:51:04 - more bob2.txt \\
+  733  2013-10-25 13:51:53 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t import \\
+  734  2013-10-25 14:14:25 - more bob2.txt \\
+  735  2013-10-25 14:14:31 - vi bob2.txt \\
+  736  2013-10-25 14:15:14 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  737  2013-10-25 14:17:17 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t restore \\
+  738  2013-10-25 14:18:27 - ./batch_ImportExport.sh -f bob2.txt -l 1 -t import \\
+
+*** Rotate Server Logs (Device Error)
+**** Overview
+- Log into app4, sudo to bbuser
+- Do a df -Th sh /usr/local/blackboard/tools/admin/RotateLogs.sh
+
+
+**** Steps
+1. Do a df -Th 
+2. If > 80%, rotate logs
+3. Sudo to bbuser
+4. sh /usr/local/blackboard/tools/admin/RotateLogs.sh
+   
+*** Update User Information
+
+#+begin_src SQL
+UPDATE BB_BB60.users SET <DATA> where USER_ID = 'buckinghama' COMMIT;
+#+end_src
+
+*** Find Course PK1
+#+begin_src SQL
+select pk1 from bb_bb60.course_main where course_id like '%45551%'
+#+end_src
+
+*** Find all available courses
+#+begin_src SQL
+select count(*) from BB_BB60.course_main where available_ind = 'Y' 
+#+end_src

@@ -1,0 +1,8 @@
+puts "Give me a number"
+a = gets.cnomp.to_i
+
+if a >= 10
+  puts "Longer"
+else
+  puts "Shorter"
+end

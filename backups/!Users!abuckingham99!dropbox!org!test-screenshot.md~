@@ -1,0 +1,48 @@
+
+# Open Firefox
+
+-   Play
+
+-   Live
+
+-   Enjoy
+
+
+# Table
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">Name</th>
+<th scope="col" class="right">Age</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td class="left">Andrew</td>
+<td class="right">39</td>
+</tr>
+
+
+<tr>
+<td class="left">John Smith</td>
+<td class="right">32</td>
+</tr>
+</tbody>
+</table>
+
+# Screenshot
+
+[<span class="underline">Packages</span>](file:////private/var/folders/dc/99rmp8613nq2nsrsc2gjfbkw0000gn/T/com.skitch.skitch/DMD88B13D8E-3A6A-4CFB-9A89-A1205F78672B/_Packages_.png)
+
+![nil](img/screencapture-20140316T202252.png)
+
+<img src="2014-03-16_091602_.png" alt="screenshot">

@@ -1,0 +1,4 @@
+var names = ['Andrew', 'Erik', 'Natalie'];
+console.log(names);
+
+console.log(names.length);

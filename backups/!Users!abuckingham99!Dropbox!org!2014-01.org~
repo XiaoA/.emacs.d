@@ -1,0 +1,491 @@
+#+Title: Andrew Buckingham's ITS Worklog, January 2014
+#+AUTHOR: Andrew Buckingham
+#+STARTUP: indent
+#+OPTIONS: num:nil toc:nil ^:nil
+#+TODO: TODO(t) |  Started(s) | Waiting(w) | Someday/Maybe(m) | Canceled(c) | DONE(d)(@) | Meeting(M) | Note(n)
+#+FILETAGS: :work:
+
+
+
+* Projects
+* Schedule
+
+* Daily Log
+
+** <2014-01-02 Thu>
+
+*** DONE Email George about Java (unable to create 2014 directory) error :report:
+
+*** TODO Email Andy about the changed kcbbapp servers
+
+Input: \\
+*[buckinghama@kcbbapp3 ~]$ df -Th*
+
+Output:
+| *Filesystem*                    | *Type* | *Size* | *Used* | *Avail* | *Use%* | *Mounted  on*                 |
+|---------------------------------+--------+--------+--------+---------+--------+-------------------------------|
+| /dev/mapper/VolGroup00-LogVol00 | ext3   | 8.8G   | 3.9G   | 4.5G    |    47% | /                             |
+|                                 |        |        |        |         |        |                               |
+| /dev/sda1                       | ext3   | 99M    | 37M    | 57M     |    40% | /boot                         |
+|                                 |        |        |        |         |        |                               |
+| tmpfs                           | tmpfs  | 3.9G   | 0      | 3.9G    |     0% | /dev/shm                      |
+|                                 |        |        |        |         |        |                               |
+| 128.206.13.8:/bb/kcbbprod       | nfs    | 500G   | 73G    | 428G    |    15% | /usr/local/blackboard/content |
+|                                 |        |        |        |         |        |                               |
+| 128.206.13.8:/bb/kcbbdev        | nfs    | 200G   | 111G   | 90G     |    56% | /DEV_Caution                  |
+
+
+*** TODO Email Mary about recurring tasks
+**** Mary's Recurring Tasks
+***** [Jan] 5. Archive sites. 
+Steps: 
+- Get DSK of sites to be archived 
+- Get count of sites with that DSK 
+- Generate list of course IDs 
+- Create a folder for the archives in app3 /DEV_Caution 
+- Create input file in /usr/local/blackboard/apps/content-exchange/bin. Each line should consist of <site id>,<destination folder>, e.g. UMKC-COMP-SCI5599-0002-34944-SS2013,/DEV_Caution/SS2013_Archives/ 
+- Run archive script 
+- ./batch_ImportExport.sh -f YourInputFile.txt -l 1 -t archive) 
+- When finished, verify count. 
+- FTP archives to permanent storage 
+- Delete archives from /DEV_Archives.
+/Typically done some time after completion of the term in order to catch late changes./
+***** [Jan] 9. Gradebook export from previous semester. 
+/Typically done immediately prior to flipping semester for students./
+
+***** [Jan 13/14] 3. Flip semester for students. 
+Steps are: 
+- Inform instructors ahead of time about the availability switch; 
+- Help Desk collects exception requests from faculty; 
+- Make upcoming term course sites available to students (unless an exception request has been made); 
+- Disable student enrollment in previous term’s course sites. 
+/Typically done one week before start of classes for new semester./
+
+***** [Feb (notices late Jan.)] 4. Flip semester” for faculty. 
+Steps: 
+- Generate list of emails for users with a role of ‘P’ in previous term’s sites. 
+- Update LML Blackboard-Announce with this list. 
+- Send email warning users that access to previous term’s sites will be pulled approximately 30 days into the next semester, instructions for self-archive, etc. Same info should also be posted in a Bb announcement available to UMKC-FACULTY role, listed in Jing’s newsletter, etc. 
+- Handle exceptions for ongoing sites, etc. 
+- Change row_status and DSK to ‘2’ in course_users for folks with role of ‘P’ in a site where crsmain_pk1 belongs to a previous term course site.
+/Typically completed 30 days into the subsequent semester. Warning notices need to go out earlier./
+
+***** [Feb] 6. Purge sites. 
+Steps: 
+- Archive the sites as above 
+- Make exception list of sites with size > 250 Mb 
+- Tell Duane you are about to remove the sites so that he can add data to table used by BBUR search tool  
+- Change DSK of remaining sites to 186/umkc.to.be.deleted. 
+- Use DSM tools to count, count_disabled, purge sites with that DSK.
+/Typically done 1 year + 1 month after close of semester in order to facilitate course copying for Help Desk, i.e. FS2012 sites would be purged a month into FS2013./
+
+***** [L] 7. Set up site creation, enrollment, active, etc. dates for upcoming semesters. 
+Summer and  Fall should be done together. Use web tool at https://kc-csrv-ora4.kc.umkc.edu/oracle-Login.html to fix dates.
+/Typically done several months before start of the semester./
+
+***** [L] 2. Clean up the ‘Users’ table. 
+Steps are: 
+- Identifying non-privileged, non-system-required accounts that have existed for at least one year and either have never had a login or the last login was > 1 year ago; 
+- Disabling and setting the DSK of these accounts to umkc.to.be.deleted; 
+- Giving ITS folks a chance to object to any deletions and doing an eyeball check of the accounts to be killed; and 
+- Doing a DSM purge on the disabled accounts. 
+/Typically done once in late summer and once over winter break./
+
+***** [L] 1. Create a ‘Final Grade’ column 
+(this is the column that allows faculty to pull grades into Pathway) in each of the semester’s course sites. 
+/Typically done early to mid-semester. Uses the addfinalgrade DB procedure./
+
+***** [N/A] 8. As needed: update/install extensions & building blocks; patch; purge old logs and other files to maintain sufficient free space on app servers; etc.
+
+
+
+1. Clean up the User's Table (After)
+2. Archive FS2013 Courses
+3. Flip Semester courses
+   + Students
+   + Faculty (After)
+4. Purge Sites (After)
+5. Send out Newsbytes Notices for items 2 
+
+
+January Tasks
+=============
+1. Archive sites.
+2. Gradebook export from previous semester
+3. Flip semester for students
+
+February (or later)
+===================
+4. Flip semester” for faculty
+5. Purge sites
+6. Set up site creation, enrollment, active, etc. dates for upcoming semesters
+7. Clean up the ‘Users’ table
+8. Create a ‘Final Grade’ column
+
+
+9. As needed: update/install extensions & building blocks; patch; purge old logs and other files to maintain sufficient free space on app servers; etc.
+
+
+
+** <2014-01-03 Fri>
+
+*** ARchive Tutorial Notes
+
+UMKC-SANDBOX-BUCKINGHAMA
+
+
+UMKC-SANDBOX-ARCHIVE-TUTORIAL-BUCKINGHAMA-0005
+
+[gbrqy3@localhost ~]$ ssh kcbbapp1-dev
+Last login: Tue Oct  8 14:02:13 2013 from mu-043035.static.missouri.edu
+[gbrqy3@kcbbapp1-dev ~]$ sudo /bin/su - bbuser
+[sudo] password for gbrqy3:
+[bbuser@kcbbapp1-dev ~]$ sudo /etc/init.d/blackboard restart
+Stopping Blackboard
+ 
+cd /usr/local/blackboard/apps/content-exchange/bin
+./batch_ImportExport.sh -f /DEV_Caution/FS2013-Archive/FS2013-Archives.txt -l 1 -t archive
+
+!#Bash%Bosa2de5zaru#!
+
+*** DONE Fixed Bb Collaborate on the DEV server                    :report:
+
+
+** <2014-01-07 Tue>
+
+*** NewsByte Submission: SP2014/FS2013 Course Site availability
+
+*** Waiting Update Bb Outage Documentation
+- Emailed Andy/Vishal. We'll need to discuss in the next Bb Team meeting.
+
+**** 2-20-2008 Version
+
+*Blackboard System Outage Procedures* 
+Blackboard is a mission-critical application. Any outages or system problems affecting general usage should be treated as issues of the highest priority. 
+
+1. Take initial outage report: 
+   - Gather as much information as possible to determine whether there is a general outage, a limited outage, or a local problem affecting only the user. For example, is the user located on campus or off? Are we receiving multiple reports of Blackboard outages? Are the reports all from a particular location, such as Hospital Hill? 
+   - Verify the outage to the extent possible. Can you reproduce the problem? Are other UMSL websites down (e.g. www.umsl.edu)? Is the login page loading? Are there Blackboard error messages, webserver error messages, etc.? 
+
+2. Alert ITS staff members on duty that there appears to be an outage.
+
+3. Contact Mary/Ali:. 
+   * Mary Crosson: 
+     1. Work: 816-235-1185 
+     2. Home: 816-363-6018 
+     3. Cell: 816-694-2156 
+   * Ali Haider 
+     1. Work: 816-235-1421 
+     2. Cell: 816-529-1971 
+     3. Home: 816-318-9198
+
+   * Note that Blackboard is a 24/7 application. Do not hesitate to call regardless of time of day. If there is no answer, leave a message and keep cycling through the numbers until you reach Mary or Ali in person. If unable to reach Mary or Ali within 10 minutes, call Andy Goodenow at 816-235-2368 or 913-530-4395 so that he can investigate or escalate to UMSL.  
+
+   * After making contact with Mary, Ali, or Andy, continue to log additional user outage reports into AR. 
+
+4. Mary/Ali will:
+
+   1. Take any immediate steps necessary to resolve outage
+
+   2. If the outage cannot be resolved within 5 minutes: 
+
+      1. Post an outage notice at https://kc-isss-webapps.kc.umkc.edu/outages 
+
+      2. Post an outage notice on the UMKCIA Facebook page
+
+      3. Twitter @UMKCIA
+
+      4. Escalate the problem, if appropriate (e.g. UMKC Networking, BBIC Tier 3 group) 
+
+      5. Notify the Call Center staff by email, cc:ing Lynn Magrone. Give them as much information as possible, including an estimated fix time. 
+
+      6. Notify Andy Goodenow, if not done in Step #3. 
+
+      7. Continue to communicate updated information with ITS and Call Center Staff until problem is resolved. 
+
+5. If problem occurs during prime usage periods, e.g. finals week, Andy will:
+
+   - Notify Mary Lou Hines If outage cannot be resolved within 30 minutes:
+
+   - Consider notification of IT liaisons mailing list if outage cannot be resolved within 45 minutes
+
+     1. Consider sending a general campus notification if outage cannot be resolved within 60 minutes 
+
+6. Post-resolution 
+
+   - Remove outage notice from website. 
+
+   - Determine whether a follow-up communication to faculty is necessary. 
+
+   - Email all users who called to report problems, close all AR tickets. 
+
+   - Draft a post-mortem report on the cause of the outage, the resolution process, and steps taken to reduce the probability of the problem recurring from the same cause.
+
+   - Log the outage on the BBIC SharePoint site so that an accurate record of system uptime exists. 
+
+     
+
+**** 1-7-2014 Version
+
+*Blackboard System Outage Procedures* 
+Blackboard is a mission-critical application. Any outages or system problems affecting general usage should be treated as issues of the highest priority. 
+
+***** Initial Outage Report (0-5 minutes)
+1. Take initial outage report: 
+   - Gather as much information as possible to determine whether there is a general outage, a limited outage, or a local problem affecting only the user. For example:
+     - Is the user located on campus or off?
+     - Are we receiving multiple reports of Blackboard outages?
+     - Are the reports all from a particular location, such as Hospital Hill? 
+   - Verify the outage to the extent possible. Can you reproduce the problem?
+   - Are other UM System websites down?
+     - *UMKC Blackboard*:[[https://blackboard.umkc.edu/webapps/portal/frameset.jsp]]
+     - *MU Blackboard*:https://bblearn.missouri.edu/webapps/portal/frameset.jsp
+     - *UMSL Blackboard*:https://mygateway.umsl.edu/webapps/portal/frameset.jsp
+     - *MST Blackboard*:https://blackboard.mst.edu/webapps/login/
+   - Is the login page loading?
+   - Is it a browser/cache issue?
+   - Are there Blackboard error messages, webserver error messages, etc.? 
+
+2. Alert ITS staff members on duty that there appears to be an outage.
+
+3. Contact Mary/Andrew:. 
+   * Mary Crosson: 
+     1. Work: 816-235-1185 
+     2. Home: 816-363-6018 
+     3. Cell: 816-694-2156 
+   * Andrew Buckingham 
+     1. Work: 816-235-1093
+     2. Cell: 816-718-5142 
+
+   * Note that Blackboard is a 24/7 application. Do not hesitate to call regardless of time of day. If there is no answer, leave a message and keep cycling through the numbers until you reach Mary or Andrew in person. *If you are unable to reach Mary or Andrew within 10 minutes, call Andy Goodenow at 816-235-2368 or 913-530-4395 so that he can investigate or escalate to UMSL.*
+
+   * After making contact with Mary, Andrew, or Andy, continue to log additional user outage reports into the Remedy Ticketing System. 
+
+   * Mary/Andrew will take any immediate steps necessary to resolve outage.
+
+***** Stage II: (5-10 minutes)
+
+If the outage cannot be resolved within 5 minutes: 
+
+1. Post an outage notice at https://kc-isss-webapps.kc.umkc.edu/outages 
+
+2. Post an outage notice on the UMKCIA Facebook page at [[https://www.facebook.com/pages/Information-Access-University-of-Missouri-Kansas-City/89439649984]]
+
+3. Twitter @UMKCIA ([[https://twitter.com/umkcia]])
+
+4. Escalate the problem, if appropriate (e.g., UMKC Networking, BBIC Tier 3 group) 
+-  BbICTier3Support@missouri.edu
+
+5. Notify the Call Center staff by email, cc: Lynn Magrone. Give them as much information as possible, including an estimated fix time. 
+
+6. Notify Andy Goodenow, if he has not been notified. 
+
+7. Continue to communicate updated information with ITS and Call Center Staff until problem is resolved.
+
+***** Stage III: (10-30 minutes)
+
+If problem occurs during prime usage periods, (e.g., during finals week), Andy will:
+
+     - Notify Mary Lou Hines If outage cannot be resolved within 30 minutes:
+
+     - Consider notification of IT liaisons mailing list if outage cannot be resolved within 45 minutes
+
+       1. Consider sending a general campus notification if outage cannot be resolved within 60 minutes 
+
+   * Post-resolution 
+
+     - Remove outage notice from website. 
+
+     - Determine whether a follow-up communication to faculty is necessary. 
+
+     - Email all users who called to report problems, close all Remedy tickets. 
+
+     - Draft a post-mortem report on the cause of the outage, the resolution process, and steps taken to reduce the probability of the problem recurring from the same cause.
+
+     - Log the outage on the BBIC SharePoint site so that an accurate record of system uptime exists.
+    
+
+* DONE Fix Mary's Phone number in SharePoint.                        :report:
+CLOSED: [2014-01-07 Tue 15:28]
+
+
+* <2014-01-08 Wed>
+
+** TODO Change theme on DEV to 2012 theme.
+
+* <2014-01-10 Fri>
+
+** Equella bug reports
+
+*** Issue: Some instuctors are unable to view content they've previously uploaded to Equella.
+*Site:* http://equella.umkc.edu
+*Issue:*
+    Some instructors can see their content; others cannot. One instructor, in particular ("Alexander D."), reported the same issue for months, even though we tried to add him manually into Equella (Demo Contributor Role). 
+Below are some excerpts from his email. I believe he is only able to use "Contribute" and not "Quick Contribute" (even though I know I have tried to manually added him at least once). I also know that he's worked with several people on our staff; I just found a couple emails where I'd worked with him that illustrate his issue. (As an Administrator, I had the same problem in the past, but I completely removed myself and our other Equella Admin added me back, and now I can see my previously-uploaded content. Unfortunately, she's on maternity leave, so I'm not sure how she did that. 
+
+Ultimately, we would like to have this resolved so that we do not need to spend time trying to add/remove users from Equella just to get their permissions correct in Equella. 
+
+*Desired behavior:* Users can view content that they have previously uploaded, and choose the best version to included in their Blackboard course.
+
+*Observed behavior:* This does work properly for some users, but many have reported that it does not work.I've included a PDF that demonstrates how this looked for me, when I tried to access my content in Equella.
+
+**** Email Excerpts
+
+***** Email #1
+From: D., Alexander
+Sent: Sunday, July 21, 2013 8:02 PM
+To: Buckingham, Andrew E.; Mead, Molly
+
+
+Hi Andrew,
+
+*<SNIP>*
+ Also the Equella problem which a ticket was issued for previously remains unresolved. Effectively I can only upload to Equalla using quick contribute but I cannot access any file that I uploaded again. I would like to have a page that has all the videos in one folder so the students don't have to browse the week by week content. So currently it is not possible for me to just repost anything that is in my Equalla folder, nor can I delete anything on there. 
+Thanks,
+
+Alex
+
+--
+
+***** Email #2
+From: D., Alexander
+Sent: Monday, July 22, 2013 9:57 AM
+To: UMKC Instructional Technologies
+
+*<SNIP>*
+2. Equella continues to be a problem. I reported the issue some weeks back. I would upload video files via quick contribute to equalla which subsequently posts a blackboard link. Thereafter, I never get access to these files again, i.e. by going to "Equella My Resources". In other words everything I upload disappears (see attachment). This is very annoying, i.e. if I want to post the link at a different point of my class.
+
+---
+From: Buckingham, Andrew E.
+Sent: Monday, July 22, 2013 4:30 PM
+To: D., Alexander
+Cc: UMKC Instructional Technologies
+Subject: RE: FW: GEOLOGY 220 0001- General Geology SS2013: Week 7 outlook and technical problems with EXAM#2
+Professor,
+
+*<SNIP>*
+
+Regarding Equella, I thought I'd manually added you before. I just tried again. Please let me know if you see the Quick Contribute. If not, checking your Java might be a good idea, after all. If that still doesn't help, I'll escalate the issue to Equella.
+
+*Additional Background Information:*
+(Mark Jeffiers and David Spiegel have been corresponding with our CIO at UMKC Instructional Technologies, Andrew Goodenow. We are in the process of renewing our Equella license, but have some concerns about the way it has been set up. Mark offered us a 30-day extension while we work on these issues. He also requested that we send each unique concern/question as a separate email for your internal ticketing purposes. 
+
+My name is Andrew Buckingham, and I help support Blackboard and Equella at the University of Missouri - Kansas City.  If you need any further clarification, please contact me at buckinghama@umkc.edu or at 816-235-1093. It seems to me that most, if not all, of our issues with our Equella setup stem from that fact that it has not been properly integrated with our Active Directory system. We would like to discuss how we can work together to resolve these issues, so that our users will find Equella useful and convenient to use.)
+
+*** Issue: Some instructors only see the *Contribute* Button, and not the *Quick Contribute* Button.
+*Site:* http://equella.umkc.edu
+
+*Issue:* Some of our instructors report not being able to access the *Quick Contribute* button. Most of them can view it after being manually added as a Demo Contributor, but at least one user has been added more than once, but cannot see the *Quick Contribute* button.
+
+*Desired behavior:* Users should be able to access both the *Contribute* and *Quick Contribute* buttons. 
+
+*Observed Behavior:* All users can access the *Contribute* button when they've been added to Equella. Some report that they cannot access the *Quick Contribute* on multiple browsers, and with Java correctly installed.
+
+*Additional Background Information:*
+Mark Jeffiers and David Spiegel have been corresponding with our CIO at UMKC Instructional Technologies, Andrew Goodenow. We are in the process of renewing our Equella license, but have some concerns about the way it has been set up. Mark offered us a 30-day extension while we work on these issues. He also requested that we send each unique concern/question as a separate email for your internal ticketing purposes. 
+
+My name is Andrew Buckingham, and I help support Blackboard and Equella at the University of Missouri - Kansas City.  If you need any further clarification, please contact me at buckinghama@umkc.edu or at 816-235-1093. It seems to me that most, if not all, of our issues with our Equella setup stem from that fact that it has not been properly integrated with our Active Directory system. We would like to discuss how we can work together to resolve these issues, so that our users will find Equella useful and convenient to use.
+*** Issue: Access permissions 
+*Site:* http://equella.umkc.edu
+
+*Issue:* Integration with Active Directory has been problematic. User permissions frequently need to be modified manually in order to give instructors the ability to upload content (e.g, an Equella Admin must manually add the user as a Demo Contributer, and the user must exit and come back to access Equella. 
+
+Manual modification is often difficult because the AD search fails to return user results. For example, to add users, I have to try multiple variations of their whole username, removing one letter until the search finds them. It's never consistent. For some users, it's their entire username. For others, it might be one, two, or five letters from their name. 
+
+*Desired Behavior:* Users should be correctly enrolled in Equella, based on their membership in the UMKC Active Directory, and their role in the Blackboard course site. Ideally, we wouldn't need to manually enroll a user, but if we did, it would be nice if the search functionality found their usernames consistently.
+
+*Additional Background Information:*
+Mark Jeffiers and David Spiegel have been corresponding with our CIO at UMKC Instructional Technologies, Andrew Goodenow. We are in the process of renewing our Equella license, but have some concerns about the way it has been set up. Mark offered us a 30-day extension while we work on these issues. He also requested that we send each unique concern/question as a separate email for your internal ticketing purposes. 
+
+My name is Andrew Buckingham, and I help support Blackboard and Equella at the University of Missouri - Kansas City.  If you need any further clarification, please contact me at buckinghama@umkc.edu or at 816-235-1093. It seems to me that most, if not all, of our issues with our Equella setup stem from that fact that it has not been properly integrated with our Active Directory system. We would like to discuss how we can work together to resolve these issues, so that our users will find Equella useful and convenient to use.
+       
+*** Issue: Active Directory groups not set up correctly
+*Site:* http://equella.umkc.edu
+
+*Issue:*
+Permissions, as they are currently implemented in Equella, are not course-based, department-based, or role-based as was initially promised/implied in the UM System/Equella discussions. The level of functional integration with Bb is minimal, which leads to issues with out Equella Admins find it difficult to do a search for a user to add them to Equella, as well as for users to access content that they have already uploaded (we've submitted separate bug reports for these issues, per Mark Jeffiers's eamil to Andy Goodenow at UMKC on 1/6/2013).
+
+*Additional Background Information:*
+Mark Jeffiers and David Spiegel have been corresponding with our CIO at UMKC Instructional Technologies, Andrew Goodenow. We are in the process of renewing our Equella license, but have some concerns about the way it has been set up. Mark offered us a 30-day extension while we work on these issues. He also requested that we send each unique concern/question as a separate email for your internal ticketing purposes. 
+
+My name is Andrew Buckingham, and I help support Blackboard and Equella at the University of Missouri - Kansas City.  If you need any further clarification, please contact me at buckinghama@umkc.edu or at 816-235-1093. It seems to me that most, if not all, of our issues with our Equella setup stem from that fact that it has not been properly integrated with our Active Directory system. We would like to discuss how we can work together to resolve these issues, so that our users will find Equella useful and convenient to use.
+*** Issue: Request for clarification on the limitations/integration options for Blackboard and Equella
+*Site:* http://equella.umkc.edu
+
+As part of our re-licensing discussions, we would like to request a clearer explanation of the limitations and integration options with Blackboard and Moodle. Equella is not currently as well integrated with Blackboard as we were expecting, based on our initial UM System/Equella discussions. We are submitted several issue reports, and we would like to discuss how we can address these going forward, to improve our users' experience with with Equella at UMKC.
+
+*Additional Background Information:*
+Mark Jeffiers and David Spiegel have been corresponding with our CIO at UMKC Instructional Technologies, Andrew Goodenow. We are in the process of renewing our Equella license, but have some concerns about the way it has been set up. Mark offered us a 30-day extension while we work on these issues. He also requested that we send each unique concern/question as a separate email for your internal ticketing purposes. 
+
+My name is Andrew Buckingham, and I help support Blackboard and Equella at the University of Missouri - Kansas City.  If you need any further clarification, please contact me at buckinghama@umkc.edu or at 816-235-1093. It seems to me that most, if not all, of our issues with our Equella setup stem from that fact that it has not been properly integrated with our Active Directory system. We would like to discuss how we can work together to resolve these issues, so that our users will find Equella useful and convenient to use.
+*** Issue: Request for help/guidance with setting up Moodle integration
+*Site:* http://equella.umkc.edu
+
+*Issue:*
+We currently have integrated Equella with Blackboard, but we have not set it up with Moodle. We would like to find out how we can set up Equella to work with our Moodle installation at UMKC.
+
+*Additional Background Information:*
+Mark Jeffiers and David Spiegel have been corresponding with our CIO at UMKC Instructional Technologies, Andrew Goodenow. We are in the process of renewing our Equella license, but have some concerns about the way it has been set up. Mark offered us a 30-day extension while we work on these issues. He also requested that we send each unique concern/question as a separate email for your internal ticketing purposes. 
+
+My name is Andrew Buckingham, and I help support Blackboard and Equella at the University of Missouri - Kansas City.  If you need any further clarification, please contact me at buckinghama@umkc.edu or at 816-235-1093. It seems to me that most, if not all, of our issues with our Equella setup stem from that fact that it has not been properly integrated with our Active Directory system. We would like to discuss how we can work together to resolve these issues, so that our users will find Equella useful and convenient to use.
+* 
+*
+* <2014-01-13 Mon>
+** Meeting Bb Survey setup                                           :report:
+SCHEDULED: <2014-01-13 Mon 10:00>
+** Find out about Retention Center
+** DONE Call Fitz McPhaul at Equella
+CLOSED: [2014-01-13 Mon 12:05]
+*** Email to Andy
+From: Buckingham, Andrew E.
+Sent: Monday, January 13, 2014 12:03 PM
+To: Goodenow, Andrew J.
+Subject: RE: Message from MCPHAUL THOMAS (5126730403)
+Andy, I just called him. He said he's taking over the account and that he wants to make sure that your concerns are addressed in a timely manner, and he'll be happy to help with that.
+
+I told him that I'd submitted one email per bullet point, along with as much relevant details as possible, per Mark Jeffries' instructions. He offered to set up a monthly call, so that we can discuss any issues or ideas that might come up. I told him I'd check with you and see what you wanted to do about that. For now, he said they should have all of the information that they need with the tickets, but he'll make sure they're still working on it, and I told him that if they needed more information, they could let me know.
+
+Andrew Buckingham
+* <2014-01-17 Fri>
+** TODO Re-enable the Bb IM module
+** TODO Contact the instructor who wanted to use Bb IM
+* <2014-01-18 Sat>
+I enabled the Java Advisory tabs on both the UMKC Dashboard and Technical Help tabs.
+** TODO Disable the Java Advisory tabs
+SCHEDULED: <2014-01-24 Fri>
+- Dashboard
+- Technical Help
+* <2014-01-21 Tue>
+** Flipped manual accounts
+- [X] rjl6yb
+- [X] vtsy9b
+- [X] rhkt3
+- [X] ljm7b2
+- [X] zcs526 16070432
+- [ ] hdm535 16175844
+- [ ] agentc
+
+select user_id, data_src_pk1, batch_uid, firstname, lastname from users where user_id='rhkt3';
+
+UPDATE users SET data_src_pk1='117', batch_uid ='13176023' WHERE
+user_id ='rhkt3'; COMMIT;
+* <2014-01-22 Wed>
+** TODO contact Eric Hall about the process of choosing courses for Pearson
+SCHEDULED: <2014-01-23 Thu>
+* <2014-01-28 Tue>
+** TODO Find out who teaches 107 on Mondays. Find out if he has key/alarm code
+DEADLINE: <2014-01-30 Thu>
+* <2014-01-29 Wed>
+** TODO Re-enable krausek in French Message Boards
+| USER_ID | COURSE_ID                                | ENROLLMENT_DATE    | DTMODIFIED         | ROLE |     PK1 | ROW_STATUS | DATA_SRC_PK1 | CRSMAIN_PK1 | USERS_PK1 |
+|---------+------------------------------------------+--------------------+--------------------+------+---------+------------+--------------+-------------+-----------|
+| krausek | REST-UMKC-ACADS-CAS-FRENCH-MESSAGEBOARDS | 23-AUG-06 11:38:28 | 21-JAN-14 16:21:47 | P    | 1032691 |          2 |          103 |       16300 |      1417 |
+
+
+http://turnitin.com/en_us/support/help-center
+
+
+Blackboard Basic - Web services calls failing more often after January 23, 2014 update - All
+Synch Grades" link is not available in older versions of Blackboard, or in older versions of the plug-in. 
+* <2014-01-30 Thu>
+** Accomplishments Report

@@ -1,0 +1,5 @@
+# contributor : Andrew Buckingham <abuckingham99@gmail.com>
+# name : <meta name="..." content="..." />
+#group : meta
+# --
+<meta name="${1:generator}" content="${2:content}" />

@@ -1,0 +1,22 @@
+# Site settings
+title: Andrew Buckingham
+email: abuckingham99@gmail.com
+description: "A site about web development, Rails, and other fun stuff."
+baseurl: ""
+url: "http://localhost:4000"
+twitter_username: abuckingham
+github_username:  XiaoA
+# Links
+links:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Projects
+    url: /projects/
+  - title: Contact
+    url: /contact/
+
+# Build settings
+markdown: kramdown
+permalink: pretty

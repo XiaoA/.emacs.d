@@ -1,0 +1,72 @@
+#+Title: Rolla LTIC (3/14/2014)
+#+AUTHOR: Andrew Buckingham
+#+STARTUP: indent
+#+OPTIONS: num:nil toc:nil ^:nil
+#+TODO: TODO(t) |  Started(s) | Waiting(w) | Someday/Maybe(m) | Canceled(c) | DONE(d)(@) | Meeting(M) | Note(n)
+
+* Bb Upgrade
+Kelly - Waiting for dev environment to be cloned
+Terry - April data release 
+- update/install environment
+- 4 60-minute webinar
+- SP14 instance installed
+-waiting for ICM instance to be created/ security
+- internal performance testing group - pushed to May
+- CSG very slow in building out; frustrating
+- 
+
+
+ECM filers
+2 data centers, written in parallel; database data can be restored from either in a matter of hours, at worst
+- re-mount
+
+Kelly: 
+** Daily
+(Kelly, Kevin, and Terry)
+- around 2/3 am Activity Accumulator moved to stats
+- Data guard archive about every 15 minutes written during busy times; longer during slow periods (15 min is the limit recommended by Oracle)
+- middle of the night backup disk - tape -> off-site
+
+
+*** Example
+
+Somewhere between 10am and 10:35am, there was a total failure.
+You're not sure when the issue occurred, but you think it's around 10:00am. 
+You can roll back to 9:59am.
+
+If you're using current content, anything afer 10:00 would be orphaned.
+
+The content file system /database (nightly log backup) separate, so if the content system is fine, you can just remount it and then go back to the time before the incident happened
+
+MOU 
+
+** App Dynamics
+Kelly - very useful for monitoring and reporting 
+Java hooks for monitoring
+
+* Canvas
+
+** Rolla Committee has endorsed Canvas Pilot
+- Decision much faster than expected
+- faculty/students very enthusiastic
+- Cost of ownership study underway (last thing they looked at)
+  - Canvas significantly cheaper than Bb ($100,000 less)
+- Conversion costs
+- 18-month parallel environment
+- Increased support
+- Working with Michigan Tech and other campuses that have converted to Canvas
+  
+- Meg the advantages of UM System all using the same LMS are not being discounted lightly
+
+Net Plus partner
+
+
+db page hit/page views
+
+git clone https://github.com/textmate/textmate.git
+cd textmate
+git submodule update --init
+./configure && ninja
+
+
+- See more at: http://timbroder.com/2012/08/compiling-textmate.html#sthash.1RuhBYzy.dpuf

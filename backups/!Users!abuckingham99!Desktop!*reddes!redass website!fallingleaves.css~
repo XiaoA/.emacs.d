@@ -1,0 +1,330 @@
+        /* Small reset */
+        
+        article,aside,details,figcaption,figure,
+        footer,header,hgroup,menu,nav,section { 
+            display:block;
+        }
+        
+        ul
+        {
+            list-style: none;
+            margin: 0;
+            padding: 0;         
+        }
+        
+        a
+        {
+          color: #6F3736;
+        }      
+    
+        /* Clear floats */
+        
+        .clearfix:after 
+        {
+          visibility: hidden;
+          display: block;
+          font-size: 0;
+          content: " ";
+          clear: both;
+          height: 0;
+        }
+        
+        .clearfix
+        {
+          *zoom: 1;
+        }
+        
+        /* Layout styles */
+        
+        body
+        {
+            background-color: #fff:
+            margin: 0;
+            font-family: 'Lucida sans', Arial, Helvetica;
+            font-size: small;
+        }
+        
+        header
+        {
+            padding: 10px 0;            
+            background-color: #4c2626;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#6f3736), to(#4c2626));
+            background-image: -webkit-linear-gradient(top, #6f3736, #4c2626);
+            background-image: -moz-linear-gradient(top, #6f3736, #4c2626);
+            background-image: -ms-linear-gradient(top, #6f3736, #4c2626);
+            background-image: -o-linear-gradient(top, #6f3736, #4c2626);
+            background-image: linear-gradient(top, #6f3736, #4c2626);  
+            -moz-box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
+            -webkit-box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
+            box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
+        }
+        
+        header hgroup
+        {
+            margin: 0 auto;
+            width: 960px;            
+        }
+                
+        header h1
+        {
+            margin: 0;
+            font: 25px/1 'Luckiest Guy', cursive; /* Google font API */
+            float: left;
+            text-shadow: 0 1px 0 rgba(0,0,0,.9);            
+        }
+        
+        header h2
+        {
+            color: #D2A4A4;
+            margin: 0;
+            float: right;
+            font: italic normal 15px/25px Arial, Helvetica;
+        }
+        
+        header a
+        {
+            color: #eee;
+            text-decoration: none;
+        }
+        
+        header a span
+        {
+            color: #d2a4a4;
+        }
+        
+        /* --------------------------------------------------- */
+        
+        footer
+        {
+            text-align: right;
+            width: 960px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+        
+        #tw, #fb
+        {
+            float: right;
+            width: 130px;
+            margin: 10px 0 0 0;
+            overflow: hidden;
+        }
+        
+        /* --------------------------------------------------- */        
+        
+        #main
+        {
+            margin: 20px auto 0 auto;
+            width: 960px;
+        }
+        
+        aside
+        {
+            float: left;
+            width: 250px;
+            margin-right: 20px;
+        }
+        
+        #content
+        {
+            float: left;
+            width: 690px;
+        }
+        
+        article
+        {
+            position: relative;            
+            padding: 20px;
+            margin: 0 0 20px 0;
+            text-align: center;
+            background: #fff;
+            -moz-box-shadow: 0 1px 1px #999;
+            -webkit-box-shadow: 0 1px 1px #999;
+            box-shadow: 0 1px 1px #999;
+            -moz-border-radius:5px;
+            -webkit-border-radius:5px;
+            border-radius:5px;            
+        }
+
+        article:before, article:after
+        {
+          z-index: -1;
+          position: absolute;
+          content: "";
+          bottom: 15px;
+          left: 10px;
+          width: 50%;
+          top: 80%;
+          max-width:300px;
+          background: rgba(0, 0, 0, 0.7);
+          -webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7);
+          -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+          box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+          -webkit-transform: rotate(-3deg);
+          -moz-transform: rotate(-3deg);
+          -o-transform: rotate(-3deg);
+          -ms-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+        }
+        
+        article:after
+        {
+          -webkit-transform: rotate(3deg);
+          -moz-transform: rotate(3deg);
+          -o-transform: rotate(3deg);
+          -ms-transform: rotate(3deg);
+          transform: rotate(3deg);
+          right: 10px;
+          left: auto;
+        }        
+        
+        article footer
+        {
+            text-align: center;
+            width: auto;
+        }
+       
+        article footer span
+        {
+          padding: 0 10px 0 12px;
+          margin: 0 0 0 12px;
+          background: #bbb;
+          color: #fff;
+          font: bold 12px/24px arial, helvetica;
+          display: inline-block;
+          position: relative;
+          text-shadow: 0 1px 0 #999;
+          -moz-border-radius: 0 4px 4px 0;
+          border-radius: 0 4px 4px 0;
+          -moz-box-shadow: 0 1px 0 #fff, 0 1px 0 #999 inset;
+          -webkit-box-shadow: 0 1px 0 #fff, 0 1px 0 #999 inset;
+          box-shadow: 0 1px 0 #fff, 0 1px 0 #999 inset;
+        }
+        
+        article footer span:before
+        {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -12px;
+          width: 0;
+          height: 0;
+          border-color: transparent #bbb transparent transparent;
+          border-style: solid;
+          border-width: 12px 12px 12px 0;
+        }
+         
+        article footer span:after
+        {
+          content: "";
+          position: absolute;
+          top: 10px;
+          left: 0;
+          width: 4px;
+          height: 4px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+          background: #fff;
+          -moz-box-shadow: -1px -1px 2px #777;
+          -webkit-box-shadow: -1px -1px 2px #777;
+          box-shadow: -1px -1px 2px #777;
+        }        
+        
+        figure
+        {
+            margin: 1em 0;
+        }
+        
+        figcaption
+        {
+            margin: 0.5em 0;
+            font-style: italic;
+            font-size: 0.9em;
+            color: #777;
+        }
+        
+        /* Vertical menu */
+        
+        #menu li
+        {
+          margin: 0 0 3px 0;             
+        }
+        
+        #menu a
+        {
+          display: block;
+          *display: inline-block;
+          *width: 240px;
+          text-decoration: none;	            
+          background: #ddd;
+          color: #444;	
+          padding: 10px 5px;
+          text-transform: uppercase;
+          font: bold 12px Arial,Helvetica;          
+          -moz-border-radius:5px;
+          -webkit-border-radius:5px;
+          border-radius:5px;
+          -moz-box-shadow: 0 1px 0 #ccc;
+          -webkit-box-shadow: 0 1px 0 #ccc;
+          box-shadow: 0 1px 0 #ccc;   
+        }
+        
+        #menu a:hover
+        {
+            color: #eee;
+            background: #9c9c9c;
+            background: -webkit-gradient(linear, left top, left bottom, from(#bbb), to(#999));
+            background: -webkit-linear-gradient(top, #bbb, #999); 
+            background:    -moz-linear-gradient(top, #bbb, #999); 
+            background:     -ms-linear-gradient(top, #bbb, #999); 
+            background:      -o-linear-gradient(top, #bbb, #999); 
+            background:         linear-gradient(top, #bbb, #999);          
+        }
+        
+        #menu .expandable
+        {
+            position: relative; 
+        }
+        
+        #menu .expandable:before,
+        #menu .expandable:after
+        {
+          content: '';
+          position: absolute;
+          right: 5px;
+          margin-top: 5px;
+          border-top: 6px solid #444;
+          border-right: 6px solid transparent;
+          border-left: 6px solid transparent;          
+        }
+        
+        #menu .expandable:before
+        {
+           border-top-color: #fff;
+           margin-top: 6px;
+        }
+        
+        #menu .expanded:after
+        {
+          border-top: 0;
+          border-bottom: 6px solid #444;       
+        }
+        
+        #menu .expanded:before
+        {
+            border-top: 0;
+            border-bottom: 6px solid #fff;               
+        }
+        
+        #menu ul a
+        {
+            background: #f2f2f2;
+            text-transform: none;
+            font-weight: normal;            
+        }
+        
+        #menu ul a:hover
+        {
+            background: #fafafa;
+            color: #444;
+        }         

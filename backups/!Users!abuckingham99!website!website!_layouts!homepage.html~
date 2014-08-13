@@ -1,0 +1,7 @@
+---
+layout: homepage
+---
+<div class="some_class">
+  
+</div>
+  {{ content }}

@@ -1,0 +1,107 @@
+﻿<!-- #include virtual="../../includes/header.aspx"-->
+<title>Enrollment - Blackboard - Information Access Home - University of Missouri - Kansas City</title>
+<!--#include virtual="../../includes/script.aspx"-->
+<!-- Include Custom Script Here -->
+<style>
+ul.anchors > li {
+	list-style: none !important;
+	margin-left: 10px !important;
+	padding: 3px;
+}
+</style>
+<link type="text/css" rel="stylesheet" href="includes/bb_responsive.css" />
+<!-- End Custom Script -->
+<!--#include virtual="../../includes/headerbody.aspx"-->
+<!-- Start of Body -->
+<div id="main-container"><div id="body-container">
+<section id="left-body-column">
+<!-- Start of Main Left -->
+<!--#include virtual="../../includes/leftcol.aspx"-->
+
+<!-- End of Main Left -->
+</section>
+<div id="threecolcontainer">
+<nav id="ia-navbar" class="top"></nav>
+<section id="center-body-column">
+<!-- Start of Main Center -->
+<!--#include virtual="/ia/includes/mobilenav.aspx"-->
+      <div id="breadcrumb">
+        <p><a title="Home" href="../../default.aspx">Home</a> > 
+		<a title="Instructional Technologies Services" href="../default.aspx">ITS</a> > <a href="default.aspx">Blackboard</a> > 
+		<a href="getting-started-instructors.aspx">Instructors Getting Started</a> 
+		&gt; <a href="add-users.aspx">Adding Users</a>
+</p>
+      </div>
+      <div class="center">
+      
+      </div>
+      <a name="top"></a>
+      <h1>Blackboard</h1>
+      <h2>Learning Management System</h2>
+      
+      <ul class="anchors">
+        	<li><a href="#addstudents">Can I add students to my site who aren't enrolled?</a></li>
+            <li><a href="#roles">Available Course Site Roles</a></li>
+          	<li><a href="#incomplete">Enroll a Student in a Course Site to Finish an Incomplete</a></li>  	
+          	<li><a href="#addusers">Adding Users to Blackboard Course Sites</a></li>
+            <li><a href="#organization">Adding Users to Blackboard Organization Sites</a></li>
+            
+        </ul>
+      <hr />
+      <h4><a name="addstudents"></a>&quot;Can I add students to my site who aren't enrolled?&quot;</h4>
+      <p>Instructors cannot enroll students in a course site.</p>
+      <p>Enrollment in Blackboard course sites is Pathway-driven. When a student enrolls in a course through Pathway, the student is added to the Blackboard course site within 1 business day following their enrollment in Pathway.</p>
+
+      <p>Instructors can request that students be <a href="#incomplete">enrolled in a course site to finish an incomplete</a>. Instructors can also <a href="#addusers">request that teaching assistants, instructors, graders and course builders be given access to a course site</a>. </p>
+      <p><a href="#top">Back to Top</a></p>
+      <hr/>
+      
+      <h4><a name="roles"></a>Available Course Site Roles</h4>
+      <ul><li>Teaching Assistants</li>
+        <li>Instructors</li>
+        <li>Graders</li>
+        <li>Course Builders</li>
+      </ul>
+      <h4><a name="incomplete"></a>Enroll a Student in a Course Site to Finish an Incomplete</h4>
+      <p>If an instructor needs to  give a student access to a course site in order to finish an incomplete, the  instructor must email the Registrar’s office at <a href="mailto:registrar@umkc.edu">registrar@umkc.edu</a>. The Registrar’s office will then authorize Instructional Technologies Services to enroll the student in the course site.</p>
+      <p><a href="#top">Back to Top</a></p>
+      <hr/>
+      
+      <h4><a name="addusers"></a>Adding Users to Blackboard Course Sites</h4>
+      <p>Note: If you are enrolling many users at one time, use the Batch Enrollment Template listed below and follow the instructions detailed in the Batch Enrollments PDF.</p>
+      <ul>
+<li>Enrolling Instructors, TAs, Course Builders, and Graders to a Blackboard Course Site | <a href="documents/Instructors/Enrollment/addingtagraders.pdf">PDF</a></li>
+<li>Batch Enrollments - Enrolling many users at one time | <a href="">PDF</a></li>
+<li>Batch Enrollment Template | <a href="documents/Instructors/Enrollment/batch enrollment template.xlsx">Excel Spreadsheet</a></li>
+</ul>
+
+<p><a href="#top">Back to Top</a></p>
+<hr/>
+
+<h4><a name="organization"></a>Adding Users to Blackboard Organization Sites</h4>
+<p>Note: If you are enrolling many users at one time, use the Batch Enrollment Template listed below and follow the instructions detailed in the Batch Enrollments PDF.</p>
+<ul>
+<li>Enrolling Leaders, Assistants, Organization Builders, and Graders to a Blackboard Organization Site | <a href="documents/Request System/add org members.pdf">PDF</a></li>
+<li>Batch Enrollments - Enrolling many users at one time | <a href="">PDF</a></li>
+<li>Batch Enrollment Template | <a href="documents/Instructors/Enrollment/batch enrollment template.xlsx">Excel Spreadsheet</a></li>
+</ul>
+<p><a href="#top"><small>Back to Top</small></a></p>
+         <hr/>   
+      
+<!-- End of Main Center -->
+      <section> <small class="small">Last Updated: <script>
+				document.write(document.lastModified);
+			</script></small> </section>
+</section>
+<section id="right-body-column">
+<!-- Start of Main Right -->
+<!--#include virtual="../../includes/etool.aspx"--> <br/>
+<!--#include virtual="includes/rightmenu.aspx"-->
+  
+<!-- Start of Main Right -->
+</section></div></div>
+</div>
+<!-- End of Body -->
+<!-- Start of the Footer -->
+
+<!--#include virtual="../../includes/footer.aspx"-->

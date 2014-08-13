@@ -1,0 +1,128 @@
+which clear
+ls
+pwd
+cd
+pwd
+$+
++
+$
+ll
+ls -l
+man more
+pwd
+brew update
+/usr/local/brew update
+/usr/local/bin/brew update
+/usr/local/bin/brew upgrade
+ls /usr/local/bin/
+cd mmd
+pwd
+pwd
+cd /usr/local/bin/
+ls
+cd brew
+ls
+cd /usr/local/Cellar/
+ls
+cd multimarkdown
+ls
+cd head
+ls
+cd bin
+ls
+pwd
+vim
+cd ~/mkdir/webdev
+cd ~/webdev/portfolio
+mkdir first_site
+cd first_site/
+touch index.html
+mkdir css
+touch css/style.css
+ls
+mkdir img
+ls
+emacs index.html
+clear
+pwd
+cd ..
+ls
+pwd
+cd css_dropdown
+mkdir css_dropdown
+cd css_dropdown
+mkdir css
+touch css/style.css
+touch index.html
+mkdir ~/webdev/portfolio/line_25/
+cd ~/webdev/portfolio/line_25/
+touch index.html
+mkdir css
+cd ~/
+brew
+/usr/local/bin/brew
+/usr/local/bin/brew update
+/usr/local/bin/brew upgrade
+/usr/bin/clear
+/usr/local/bin/brew search grunt
+mkdir ~/webdev/devcourse/js/index.html
+mkdir ~/webdev/devcourse/js/
+mkdir ~/webdev/devcourse/js/js/
+mkdir ~/Desktop/html-practice/
+cd ~/.emacs.d/
+git pull
+ls
+cd org-mode/
+ls
+git pull
+contrib/lisp/org-index.el
+clear
+touch ~/Desktop/style1.css
+mkdir ~/Desktop/js/
+touch ~/Desktop/index.html
+mkdir ~/Desktop/js/js/
+mkdir ~/Desktop/js/css/
+clear
+ls
+ls -al
+ls
+cd my_first_app/
+ls
+pwd
+cd ..
+ls
+cd rails_projects/blog
+ls
+pwd
+cd ~/tealeaf/
+ls
+ls learn_ruby/
+ls
+cd learn_ruby/
+ls
+cd my_folder/
+ls
+ruby movies.rb
+ruby movies.rb
+ruby movies.rb
+ruby movies.rb
+irb
+ruby movies.rb
+ruby movies.rb
+ruby movies.rb
+ruby movies.rb
+ruby movies.rb
+ruby movies.rb
+ruby movies.rb
+ruby movies.rb
+ruby factorials.rb
+ruby factorials.rb
+ruby factorials.rb
+ruby scope.rb
+cd ..
+ls
+rake routes
+bundle install
+bin/rails server
+jekyll serve -w
+vim
