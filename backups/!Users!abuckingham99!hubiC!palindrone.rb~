@@ -1,4 +1,0 @@
-def rev_name(name)
-  puts "Your name is a palindrone, and I can prove it. It's " + name.reverse
-end
-

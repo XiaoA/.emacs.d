@@ -1,9 +1,0 @@
-<h6> />
-</h6>
-# contributor : Andrew Buckingham <abuckingham99@gmail.com>
-# name : <ul id="...">...</ul>
-#group : list
-# --
-<ul id="$1">
-  $0
-</ul>

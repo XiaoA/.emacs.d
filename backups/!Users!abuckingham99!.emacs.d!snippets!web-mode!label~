@@ -1,5 +1,0 @@
-# contributor: Andrew Buckingham <abuckingham99@gmail.com>
-# name: label
-# key: label
-# --
-<label for="$1">$2</label><input id="$1" type="${3:$$(yas-choose-value '("button" "checkbox" "color" "date" "datetime" "datetime-local" "email" "file" "hidden" "image" "month" "number" "password" "radio" "range" "reset" "search" "submit" "tel" "text" "time" "url" "week"))}" name="$4" ${5:$$(yas-choose-value '("value" "placeholder"))}="$1">

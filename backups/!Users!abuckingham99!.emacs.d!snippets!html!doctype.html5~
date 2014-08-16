@@ -1,9 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: doctype
-# key: doctype
-# binding: direct-keybinding
-# expand-env: ((some-var some-value))
-# type: command
-# --
-<!DOCTYPE html>
-$

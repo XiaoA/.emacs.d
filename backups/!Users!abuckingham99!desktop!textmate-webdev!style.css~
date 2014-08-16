@@ -1,5 +1,0 @@
-body {
-	background-image: url(img/bg.png);
-	font-family: sans-serif;
-	text-shadow: #DDD 10px 10px 2px;
-}

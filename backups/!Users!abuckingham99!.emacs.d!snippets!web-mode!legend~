@@ -1,5 +1,0 @@
-#contributor : Andrew Buckingham
-#name : legend 
-# --
-<legend>$1</legend>
-$0

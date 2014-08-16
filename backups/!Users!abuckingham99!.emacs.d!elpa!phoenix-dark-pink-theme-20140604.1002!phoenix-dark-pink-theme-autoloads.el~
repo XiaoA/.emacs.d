@@ -1,13 +1,0 @@
-;;; phoenix-dark-pink-theme-autoloads.el --- automatically extracted autoloads
-;;
-;;; Code:
-
-
-(provide 'phoenix-dark-pink-theme-autoloads)
-;; Local Variables:
-;; version-control: never
-;; no-byte-compile: t
-;; no-update-autoloads: t
-;; coding: utf-8
-;; End:
-;;; phoenix-dark-pink-theme-autoloads.el ends here

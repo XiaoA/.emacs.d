@@ -541,3 +541,8 @@ Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
 (setq yas/after-exit-snippet-hook 'yas-web-mode-fix)
   
   #+END_SRC
+
+* Add ispell
+  #+BEGIN_SRC emacs-lisp
+(setq ispell-program-name "/usr/local/bin/ispell")  
+  #+END_SRC

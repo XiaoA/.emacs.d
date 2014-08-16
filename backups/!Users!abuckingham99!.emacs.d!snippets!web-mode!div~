@@ -1,4 +1,0 @@
-# contributor : Andrew Buckingham <abuckingham99@gmail.com>
-# name : div
-# --
-<div ${1:$$(yas-choose-value '("id" "class"))}="$2">$3</div>$0
