@@ -348,3 +348,4 @@ $" . web-mode) auto-mode-alist))
 
 (defalias 'list-buffers 'ibuffer)
 
+(setq ispell-program-name "/usr/local/bin/ispell")
