@@ -1,5 +1,8 @@
+*.dat
+*.elc
 *scratch*
 .DS_Store
+.org-id-locations
 .places
 /url/
 auto-save-list
@@ -7,9 +10,7 @@ backups/**
 elpa
 eshell/**
 games
+org-mode
 places
 session.*
 tramp
-.org-id-locations
-*.dat
-org-mode
