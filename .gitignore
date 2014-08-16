@@ -10,3 +10,6 @@ games
 places
 session.*
 tramp
+.org-id-locations
+*.dat
+org-mode
