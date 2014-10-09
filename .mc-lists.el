@@ -4,6 +4,8 @@
 (setq mc/cmds-to-run-for-all
       '(
 	ab/toggle-eshell-visor
+	ace-jump-mode
+	ace-jump-move
 	autopair-insert-opening
 	autopair-insert-or-skip-quote
 	autopair-skip-close-maybe
@@ -23,6 +25,7 @@
 	kill-region
 	kill-visual-line
 	mark-whole-buffer
+	markdown-exdent-or-delete
 	org-beginning-of-line
 	org-delete-char
 	org-end-of-line
@@ -34,6 +37,7 @@
 	org-time-stamp
 	org-yank
 	outline-next-visible-heading
+	query-replace
 	set-goal-column
 	sgml-slash
 	switch-to-buffer
@@ -50,7 +54,10 @@
 
 (setq mc/cmds-to-run-once
       '(
+	ace-jump-done
 	describe-key
 	dired-jump
+	handle-switch-frame
 	help-for-help
+	kmacro-start-macro-or-insert-counter
 	))
