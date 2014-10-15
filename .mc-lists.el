@@ -26,6 +26,7 @@
 	kill-visual-line
 	mark-whole-buffer
 	markdown-exdent-or-delete
+	org-babel-tangle
 	org-beginning-of-line
 	org-delete-char
 	org-end-of-line
