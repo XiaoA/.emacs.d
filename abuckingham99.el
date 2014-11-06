@@ -10,8 +10,8 @@
 (package-initialize)
 
 ;; Multiple Cursors
-;; Thanks, Magnar!
-;; https://github.com/magnars
+;; (Magnar is an Emacs god!)
+;; https://github.com/magnars |http://www.emacsrocks.com 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -27,14 +27,16 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'fringe-mode) (fringe-mode -1))
 
+;; type "y"/"n" instead of "yes"/"no"
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;;Set up my custom.el file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
-;; Use web-mode for .NET sites at work
+;; Use web-mode whenever possible...
 (setq auto-mode-alist (cons '("\\.aspx$" . web-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.erb
-$" . web-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.erb$" . web-mode) auto-mode-alist))
 
 ;; Byte Recompile
 (defun ab/byte-recompile ()
@@ -43,7 +45,7 @@ $" . web-mode) auto-mode-alist))
 
 ;; Increment Number at Point
 ;;Got this from EmacsWiki; enables incremental numbers. First input
-;; numbers and then use this!
+  ;; numbers and then use this!
   (defun ab/increment-number-at-point ()
       (interactive)
       (skip-chars-backward "0123456789")
@@ -55,11 +57,11 @@ $" . web-mode) auto-mode-alist))
 (require 'paren)
 (show-paren-mode t)
 
-;; type "y"/"n" instead of "yes"/"no"
-(fset 'yes-or-no-p 'y-or-n-p)
-
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
 (global-set-key "\C-x\C-m" 'execute-extended-command)
+
+;; It's more convenient to press 'Return' to follow a link from Org an C-c C-l.
+(setq org-return-follows-link t)
 
 ;; Set up Org-Mode
 (add-to-list 'auto-mode-alist '("\\.org\\’" . org-mode))
@@ -68,12 +70,10 @@ $" . web-mode) auto-mode-alist))
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
 
-;; Markdown exporter
-
-;;(require 'ox-md)
-
+;;  Make yasnippet work properly with org-mode. 
 ;;  (defun yas/org-very-safe-expand ()
 ;;    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+
 (defun yas-org-very-safe-expand ()
   (let ((yas-fallback-behavior 'return-nil))
     (and (fboundp 'yas-expand) (yas-expand))))
@@ -104,59 +104,46 @@ $" . web-mode) auto-mode-alist))
 
 (setq org-use-speed-commands t)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (sh . t)
-   (R . t)
-   (perl . t)
-   (ruby . t)
-   (python . t)
-   (js . t)
-   (haskell . t)))
+;; Org-Mode Code Blocks
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (sh . t)
+     (R . t)
+     (perl . t)
+     (ruby . t)
+     (python . t)
+     (js . t)
+     (haskell . t)))
 
 (add-to-list 'org-src-lang-modes
              '("r" . ess-mode))
 
-(setq org-src-fontify-natively t)
-(setq org-src-tab-acts-natively t)
+;; Code block fontification
+  (setq org-src-fontify-natively t)
+  (setq org-src-tab-acts-natively t)
 
-(setq org-confirm-babel-evaluate nil)
+;; Don't ask for confirmation on every =C-c C-c= code-block compile. 
+  (setq org-confirm-babel-evaluate nil)
 
-(unless (boundp 'Info-directory-list)
-  (setq Info-directory-list Info-default-directory-list))
-(setq Info-directory-list
-      (cons (expand-file-name
-             "doc"
-             (expand-file-name
-              "org"
-              (expand-file-name "src" dotfiles-dir)))
-            Info-directory-list))
+;; Ensure the Latest Org-mode manual is in the info directory
+  (unless (boundp 'Info-directory-list)
+    (setq Info-directory-list Info-default-directory-list))
+  (setq Info-directory-list
+        (cons (expand-file-name
+               "doc"
+               (expand-file-name
+                "org"
+                (expand-file-name "src" dotfiles-dir)))
+              Info-directory-list))
 
-(message ".")
+;; It's silly, I know, but why not let Emacs greet me...? ;)
+  (message "Welcome back, Andrew. Are you ready to save the world?")
 
+;; Let's keep our files in Dropbox
 (setq org-directory "~/Dropbox/org")
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
 (global-set-key (kbd "C-c c") 'org-capture)
-
-;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
-;;(setq org-capture-templates
-;;      (quote (("t" "todo" entry (file "~/Dropbox/org/refile.org")
-;;               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-;;              ("r" "respond" entry (file "~/Dropbox/org/refile.org")
-;;               "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
-;;              ("n" "note" entry (file "~/Dropbox/org/refile.org")
-;;               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-;;              ("j" "Journal" entry (file+datetree "~/Dropbox/org/journal.org")
-;;               "* %?\n%U\n" :clock-in t :clock-resume t)
-;;              ("w" "org-protocol" entry (file "~/Dropbox/org/refile.org")
-;;               "* TODO Review %c\n%U\n" :immediate-finish t)
-;;              ("m" "Meeting" entry (file "~/Dropbox/org/refile.org")
-;;               "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
-;;              ("p" "Phone call" entry (file "~/Dropbox/org/refile.org")
-;;               "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
-;;              ("h" "Habit" entry (file "~/Dropbox/org/refile.org")
-;;               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"<%Y-%m-%d %a .+1d/3d>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
 
 ;; Keybinding for just-one-space
 ;; recommended by Bozhidar: http://emacsredux.com/blog/2013/05/19/delete-whitespace-around-point/
@@ -199,12 +186,11 @@ $" . web-mode) auto-mode-alist))
 
 (setq yas/prompt-functions '(yas/popup-isearch-prompt yas/no-prompt))
 
-(setq org-return-follows-link t)
-
-(setq org-directory "~/Dropbox/org/")
-(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg/")
-(setq org-agenda-files (quote ("~/Dropbox/org/its-2014-2.org")))
-(setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/inbox.org")
+;; This is on hold...not really using MobileOrg now, but might change my mind later...
+;; (setq org-directory "~/Dropbox/org/")
+;; (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg/")
+;; (setq org-agenda-files (quote ("~/Dropbox/org/its-2014-2.org")))
+;; (setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/inbox.org")
 
 (setq yas-snippet-dirs
       '("/Users/abuckingham99/.emacs.d/elpa/yasnippet-20140314.255/snippets/"
@@ -212,14 +198,10 @@ $" . web-mode) auto-mode-alist))
         ))
 (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
 
-(add-to-list 'load-path
-              "~/.emacs.d/snippets/html-mode/")
-(require 'yasnippet)
+;; (add-to-list 'load-path
+;;               "~/.emacs.d/snippets/html-mode/")
 
-;; Turn pasted BB Sis Integration log into a CSV file
-(fset 'ab/sis-integration-log
-   [?\C-c ?\C-p ?\C-n ?\M-f ?\M-d ?\M-d ?\M-d ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a])
-
+;; Set keyboard shortcut for webjump
 (global-set-key (kbd "C-x g") 'webjump)
 
 ;; Add Urban Dictionary to webjump
@@ -271,6 +253,13 @@ $" . web-mode) auto-mode-alist))
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
+;; Require Dired-X
+(require 'dired-x)
+
+;; Turn pasted BB Sis Integration log into a CSV file
+(fset 'ab/sis-integration-log
+   [?\C-c ?\C-p ?\C-n ?\M-f ?\M-d ?\M-d ?\M-d ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a])
+
 ;; ab/sis-1
 ;; Remove all of the unnecessary text and whitespace, and format the line as csv
 (fset 'ab/sis-1
@@ -310,20 +299,22 @@ $" . web-mode) auto-mode-alist))
       (insert"=")
       (setq ii (1+ ii) ) ) ))
 
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
+Autoload file types (.markdown; .md; .mkd)
+  (autoload 'markdown-mode "markdown-mode"
+     "Major mode for editing Markdown files" t)
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
 
-(defun markdown-preview-file ()
-  "run Marked on the current file and revert the buffer"
-  (interactive)
-  (shell-command 
-   (format "open -a /Applications/Marked.app %s" 
-       (shell-quote-argument (buffer-file-name)))))
+;; Use Marked.app as my Markdown viewer
+  (defun markdown-preview-file ()
+    "run Marked on the current file and revert the buffer"
+    (interactive)
+    (shell-command 
+     (format "open -a /Applications/Marked\ 2x.app %s" 
+         (shell-quote-argument (buffer-file-name)))))
 
-(global-set-key (kbd "C-c C-m") 'markdown-preview-file)
+  (global-set-key (kbd "C-c C-m") 'markdown-preview-file)
 
 (defun ab/add-title-underline ()
   "add ========= below current line, with same number of chars."
@@ -337,6 +328,7 @@ $" . web-mode) auto-mode-alist))
       (insert "=")
       (setq ii (1+ ii) ) ) ))
 
+;; I use these for cleaning up some report data from R. Not really useful for anyone but me...
 (fset 'ab/chat-regexp-home-pm
    "\223[0-\C-?\C-?6-9\\|10]\C-?\C-?\C-?(10)]\C-?\C-?\C-?\C-?\C-?+:\C-?\C-?\C-?\C-?]+:[0-9]+:[0-9]+,PM\C-eHome")
 
@@ -346,6 +338,15 @@ $" . web-mode) auto-mode-alist))
 (fset 'ab/chat-regexp-office-pm
    "\223[0-5]+:[0-9]+:[0-9]+,PM\C-eOffice")
 
+;; ibuffer is an Improved version of list-buffers
 (defalias 'list-buffers 'ibuffer)
+
+;; From: https://github.com/fxbois/web-mode/issues/51
+;; Fixes Yassnippet with web-mode
+
+(defun yas-web-mode-fix ()
+  (web-mode-buffer-refresh)
+  (indent-for-tab-command))
+(setq yas/after-exit-snippet-hook 'yas-web-mode-fix)
 
 (setq ispell-program-name "/usr/local/bin/ispell")

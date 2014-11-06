@@ -31,9 +31,12 @@
 	org-delete-char
 	org-end-of-line
 	org-force-self-insert
+	org-insert-link
 	org-kill-line
 	org-open-line
 	org-self-insert-command
+	org-shiftleft
+	org-shiftright
 	org-table-blank-field
 	org-time-stamp
 	org-yank
@@ -42,6 +45,7 @@
 	set-goal-column
 	sgml-slash
 	switch-to-buffer
+	text-scale-adjust
 	transpose-words
 	view-emacs-debugging
 	wdired-finish-edit
