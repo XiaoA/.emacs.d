@@ -1,28 +1,27 @@
-#+TITLE: My Emacs Customizations
+#+TITLE: My Emacs Customizations (new)
 #+AUTHOR: Andrew Buckingham
 #+OPTIONS: num:nil toc:nil
-
 
 * Who doesn't love packages?
 
 #+BEGIN_SRC emacs-lisp
 ;;Who doesn't love packages?
+
 (require 'package)
-(add-to-list 'package-archives 
-    '("marmalade" .
-      "http://marmalade-repo.org/packages/"))
-(package-initialize)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(package-initialize) 
+#+END_SRC
 
-(add-to-list 'package-archives                                                  
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)               
-(package-initialize)
-#+end_src
+;; Load Packages
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/elpa/")
+#+END_SRC
 
-;; Requre Org-Mode
-(require 'org)
-#+end_src
-
-** Multiple Cursors
+* Multiple Cursors
 
 #+BEGIN_SRC emacs-lisp
 ;; Multiple Cursors
@@ -33,14 +32,14 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C->") 'mc/mark-all-words-like-this)
-#+end_src
+#+END_SRC
 
 ** Goal columns are useful!
 #+BEGIN_SRC emacs-lisp
 ;; Goal columns are useful!
 ;; Enable set-goal-column
 (put 'set-goal-column 'disabled nil)
-#+end_src
+#+END_SRC
    
 * UI/UX Tweaks
 #+BEGIN_SRC emacs-lisp
@@ -48,23 +47,36 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'fringe-mode) (fringe-mode -1))
-#+end_src
+#+END_SRC
 
+** No splash screen on startup
+#+BEGIN_SRC emacs-lisp
+(setq inhibit-splash-screen t)
+#+END_SRC
+
+** I prefer a blank \*scratch\* buffer
+#+BEGIN_SRC emacs-lisp
+(setq initial-scratch-message nil)
+#+END_SRC
 ** Just Y/N
 #+BEGIN_SRC emacs-lisp
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
-#+end_src
+#+END_SRC
 
 * Set up my custom.el file
 #+BEGIN_SRC emacs-lisp
 ;;Set up my custom.el file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
-#+end_src
+#+END_SRC
+
+### Below Here. (Webdev)
+
 * Webdev
 #+BEGIN_SRC emacs-lisp
 ;; Use web-mode whenever possible...
+(setq auto-mode-alist (cons '("\\.html$" . web-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.aspx$" . web-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.erb$" . web-mode) auto-mode-alist))
 #+end_src
@@ -87,7 +99,7 @@
       (skip-chars-backward "0123456789")
       (or (looking-at "[0123456789]+")
           (error "No number at point"))
-      (replace-match (number-to-string (1+ (string-to-number (match-string 0)))))))
+      (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
 #+end_src
 * Paren-Mode
 #+BEGIN_SRC emacs-lisp
@@ -96,7 +108,6 @@
 (show-paren-mode t)
 #+end_src
 
-
 * Because Alt-x is too awkward
 #+BEGIN_SRC emacs-lisp
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
@@ -104,6 +115,12 @@
 #+end_src
 
 * Org-Mode 
+
+** Require Org
+#+BEGIN_SRC emacs-lisp
+;; Require Org-Mode
+(require 'org)
+#+END_SRC
 
 #+BEGIN_SRC emacs-lisp
 ;; It's more convenient to press 'Return' to follow a link from Org an C-c C-l.
@@ -118,6 +135,8 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
 #+end_src 
+
+
 
 ** Org-Mode Hooks
 Make yasnippet work properly with org-mode. 
@@ -385,22 +404,22 @@ Org-mode manual is available to the =info= command (bound to =C-h i=).
   (require 'browse-kill-ring)
 * Ace Jump Mode
 #+BEGIN_SRC emacs-lisp
-;; (add-to-list 'load-path "/full/path/where/ace-jump-mode.el/in/")
-(autoload
-  'ace-jump-mode
-  "ace-jump-mode"
-  "Emacs quick move minor mode"
-  t)
+;;(add-to-list 'load-path "~/.emacs.d/elpa/ace-jump-mode*/"
+;;(autoload
+;;  'ace-jump-mode
+;;  "ace-jump-mode"
+;;  "Emacs quick move minor mode"
+;;  t)
 
 (define-key global-map (kbd "C-c j") 'ace-jump-mode)
 
 ;;enable a more powerful jump back function from ace jump mode
 
-(autoload
-  'ace-jump-mode-pop-mark
-  "ace-jump-mode"
-  "Ace jump back:-)"
-  t)
+;;(autoload
+;;  'ace-jump-mode-pop-mark
+;;  "ace-jump-mode"
+;;  "Ace jump back:-)"
+;;  t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
@@ -468,8 +487,8 @@ Org-mode manual is available to the =info= command (bound to =C-h i=).
 * Markdown Mode
 
 #+BEGIN_SRC emacs-lisp
-Autoload file types (.markdown; .md; .mkd)
-  (autoload 'markdown-mode "markdown-mode"
+;;Autoload file types (.markdown; .md; .mkd)
+;;  (autoload 'markdown-mode "markdown-mode"
      "Major mode for editing Markdown files" t)
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))

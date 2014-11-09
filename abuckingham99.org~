@@ -1,4 +1,10 @@
+#+TITLE: My Emacs Customizations (new)
+#+AUTHOR: Andrew Buckingham
+#+OPTIONS: num:nil toc:nil
 
+* Who doesn't love packages?
+
+#+BEGIN_SRC emacs-lisp
 ;;Who doesn't love packages?
 
 (require 'package)
@@ -7,10 +13,17 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-(package-initialize)
+(package-initialize) 
+#+END_SRC
 
+;; Load Packages
+#+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/elpa/")
+#+END_SRC
 
+* Multiple Cursors
+
+#+BEGIN_SRC emacs-lisp
 ;; Multiple Cursors
 ;; (Magnar is an Emacs god!)
 ;; https://github.com/magnars |http://www.emacsrocks.com 
@@ -19,37 +32,61 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C->") 'mc/mark-all-words-like-this)
+#+END_SRC
 
+** Goal columns are useful!
+#+BEGIN_SRC emacs-lisp
 ;; Goal columns are useful!
 ;; Enable set-goal-column
 (put 'set-goal-column 'disabled nil)
-
+#+END_SRC
+   
+* UI/UX Tweaks
+#+BEGIN_SRC emacs-lisp
 ;; UI Tweaks
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'fringe-mode) (fringe-mode -1))
+#+END_SRC
 
+** No splash screen on startup
+#+BEGIN_SRC emacs-lisp
 (setq inhibit-splash-screen t)
+#+END_SRC
 
-(setq initial-scratch-message nil)
-
+** Just Y/N
+#+BEGIN_SRC emacs-lisp
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
 
+* Set up my custom.el file
+#+BEGIN_SRC emacs-lisp
 ;;Set up my custom.el file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+#+END_SRC
 
+### Below Here. (Webdev)
+
+* Webdev
+#+BEGIN_SRC emacs-lisp
 ;; Use web-mode whenever possible...
 (setq auto-mode-alist (cons '("\\.html$" . web-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.aspx$" . web-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.erb$" . web-mode) auto-mode-alist))
+#+end_src
 
+* Byte Recompile
+#+BEGIN_SRC emacs-lisp
 ;; Byte Recompile
 (defun ab/byte-recompile ()
   (interactive)
   (byte-recompile-directory "~/.emacs.d" 0)
+#+end_src
+* Increment Number at Point
 
+#+BEGIN_SRC emacs-lisp
 ;; Increment Number at Point
 ;;Got this from EmacsWiki; enables incremental numbers. First input
   ;; numbers and then use this!
@@ -59,27 +96,47 @@
       (or (looking-at "[0123456789]+")
           (error "No number at point"))
       (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
-
+#+end_src
+* Paren-Mode
+#+BEGIN_SRC emacs-lisp
 ;; Paren-Mode
 (require 'paren)
 (show-paren-mode t)
+#+end_src
 
+* Because Alt-x is too awkward
+#+BEGIN_SRC emacs-lisp
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
 (global-set-key "\C-x\C-m" 'execute-extended-command)
+#+end_src
 
+* Org-Mode 
+
+** Require Org
+#+BEGIN_SRC emacs-lisp
 ;; Require Org-Mode
 (require 'org)
+#+END_SRC
 
+#+BEGIN_SRC emacs-lisp
 ;; It's more convenient to press 'Return' to follow a link from Org an C-c C-l.
-(setq org-return-follows-link t)
+(setq org-return-follows-link t)    
+#+END_SRC
 
+#+BEGIN_SRC emacs-lisp
 ;; Set up Org-Mode
 (add-to-list 'auto-mode-alist '("\\.org\\’" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
+#+end_src 
 
+
+
+** Org-Mode Hooks
+Make yasnippet work properly with org-mode. 
+#+BEGIN_SRC emacs-lisp
 ;;  Make yasnippet work properly with org-mode. 
 ;;  (defun yas/org-very-safe-expand ()
 ;;    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
@@ -94,26 +151,50 @@
                          'yas-org-very-safe-expand)
             ))
 
-(add-hook 'org-mode-hook
-          (lambda ()
-            (local-set-key "\M-\C-n" 'outline-next-visible-heading)
-            (local-set-key "\M-\C-p" 'outline-previous-visible-heading)
-            (local-set-key "\M-\C-u" 'outline-up-heading)
-            ;; table
-            (local-set-key "\M-\C-w" 'org-table-copy-region)
-            (local-set-key "\M-\C-y" 'org-table-paste-rectangle)
-            (local-set-key "\M-\C-l" 'org-table-sort-lines)
-            ;; display images
-            (local-set-key "\M-I" 'org-toggle-iimage-in-org)
-            ;; yasnippet (using the new org-cycle hooks)
-            ;;(make-variable-buffer-local 'yas/trigger-key)
-            ;;(setq yas/trigger-key [tab])
-            ;;(add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-            ;;(define-key yas/keymap [tab] 'yas/next-field)
-            ))
+#+end_src
 
-(setq org-use-speed-commands t)
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (local-set-key "\M-\C-n" 'outline-next-visible-heading)
+              (local-set-key "\M-\C-p" 'outline-previous-visible-heading)
+              (local-set-key "\M-\C-u" 'outline-up-heading)
+              ;; table
+              (local-set-key "\M-\C-w" 'org-table-copy-region)
+              (local-set-key "\M-\C-y" 'org-table-paste-rectangle)
+              (local-set-key "\M-\C-l" 'org-table-sort-lines)
+              ;; display images
+              (local-set-key "\M-I" 'org-toggle-iimage-in-org)
+              ;; yasnippet (using the new org-cycle hooks)
+              ;;(make-variable-buffer-local 'yas/trigger-key)
+              ;;(setq yas/trigger-key [tab])
+              ;;(add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+              ;;(define-key yas/keymap [tab] 'yas/next-field)
+              ))
+#+end_src
 
+** Speed keys
+Speed commands enable single-letter commands in Org-mode files when
+the point is at the beginning of a headline, or at the beginning of a
+code block.
+
+See the =org-speed-commands-default= variable for a list of the keys
+and commands enabled at the beginning of headlines.  All code blocks
+are available at the beginning of a code block, the following key
+sequence =C-c C-v h= (bound to =org-babel-describe-bindings=) will
+display a list of the code blocks commands and their related keys.
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-use-speed-commands t)
+#+end_src
+
+** Code blocks
+This activates a number of widely used languages, you are encouraged
+to activate more languages using the customize interface for the
+=org-babel-load-languages= variable, or with an elisp form like the
+one below.  The customize interface of =org-babel-load-languages=
+contains an up to date list of the currently supported languages.
+#+BEGIN_SRC emacs-lisp
 ;; Org-Mode Code Blocks
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -125,17 +206,45 @@
      (python . t)
      (js . t)
      (haskell . t)))
+#+end_src
 
-(add-to-list 'org-src-lang-modes
-             '("r" . ess-mode))
+The next block makes org-babel aware that a lower-case 'r' in a =src= block header should be processed as R. 
 
+#+source: add-r
+#+BEGIN_SRC emacs-lisp
+    (add-to-list 'org-src-lang-modes
+                 '("r" . ess-mode))
+#+end_src
+
+** Code block fontification
+   :PROPERTIES:
+   :CUSTOM_ID: code-block-fontification
+   :END:
+
+The following displays the contents of code blocks in Org-mode files
+using the major-mode of the code.  It also changes the behavior of
+=TAB= to as if it were used in the appropriate major mode.  This means
+that reading and editing code form inside of your Org-mode files is
+much more like reading and editing of code using its major mode.
+#+BEGIN_SRC emacs-lisp
 ;; Code block fontification
   (setq org-src-fontify-natively t)
   (setq org-src-tab-acts-natively t)
+#+end_src
 
+Don't ask for confirmation on every =C-c C-c= code-block compile. 
+
+#+source: turn-off-code-block-confirm
+#+BEGIN_SRC emacs-lisp
 ;; Don't ask for confirmation on every =C-c C-c= code-block compile. 
   (setq org-confirm-babel-evaluate nil)
+#+end_src
 
+** Ensure the Latest Org-mode manual is in the info directory
+By placing the =doc/= directory in Org-mode at the front of the
+=Info-directory-list= we can be sure that the latest version of the
+Org-mode manual is available to the =info= command (bound to =C-h i=).
+#+BEGIN_SRC emacs-lisp
 ;; Ensure the Latest Org-mode manual is in the info directory
   (unless (boundp 'Info-directory-list)
     (setq Info-directory-list Info-default-directory-list))
@@ -146,28 +255,50 @@
                 "org"
                 (expand-file-name "src" dotfiles-dir)))
               Info-directory-list))
+#+end_src
 
+** Nice Bulleted Lists
+#+name: org-bullets
+#+BEGIN_SRC emacs-lisp :tangle no
+;; Nice Bulleted Lists
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+end_src
+
+#+source: message-line
+#+BEGIN_SRC emacs-lisp
 ;; It's silly, I know, but why not let Emacs greet me...? ;)
   (message "Welcome back, Andrew. Are you ready to save the world?")
-
+#+end_src
+** Org-Capture
+#+BEGIN_SRC emacs-lisp
 ;; Let's keep our files in Dropbox
 (setq org-directory "~/Dropbox/org")
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
 (global-set-key (kbd "C-c c") 'org-capture)
-
+#+end_src
+* Just One Space
+#+BEGIN_SRC emacs-lisp
 ;; Keybinding for just-one-space
 ;; recommended by Bozhidar: http://emacsredux.com/blog/2013/05/19/delete-whitespace-around-point/
 (global-set-key (kbd "C-c j") 'just-one-space)
+#+end_src
 
+* Yasnippet
+#+BEGIN_SRC emacs-lisp
 (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
     (require 'yasnippet) ;; not yasnippet-bundle
     (yas-global-mode 1)
+#+end_src
 
+#+BEGIN_SRC emacs-lisp
 ;; Load my snippets
 (add-to-list 'load-path "~/.emacs.d/snippets/web-mode/")
 (add-to-list 'load-path "~/.emacs.d/snippets/markdown-mode/")
 (add-to-list 'load-path "~/.emacs.d/snippets/org-mode")
+#+end_src
 
+#+BEGIN_SRC emacs-lisp
 ;;Load Popup-Snippets
 (add-to-list 'load-path "~/.emacs.d/vendor/")
 
@@ -195,22 +326,34 @@
      )))
 
 (setq yas/prompt-functions '(yas/popup-isearch-prompt yas/no-prompt))
+#+end_src
 
-;; This is on hold...not really using MobileOrg now, but might change my mind later...
-;; (setq org-directory "~/Dropbox/org/")
-;; (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg/")
-;; (setq org-agenda-files (quote ("~/Dropbox/org/its-2014-2.org")))
-;; (setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/inbox.org")
+  
+#+BEGIN_SRC emacs-lisp
 
-(setq yas-snippet-dirs
-      '("/Users/abuckingham99/.emacs.d/elpa/yasnippet-20140314.255/snippets/"
-        "/Users/abuckingham99/.emacs.d/snippets/"
-        ))
-(yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
+  
+  ;; This is on hold...not really using MobileOrg now, but might change my mind later...
+  ;; (setq org-directory "~/Dropbox/org/")
+  ;; (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg/")
+  ;; (setq org-agenda-files (quote ("~/Dropbox/org/its-2014-2.org")))
+  ;; (setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/inbox.org")
+  
+  (setq yas-snippet-dirs
+        '("/Users/abuckingham99/.emacs.d/elpa/yasnippet-20140314.255/snippets/"
+          "/Users/abuckingham99/.emacs.d/snippets/"
+          ))
+  (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
+  
+  ;; (add-to-list 'load-path
+  ;;               "~/.emacs.d/snippets/html-mode/")
 
-;; (add-to-list 'load-path
-;;               "~/.emacs.d/snippets/html-mode/")
+#+end_src
+  
 
+
+* Add Urban Dictionary to Webjump
+
+#+BEGIN_SRC emacs-lisp
 ;; Set keyboard shortcut for webjump
 (global-set-key (kbd "C-x g") 'webjump)
 
@@ -222,6 +365,11 @@
                  "www.urbandictionary.com"
                  "http://www.urbandictionary.com/define.php?term="
                  ""])))
+#+end_src
+
+* Backups
+#+BEGIN_SRC emacs-lisp
+
 
 ;; Write backup files to own directory
 (setq backup-directory-alist
@@ -231,6 +379,10 @@
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
 
+#+END_SRC
+
+* Toggle Eshell Visor
+#+BEGIN_SRC emacs-lisp
 ;;Source: http://rawsyntax.com/blog/learn-emacs-store-window-configuration/
 (defun ab/toggle-eshell-visor ()
   "Brings up a visor like eshell buffer, filling the entire emacs frame"
@@ -242,7 +394,12 @@
     (delete-other-windows)))
 
 (global-set-key (kbd "C-c t") 'ab/toggle-eshell-visor)
-
+#+end_src
+* Browse Kill Ring
+;; How many times has the kill ring saved my bacon...?
+  (require 'browse-kill-ring)
+* Ace Jump Mode
+#+BEGIN_SRC emacs-lisp
 ;;(add-to-list 'load-path "~/.emacs.d/elpa/ace-jump-mode*/"
 ;;(autoload
 ;;  'ace-jump-mode
@@ -262,14 +419,23 @@
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
-
+#+end_src
+* Require Dired-X
+#+BEGIN_SRC emacs-lisp
 ;; Require Dired-X
 (require 'dired-x)
+#+END_SRC
 
+* My Macros
+** Temporary
+
+#+BEGIN_SRC emacs-lisp
 ;; Turn pasted BB Sis Integration log into a CSV file
 (fset 'ab/sis-integration-log
    [?\C-c ?\C-p ?\C-n ?\M-f ?\M-d ?\M-d ?\M-d ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a])
+#+end_src
 
+#+BEGIN_SRC emacs-lisp
 ;; ab/sis-1
 ;; Remove all of the unnecessary text and whitespace, and format the line as csv
 (fset 'ab/sis-1
@@ -279,23 +445,27 @@
 ;; Create the column headers for the csv file
 (fset 'ab/sis-2
    [?\C-a ?\C-c ?\C-p ?\C-n ?\C-o ?\C-n ?N ?a ?m ?e ?, ?D ?e ?s ?c ?r ?i ?p ?t ?i ?o ?n ?, ?T ?y ?p ?e ?, ?S ?a backspace ?t ?a ?t ?e ?, ?L ?a ?s ?t ?  ?E ?v ?e ?n ?t ?, ?R ?e ?c ?e ?n ?t ?  ?E ?r ?r ?o ?r ?s ?\C-k ?\C-c ?\C-p])
-
-(defun ab/uniquify-all-lines-region (start end)
-  "Find duplicate lines in region START to END keeping first occurrence."
-  (interactive "*r")
-  (save-excursion
-    (let ((end (copy-marker end)))
-      (while
-          (progn
-            (goto-char start)
-            (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
-        (replace-match "\\1\n\\2")))))
-
-(defun ab/uniquify-all-lines-buffer ()
-  "Delete duplicate lines in buffer and keep first occurrence."
-  (interactive "*")
-  (uniquify-all-lines-region (point-min) (point-max)))
-
+#+end_src
+* EmacsWiki Duplicate line LISP
+#+BEGIN_SRC emacs-lisp
+  (defun ab/uniquify-all-lines-region (start end)
+    "Find duplicate lines in region START to END keeping first occurrence."
+    (interactive "*r")
+    (save-excursion
+      (let ((end (copy-marker end)))
+        (while
+            (progn
+              (goto-char start)
+              (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+          (replace-match "\\1\n\\2")))))
+  
+  (defun ab/uniquify-all-lines-buffer ()
+    "Delete duplicate lines in buffer and keep first occurrence."
+    (interactive "*")
+    (uniquify-all-lines-region (point-min) (point-max)))
+#+end_src
+* Underline H1 Title
+#+BEGIN_SRC emacs-lisp
 ;; From Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
 (defun ab/add-title-underline ()
   "add ========= below current line, with the same number of chars."
@@ -308,14 +478,22 @@
     (while (< ii num)
       (insert"=")
       (setq ii (1+ ii) ) ) ))
+#+end_src 
 
+* Markdown Mode
+
+#+BEGIN_SRC emacs-lisp
 ;;Autoload file types (.markdown; .md; .mkd)
 ;;  (autoload 'markdown-mode "markdown-mode"
      "Major mode for editing Markdown files" t)
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
+#+end_src
+  
 
+
+#+BEGIN_SRC emacs-lisp
 ;; Use Marked.app as my Markdown viewer
   (defun markdown-preview-file ()
     "run Marked on the current file and revert the buffer"
@@ -326,6 +504,11 @@
 
   (global-set-key (kbd "C-c C-m") 'markdown-preview-file)
 
+#+end_src
+
+* Add Title Underline
+Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
+#+BEGIN_SRC emacs-lisp
 (defun ab/add-title-underline ()
   "add ========= below current line, with same number of chars."
   (interactive)
@@ -338,6 +521,10 @@
       (insert "=")
       (setq ii (1+ ii) ) ) ))
 
+#+END_SRC
+
+*  Work Stuff
+#+BEGIN_SRC emacs-lisp
 ;; I use these for cleaning up some report data from R. Not really useful for anyone but me...
 (fset 'ab/chat-regexp-home-pm
    "\223[0-\C-?\C-?6-9\\|10]\C-?\C-?\C-?(10)]\C-?\C-?\C-?\C-?\C-?+:\C-?\C-?\C-?\C-?]+:[0-9]+:[0-9]+,PM\C-eHome")
@@ -348,9 +535,16 @@
 (fset 'ab/chat-regexp-office-pm
    "\223[0-5]+:[0-9]+:[0-9]+,PM\C-eOffice")
 
+#+END_SRC
+
+* ibuffer is an Improved version of list-buffers
+#+BEGIN_SRC emacs-lisp
 ;; ibuffer is an Improved version of list-buffers
 (defalias 'list-buffers 'ibuffer)
+#+END_SRC
 
+* Yas/Web-Mode Fix
+#+BEGIN_SRC emacs-lisp
 ;; From: https://github.com/fxbois/web-mode/issues/51
 ;; Fixes Yassnippet with web-mode
 
@@ -358,5 +552,10 @@
   (web-mode-buffer-refresh)
   (indent-for-tab-command))
 (setq yas/after-exit-snippet-hook 'yas-web-mode-fix)
+  
+  #+END_SRC
 
-(setq ispell-program-name "/usr/local/bin/ispell")
+* Add ispell
+#+BEGIN_SRC emacs-lisp
+(setq ispell-program-name "/usr/local/bin/ispell")  
+  #+END_SRC

@@ -1,5 +1,6 @@
-(deftheme WebDev
+(deftheme webdev
   "Created 2014-09-21, by Andrew Buckingham.")
+
 
 (custom-theme-set-faces
  'WebDev

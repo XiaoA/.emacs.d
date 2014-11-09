@@ -3,66 +3,9 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	ab/toggle-eshell-visor
-	ace-jump-mode
-	ace-jump-move
-	autopair-insert-opening
-	autopair-insert-or-skip-quote
-	autopair-skip-close-maybe
-	beginning-of-buffer
-	beginning-of-visual-line
-	comment-dwim
-	dabbrev-expand
-	delete-horizontal-space
-	delete-indentation
-	dired-toggle-read-only
-	end-of-visual-line
-	eval-last-sexp
-	find-file
-	goto-line
-	indent-for-tab-command
-	js2-mode-show-node
-	kill-region
-	kill-visual-line
-	mark-whole-buffer
-	markdown-exdent-or-delete
-	org-babel-tangle
-	org-beginning-of-line
-	org-delete-char
-	org-end-of-line
-	org-force-self-insert
-	org-insert-link
-	org-kill-line
-	org-open-line
 	org-self-insert-command
-	org-shiftleft
-	org-shiftright
-	org-table-blank-field
-	org-time-stamp
-	org-yank
-	outline-next-visible-heading
-	query-replace
-	set-goal-column
-	sgml-slash
-	switch-to-buffer
-	text-scale-adjust
-	transpose-words
-	view-emacs-debugging
-	wdired-finish-edit
-	web-mode-comment-or-uncomment
-	web-mode-element-wrap
-	write-file
-	yas-abort-snippet
-	yas-expand
-	yas-next-field-or-maybe-expand
 	))
 
 (setq mc/cmds-to-run-once
       '(
-	ace-jump-done
-	describe-key
-	dired-jump
-	handle-switch-frame
-	help-for-help
-	kmacro-start-macro-or-insert-counter
 	))
