@@ -36,6 +36,28 @@
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; Use Helm Mode
+(helm-mode 1)
+
+(global-set-key (kbd "C-x RET") 'helm-M-x)
+
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
+(global-set-key (kbd "C-x b") 'helm-mini)
+
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+(global-set-key (kbd "C-c h o") 'helm-occur)
+
+(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
+
+(global-set-key (kbd "C-c h x") 'helm-register)
+
+(powerline-center-theme)
+
+;; Use my webdev theme 
+(load-theme 'webdev t)
+
 ;;Set up my custom.el file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
@@ -48,7 +70,7 @@
 ;; Byte Recompile
 (defun ab/byte-recompile ()
   (interactive)
-  (byte-recompile-directory "~/.emacs.d" 0)
+  (byte-recompile-directory "~/.emacs.d" 0))
 
 ;; Increment Number at Point
 ;;Got this from EmacsWiki; enables incremental numbers. First input
@@ -65,7 +87,8 @@
 (show-paren-mode t)
 
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
-(global-set-key "\C-x\C-m" 'execute-extended-command)
+;; (global-set-key "\C-x\C-m" 'execute-extended-command)
+;; Experimenting with 'helm-M-x; see 'Helm Keyboard Shortcuts,' above
 
 ;; Require Org-Mode
 (require 'org)
@@ -167,6 +190,7 @@
 (add-to-list 'load-path "~/.emacs.d/snippets/web-mode/")
 (add-to-list 'load-path "~/.emacs.d/snippets/markdown-mode/")
 (add-to-list 'load-path "~/.emacs.d/snippets/org-mode")
+(add-to-list 'load-path "~/.emacs.d/snippets/ruby-mode")
 
 ;;Load Popup-Snippets
 (add-to-list 'load-path "~/.emacs.d/vendor/")
@@ -243,22 +267,23 @@
 
 (global-set-key (kbd "C-c t") 'ab/toggle-eshell-visor)
 
-;;(add-to-list 'load-path "~/.emacs.d/elpa/ace-jump-mode*/"
-;;(autoload
-;;  'ace-jump-mode
-;;  "ace-jump-mode"
-;;  "Emacs quick move minor mode"
-;;  t)
+(add-to-list 'load-path "~/.emacs.d/elpa/ace-jump-mode*/")
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
 
 (define-key global-map (kbd "C-c j") 'ace-jump-mode)
 
-;;enable a more powerful jump back function from ace jump mode
+;; enable a more powerful jump back function from ace jump mode
 
-;;(autoload
-;;  'ace-jump-mode-pop-mark
-;;  "ace-jump-mode"
-;;  "Ace jump back:-)"
-;;  t)
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
@@ -310,7 +335,7 @@
       (setq ii (1+ ii) ) ) ))
 
 ;;Autoload file types (.markdown; .md; .mkd)
-;;  (autoload 'markdown-mode "markdown-mode"
+(autoload 'markdown-mode "markdown-mode"
      "Major mode for editing Markdown files" t)
   (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
   (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
@@ -326,6 +351,7 @@
 
   (global-set-key (kbd "C-c C-m") 'markdown-preview-file)
 
+;; Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
 (defun ab/add-title-underline ()
   "add ========= below current line, with same number of chars."
   (interactive)
@@ -360,3 +386,16 @@
 (setq yas/after-exit-snippet-hook 'yas-web-mode-fix)
 
 (setq ispell-program-name "/usr/local/bin/ispell")
+
+(setq autopair-global-mode t)
+
+;; Rake files are Ruby.    
+  (dolist (exp '("Rakefile\\'" "\\.rake\\'"))
+      (add-to-list 'auto-mode-alist
+                   (cons exp 'ruby-mode)))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t))) ; this line activates ditaa
+
+(setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
