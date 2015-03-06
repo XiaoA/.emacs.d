@@ -1,16 +1,14 @@
 (deftheme webdev
-  "Created 2014-09-21, by Andrew Buckingham.")
-
+  "Created 2015-03-06.")
 
 (custom-theme-set-faces
- 'WebDev
- '(default ((t (:family "Menlo" :foundry "apple" :width normal :height 120 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground "gray" :background "black" :stipple nil :inherit nil))))
+ 'webdev
  '(cursor ((t (:background "Yellow"))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(variable-pitch ((t (:family "Sans Serif"))))
  '(escape-glyph ((((background dark)) (:foreground "cyan")) (((type pc)) (:foreground "magenta")) (t (:foreground "brown"))))
  '(minibuffer-prompt ((t (:foreground "#b2baf6"))))
- '(highlight ((t (:background "Red" :inverse-video nil))))
+ '(highlight ((t (:background "gray13" :inverse-video nil))))
  '(region ((t (:background "alternateSelectedControlColor"))))
  '(shadow ((t (:foreground "scrollBarColor"))))
  '(secondary-selection ((t (:background "#222"))))
@@ -34,7 +32,7 @@
  '(link ((t (:underline (:color foreground-color :style line) :foreground "#3affa3"))))
  '(link-visited ((default (:inherit (link))) (((class color) (background light)) (:foreground "magenta4")) (((class color) (background dark)) (:foreground "violet"))))
  '(fringe ((t (:background "#222"))))
- '(header-line ((t (:box nil :foreground "#c350ff" :inherit (mode-line)))))
+ '(header-line ((t (:inherit mode-line :foreground "#c350ff" :box nil))))
  '(tooltip ((((class color)) (:inherit (variable-pitch) :foreground "black" :background "lightyellow")) (t (:inherit (variable-pitch)))))
  '(mode-line ((t (:box (:line-width -1 :color nil :style released-button) :foreground "#eee" :background "#331133"))))
  '(mode-line-buffer-id ((t (:weight bold :foreground "#f6df92"))))
@@ -46,6 +44,7 @@
  '(lazy-highlight ((t (:inverse-video t :foreground "#5af2ee" :background "black"))))
  '(match ((t (:inverse-video t :foreground "#b2baf6" :background "black"))))
  '(next-error ((t (:inherit (region)))))
- '(query-replace ((t (:inherit (isearch))))))
+ '(query-replace ((t (:inherit (isearch)))))
+ '(default ((t (:family "Menlo" :foundry "apple" :width normal :height 120 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground "gray" :background "black" :stipple nil :inherit nil)))))
 
-(provide-theme 'WebDev)
+(provide-theme 'webdev)
