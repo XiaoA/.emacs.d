@@ -342,14 +342,14 @@
   (add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
 
 ;; Use Marked.app as my Markdown viewer
-  (defun markdown-preview-file ()
-    "run Marked on the current file and revert the buffer"
-    (interactive)
-    (shell-command 
-     (format "open -a /Applications/Marked\ 2x.app %s" 
-         (shell-quote-argument (buffer-file-name)))))
+(defun markdown-preview-file-with-marked ()
+  "run Marked on the current file and revert the buffer"
+  (interactive)
+  (shell-command 
+   (format "open -a /Applications/Marked\\ 2.app %s" 
+           (shell-quote-argument (buffer-file-name)))))
 
-  (global-set-key (kbd "C-c C-m") 'markdown-preview-file)
+(global-set-key (kbd "\C-cm") 'markdown-preview-file-with-marked)
 
 ;; Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
 (defun ab/add-title-underline ()
@@ -399,3 +399,9 @@
  '((ditaa . t))) ; this line activates ditaa
 
 (setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
+
+;; Require Helm-Projectile
+(require 'helm-projectile)
+(projectile-global-mode)
+(setq projectile-completion-system 'helm
+      projectile-switch-project-action 'helm-projectile)
