@@ -617,5 +617,9 @@ Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
   (setq projectile-completion-system 'helm
         projectile-switch-project-action 'helm-projectile)
 #+END_SRC
-
+* Auto-Complete, you...never mind...
+#+BEGIN_SRC emacs-lisp
+(require 'auto-complete)
+(global-auto-complete-mode t)
+#+END_SRC
 

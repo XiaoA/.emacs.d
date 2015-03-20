@@ -405,3 +405,6 @@
 (projectile-global-mode)
 (setq projectile-completion-system 'helm
       projectile-switch-project-action 'helm-projectile)
+
+(require 'auto-complete)
+(global-auto-complete-mode t)
