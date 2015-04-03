@@ -623,4 +623,7 @@ Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
 (global-auto-complete-mode t)
 (auto-complete-mode t)
 #+END_SRC
-
+* Add Org-Mode Markdown export back
+#+BEGIN_SRC emacs-lisp
+  (require 'ox-md)
+#+END_SRC
