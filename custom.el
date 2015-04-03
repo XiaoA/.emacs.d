@@ -13,7 +13,9 @@
  '(global-auto-complete-mode t)
  '(org-agenda-files (quote ("~/hubiC/12-2014_its_log.org")))
  '(send-mail-function (quote mailclient-send-it))
+ '(show-paren-mode t)
  '(smartparens-global-mode t)
+ '(tool-bar-mode nil)
  '(web-mode-code-indent-offset 2)
  '(web-mode-markup-indent-offset 2))
 (custom-set-faces

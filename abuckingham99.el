@@ -408,3 +408,4 @@
 
 (require 'auto-complete)
 (global-auto-complete-mode t)
+(auto-complete-mode t)
