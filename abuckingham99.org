@@ -627,3 +627,9 @@ Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
 #+BEGIN_SRC emacs-lisp
   (require 'ox-md)
 #+END_SRC
+* Require server for Emacsclient 
+#+BEGIN_SRC emacs-lisp
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+#+END_SRC

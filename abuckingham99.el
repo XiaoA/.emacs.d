@@ -411,3 +411,7 @@
 (auto-complete-mode t)
 
 (require 'ox-md)
+
+(require 'server)
+(unless (server-running-p)
+  (server-start))
