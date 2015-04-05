@@ -53,7 +53,7 @@
 
 (global-set-key (kbd "C-c h x") 'helm-register)
 
-(powerline-center-theme)
+;;(require 'powerline)
 
 ;; Use my webdev theme 
 (load-theme 'webdev t)
