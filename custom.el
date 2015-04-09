@@ -14,12 +14,13 @@
  '(org-agenda-files (quote ("~/hubiC/12-2014_its_log.org")))
  '(package-selected-packages
    (quote
-    (magit powerline yasnippet projectile-rails multiple-cursors helm-projectile auto-complete)))
+    (multi-term web-mode rbenv ace-jump-mode magit powerline yasnippet projectile-rails multiple-cursors helm-projectile auto-complete)))
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
  '(smartparens-global-mode t)
  '(tool-bar-mode nil)
  '(web-mode-code-indent-offset 2)
+ '(web-mode-enable-control-block-indentation nil)
  '(web-mode-markup-indent-offset 2))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
