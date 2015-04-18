@@ -65,7 +65,8 @@
 ;; Use web-mode whenever possible...
 (setq auto-mode-alist (cons '("\\.html$" . web-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.aspx$" . web-mode) auto-mode-alist))
-(setq auto-mode-alist (cons '("\\.erb$" . web-mode) auto-mode-alist))
+;; But use rhtml-mode for .erb files, because it seems to do indentation better...
+(setq auto-mode-alist (cons '("\\.erb$" . rhtml-mode) auto-mode-alist))
 
 ;; Byte Recompile
 (defun ab/byte-recompile ()
@@ -415,3 +416,7 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
+
+(require 'robe)
+
+(require 'rinari)
