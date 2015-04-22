@@ -16,7 +16,7 @@
  '(org-agenda-files (quote ("~/hubiC/12-2014_its_log.org")))
  '(package-selected-packages
    (quote
-    (browse-kill-ring flymake-ruby autopair js2-mode textmate robe rhtml-mode rinari multi-term web-mode rbenv ace-jump-mode magit powerline yasnippet projectile-rails multiple-cursors helm-projectile auto-complete)))
+    (dash-at-point browse-kill-ring flymake-ruby autopair js2-mode textmate robe rhtml-mode rinari multi-term web-mode rbenv ace-jump-mode magit powerline yasnippet projectile-rails multiple-cursors helm-projectile auto-complete)))
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
  '(smartparens-global-mode t)
