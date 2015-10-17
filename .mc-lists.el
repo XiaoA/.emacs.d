@@ -3,9 +3,47 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-	org-self-insert-command
-	))
+        beginning-of-buffer
+        beginning-of-visual-line
+        c-electric-delete-forward
+        c-electric-paren
+        c-electric-semi&comma
+        c-electric-slash
+        comment-line
+        copy-to-register
+        delete-horizontal-space
+        delete-indentation
+        end-of-buffer
+        end-of-visual-line
+        helm-projectile
+        kill-region
+        org-beginning-of-line
+        org-ctrl-c-ctrl-c
+        org-delete-char
+        org-end-of-line
+        org-kill-line
+        org-metaright
+        org-self-insert-command
+        org-shiftright
+        org-yank
+        sgml-slash
+        transpose-words
+        web-mode-element-wrap
+        yas-expand
+        ))
 
 (setq mc/cmds-to-run-once
       '(
-	))
+        c-electric-colon
+        handle-switch-frame
+        helm-M-x
+        helm-find-files
+        helm-mini
+        kmacro-start-macro-or-insert-counter
+        mark-whole-buffer
+        markdown-exdent-or-delete
+        mouse-set-region
+        ns-open-file-select-line
+        query-replace
+        set-goal-column
+        ))
