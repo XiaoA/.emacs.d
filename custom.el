@@ -21,7 +21,7 @@
     ("~/projects/jesse_consulting/calculator_site.org" "~/projects/kcruby/emacs-ruby-presentation.org")))
  '(package-selected-packages
    (quote
-    (ac-html ac-html-bootstrap ac-html-csswatcher ac-inf-ruby flymake-json json-mode flymake-php restclient parse-csv csv-mode php-mode php+-mode company rspec-mode ace-jump-buffer project-explorer sr-speedbar neotree expand-region flymake-haml undo-tree twittering-mode coffee-mode bundler haml-mode yaml-mode markdown-mode helm-robe org-screenshot projectile popup dash-at-point browse-kill-ring flymake-ruby autopair js2-mode textmate robe rhtml-mode rinari multi-term web-mode rbenv ace-jump-mode magit powerline yasnippet projectile-rails multiple-cursors helm-projectile auto-complete)))
+    (fold-this folding ac-html ac-html-bootstrap ac-html-csswatcher ac-inf-ruby flymake-json json-mode flymake-php restclient parse-csv csv-mode php-mode php+-mode company rspec-mode ace-jump-buffer project-explorer sr-speedbar neotree expand-region flymake-haml undo-tree twittering-mode coffee-mode bundler haml-mode yaml-mode markdown-mode helm-robe org-screenshot projectile popup dash-at-point browse-kill-ring flymake-ruby autopair js2-mode textmate robe rhtml-mode rinari multi-term web-mode rbenv ace-jump-mode magit powerline yasnippet projectile-rails multiple-cursors helm-projectile auto-complete)))
  '(php-lineup-cascaded-calls t)
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
