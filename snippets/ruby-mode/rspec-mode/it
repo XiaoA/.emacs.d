@@ -1,0 +1,6 @@
+#name: it "should do something" do ... end
+# key: it
+# --
+it "$1{should} ${:do something}" do
+  $0
+end
