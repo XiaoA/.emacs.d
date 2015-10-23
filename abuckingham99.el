@@ -442,6 +442,7 @@
     "-" (replace-regexp-in-string " " "-" title) ".md"))
   (insert "---
 layout: post
+title: 
 date: 
 comments: true
 category : blog
