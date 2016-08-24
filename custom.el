@@ -9,19 +9,22 @@
    [unspecified "#081724" "#ff694d" "#68f6cb" "#fffe4e" "#bad6e2" "#afc0fd" "#d2f1ff" "#d3f9ee"] t)
  '(custom-safe-themes
    (quote
-    ("bc40f613df8e0d8f31c5eb3380b61f587e1b5bc439212e03d4ea44b26b4f408a" "eb004cabb2ba45f67e388c450daef92d6082e849c92efa55776525a821a36c84" "bb0d06c96041fe941461b54674921486221eaddc53df4d525da01db5e00e33c0" "53e29ea3d0251198924328fd943d6ead860e9f47af8d22f0b764d11168455a8e" "2b56bd7a702f4dd5f50db417ec2bcdd06a878a0e2834e9ab37ad3c5c93aaab74" "789844278c5a75283b5015c1fc7bebe7e4cf97843b8f8cffe21fafa05e81e90a" "8c96217559e181b053489988c7e95d449d1fb74f2c7df0485fa00a53bba109ce" "88e81c3939aaf00c93cf400fdc0c084e951279019b5d9a7393fba32cfa76561d" default)))
+    ("28ec8ccf6190f6a73812df9bc91df54ce1d6132f18b4c8fcc85d45298569eb53" "3b0a350918ee819dca209cec62d867678d7dac74f6195f5e3799aa206358a983" "8577da1641ed4bdf255341ca92e3d0e49c9f4d574458f09ce78159690442cade" "bc40f613df8e0d8f31c5eb3380b61f587e1b5bc439212e03d4ea44b26b4f408a" "eb004cabb2ba45f67e388c450daef92d6082e849c92efa55776525a821a36c84" "bb0d06c96041fe941461b54674921486221eaddc53df4d525da01db5e00e33c0" "53e29ea3d0251198924328fd943d6ead860e9f47af8d22f0b764d11168455a8e" "2b56bd7a702f4dd5f50db417ec2bcdd06a878a0e2834e9ab37ad3c5c93aaab74" "789844278c5a75283b5015c1fc7bebe7e4cf97843b8f8cffe21fafa05e81e90a" "8c96217559e181b053489988c7e95d449d1fb74f2c7df0485fa00a53bba109ce" "88e81c3939aaf00c93cf400fdc0c084e951279019b5d9a7393fba32cfa76561d" default)))
  '(display-battery-mode t)
  '(display-time-mode t)
  '(electric-pair-mode t)
  '(global-auto-complete-mode t)
  '(global-rinari-mode t)
  '(indent-tabs-mode nil)
+ '(mode-icons-mode t)
  '(org-agenda-files
    (quote
-    ("~/projects/jesse_consulting/calculator_site.org" "~/projects/kcruby/emacs-ruby-presentation.org")))
+    ("~/desktop/my_life.org" "~/Desktop/desktop/2016.org" "~/Dropbox/org/refile.org" "~/projects/kcruby/emacs-ruby-presentation.org")))
+ '(org-log-done t)
+ '(org-log-reschedule (quote note))
  '(package-selected-packages
    (quote
-    (soothe-theme fold-this folding ac-html ac-html-bootstrap ac-html-csswatcher ac-inf-ruby flymake-json json-mode flymake-php restclient parse-csv csv-mode php-mode php+-mode company rspec-mode ace-jump-buffer project-explorer sr-speedbar neotree expand-region flymake-haml undo-tree twittering-mode coffee-mode bundler haml-mode yaml-mode markdown-mode helm-robe org-screenshot projectile popup dash-at-point browse-kill-ring flymake-ruby autopair js2-mode textmate robe rhtml-mode rinari multi-term web-mode rbenv ace-jump-mode magit powerline yasnippet projectile-rails multiple-cursors helm-projectile auto-complete)))
+    (afternoon-theme railscasts-theme ess-R-data-view ess-R-object-popup ess-smart-equals ess-smart-underscore ess-view yasnippet yaml-mode web-mode undo-tree twittering-mode sr-speedbar soothe-theme seeing-is-believing ruby-tools ruby-refactor ruby-end ruby-electric rspec-mode robe rinari rhtml-mode rbenv projectile-rails project-explorer powerline php-mode php+-mode password-generator parse-csv org-screenshot org-present org-plus-contrib ob-restclient nyan-prompt nyan-mode neotree multiple-cursors multi-term mode-icons minitest markdown-mode magit json-mode js2-mode helm-robe helm-projectile helm-ag haml-mode folding fold-this flymake-ruby flymake-php flymake-json flymake-haml expand-region ess enh-ruby-mode dracula-theme dash-at-point csv-mode company coffee-mode cider calfw bundler browse-kill-ring ace-jump-mode ace-jump-buffer ac-inf-ruby ac-html-csswatcher ac-html-bootstrap ac-html)))
  '(php-lineup-cascaded-calls t)
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)

@@ -632,3 +632,6 @@ values used in the user's shell."
 (import-env-from-shell-initialize)
 
 (provide 'import-env-from-shell)
+
+(add-hook 'ruby-mode-hook 'minitest-mode)
+(add-hook 'enh-ruby-mode-hook 'minitest-mode)
