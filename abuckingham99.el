@@ -1,14 +1,10 @@
-
 ;;Who doesn't love packages?
-
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/")))
+
 (package-initialize)
 
+;; Load Packages
 (add-to-list 'load-path "~/.emacs.d/elpa/")
 
 ;; Multiple Cursors
@@ -633,5 +629,6 @@ values used in the user's shell."
 
 (provide 'import-env-from-shell)
 
+;; Enable minitest-mode for Ruby
 (add-hook 'ruby-mode-hook 'minitest-mode)
 (add-hook 'enh-ruby-mode-hook 'minitest-mode)

@@ -4,6 +4,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         beginning-of-buffer
+        beginning-of-defun
         beginning-of-visual-line
         c-electric-delete-forward
         c-electric-paren
@@ -13,28 +14,43 @@
         copy-to-register
         delete-horizontal-space
         delete-indentation
+        electric-pair-delete-pair
         end-of-buffer
         end-of-visual-line
+        forward-sentence
         helm-projectile
+        indent-for-tab-command
         kill-region
         org-beginning-of-line
         org-ctrl-c-ctrl-c
         org-delete-char
+        org-edit-src-save
         org-end-of-line
+        org-export-dispatch
+        org-force-self-insert
         org-kill-line
+        org-meta-return
+        org-metaleft
         org-metaright
+        org-open-line
         org-self-insert-command
+        org-shiftmetaright
         org-shiftright
         org-yank
+        ruby-end-space
         sgml-slash
         transpose-words
         web-mode-element-wrap
+        yaml-electric-backspace
         yas-expand
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        ab/toggle-eshell-visor
         c-electric-colon
+        electric-newline-and-maybe-indent
+        goto-line
         handle-switch-frame
         helm-M-x
         helm-find-files
@@ -45,5 +61,8 @@
         mouse-set-region
         ns-open-file-select-line
         query-replace
+        rspec-verify-all
+        ruby-send-definition
         set-goal-column
+        yaml-electric-dash-and-dot
         ))

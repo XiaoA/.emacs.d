@@ -870,7 +870,7 @@ values used in the user's shell."
 
   #+END_SRC
 
-* Use restclient-mode in Org
+* Screencast-graphiz-dot-mode
   #+BEGIN_SRC elisp
 ;;; screencast-graphviz-dot-mode.el
 
@@ -957,8 +957,9 @@ values used in the user's shell."
 
   #+END_SRC
 
-* Add minitest-mode
+* Enable minitest-mode for Ruby
   #+BEGIN_SRC emacs-lisp 
-(add-hook 'ruby-mode-hook 'minitest-mode)
-(add-hook 'enh-ruby-mode-hook 'minitest-mode)
+    ;; Enable minitest-mode for Ruby
+    (add-hook 'ruby-mode-hook 'minitest-mode)
+    (add-hook 'enh-ruby-mode-hook 'minitest-mode)
   #+END_SRC
