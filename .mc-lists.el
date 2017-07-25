@@ -17,8 +17,10 @@
         electric-pair-delete-pair
         end-of-buffer
         end-of-visual-line
+        eval-print-last-sexp
         forward-sentence
         helm-projectile
+        help-for-help
         indent-for-tab-command
         kill-region
         org-beginning-of-line
@@ -28,12 +30,14 @@
         org-end-of-line
         org-export-dispatch
         org-force-self-insert
+        org-insert-heading-respect-content
         org-kill-line
         org-meta-return
         org-metaleft
         org-metaright
         org-open-line
         org-self-insert-command
+        org-shiftmetaleft
         org-shiftmetaright
         org-shiftright
         org-yank
@@ -48,6 +52,7 @@
 (setq mc/cmds-to-run-once
       '(
         ab/toggle-eshell-visor
+        ace-jump-mode
         c-electric-colon
         electric-newline-and-maybe-indent
         goto-line
@@ -60,6 +65,7 @@
         markdown-exdent-or-delete
         mouse-set-region
         ns-open-file-select-line
+        org-cycle
         query-replace
         rspec-verify-all
         ruby-send-definition
