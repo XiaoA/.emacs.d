@@ -59,7 +59,7 @@
  '(org-log-reschedule (quote note))
  '(package-selected-packages
    (quote
-    (yasnippet yaml-mode web-mode undo-tree twittering-mode sr-speedbar soothe-theme seeing-is-believing ruby-tools ruby-refactor ruby-end ruby-electric rspec-mode robe rinari rhtml-mode rbenv projectile-rails project-explorer powerline php-mode php+-mode password-generator parse-csv org-screenshot org-present org-plus-contrib ob-restclient nyan-prompt nyan-mode neotree multiple-cursors multi-term mode-icons minitest markdown-mode magit json-mode js2-mode helm-robe helm-projectile helm-ag haml-mode folding fold-this flymake-ruby flymake-php flymake-json flymake-haml expand-region ess enh-ruby-mode dracula-theme dash-at-point csv-mode company coffee-mode cider calfw bundler browse-kill-ring ace-jump-mode ace-jump-buffer ac-inf-ruby ac-html-csswatcher ac-html-bootstrap ac-html)))
+    (auto-complete yasnippet yaml-mode web-mode undo-tree twittering-mode sr-speedbar soothe-theme seeing-is-believing ruby-tools ruby-refactor ruby-end ruby-electric rspec-mode robe rinari rhtml-mode rbenv projectile-rails project-explorer powerline php-mode php+-mode password-generator parse-csv org-screenshot org-present org-plus-contrib ob-restclient nyan-prompt nyan-mode neotree multiple-cursors multi-term mode-icons minitest markdown-mode magit json-mode js2-mode helm-robe helm-projectile helm-ag haml-mode folding fold-this flymake-ruby flymake-php flymake-json flymake-haml expand-region ess enh-ruby-mode dracula-theme dash-at-point csv-mode company coffee-mode cider calfw bundler browse-kill-ring ace-jump-mode ace-jump-buffer ac-inf-ruby ac-html-csswatcher ac-html-bootstrap ac-html)))
  '(php-lineup-cascaded-calls t)
  '(powerline-color1 "#1E1E1E")
  '(powerline-color2 "#111111")
