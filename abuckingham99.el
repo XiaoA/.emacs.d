@@ -54,6 +54,8 @@
 ;; Use my webdev theme 
 (load-theme 'webdev t)
 
+(set-default-font "Menlo-17")
+
 ;;Set up my custom.el file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
@@ -138,7 +140,7 @@
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
-     (shell . t)
+     ;;(shell. t)
      (R . t)
      (perl . t)
      (ruby . t)
@@ -400,12 +402,15 @@
 ;; Require Helm-Projectile
 (require 'helm-projectile)
 (projectile-global-mode)
+
 (setq projectile-completion-system 'helm
       projectile-switch-project-action 'helm-projectile)
 
-(require 'auto-complete)
-(global-auto-complete-mode t)
-(auto-complete-mode t)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+;; (require 'auto-complete)
+;; (global-auto-complete-mode t)
+;; (auto-complete-mode t)
 
 (require 'ox-md)
 
@@ -645,3 +650,6 @@ values used in the user's shell."
 ;            (lambda ()
 ;              (slime-js-minor-mode 1)))
  ; (load-file "~/.emacs.d/setup-slime-js.el")
+
+(add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
+(add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))

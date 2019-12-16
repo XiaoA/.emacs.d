@@ -19,6 +19,9 @@
     (add-to-list 'load-path "~/.emacs.d/elpa/")
   #+END_SRC
 
+  #+RESULTS:
+  | /Users/abuckingham/.emacs.d/elpa/org-clock-csv-20190418.1505 | /Users/abuckingham/.emacs.d/elpa/s-20180406.808 | ~/.emacs.d/elpa/ace-jump-mode*/ | ~/.emacs.d/vendor/ | ~/.emacs.d/snippets/ruby-mode | ~/.emacs.d/snippets/org-mode | ~/.emacs.d/snippets/markdown-mode/ | ~/.emacs.d/snippets/web-mode/ | ~/.emacs.d/elpa/yasnippet | ~/.emacs.d/elpa/ | /Users/abuckingham/.emacs.d/elpa/ace-jump-mode-20140616.815 | /Users/abuckingham/.emacs.d/elpa/auto-complete-20170125.245 | /Users/abuckingham/.emacs.d/elpa/company-20190402.2323 | /Users/abuckingham/.emacs.d/elpa/enh-ruby-mode-20190325.2132 | /Users/abuckingham/.emacs.d/elpa/exotica-theme-20180212.2329 | /Users/abuckingham/.emacs.d/elpa/flymake-ruby-20170723.146 | /Users/abuckingham/.emacs.d/elpa/flymake-easy-20140818.755 | /Users/abuckingham/.emacs.d/elpa/helm-ag-20170209.1545 | /Users/abuckingham/.emacs.d/elpa/helm-projectile-20180815.1514 | /Users/abuckingham/.emacs.d/elpa/helm-20190405.1842 | /Users/abuckingham/.emacs.d/elpa/helm-core-20190326.921 | /Users/abuckingham/.emacs.d/elpa/js2-mode-20190307.1649 | /Users/abuckingham/.emacs.d/elpa/lorem-ipsum-20140911.2108 | /Users/abuckingham/.emacs.d/elpa/magit-20190405.1704 | /Users/abuckingham/.emacs.d/elpa/git-commit-20190319.2352 | /Users/abuckingham/.emacs.d/elpa/markdown-mode-20190305.319 | /Users/abuckingham/.emacs.d/elpa/minitest-20160628.1820 | /Users/abuckingham/.emacs.d/elpa/multiple-cursors-20190317.1211 | /Users/abuckingham/.emacs.d/elpa/neotree-20181121.2026 | /Users/abuckingham/.emacs.d/elpa/nyan-mode-20170423.740 | /Users/abuckingham/.emacs.d/elpa/org-plus-contrib-20190402 | /Users/abuckingham/.emacs.d/elpa/ox-pandoc-20180510.1338 | /Users/abuckingham/.emacs.d/elpa/ht-20190404.1202 | /Users/abuckingham/.emacs.d/elpa/popup-20160709.1429 | /Users/abuckingham/.emacs.d/elpa/powerline-20190323.213 | /Users/abuckingham/.emacs.d/elpa/projectile-20190403.619 | /Users/abuckingham/.emacs.d/elpa/pkg-info-20150517.1143 | /Users/abuckingham/.emacs.d/elpa/epl-20180205.2049 | /Users/abuckingham/.emacs.d/elpa/rinari-20150709.640 | /Users/abuckingham/.emacs.d/elpa/jump-20161127.128 | /Users/abuckingham/.emacs.d/elpa/inflections-20170913.916 | /Users/abuckingham/.emacs.d/elpa/findr-20130127.2032 | /Users/abuckingham/.emacs.d/elpa/robe-20190305.2146 | /Users/abuckingham/.emacs.d/elpa/rspec-mode-20190326.1422 | /Users/abuckingham/.emacs.d/elpa/ruby-compilation-20150709.640 | /Users/abuckingham/.emacs.d/elpa/inf-ruby-20190219.1147 | /Users/abuckingham/.emacs.d/elpa/ruby-electric-20170810.1130 | /Users/abuckingham/.emacs.d/elpa/ruby-end-20141215.1223 | /Users/abuckingham/.emacs.d/elpa/transient-20190319.1928 | /Users/abuckingham/.emacs.d/elpa/dash-20190320.1406 | /Users/abuckingham/.emacs.d/elpa/tron-theme-12 | /Users/abuckingham/.emacs.d/elpa/undo-tree-0.6.5 | /Users/abuckingham/.emacs.d/elpa/web-mode-20190301.1700 | /Users/abuckingham/.emacs.d/elpa/with-editor-20190224.931 | /Users/abuckingham/.emacs.d/elpa/async-20181224.454 | /Users/abuckingham/.emacs.d/elpa/yaml-mode-20180409.607 | /Users/abuckingham/.emacs.d/elpa/yasnippet-20181015.1212 | /Library/Application Support/Emacs/26.1/site-lisp | /Library/Application Support/Emacs/site-lisp | /Applications/Emacs.app/Contents/Resources/site-lisp | /Applications/Emacs.app/Contents/Resources/lisp | /Applications/Emacs.app/Contents/Resources/lisp/vc | /Applications/Emacs.app/Contents/Resources/lisp/url | /Applications/Emacs.app/Contents/Resources/lisp/textmodes | /Applications/Emacs.app/Contents/Resources/lisp/progmodes | /Applications/Emacs.app/Contents/Resources/lisp/play | /Applications/Emacs.app/Contents/Resources/lisp/org | /Applications/Emacs.app/Contents/Resources/lisp/nxml | /Applications/Emacs.app/Contents/Resources/lisp/net | /Applications/Emacs.app/Contents/Resources/lisp/mh-e | /Applications/Emacs.app/Contents/Resources/lisp/mail | /Applications/Emacs.app/Contents/Resources/lisp/leim | /Applications/Emacs.app/Contents/Resources/lisp/language | /Applications/Emacs.app/Contents/Resources/lisp/international | /Applications/Emacs.app/Contents/Resources/lisp/image | /Applications/Emacs.app/Contents/Resources/lisp/gnus | /Applications/Emacs.app/Contents/Resources/lisp/eshell | /Applications/Emacs.app/Contents/Resources/lisp/erc | /Applications/Emacs.app/Contents/Resources/lisp/emulation | /Applications/Emacs.app/Contents/Resources/lisp/emacs-lisp | /Applications/Emacs.app/Contents/Resources/lisp/cedet | /Applications/Emacs.app/Contents/Resources/lisp/calendar | /Applications/Emacs.app/Contents/Resources/lisp/calc | /Applications/Emacs.app/Contents/Resources/lisp/obsolete |
+
 * Multiple Cursors
 
   #+BEGIN_SRC emacs-lisp
@@ -32,12 +35,17 @@
 (global-set-key (kbd "C-c C->") 'mc/mark-all-words-like-this)
   #+END_SRC
 
+  #+RESULTS:
+  : mc/mark-all-words-like-this
+
 ** Goal columns are useful!
    #+BEGIN_SRC emacs-lisp
 ;; Goal columns are useful!
 ;; Enable set-goal-column
 (put 'set-goal-column 'disabled nil)
    #+END_SRC
+
+   #+RESULTS:
    
 * UI/UX Tweaks
   #+BEGIN_SRC emacs-lisp
@@ -47,25 +55,42 @@
 (if (fboundp 'fringe-mode) (fringe-mode -1))
   #+END_SRC
 
+  #+RESULTS:
+  : ((vertical-scroll-bars) (left-fringe . -1) (right-fringe . -1))
+
 ** No splash screen on startup
    #+BEGIN_SRC emacs-lisp
 (setq inhibit-splash-screen t)
    #+END_SRC
 
+   #+RESULTS:
+   : t
+
 ** I prefer a blank \*scratch\* buffer
    #+BEGIN_SRC emacs-lisp
 (setq initial-scratch-message nil)
    #+END_SRC
+
+   #+RESULTS:
+
 ** Just Y/N
    #+BEGIN_SRC emacs-lisp
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
    #+END_SRC
+
+   #+RESULTS:
+   : y-or-n-p
+
 ** Use Helm Mode
    #+BEGIN_SRC emacs-lisp
 ;; Use Helm Mode
 (helm-mode 1)
    #+END_SRC
+
+   #+RESULTS:
+   : t
+
 ** Set up Helm Keyboard Shortcuts
    #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "C-x RET") 'helm-M-x)
@@ -84,21 +109,42 @@
 
    #+END_SRC
 
+   #+RESULTS:
+   : helm-register
+
 ** Behold, the power of Powerline
    #+BEGIN_SRC emacs-lisp
 ;;(require 'powerline)
    #+END_SRC
+
+   #+RESULTS:
+
 ** Use my webdev theme
    #+BEGIN_SRC emacs-lisp
 ;; Use my webdev theme 
 (load-theme 'webdev t)
    #+END_SRC
+
+   #+RESULTS:
+   : t
+
+** Set default font
+#+BEGIN_SRC emacs-lisp
+(set-default-font "Menlo-17")
+#+END_SRC
+
+#+RESULTS:
+
 * Set up my custom.el file
   #+BEGIN_SRC emacs-lisp
 ;;Set up my custom.el file
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
   #+END_SRC
+
+  #+RESULTS:
+  : t
+
 * Webdev
   #+BEGIN_SRC emacs-lisp
 ;; Use web-mode whenever possible...
@@ -108,6 +154,9 @@
 (setq auto-mode-alist (cons '("\\.php$" . web-mode) auto-mode-alist))
   #+END_SRC
 
+  #+RESULTS:
+  : ((\.php$ . web-mode) (\.erb$ . web-mode) (\.aspx$ . web-mode) (\.html$ . web-mode) (\.odc\' . archive-mode) (\.odf\' . archive-mode) (\.odi\' . archive-mode) (\.otp\' . archive-mode) (\.odp\' . archive-mode) (\.otg\' . archive-mode) (\.odg\' . archive-mode) (\.ots\' . archive-mode) (\.ods\' . archive-mode) (\.odm\' . archive-mode) (\.ott\' . archive-mode) (\.odt\' . archive-mode) (\.rake\' . ruby-mode) (Rakefile\' . ruby-mode) (\.mkd\' . markdown-mode) (\.org\’ . org-mode) (\.php$ . web-mode) (\.erb$ . web-mode) (\.aspx$ . web-mode) (\.html$ . web-mode) (/git-rebase-todo\' . git-rebase-mode) (\.md\' . markdown-mode) (\.markdown\' . markdown-mode) (\.\(e?ya?\|ra\)ml\' . yaml-mode) (\.gpg\(~\|\.~[0-9]+~\)?\' nil epa-file) (\.elc\' . elisp-byte-code-mode) (\.zst\' nil jka-compr) (\.dz\' nil jka-compr) (\.xz\' nil jka-compr) (\.lzma\' nil jka-compr) (\.lz\' nil jka-compr) (\.g?z\' nil jka-compr) (\.bz2\' nil jka-compr) (\.Z\' nil jka-compr) (\.vr[hi]?\' . vera-mode) (\(?:\.\(?:rbw?\|ru\|rake\|thor\|jbuilder\|rabl\|gemspec\|podspec\)\|/\(?:Gem\|Rake\|Cap\|Thor\|Puppet\|Berks\|Vagrant\|Guard\|Pod\)file\)\' . ruby-mode) (\.re?st\' . rst-mode) (\.py[iw]?\' . python-mode) (\.less\' . less-css-mode) (\.scss\' . scss-mode) (\.awk\' . awk-mode) (\.\(u?lpc\|pike\|pmod\(\.in\)?\)\' . pike-mode) (\.idl\' . idl-mode) (\.java\' . java-mode) (\.m\' . objc-mode) (\.ii\' . c++-mode) (\.i\' . c-mode) (\.lex\' . c-mode) (\.y\(acc\)?\' . c-mode) (\.h\' . c-or-c++-mode) (\.c\' . c-mode) (\.\(CC?\|HH?\)\' . c++-mode) (\.[ch]\(pp\|xx\|\+\+\)\' . c++-mode) (\.\(cc\|hh\)\' . c++-mode) (\.\(bat\|cmd\)\' . bat-mode) (\.[sx]?html?\(\.[a-zA-Z_]+\)?\' . mhtml-mode) (\.svgz?\' . image-mode) (\.svgz?\' . xml-mode) (\.x[bp]m\' . image-mode) (\.x[bp]m\' . c-mode) (\.p[bpgn]m\' . image-mode) (\.tiff?\' . image-mode) (\.gif\' . image-mode) (\.png\' . image-mode) (\.jpe?g\' . image-mode) (\.te?xt\' . text-mode) (\.[tT]e[xX]\' . tex-mode) (\.ins\' . tex-mode) (\.ltx\' . latex-mode) (\.dtx\' . doctex-mode) (\.org\' . org-mode) (\.el\' . emacs-lisp-mode) (Project\.ede\' . emacs-lisp-mode) (\.\(scm\|stk\|ss\|sch\)\' . scheme-mode) (\.l\' . lisp-mode) (\.li?sp\' . lisp-mode) (\.[fF]\' . fortran-mode) (\.for\' . fortran-mode) (\.p\' . pascal-mode) (\.pas\' . pascal-mode) (\.\(dpr\|DPR\)\' . delphi-mode) (\.ad[abs]\' . ada-mode) (\.ad[bs].dg\' . ada-mode) (\.\([pP]\([Llm]\|erl\|od\)\|al\)\' . perl-mode) (Imakefile\' . makefile-imake-mode) (Makeppfile\(?:\.mk\)?\' . makefile-makepp-mode) (\.makepp\' . makefile-makepp-mode) (\.mk\' . makefile-bsdmake-mode) (\.make\' . makefile-bsdmake-mode) (GNUmakefile\' . makefile-gmake-mode) ([Mm]akefile\' . makefile-bsdmake-mode) (\.am\' . makefile-automake-mode) (\.texinfo\' . texinfo-mode) (\.te?xi\' . texinfo-mode) (\.[sS]\' . asm-mode) (\.asm\' . asm-mode) (\.css\' . css-mode) (\.mixal\' . mixal-mode) (\.gcov\' . compilation-mode) (/\.[a-z0-9-]*gdbinit . gdb-script-mode) (-gdb\.gdb . gdb-script-mode) ([cC]hange\.?[lL]og?\' . change-log-mode) ([cC]hange[lL]og[-.][0-9]+\' . change-log-mode) (\$CHANGE_LOG\$\.TXT . change-log-mode) (\.scm\.[0-9]*\' . scheme-mode) (\.[ckz]?sh\'\|\.shar\'\|/\.z?profile\' . sh-mode) (\.bash\' . sh-mode) (\(/\|\`\)\.\(bash_\(profile\|history\|log\(in\|out\)\)\|z?log\(in\|out\)\)\' . sh-mode) (\(/\|\`\)\.\(shrc\|zshrc\|m?kshrc\|bashrc\|t?cshrc\|esrc\)\' . sh-mode) (\(/\|\`\)\.\([kz]shenv\|xinitrc\|startxrc\|xsession\)\' . sh-mode) (\.m?spec\' . sh-mode) (\.m[mes]\' . nroff-mode) (\.man\' . nroff-mode) (\.sty\' . latex-mode) (\.cl[so]\' . latex-mode) (\.bbl\' . latex-mode) (\.bib\' . bibtex-mode) (\.bst\' . bibtex-style-mode) (\.sql\' . sql-mode) (\.m[4c]\' . m4-mode) (\.mf\' . metafont-mode) (\.mp\' . metapost-mode) (\.vhdl?\' . vhdl-mode) (\.article\' . text-mode) (\.letter\' . text-mode) (\.i?tcl\' . tcl-mode) (\.exp\' . tcl-mode) (\.itk\' . tcl-mode) (\.icn\' . icon-mode) (\.sim\' . simula-mode) (\.mss\' . scribe-mode) (\.f9[05]\' . f90-mode) (\.f0[38]\' . f90-mode) (\.indent\.pro\' . fundamental-mode) (\.\(pro\|PRO\)\' . idlwave-mode) (\.srt\' . srecode-template-mode) (\.prolog\' . prolog-mode) (\.tar\' . tar-mode) (\.\(arc\|zip\|lzh\|lha\|zoo\|[jew]ar\|xpi\|rar\|cbr\|7z\|ARC\|ZIP\|LZH\|LHA\|ZOO\|[JEW]AR\|XPI\|RAR\|CBR\|7Z\)\' . archive-mode) (\.oxt\' . archive-mode) (\.\(deb\|[oi]pk\)\' . archive-mode) (\`/tmp/Re . text-mode) (/Message[0-9]*\' . text-mode) (\`/tmp/fol/ . text-mode) (\.oak\' . scheme-mode) (\.sgml?\' . sgml-mode) (\.x[ms]l\' . xml-mode) (\.dbk\' . xml-mode) (\.dtd\' . sgml-mode) (\.ds\(ss\)?l\' . dsssl-mode) (\.jsm?\' . javascript-mode) (\.json\' . javascript-mode) (\.jsx\' . js-jsx-mode) (\.[ds]?vh?\' . verilog-mode) (\.by\' . bovine-grammar-mode) (\.wy\' . wisent-grammar-mode) ([:/\]\..*\(emacs\|gnus\|viper\)\' . emacs-lisp-mode) (\`\..*emacs\' . emacs-lisp-mode) ([:/]_emacs\' . emacs-lisp-mode) (/crontab\.X*[0-9]+\' . shell-script-mode) (\.ml\' . lisp-mode) (\.ld[si]?\' . ld-script-mode) (ld\.?script\' . ld-script-mode) (\.xs\' . c-mode) (\.x[abdsru]?[cnw]?\' . ld-script-mode) (\.zone\' . dns-mode) (\.soa\' . dns-mode) (\.asd\' . lisp-mode) (\.\(asn\|mib\|smi\)\' . snmp-mode) (\.\(as\|mi\|sm\)2\' . snmpv2-mode) (\.\(diffs?\|patch\|rej\)\' . diff-mode) (\.\(dif\|pat\)\' . diff-mode) (\.[eE]?[pP][sS]\' . ps-mode) (\.\(?:PDF\|DVI\|OD[FGPST]\|DOCX?\|XLSX?\|PPTX?\|pdf\|djvu\|dvi\|od[fgpst]\|docx?\|xlsx?\|pptx?\)\' . doc-view-mode-maybe) (configure\.\(ac\|in\)\' . autoconf-mode) (\.s\(v\|iv\|ieve\)\' . sieve-mode) (BROWSE\' . ebrowse-tree-mode) (\.ebrowse\' . ebrowse-tree-mode) (#\*mail\* . mail-mode) (\.g\' . antlr-mode) (\.mod\' . m2-mode) (\.ses\' . ses-mode) (\.docbook\' . sgml-mode) (\.com\' . dcl-mode) (/config\.\(?:bat\|log\)\' . fundamental-mode) (\.\(?:[iI][nN][iI]\|[lL][sS][tT]\|[rR][eE][gG]\|[sS][yY][sS]\)\' . conf-mode) (\.la\' . conf-unix-mode) (\.ppd\' . conf-ppd-mode) (java.+\.conf\' . conf-javaprop-mode) (\.properties\(?:\.[a-zA-Z0-9._-]+\)?\' . conf-javaprop-mode) (\.toml\' . conf-toml-mode) (\.desktop\' . conf-desktop-mode) (\`/etc/\(?:DIR_COLORS\|ethers\|.?fstab\|.*hosts\|lesskey\|login\.?de\(?:fs\|vperm\)\|magic\|mtab\|pam\.d/.*\|permissions\(?:\.d/.+\)?\|protocols\|rpc\|services\)\' . conf-space-mode) (\`/etc/\(?:acpid?/.+\|aliases\(?:\.d/.+\)?\|default/.+\|group-?\|hosts\..+\|inittab\|ksysguarddrc\|opera6rc\|passwd-?\|shadow-?\|sysconfig/.+\)\' . conf-mode) ([cC]hange[lL]og[-.][-0-9a-z]+\' . change-log-mode) (/\.?\(?:gitconfig\|gnokiirc\|hgrc\|kde.*rc\|mime\.types\|wgetrc\)\' . conf-mode) (/\.\(?:enigma\|gltron\|gtk\|hxplayer\|net\|neverball\|qt/.+\|realplayer\|scummvm\|sversion\|sylpheed/.+\|xmp\)rc\' . conf-mode) (/\.\(?:gdbtkinit\|grip\|orbital/.+txt\|rhosts\|tuxracer/options\)\' . conf-mode) (/\.?X\(?:default\|resource\|re\)s\> . conf-xdefaults-mode) (/X11.+app-defaults/\|\.ad\' . conf-xdefaults-mode) (/X11.+locale/.+/Compose\' . conf-colon-mode) (/X11.+locale/compose\.dir\' . conf-javaprop-mode) (\.~?[0-9]+\.[0-9][-.0-9]*~?\' nil t) (\.\(?:orig\|in\|[bB][aA][kK]\)\' nil t) ([/.]c\(?:on\)?f\(?:i?g\)?\(?:\.[a-zA-Z0-9._-]+\)?\' . conf-mode-maybe) (\.[1-9]\' . nroff-mode) (\.tgz\' . tar-mode) (\.tbz2?\' . tar-mode) (\.txz\' . tar-mode) (\.tzst\' . tar-mode))
+
 * Byte Recompile
   #+BEGIN_SRC emacs-lisp
 ;; Byte Recompile
@@ -115,6 +164,10 @@
   (interactive)
   (byte-recompile-directory "~/.emacs.d" 0))
   #+END_SRC
+
+  #+RESULTS:
+  : ab/byte-recompile
+
 * Increment Number at Point
 
   #+BEGIN_SRC emacs-lisp
@@ -128,6 +181,10 @@
           (error "No number at point"))
       (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
   #+END_SRC
+
+  #+RESULTS:
+  : ab/increment-number-at-point
+
 * Paren-Mode
   #+BEGIN_SRC emacs-lisp
 ;; Paren-Mode
@@ -135,12 +192,17 @@
 (show-paren-mode t)
   #+END_SRC
 
+  #+RESULTS:
+  : t
+
 * Because Alt-x is usually too awkward
   #+BEGIN_SRC emacs-lisp
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
 ;; (global-set-key "\C-x\C-m" 'execute-extended-command)
 ;; Experimenting with 'helm-M-x; see 'Helm Keyboard Shortcuts,' above
   #+END_SRC
+
+  #+RESULTS:
 
 * Org-Mode 
 
@@ -150,10 +212,16 @@
 (require 'org)
    #+END_SRC
 
+   #+RESULTS:
+   : org
+
    #+BEGIN_SRC emacs-lisp
 ;; It's more convenient to press 'Return' to follow a link from Org an C-c C-l.
 (setq org-return-follows-link t)    
    #+END_SRC
+
+   #+RESULTS:
+   : t
 
    #+BEGIN_SRC emacs-lisp
 ;; Set up Org-Mode
@@ -163,6 +231,9 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
    #+END_SRC 
+
+   #+RESULTS:
+   : t
 
 ** Org-Mode Hooks
    Make yasnippet work properly with org-mode. 
@@ -182,6 +253,9 @@
             ))
 
    #+END_SRC
+
+   #+RESULTS:
+   | (lambda nil (local-set-key \216 (quote outline-next-visible-heading)) (local-set-key \220 (quote outline-previous-visible-heading)) (local-set-key \225 (quote outline-up-heading)) (local-set-key \227 (quote org-table-copy-region)) (local-set-key \231 (quote org-table-paste-rectangle)) (local-set-key \214 (quote org-table-sort-lines)) (local-set-key \311 (quote org-toggle-iimage-in-org))) | (lambda nil (add-to-list (quote org-tab-first-hook) (quote yas-org-very-safe-expand))) | #[0 \301\211\207 [imenu-create-index-function org-imenu-get-tree] 2] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | org-eldoc-load |
 
    #+BEGIN_SRC emacs-lisp
   (add-hook 'org-mode-hook
@@ -203,6 +277,9 @@
               ))
    #+END_SRC
 
+   #+RESULTS:
+   | (lambda nil (local-set-key \216 (quote outline-next-visible-heading)) (local-set-key \220 (quote outline-previous-visible-heading)) (local-set-key \225 (quote outline-up-heading)) (local-set-key \227 (quote org-table-copy-region)) (local-set-key \231 (quote org-table-paste-rectangle)) (local-set-key \214 (quote org-table-sort-lines)) (local-set-key \311 (quote org-toggle-iimage-in-org))) | (lambda nil (add-to-list (quote org-tab-first-hook) (quote yas-org-very-safe-expand))) | #[0 \301\211\207 [imenu-create-index-function org-imenu-get-tree] 2] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | org-eldoc-load |
+
 ** Speed keys
    Speed commands enable single-letter commands in Org-mode files when
    the point is at the beginning of a headline, or at the beginning of a
@@ -218,6 +295,9 @@
   (setq org-use-speed-commands t)
    #+END_SRC
 
+   #+RESULTS:
+   : t
+
 ** Code blocks
    This activates a number of widely used languages, you are encouraged
    to activate more languages using the customize interface for the
@@ -229,7 +309,7 @@
     (org-babel-do-load-languages
      'org-babel-load-languages
      '((emacs-lisp . t)
-       (shell . t)
+       ;;(shell. t)
        (R . t)
        (perl . t)
        (ruby . t)
@@ -238,6 +318,8 @@
        (haskell . t)))
    #+END_SRC
 
+   #+RESULTS:
+
    The next block makes org-babel aware that a lower-case 'r' in a =src= block header should be processed as R. 
 
    #+source: add-r
@@ -245,6 +327,9 @@
   (add-to-list 'org-src-lang-modes
                '("r" . ess-mode))
    #+END_SRC
+
+   #+RESULTS: add-r
+   : ((r . ess-mode) (arduino . arduino) (redis . redis) (php . php) (C . c) (C++ . c++) (asymptote . asy) (bash . sh) (beamer . latex) (calc . fundamental) (cpp . c++) (ditaa . artist) (dot . fundamental) (elisp . emacs-lisp) (ocaml . tuareg) (screen . shell-script) (shell . sh) (sqlite . sql))
 
 ** Code block fontification
    :PROPERTIES:
@@ -262,12 +347,17 @@
   (setq org-src-tab-acts-natively t)
    #+END_SRC
 
+   #+RESULTS:
+   : t
+
    Don't ask for confirmation on every =C-c C-c= code-block compile. 
 
    #+BEGIN_SRC emacs-lisp
 ;; Don't ask for confirmation on every =C-c C-c= code-block compile. 
   (setq org-confirm-babel-evaluate nil)
    #+END_SRC
+
+   #+RESULTS:
 
 ** Ensure the Latest Org-mode manual is in the info directory
    By placing the =doc/= directory in Org-mode at the front of the
@@ -285,6 +375,9 @@
                 (expand-file-name "src" dotfiles-dir)))
               Info-directory-list))
    #+END_SRC
+
+   #+RESULTS:
+   | /Users/abuckingham/.emacs.d/src/org/doc | /Users/abuckingham/.emacs.d/src/org/doc | /Users/abuckingham/.emacs.d/elpa/magit-20190405.1704 | /Users/abuckingham/.emacs.d/elpa/org-plus-contrib-20190402 | /Users/abuckingham/.emacs.d/elpa/transient-20190319.1928 | /Users/abuckingham/.emacs.d/elpa/with-editor-20190224.931 | /Applications/Emacs.app/Contents/Resources/info/ | /usr/local/share/info/ | /usr/share/info/ |
 
 ** Nice Bulleted Lists
    #+name: org-bullets
@@ -611,18 +704,25 @@
   #+END_SRC
 * Enable Projectile Mode
   #+BEGIN_SRC emacs-lisp
-  ;; Require Helm-Projectile
-  (require 'helm-projectile)
-  (projectile-global-mode)
-  (setq projectile-completion-system 'helm
-        projectile-switch-project-action 'helm-projectile)
+    ;; Require Helm-Projectile
+    (require 'helm-projectile)
+    (projectile-global-mode)
+
+    (setq projectile-completion-system 'helm
+          projectile-switch-project-action 'helm-projectile)
+
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   #+END_SRC
-* Auto-Complete, you...never mind...
+* Auto-C
+omplete, you...never mind...
   #+BEGIN_SRC emacs-lisp
-(require 'auto-complete)
-(global-auto-complete-mode t)
-(auto-complete-mode t)
+;; (require 'auto-complete)
+;; (global-auto-complete-mode t)
+;; (auto-complete-mode t)
   #+END_SRC
+
+  #+RESULTS:
+
 * Add Org-Mode Markdown export back
   #+BEGIN_SRC emacs-lisp
   (require 'ox-md)
@@ -983,3 +1083,14 @@ values used in the user's shell."
 ;              (slime-js-minor-mode 1)))
  ; (load-file "~/.emacs.d/setup-slime-js.el")
 #+END_SRC
+
+* Hooks for org-clock-statusbar-app
+
+#+begin_src emacs-lisp
+(add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
+(add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
+#+end_src
+
+* Elixir Stuff
+
+
