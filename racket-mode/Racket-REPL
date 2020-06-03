@@ -1,0 +1,17 @@
+"What's your first name?"
+first_name = gets.chomp
+puts "Your first name is #{first_name}!" 
+
+puts "What's your last name?"
+last_name = gets.chomp
+puts "Your last name is #{last_name}!" 
+
+puts "What city are you from?"
+city = gets.chomp
+puts "Your city is #{city}!" 
+
+puts "What state are you from? (e.g., 'NY' or 'IA')"
+state = gets.chomp
+puts "Your state is #{state}!" 
+(circle 10 "solid" "blue")
+(+ 3 3)

@@ -137,16 +137,17 @@
 (setq org-use-speed-commands t)
 
 ;; Org-Mode Code Blocks
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((emacs-lisp . t)
-     ;;(shell. t)
-     (R . t)
-     (perl . t)
-     (ruby . t)
-     (python . t)
-     (js . t)
-     (haskell . t)))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   ;;(shell. t)
+   (R . t)
+   (perl . t)
+   (ruby . t)
+   (python . t)
+   (js . t)
+   (haskell . t)
+   (elixir . t)))
 
 (add-to-list 'org-src-lang-modes
              '("r" . ess-mode))
@@ -397,7 +398,7 @@
  'org-babel-load-languages
  '((ditaa . t))) ; this line activates ditaa
 
-(setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
+(setq orgd-itaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
 
 ;; Require Helm-Projectile
 (require 'helm-projectile)
@@ -653,3 +654,6 @@ values used in the user's shell."
 
 (add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
 (add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
+
+(setq default-tab-width 2)
+(setq-default indent-tabs-mode nil)

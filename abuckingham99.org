@@ -305,17 +305,19 @@
    one below.  The customize interface of =org-babel-load-languages=
    contains an up to date list of the currently supported languages.
    #+BEGIN_SRC emacs-lisp
-  ;; Org-Mode Code Blocks
-    (org-babel-do-load-languages
-     'org-babel-load-languages
-     '((emacs-lisp . t)
-       ;;(shell. t)
-       (R . t)
-       (perl . t)
-       (ruby . t)
-       (python . t)
-       (js . t)
-       (haskell . t)))
+     ;; Org-Mode Code Blocks
+     (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t)
+        ;;(shell. t)
+        (R . t)
+        (perl . t)
+        (ruby . t)
+        (python . t)
+        (js . t)
+        (haskell . t)
+        (elixir . t)))
+
    #+END_SRC
 
    #+RESULTS:
@@ -700,7 +702,7 @@
  'org-babel-load-languages
  '((ditaa . t))) ; this line activates ditaa
 
-(setq org-ditaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
+(setq orgd-itaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
   #+END_SRC
 * Enable Projectile Mode
   #+BEGIN_SRC emacs-lisp
@@ -1094,3 +1096,8 @@ values used in the user's shell."
 * Elixir Stuff
 
 
+* Set default tab/space width to 2
+#+begin_src emacs-lisp
+(setq default-tab-width 2)
+(setq-default indent-tabs-mode nil)
+#+end_src
