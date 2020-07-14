@@ -49,10 +49,10 @@
 
 (global-set-key (kbd "C-c h x") 'helm-register)
 
-;;(require 'powerline)
+(load-theme 'vscode-dark-plus t)
 
-;; Use my webdev theme 
-(load-theme 'webdev t)
+(require 'powerline)
+(powerline-center-theme)
 
 (set-default-font "Menlo-17")
 

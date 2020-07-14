@@ -112,22 +112,23 @@
    #+RESULTS:
    : helm-register
 
-** Behold, the power of Powerline
-   #+BEGIN_SRC emacs-lisp
-;;(require 'powerline)
-   #+END_SRC
 
-   #+RESULTS:
 
-** Use my webdev theme
+** Load default theme
    #+BEGIN_SRC emacs-lisp
-;; Use my webdev theme 
-(load-theme 'webdev t)
+     (load-theme 'vscode-dark-plus t)
    #+END_SRC
 
    #+RESULTS:
    : t
 
+** Behold, the power of Powerline
+   #+BEGIN_SRC emacs-lisp
+(require 'powerline)
+(powerline-center-theme)
+   #+END_SRC
+
+   #+RESULTS:
 ** Set default font
 #+BEGIN_SRC emacs-lisp
 (set-default-font "Menlo-17")

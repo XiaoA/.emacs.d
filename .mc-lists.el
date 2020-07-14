@@ -17,12 +17,14 @@
         electric-pair-delete-pair
         end-of-buffer
         end-of-visual-line
+        eruby-mode-electric-percent
         eval-print-last-sexp
         forward-sentence
         helm-projectile
         help-for-help
         indent-for-tab-command
         kill-region
+        kill-visual-line
         org-beginning-of-line
         org-ctrl-c-ctrl-c
         org-delete-char
@@ -66,9 +68,11 @@
         mouse-set-region
         ns-open-file-select-line
         org-cycle
+        org-shifttab
         query-replace
         rspec-verify-all
         ruby-send-definition
         set-goal-column
+        toggle-input-method
         yaml-electric-dash-and-dot
         ))
