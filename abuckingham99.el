@@ -1,8 +1,8 @@
 ;;Who doesn't love packages?
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("org" . "http://orgmode.org/elpa/")))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("org" . "http://orgmode.org/elpa/")))
 
-(package-initialize)
+(unless package--initialized (package-initialize t))
 
 ;; Load Packages
 (add-to-list 'load-path "~/.emacs.d/elpa/")
@@ -54,7 +54,7 @@
 (require 'powerline)
 (powerline-center-theme)
 
-(set-default-font "Menlo-17")
+;;(set-default-font "Menlo-17")
 
 ;;Set up my custom.el file
 (setq custom-file "~/.emacs.d/custom.el")

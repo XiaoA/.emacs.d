@@ -7,9 +7,10 @@
   #+BEGIN_SRC emacs-lisp
     ;;Who doesn't love packages?
     (require 'package)
-    (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("marmalade" . "http://marmalade-repo.org/packages/") ("org" . "http://orgmode.org/elpa/")))
+    (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("org" . "http://orgmode.org/elpa/")))
 
-    (package-initialize)
+    (unless package--initialized (package-initialize t))
+
   #+END_SRC
 
   #+RESULTS:
@@ -131,7 +132,7 @@
    #+RESULTS:
 ** Set default font
 #+BEGIN_SRC emacs-lisp
-(set-default-font "Menlo-17")
+;;(set-default-font "Menlo-17")
 #+END_SRC
 
 #+RESULTS:
@@ -974,36 +975,36 @@ values used in the user's shell."
 
   #+END_SRC
 
-* Screencast-graphiz-dot-mode
-  #+BEGIN_SRC elisp
-;;; screencast-graphviz-dot-mode.el
+# * Screencast-graphiz-dot-mode
+#   #+BEGIN_SRC elisp
+# ;;; screencast-graphviz-dot-mode.el
 
-;; Copyright (C) 2009 ESBEN Andreasen <esbenandreasen@gmail.com>
+# ;; Copyright (C) 2009 ESBEN Andreasen <esbenandreasen@gmail.com>
 
-;; Authors: esbenandreasen <esbenandreasen@gmail.com>(new)
+# ;; Authors: esbenandreasen <esbenandreasen@gmail.com>(new)
 
-;; Keywords: screencast
+# ;; Keywords: screencast
 
-;; This file is not an official part of emacs.
+# ;; This file is not an official part of emacs.
 
-;; This program is free software; you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
+# ;; This program is free software; you can redistribute it and/or modify
+# ;; it under the terms of the GNU General Public License as published by
+# ;; the Free Software Foundation; either version 2, or (at your option)
+# ;; any later version.
 
-;; This program is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;; GNU General Public License for more details.
+# ;; This program is distributed in the hope that it will be useful,
+# ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+# ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# ;; GNU General Public License for more details.
 
-;; You should have received a copy of the GNU General Public License
-;; along with this program; if not, you can either send email to this
-;; program's maintainer or write to: The Free Software Foundation,
-;; Inc.; 59 Temple Place, Suite 330; Boston, MA 02111-1307, USA.
+# ;; You should have received a copy of the GNU General Public License
+# ;; along with this program; if not, you can either send email to this
+# ;; program's maintainer or write to: The Free Software Foundation,
+# ;; Inc.; 59 Temple Place, Suite 330; Boston, MA 02111-1307, USA.
 
-;;; Code:
+# ;;; Code:
 
-(require 'screencast-record)
+# (require 'screencast-record)
 (defun screencast-graphviz-dot (&optional arg)
   (interactive "P")
   (apply
