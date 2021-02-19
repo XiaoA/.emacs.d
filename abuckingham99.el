@@ -438,18 +438,15 @@
 
 (defun jekyll-new-post (title)
   "Start a new blog post"
-  (setq path "~/jekyll/andrewbuckingham.net.source/_posts/")
+  (setq path "~/jekyll/andrewbuckingham-source/_posts/")
   (interactive "sTitle: ")
   (find-file (concat path (format-time-string "%Y-%m-%d")
     "-" (replace-regexp-in-string " " "-" title) ".md"))
   (insert "---
-layout: post
+layout: single
 title: 
 date: 
-comments: true
-category : blog
-tags : []
-
+tags: []
 ---
 ")
   )

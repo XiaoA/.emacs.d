@@ -25,6 +25,7 @@
         indent-for-tab-command
         kill-region
         kill-visual-line
+        ns-copy-including-secondary
         org-beginning-of-line
         org-ctrl-c-ctrl-c
         org-delete-char
@@ -37,6 +38,7 @@
         org-meta-return
         org-metaleft
         org-metaright
+        org-mouse-down-mouse
         org-open-line
         org-self-insert-command
         org-shiftmetaleft
@@ -46,6 +48,7 @@
         ruby-end-space
         sgml-slash
         transpose-words
+        wdired-finish-edit
         web-mode-element-wrap
         yaml-electric-backspace
         yas-expand
@@ -65,6 +68,7 @@
         kmacro-start-macro-or-insert-counter
         mark-whole-buffer
         markdown-exdent-or-delete
+        markdown-outdent-or-delete
         mouse-set-region
         ns-open-file-select-line
         org-cycle
