@@ -654,3 +654,6 @@ values used in the user's shell."
 
 (setq default-tab-width 2)
 (setq-default indent-tabs-mode nil)
+
+(setq org-roam-directory "~/org-roam")
+(add-hook 'after-init-hook 'org-roam-mode)
