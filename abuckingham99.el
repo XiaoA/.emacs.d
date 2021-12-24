@@ -32,10 +32,13 @@
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; (set-frame-font "Menlo 14" nil t)
+(set-face-attribute 'default nil :font "Menlo" :height 170)
+
 ;; Use Helm Mode
 (helm-mode 1)
 
-(global-set-key (kbd "C-x RET") 'helm-M-x)
+;; (global-set-key (kbd "C-x RET") 'helm-M-x)
 
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
@@ -86,7 +89,7 @@
 (show-paren-mode t)
 
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
-;; (global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-x\C-m" 'execute-extended-command)
 ;; Experimenting with 'helm-M-x; see 'Helm Keyboard Shortcuts,' above
 
 ;; Require Org-Mode
@@ -126,7 +129,7 @@
             (local-set-key "\M-\C-y" 'org-table-paste-rectangle)
             (local-set-key "\M-\C-l" 'org-table-sort-lines)
             ;; display images
-            (local-set-key "\M-I" 'org-toggle-iimage-in-org)
+            (local-set-key "\M-I" 'org-toggle-image-in-org)
             ;; yasnippet (using the new org-cycle hooks)
             ;;(make-variable-buffer-local 'yas/trigger-key)
             ;;(setq yas/trigger-key [tab])
@@ -137,20 +140,30 @@
 (setq org-use-speed-commands t)
 
 ;; Org-Mode Code Blocks
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   ;;(shell. t)
-   (R . t)
-   (perl . t)
-   (ruby . t)
-   (python . t)
-   (js . t)
-   (haskell . t)
-   (elixir . t)))
+ (org-babel-do-load-languages
+  'org-babel-load-languages
+  '((emacs-lisp . t)
+    (shell . t)
+    (R . t)
+    (perl . t)
+    (ruby . t)
+    (python . t)
+    (js . t)
+    (haskell . t)
+;;    (elixir . t)
+    (restclient . t)
+    ))
 
 (add-to-list 'org-src-lang-modes
              '("r" . ess-mode))
+
+;; (add-to-list 'org-src-lang-modes '("racket" . racket-mode))
+;; (add-to-list 'load-path "~/.emacs.d/vendor/emacs-ob-racket/")
+
+;; ;; Set path to racket interpreter
+;; (setq org-babel-command:racket "/usr/local/bin/racket")
+
+;; (require 'ob-racket)
 
 ;; Code block fontification
   (setq org-src-fontify-natively t)
@@ -182,9 +195,13 @@
 ;; recommended by Bozhidar: http://emacsredux.com/blog/2013/05/19/delete-whitespace-around-point/
 (global-set-key (kbd "C-c j") 'just-one-space)
 
-(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
-    (require 'yasnippet) ;; not yasnippet-bundle
-    (yas-global-mode 1)
+;; (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
+;;     (require 'yasnippet) ;; not yasnippet-bundle
+;;     (yas-global-mode 1)
+(use-package yasnippet
+  :config
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
 
 ;; Load my snippets
 (add-to-list 'load-path "~/.emacs.d/snippets/web-mode/")
@@ -652,8 +669,100 @@ values used in the user's shell."
 (add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
 (add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
 
+;; (require 'ob-elixir)
+
+(use-package lsp-mode
+    :commands lsp
+    :ensure t
+    :diminish lsp-mode
+    :hook
+    (elixir-mode . lsp)
+    :init
+    (add-to-list 'exec-path "~/.emacs.d/vendor/elixir-ls-1.12/"))
+
+(use-package unicode-fonts
+  :ensure t
+  :config
+  (unicode-fonts-setup))
+
 (setq default-tab-width 2)
 (setq-default indent-tabs-mode nil)
 
-(setq org-roam-directory "~/org-roam")
-(add-hook 'after-init-hook 'org-roam-mode)
+(setq org-roam-v2-ack t)
+
+(use-package org-roam
+  :ensure t
+  :defer t
+  :init
+  (setq org-roam-v2-ack t)
+
+  :custom
+  (org-roam-directory "/Users/abuckingham/org-roam")
+  :bind (("C-c n f" . org-roam-node-find)
+         ("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n i" . org-roam-node-insert)
+         :map org-mode-map
+         ("C-M-i" . completion-at-point))
+  :config
+  (org-roam-setup))
+
+(defun ab/lsp-mode-setup ()
+  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+  (lsp-headerline-breadcrumb-mode))
+
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook (lsp-mode . ab/lsp-mode-setup)
+  :init
+  (setq lsp-keymap-prefix "C-c p")
+  :config
+  (lsp-enable-which-key-integration t))
+
+(use-package lsp-ui
+  :hook
+  (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom))
+
+
+(use-package helm-lsp
+  :commands helm-lsp-workspace-symbol)
+
+(use-package which-key
+  :config
+  (which-key-mode))
+
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :mode "\\.tsx\\'"
+  :mode "\\.js\\'"
+  :hook
+  (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2))
+
+
+(use-package company
+  ;; :after lsp-mode
+  ;; :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+              ("<tab>" . company-complete-selection))
+  (:map lsp-mode-map
+        ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+;; (use-package company-box
+;;   :hook
+;;   (company-mode . company-box-mode))
+
+;; Based on http://ezinearticles.com/?What-is-the-Average-Reading-Speed-and-the-Best-Rate-of-Reading?&id=2298503
+(defun ab/time-to-read ()
+  "Calculate time to read the content(mins.)
+       which is around 200 wpm."
+  (let ((count (count-words-region)))
+    (if (zerop count)
+        (message "ERR: Cannot estimate time to read.")
+      (setq ttr (fceiling (/ (/ count (/ 200 60.0)) 60.0))))
+    ttr))
