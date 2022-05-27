@@ -1,6 +1,6 @@
 ;;Who doesn't love packages?
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("org" . "http://orgmode.org/elpa/")))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/")))
 
 (unless package--initialized (package-initialize t))
 
@@ -31,6 +31,8 @@
 
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(setq visible-bell t)
 
 ;; (set-frame-font "Menlo 14" nil t)
 (set-face-attribute 'default nil :font "Menlo" :height 170)

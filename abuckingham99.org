@@ -7,7 +7,7 @@
   #+BEGIN_SRC emacs-lisp
     ;;Who doesn't love packages?
     (require 'package)
-    (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("org" . "http://orgmode.org/elpa/")))
+    (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/")))
 
     (unless package--initialized (package-initialize t))
 
@@ -82,6 +82,12 @@
 
    #+RESULTS:
    : y-or-n-p
+
+** Set Visual Bell for errors. Beeps get annoying.
+#+begin_src emacs-lisp
+  (setq visible-bell t)
+#+end_src
+   
 
 ** Set font
 #+begin_src emacs-lisp
