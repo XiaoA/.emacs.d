@@ -54,7 +54,7 @@
 
 (global-set-key (kbd "C-c h x") 'helm-register)
 
-(load-theme 'vscode-dark-plus t)
+(load-theme 'modus-vivendi t)
 
 (require 'powerline)
 (powerline-center-theme)

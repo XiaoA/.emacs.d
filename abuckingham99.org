@@ -131,7 +131,7 @@
 
 ** Load default theme
    #+BEGIN_SRC emacs-lisp
-     (load-theme 'vscode-dark-plus t)
+     (load-theme 'modus-vivendi t)
    #+END_SRC
 
    #+RESULTS:
