@@ -20,3 +20,5 @@ tramp
 /network-security.data
 /bookmarks
 /.emacs.d-master/
+/org-templates/
+/var/
