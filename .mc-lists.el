@@ -11,6 +11,7 @@
         c-electric-semi&comma
         c-electric-slash
         comment-line
+        company-indent-or-complete-common
         copy-to-register
         delete-horizontal-space
         delete-indentation

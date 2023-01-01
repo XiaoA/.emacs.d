@@ -673,14 +673,14 @@ values used in the user's shell."
 
 ;; (require 'ob-elixir)
 
-(use-package lsp-mode
-    :commands lsp
-    :ensure t
-    :diminish lsp-mode
-    :hook
-    (elixir-mode . lsp)
-    :init
-    (add-to-list 'exec-path "~/.emacs.d/vendor/elixir-ls-1.12/"))
+;; (use-package lsp-mode
+;;     :commands lsp
+;;     :ensure t
+;;     :diminish lsp-mode
+;;     :hook
+;;     (elixir-mode . lsp)
+;;     :init
+;;     (add-to-list 'exec-path "~/.emacs.d/vendor/elixir-ls-1.12/"))
 
 (use-package unicode-fonts
   :ensure t
@@ -707,6 +707,20 @@ values used in the user's shell."
          ("C-M-i" . completion-at-point))
   :config
   (org-roam-setup))
+
+;;   (use-package org-roam-ui
+;;   :straight
+;;     (:host github :repo "org-roam/org-roam-ui" :branch "main" :files ("*.el" "out"))
+;;     :after org-roam
+;; ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;; ;;         a hookable mode anymore, you're advised to pick something yourself
+;; ;;         if you don't care about startup time, use
+;; ;;  :hook (after-init . org-roam-ui-mode)
+;;     :config
+;;     (setq org-roam-ui-sync-theme t
+;;           org-roam-ui-follow t
+;;           org-roam-ui-update-on-save t
+;;           org-roam-ui-open-on-start t))
 
 (defun ab/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
