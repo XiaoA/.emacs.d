@@ -9,7 +9,7 @@ k#+TITLE: My Emacs Customizations
 
 * Who doesn't love packages?
 
-  #+BEGIN_SRC emacs-lisp :tangle lisp/package-setup.el
+  #+BEGIN_SRC emacs-lisp
     ;;Who doesn't love packages?
     (require 'package)
     (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
@@ -165,6 +165,13 @@ k#+TITLE: My Emacs Customizations
 (setq-default indent-tabs-mode nil)
 #+end_src  
 
+* Require server for Emacsclient 
+# Temporarily commented out
+#   #+BEGIN_SRC emacs-lisp
+# (require 'server)
+# (unless (server-running-p)
+#   (server-start))
+#   #+END_SRC
 
 * Backups
   #+BEGIN_SRC emacs-lisp
@@ -992,7 +999,23 @@ values used in the user's shell."
 
   #+end_src   
 
+* Org-Roam-UI
+#+begin_src emacs-lisp
+  (use-package websocket
+                :after org-roam)
 
+  (use-package org-roam-ui
+                :after org-roam ;; or :after org
+                ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+                ;;         a hookable mode anymore, you're advised to pick something yourself
+                ;;         if you don't care about startup time, use
+                ;;  :hook (after-init . org-roam-ui-mode)
+                :config
+                (setq org-roam-ui-sync-theme t
+                      org-roam-ui-follow t
+                      org-roam-ui-update-on-save t
+                      org-roam-ui-open-on-start t))
+#+end_src
 
 * Toggle Eshell Visor
   #+BEGIN_SRC emacs-lisp

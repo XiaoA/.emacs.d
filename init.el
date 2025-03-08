@@ -36,8 +36,21 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   (quote
-    (yasnippet yaml-mode web-mode undo-tree twittering-mode sr-speedbar soothe-theme seeing-is-believing ruby-tools ruby-refactor ruby-end ruby-electric rspec-mode robe rinari rhtml-mode rbenv projectile-rails project-explorer powerline php-mode php+-mode password-generator parse-csv org-screenshot org-present org-plus-contrib ob-restclient nyan-prompt nyan-mode neotree multiple-cursors multi-term mode-icons minitest markdown-mode magit json-mode js2-mode helm-robe helm-projectile helm-ag haml-mode folding fold-this flymake-ruby flymake-php flymake-json flymake-haml expand-region ess enh-ruby-mode dracula-theme dash-at-point csv-mode company coffee-mode cider calfw bundler browse-kill-ring ace-jump-mode ace-jump-buffer ac-inf-ruby ac-html-csswatcher ac-html-bootstrap ac-html))))
+   '(ac-html ac-html-bootstrap ac-html-csswatcher ac-inf-ruby
+             ace-jump-buffer ace-jump-mode browse-kill-ring bundler
+             calfw cider coffee-mode company csv-mode dash-at-point
+             dracula-theme enh-ruby-mode ess expand-region
+             flymake-haml flymake-json flymake-php flymake-ruby
+             fold-this folding haml-mode helm-ag helm-projectile
+             helm-robe js2-mode json-mode magit markdown-mode minitest
+             mode-icons multi-term multiple-cursors neotree nyan-mode
+             nyan-prompt ob-restclient org-plus-contrib org-present
+             org-roam-ui org-screenshot parse-csv password-generator
+             php+-mode php-mode powerline project-explorer
+             projectile-rails rbenv rhtml-mode rinari robe rspec-mode
+             ruby-electric ruby-end ruby-refactor ruby-tools
+             seeing-is-believing soothe-theme sr-speedbar
+             twittering-mode undo-tree web-mode yaml-mode yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

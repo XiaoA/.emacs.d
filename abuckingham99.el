@@ -1,5 +1,11 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
+;;Who doesn't love packages?
+(require 'package)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+
+(unless package--initialized (package-initialize t))
+
 ;; Load Packages
 
 ;; UI Tweaks
@@ -532,6 +538,21 @@ values used in the user's shell."
          ("C-M-i" . completion-at-point))
   :config
   (org-roam-setup))
+
+(use-package websocket
+              :after org-roam)
+
+(use-package org-roam-ui
+              :after org-roam ;; or :after org
+              ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+              ;;         a hookable mode anymore, you're advised to pick something yourself
+              ;;         if you don't care about startup time, use
+              ;;  :hook (after-init . org-roam-ui-mode)
+              :config
+              (setq org-roam-ui-sync-theme t
+                    org-roam-ui-follow t
+                    org-roam-ui-update-on-save t
+                    org-roam-ui-open-on-start t))
 
 ;;Source: http://rawsyntax.com/blog/learn-emacs-store-window-configuration/
 (defun ab/toggle-eshell-visor ()
