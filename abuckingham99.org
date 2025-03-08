@@ -1,56 +1,35 @@
-k#+TITLE: My Emacs Customizations
+#+TITLE: My Emacs Customizations
 #+AUTHOR: Andrew Buckingham
 #+OPTIONS: num:nil toc:nil
 
 * Initial Setup
-#+begin_src emacs-lisp
-  (add-to-list 'load-path "~/.emacs.d/lisp/")
+Starting in Emacs 27+, =early-init.el= can be used for settings that can be applied before packages are loaded, including UI tweaks and garbage collection.
+
+I've moved my 'UI/UX Tweaks' into this file, and delayed loading packages until =init.el=. These customizations are set before any packages are loaded.
+
+** early-init.el
+#+begin_src emacs-lisp :tangle "early-init.el"
+  ;; Initialize packages later
+  (setq package-enable-at-startup nil)
+
+  ;; Disable UI elements before they're created
+  (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+  (when (fboundp 'fringe-mode) (fringe-mode -1))
+
+  ;; No splash screen on startup
+  (setq inhibit-splash-screen t)
+
+  ;; I prefer a blank *scratch* buffer
+  (setq initial-scratch-message nil)
 #+end_src
 
-* Who doesn't love packages?
 
-  #+BEGIN_SRC emacs-lisp
-    ;;Who doesn't love packages?
-    (require 'package)
-    (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
+** init.el
+#+begin_src emacs-lisp
+  (add-to-list 'load-path "~/.emacs.d/config/")
+#+end_src
 
-    (unless package--initialized (package-initialize t))
-
-  #+END_SRC
-
-  #+RESULTS:
-
-  #+BEGIN_SRC emacs-lisp
-      ;; Load Packages
-
-  #+END_SRC
-
-  #+RESULTS:
-  | /Users/abuckingham/.emacs.d/elpa/org-clock-csv-20190418.1505 | /Users/abuckingham/.emacs.d/elpa/s-20180406.808 | ~/.emacs.d/elpa/ace-jump-mode*/ | ~/.emacs.d/vendor/ | ~/.emacs.d/snippets/ruby-mode | ~/.emacs.d/snippets/org-mode | ~/.emacs.d/snippets/markdown-mode/ | ~/.emacs.d/snippets/web-mode/ | ~/.emacs.d/elpa/yasnippet | ~/.emacs.d/elpa/ | /Users/abuckingham/.emacs.d/elpa/ace-jump-mode-20140616.815 | /Users/abuckingham/.emacs.d/elpa/auto-complete-20170125.245 | /Users/abuckingham/.emacs.d/elpa/company-20190402.2323 | /Users/abuckingham/.emacs.d/elpa/enh-ruby-mode-20190325.2132 | /Users/abuckingham/.emacs.d/elpa/exotica-theme-20180212.2329 | /Users/abuckingham/.emacs.d/elpa/flymake-ruby-20170723.146 | /Users/abuckingham/.emacs.d/elpa/flymake-easy-20140818.755 | /Users/abuckingham/.emacs.d/elpa/helm-ag-20170209.1545 | /Users/abuckingham/.emacs.d/elpa/helm-projectile-20180815.1514 | /Users/abuckingham/.emacs.d/elpa/helm-20190405.1842 | /Users/abuckingham/.emacs.d/elpa/helm-core-20190326.921 | /Users/abuckingham/.emacs.d/elpa/js2-mode-20190307.1649 | /Users/abuckingham/.emacs.d/elpa/lorem-ipsum-20140911.2108 | /Users/abuckingham/.emacs.d/elpa/magit-20190405.1704 | /Users/abuckingham/.emacs.d/elpa/git-commit-20190319.2352 | /Users/abuckingham/.emacs.d/elpa/markdown-mode-20190305.319 | /Users/abuckingham/.emacs.d/elpa/minitest-20160628.1820 | /Users/abuckingham/.emacs.d/elpa/multiple-cursors-20190317.1211 | /Users/abuckingham/.emacs.d/elpa/neotree-20181121.2026 | /Users/abuckingham/.emacs.d/elpa/nyan-mode-20170423.740 | /Users/abuckingham/.emacs.d/elpa/org-plus-contrib-20190402 | /Users/abuckingham/.emacs.d/elpa/ox-pandoc-20180510.1338 | /Users/abuckingham/.emacs.d/elpa/ht-20190404.1202 | /Users/abuckingham/.emacs.d/elpa/popup-20160709.1429 | /Users/abuckingham/.emacs.d/elpa/powerline-20190323.213 | /Users/abuckingham/.emacs.d/elpa/projectile-20190403.619 | /Users/abuckingham/.emacs.d/elpa/pkg-info-20150517.1143 | /Users/abuckingham/.emacs.d/elpa/epl-20180205.2049 | /Users/abuckingham/.emacs.d/elpa/rinari-20150709.640 | /Users/abuckingham/.emacs.d/elpa/jump-20161127.128 | /Users/abuckingham/.emacs.d/elpa/inflections-20170913.916 | /Users/abuckingham/.emacs.d/elpa/findr-20130127.2032 | /Users/abuckingham/.emacs.d/elpa/robe-20190305.2146 | /Users/abuckingham/.emacs.d/elpa/rspec-mode-20190326.1422 | /Users/abuckingham/.emacs.d/elpa/ruby-compilation-20150709.640 | /Users/abuckingham/.emacs.d/elpa/inf-ruby-20190219.1147 | /Users/abuckingham/.emacs.d/elpa/ruby-electric-20170810.1130 | /Users/abuckingham/.emacs.d/elpa/ruby-end-20141215.1223 | /Users/abuckingham/.emacs.d/elpa/transient-20190319.1928 | /Users/abuckingham/.emacs.d/elpa/dash-20190320.1406 | /Users/abuckingham/.emacs.d/elpa/tron-theme-12 | /Users/abuckingham/.emacs.d/elpa/undo-tree-0.6.5 | /Users/abuckingham/.emacs.d/elpa/web-mode-20190301.1700 | /Users/abuckingham/.emacs.d/elpa/with-editor-20190224.931 | /Users/abuckingham/.emacs.d/elpa/async-20181224.454 | /Users/abuckingham/.emacs.d/elpa/yaml-mode-20180409.607 | /Users/abuckingham/.emacs.d/elpa/yasnippet-20181015.1212 | /Library/Application Support/Emacs/26.1/site-lisp | /Library/Application Support/Emacs/site-lisp | /Applications/Emacs.app/Contents/Resources/site-lisp | /Applications/Emacs.app/Contents/Resources/lisp | /Applications/Emacs.app/Contents/Resources/lisp/vc | /Applications/Emacs.app/Contents/Resources/lisp/url | /Applications/Emacs.app/Contents/Resources/lisp/textmodes | /Applications/Emacs.app/Contents/Resources/lisp/progmodes | /Applications/Emacs.app/Contents/Resources/lisp/play | /Applications/Emacs.app/Contents/Resources/lisp/org | /Applications/Emacs.app/Contents/Resources/lisp/nxml | /Applications/Emacs.app/Contents/Resources/lisp/net | /Applications/Emacs.app/Contents/Resources/lisp/mh-e | /Applications/Emacs.app/Contents/Resources/lisp/mail | /Applications/Emacs.app/Contents/Resources/lisp/leim | /Applications/Emacs.app/Contents/Resources/lisp/language | /Applications/Emacs.app/Contents/Resources/lisp/international | /Applications/Emacs.app/Contents/Resources/lisp/image | /Applications/Emacs.app/Contents/Resources/lisp/gnus | /Applications/Emacs.app/Contents/Resources/lisp/eshell | /Applications/Emacs.app/Contents/Resources/lisp/erc | /Applications/Emacs.app/Contents/Resources/lisp/emulation | /Applications/Emacs.app/Contents/Resources/lisp/emacs-lisp | /Applications/Emacs.app/Contents/Resources/lisp/cedet | /Applications/Emacs.app/Contents/Resources/lisp/calendar | /Applications/Emacs.app/Contents/Resources/lisp/calc | /Applications/Emacs.app/Contents/Resources/lisp/obsolete |
-
-* UI/UX Tweaks
-  #+BEGIN_SRC emacs-lisp
-;; UI Tweaks
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'fringe-mode) (fringe-mode -1))
-  #+END_SRC
-
-  #+RESULTS:
-  : ((vertical-scroll-bars) (left-fringe . -1) (right-fringe . -1))
-
-** No splash screen on startup
-   #+BEGIN_SRC emacs-lisp
-(setq inhibit-splash-screen t)
-   #+END_SRC
-
-   #+RESULTS:
-   : t
-
-** I prefer a blank \*scratch\* buffer
-   #+BEGIN_SRC emacs-lisp
-(setq initial-scratch-message nil)
-   #+END_SRC
 
    #+RESULTS:
 

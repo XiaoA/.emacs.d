@@ -1,21 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
-;;Who doesn't love packages?
-(require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/") ("melpa" . "http://melpa.org/packages/") ("nongnu" . "https://elpa.nongnu.org/nongnu/")))
-
-(unless package--initialized (package-initialize t))
-
-;; Load Packages
-
-;; UI Tweaks
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'fringe-mode) (fringe-mode -1))
-
-(setq inhibit-splash-screen t)
-
-(setq initial-scratch-message nil)
+(add-to-list 'load-path "~/.emacs.d/config/")
 
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
