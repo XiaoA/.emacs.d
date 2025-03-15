@@ -69,14 +69,15 @@ By default, errors produce an annoying "beep." This replaces that with a visual 
 # (load custom-file)
 #   #+END_SRC
 
-* Because Alt-x is usually too awkward
+** Because Alt-x is usually too awkward
+   A great tip from an old Steve Yegge [[Shttps://sites.google.com/site/steveyegge2/effective-emacs][blog post]] to make it easier to type =M-x= commands
   #+BEGIN_SRC emacs-lisp
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 ;; Experimenting with 'helm-M-x; see 'Helm Keyboard Shortcuts,' above
   #+END_SRC
 
-* Byte Recompile
+** Byte Recompile
   #+BEGIN_SRC emacs-lisp
 ;; Byte Recompile
 (defun ab/byte-recompile ()
@@ -84,13 +85,13 @@ By default, errors produce an annoying "beep." This replaces that with a visual 
   (byte-recompile-directory "~/.emacs.d" 0))
   #+END_SRC
 
-* Set default tab/space width to 2
+** Set default tab/space width to 2
 #+begin_src emacs-lisp
 (setq default-tab-width 2)
 (setq-default indent-tabs-mode nil)
 #+end_src  
 
-* Backups
+** Backups
   #+BEGIN_SRC emacs-lisp
 ;; Write backup files to own directory
 (setq backup-directory-alist
@@ -104,7 +105,7 @@ By default, errors produce an annoying "beep." This replaces that with a visual 
   
 
 
-* Save Buffer History
+** Save Buffer History
 
 Great tip from [[https://www.youtube.com/watch?v=TJrAkCyH6Dk][Protesilaos Stavrou]] to save a history of visited buffers when saving
 #+begin_src emacs-lisp
