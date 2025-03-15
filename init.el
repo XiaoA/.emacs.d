@@ -45,11 +45,11 @@
              helm-robe js2-mode json-mode magit markdown-mode minitest
              mode-icons multi-term multiple-cursors neotree nyan-mode
              nyan-prompt ob-restclient org-plus-contrib org-present
-             org-roam-ui org-screenshot parse-csv password-generator
-             php+-mode php-mode powerline project-explorer
-             projectile-rails rbenv rhtml-mode rinari robe rspec-mode
-             ruby-electric ruby-end ruby-refactor ruby-tools
-             seeing-is-believing soothe-theme sr-speedbar
+             org-roam-ql org-roam-ui org-screenshot parse-csv
+             password-generator php+-mode php-mode powerline
+             project-explorer projectile-rails rbenv rhtml-mode rinari
+             robe rspec-mode ruby-electric ruby-end ruby-refactor
+             ruby-tools seeing-is-believing soothe-theme sr-speedbar
              twittering-mode undo-tree web-mode yaml-mode yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

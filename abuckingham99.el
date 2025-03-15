@@ -1,36 +1,17 @@
-(add-to-list 'load-path "~/.emacs.d/config/")
+(add-to-list 'package-archives
+           '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
 (setq visible-bell t)
 
-;; (set-frame-font "Menlo 14" nil t)
 (set-face-attribute 'default nil :font "Menlo" :height 170)
-
-;; Use Helm Mode
-(helm-mode 1)
-
-;; (global-set-key (kbd "C-x RET") 'helm-M-x)
-
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-
-(global-set-key (kbd "C-x b") 'helm-mini)
-
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-
-(global-set-key (kbd "C-c h o") 'helm-occur)
-
-(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
-
-(global-set-key (kbd "C-c h x") 'helm-register)
 
 (load-theme 'modus-vivendi t)
 
 (require 'powerline)
 (powerline-center-theme)
-
-;;(set-default-font "Menlo-17")
 
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
 (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -51,6 +32,20 @@
 
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
+
+(setq savehist-mode 1)
+(setq savehist-additional-variables '(register-alist kill-ring))
+
+;; Use Helm Mode
+(helm-mode 1)
+
+(global-set-key (kbd "C-x RET") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c h o") 'helm-occur)
+(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
+(global-set-key (kbd "C-c h x") 'helm-register)
 
 ;;; import-env-from-shell.el --- Make Emacs use the environment set up by the user's shell
 
@@ -286,20 +281,6 @@ values used in the user's shell."
 ;; Require Dired-X
 (require 'dired-x)
 
-;; Turn pasted BB Sis Integration log into a CSV file
-(fset 'ab/sis-integration-log
-   [?\C-c ?\C-p ?\C-n ?\M-f ?\M-d ?\M-d ?\M-d ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a])
-
-;; ab/sis-1
-;; Remove all of the unnecessary text and whitespace, and format the line as csv
-(fset 'ab/sis-1
-   "\C-a\C-c\C-p\C-sselect sis\C-m\C-a\344\C-d\C-sname\C-m\346\342\C-o\C-rsis\C-m\342\346,\C-k\C-k\C-e\C-rsnap\C-m\342\346,\334\C-sfile\C-m,\334\346,\334\C-e\342\346\342\342\346,\334\C-n\C-a")
-
-;; ab/sis-2
-;; Create the column headers for the csv file
-(fset 'ab/sis-2
-   [?\C-a ?\C-c ?\C-p ?\C-n ?\C-o ?\C-n ?N ?a ?m ?e ?, ?D ?e ?s ?c ?r ?i ?p ?t ?i ?o ?n ?, ?T ?y ?p ?e ?, ?S ?a backspace ?t ?a ?t ?e ?, ?L ?a ?s ?t ?  ?E ?v ?e ?n ?t ?, ?R ?e ?c ?e ?n ?t ?  ?E ?r ?r ?o ?r ?s ?\C-k ?\C-c ?\C-p])
-
 ;; (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
 ;;     (require 'yasnippet) ;; not yasnippet-bundle
 ;;     (yas-global-mode 1)
@@ -349,8 +330,8 @@ values used in the user's shell."
 ;; (setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/inbox.org")
 
 (setq yas-snippet-dirs
-      '("/Users/abuckingham99/.emacs.d/elpa/yasnippet-20140314.255/snippets/"
-        "/Users/abuckingham99/.emacs.d/snippets/"
+      '("~/.emacs.d/elpa/yasnippet-20140314.255/snippets/"
+        "~/.emacs.d/snippets/"
         ))
 (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
 
@@ -389,6 +370,8 @@ values used in the user's shell."
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 (setq org-log-done t)
+
+(setq org-html-postamble nil)
 
 ;;  Make yasnippet work properly with org-mode. 
 ;;  (defun yas/org-very-safe-expand ()
@@ -513,7 +496,7 @@ values used in the user's shell."
   (setq org-roam-v2-ack t)
   
   :custom
-  (org-roam-directory "/Users/abuckingham/org-roam")
+  (org-roam-directory "~/org-roam")
   :bind (("C-c n f" . org-roam-node-find)
          ("C-c n l" . org-roam-buffer-toggle)
          ("C-c n i" . org-roam-node-insert)
@@ -536,6 +519,15 @@ values used in the user's shell."
                     org-roam-ui-follow t
                     org-roam-ui-update-on-save t
                     org-roam-ui-open-on-start t))
+
+;; Require Helm-Projectile
+(require 'helm-projectile)
+(projectile-global-mode)
+
+(setq projectile-completion-system 'helm
+      projectile-switch-project-action 'helm-projectile)
+
+(global-set-key (kbd "C-c p h") 'helm-projectile-find-file)
 
 ;;Source: http://rawsyntax.com/blog/learn-emacs-store-window-configuration/
 (defun ab/toggle-eshell-visor ()
@@ -608,16 +600,6 @@ values used in the user's shell."
       (insert "=")
       (setq ii (1+ ii) ) ) ))
 
-;; I use these for cleaning up some report data from R. Not really useful for anyone but me...
-(fset 'ab/chat-regexp-home-pm
-   "\223[0-\C-?\C-?6-9\\|10]\C-?\C-?\C-?(10)]\C-?\C-?\C-?\C-?\C-?+:\C-?\C-?\C-?\C-?]+:[0-9]+:[0-9]+,PM\C-eHome")
-
-(fset 'ab/chat-regexp-office-am
-   "\223[0-9]+:[0-9]+:[0-9]+,AM\C-eOffice")
-
-(fset 'ab/chat-regexp-office-pm
-   "\223[0-5]+:[0-9]+:[0-9]+,PM\C-eOffice")
-
 ;; ibuffer is an Improved version of list-buffers
 (defalias 'list-buffers 'ibuffer)
 
@@ -687,8 +669,8 @@ tags: []
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize)))
 
-(add-to-list 'exec-path "/Users/abuckingham/.asdf/shims")
-(setenv "PATH" (concat "/Users/abuckingham/.asdf/shims:" (getenv "PATH")))
+(add-to-list 'exec-path "~/.asdf/shims")
+(setenv "PATH" (concat "~/.asdf/shims:" (getenv "PATH")))
 
 ;; (use-package lsp-mode
 ;;     :commands lsp
@@ -777,5 +759,3 @@ tags: []
 (let ((secrets-file "~/.emacs.d/secrets.el"))
 (when (file-exists-p secrets-file)
   (load secrets-file)))
-
-(require 'ox-md)

@@ -3,15 +3,15 @@
 #+OPTIONS: num:nil toc:nil
 
 * Initial Setup
+
+
+* early-init.el
 Starting in Emacs 27+, =early-init.el= can be used for settings that can be applied before packages are loaded, including UI tweaks and garbage collection.
 
 I've moved my 'UI/UX Tweaks' into this file, and delayed loading packages until =init.el=. These customizations are set before any packages are loaded.
 
-** early-init.el
 #+begin_src emacs-lisp :tangle "early-init.el"
-  ;; Initialize packages later
-  (setq package-enable-at-startup nil)
-
+   
   ;; Disable UI elements before they're created
   (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
   (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -24,89 +24,44 @@ I've moved my 'UI/UX Tweaks' into this file, and delayed loading packages until 
   (setq initial-scratch-message nil)
 #+end_src
 
-
-** init.el
+* TODO tangle only init blocks into init.el
 #+begin_src emacs-lisp
-  (add-to-list 'load-path "~/.emacs.d/config/")
+  (add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 #+end_src
 
+* init.el
+*** Just Y/N
+By default, Emacs menus require you to confirm choices with a full "yes" or "no." I prefer to type "y" or "n".
 
-   #+RESULTS:
-
-** Just Y/N
    #+BEGIN_SRC emacs-lisp
-;; type "y"/"n" instead of "yes"/"no"
-(fset 'yes-or-no-p 'y-or-n-p)
+     ;; type "y"/"n" instead of "yes"/"no"
+     (fset 'yes-or-no-p 'y-or-n-p)
    #+END_SRC
 
-   #+RESULTS:
-   : y-or-n-p
+** Set Visual Bell for errors. 
+By default, errors produce an annoying "beep." This replaces that with a visual "flash."
 
-** Set Visual Bell for errors. Beeps get annoying.
 #+begin_src emacs-lisp
   (setq visible-bell t)
 #+end_src
    
 
-** Set font
+** Set default font
 #+begin_src emacs-lisp
-  ;; (set-frame-font "Menlo 14" nil t)
   (set-face-attribute 'default nil :font "Menlo" :height 170)
 #+end_src
-
-** Use Helm Mode
-   #+BEGIN_SRC emacs-lisp
-     ;; Use Helm Mode
-     (helm-mode 1) 
-   #+END_SRC
-
-   #+RESULTS:
-   : t
-
-** Set up Helm Keyboard Shortcuts
-   #+BEGIN_SRC emacs-lisp
-     ;; (global-set-key (kbd "C-x RET") 'helm-M-x)
-
-     (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-
-     (global-set-key (kbd "C-x b") 'helm-mini)
-
-     (global-set-key (kbd "C-x C-f") 'helm-find-files)
-
-     (global-set-key (kbd "C-c h o") 'helm-occur)
-
-     (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
-
-     (global-set-key (kbd "C-c h x") 'helm-register)
-
-   #+END_SRC
-
-   #+RESULTS:
-   : helm-register
-
-
 
 ** Load default theme
    #+BEGIN_SRC emacs-lisp
      (load-theme 'modus-vivendi t)
    #+END_SRC
 
-   #+RESULTS:
-   : t
-
 ** Behold, the power of Powerline
    #+BEGIN_SRC emacs-lisp
-(require 'powerline)
-(powerline-center-theme)
+     (require 'powerline)
+     (powerline-center-theme)
    #+END_SRC
-
-   #+RESULTS:
-** Set default font
-#+BEGIN_SRC emacs-lisp
-;;(set-default-font "Menlo-17")
-#+END_SRC
-
-#+RESULTS:
 
 # * Set up my custom.el file
 #   #+BEGIN_SRC emacs-lisp
@@ -115,17 +70,12 @@ I've moved my 'UI/UX Tweaks' into this file, and delayed loading packages until 
 # (load custom-file)
 #   #+END_SRC
 
-#   #+RESULTS:
-#   : t
-
 * Because Alt-x is usually too awkward
   #+BEGIN_SRC emacs-lisp
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 ;; Experimenting with 'helm-M-x; see 'Helm Keyboard Shortcuts,' above
   #+END_SRC
-
-  #+RESULTS:
 
 * Byte Recompile
   #+BEGIN_SRC emacs-lisp
@@ -135,27 +85,14 @@ I've moved my 'UI/UX Tweaks' into this file, and delayed loading packages until 
   (byte-recompile-directory "~/.emacs.d" 0))
   #+END_SRC
 
-  #+RESULTS:
-  : ab/byte-recompile
-
 * Set default tab/space width to 2
 #+begin_src emacs-lisp
 (setq default-tab-width 2)
 (setq-default indent-tabs-mode nil)
 #+end_src  
 
-* Require server for Emacsclient 
-# Temporarily commented out
-#   #+BEGIN_SRC emacs-lisp
-# (require 'server)
-# (unless (server-running-p)
-#   (server-start))
-#   #+END_SRC
-
 * Backups
   #+BEGIN_SRC emacs-lisp
-
-
 ;; Write backup files to own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
@@ -166,6 +103,38 @@ I've moved my 'UI/UX Tweaks' into this file, and delayed loading packages until 
 
   #+END_SRC
   
+
+
+* Save Buffer History
+
+Great tip from [[https://www.youtube.com/watch?v=TJrAkCyH6Dk][Protesilaos Stavrou]] to save a history of visited buffers when saving
+#+begin_src emacs-lisp
+  (setq savehist-mode 1)
+  (setq savehist-additional-variables '(register-alist kill-ring))
+#+end_src
+
+* TODO Move package-specific cutomizations into custom files
+* Use Helm Mode
+There are other options that I'm curious about, but I'm still happy with Helm.
+   #+BEGIN_SRC emacs-lisp
+     ;; Use Helm Mode
+     (helm-mode 1) 
+   #+END_SRC
+
+* Set up Helm Keyboard Shortcuts
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key (kbd "C-x RET") 'helm-M-x)
+     (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+     (global-set-key (kbd "C-x b") 'helm-mini)
+     (global-set-key (kbd "C-x C-f") 'helm-find-files)
+     (global-set-key (kbd "C-c h o") 'helm-occur)
+     (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
+     (global-set-key (kbd "C-c h x") 'helm-register)
+   #+END_SRC
+
+
+
+
 * Import env from shell
   #+BEGIN_SRC emacs-lisp
 ;;; import-env-from-shell.el --- Make Emacs use the environment set up by the user's shell
@@ -444,17 +413,12 @@ values used in the user's shell."
 (global-set-key (kbd "C-c C->") 'mc/mark-all-words-like-this)
   #+END_SRC
 
-  #+RESULTS:
-  : mc/mark-all-words-like-this
-
 ** Goal columns are useful!
    #+BEGIN_SRC emacs-lisp
 ;; Goal columns are useful!
 ;; Enable set-goal-column
 (put 'set-goal-column 'disabled nil)
    #+END_SRC
-
-   #+RESULTS:
 
 * Increment Number at Point
 
@@ -470,21 +434,12 @@ values used in the user's shell."
       (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
   #+END_SRC
 
-  #+RESULTS:
-  : ab/increment-number-at-point
-
 * Paren-Mode
 #+BEGIN_SRC emacs-lisp
 ;; Paren-Mode
 (require 'paren)
 (show-paren-mode t)
 #+END_SRC
-
-
-   
-
-  
-
 
 * Add Urban Dictionary to Webjump
 
@@ -536,26 +491,6 @@ values used in the user's shell."
   #+END_SRC
 
 * My Macros
-** Temporary
-
-   #+BEGIN_SRC emacs-lisp
-;; Turn pasted BB Sis Integration log into a CSV file
-(fset 'ab/sis-integration-log
-   [?\C-c ?\C-p ?\C-n ?\M-f ?\M-d ?\M-d ?\M-d ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?, ?\M-\\ ?\M-f ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a ?\M-d ?\C-d ?\C-e ?\C-r ?s ?i ?s ?\C-m ?\C-  ?\C-s ?n ?a ?m ?e ?\C-x ?\C-m ?d ?e ?l ?e ?t ?e ?- ?r ?e ?g ?i ?o ?n ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?s ?n ?a ?p ?s ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\C-e ?\C-r ?a ?c ?t ?i ?v ?e ?\C-m ?\M-b ?\M-f ?, ?\M-\\ ?\M-f ?\M-\\ ?\C-e ?\M-b ?\M-b ?\M-f ?, ?\M-\\ ?\C-n ?\C-a])
-   #+END_SRC
-
-   #+BEGIN_SRC emacs-lisp
-;; ab/sis-1
-;; Remove all of the unnecessary text and whitespace, and format the line as csv
-(fset 'ab/sis-1
-   "\C-a\C-c\C-p\C-sselect sis\C-m\C-a\344\C-d\C-sname\C-m\346\342\C-o\C-rsis\C-m\342\346,\C-k\C-k\C-e\C-rsnap\C-m\342\346,\334\C-sfile\C-m,\334\346,\334\C-e\342\346\342\342\346,\334\C-n\C-a")
-
-;; ab/sis-2
-;; Create the column headers for the csv file
-(fset 'ab/sis-2
-   [?\C-a ?\C-c ?\C-p ?\C-n ?\C-o ?\C-n ?N ?a ?m ?e ?, ?D ?e ?s ?c ?r ?i ?p ?t ?i ?o ?n ?, ?T ?y ?p ?e ?, ?S ?a backspace ?t ?a ?t ?e ?, ?L ?a ?s ?t ?  ?E ?v ?e ?n ?t ?, ?R ?e ?c ?e ?n ?t ?  ?E ?r ?r ?o ?r ?s ?\C-k ?\C-c ?\C-p])
-   #+END_SRC
-
 * EmacsWiki Duplicate line LISP
   
 * Yasnippet
@@ -609,8 +544,6 @@ values used in the user's shell."
 
   
   #+BEGIN_SRC emacs-lisp
-
-  
   ;; This is on hold...not really using MobileOrg now, but might change my mind later...
   ;; (setq org-directory "~/Dropbox/org/")
   ;; (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg/")
@@ -618,8 +551,8 @@ values used in the user's shell."
   ;; (setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/inbox.org")
   
   (setq yas-snippet-dirs
-        '("/Users/abuckingham99/.emacs.d/elpa/yasnippet-20140314.255/snippets/"
-          "/Users/abuckingham99/.emacs.d/snippets/"
+        '("~/.emacs.d/elpa/yasnippet-20140314.255/snippets/"
+          "~/.emacs.d/snippets/"
           ))
   (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
   
@@ -632,20 +565,10 @@ values used in the user's shell."
 
 * Auto-Complete, you...never mind...
   #+BEGIN_SRC emacs-lisp
-;; (require 'auto-complete)
-;; (global-auto-complete-mode t)
-;; (auto-complete-mode t)
+    ;; (require 'auto-complete)
+    ;; (global-auto-complete-mode t)
+    ;; (auto-complete-mode t)
   #+END_SRC
-
-
-
-
-
-
-
-
-
-
 
 * Webdev
   #+BEGIN_SRC emacs-lisp
@@ -655,9 +578,6 @@ values used in the user's shell."
 (setq auto-mode-alist (cons '("\\.erb$" . web-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.php$" . web-mode) auto-mode-alist))
   #+END_SRC
-
-  #+RESULTS:
-  : ((\.php$ . web-mode) (\.erb$ . web-mode) (\.aspx$ . web-mode) (\.html$ . web-mode) (\.odc\' . archive-mode) (\.odf\' . archive-mode) (\.odi\' . archive-mode) (\.otp\' . archive-mode) (\.odp\' . archive-mode) (\.otg\' . archive-mode) (\.odg\' . archive-mode) (\.ots\' . archive-mode) (\.ods\' . archive-mode) (\.odm\' . archive-mode) (\.ott\' . archive-mode) (\.odt\' . archive-mode) (\.rake\' . ruby-mode) (Rakefile\' . ruby-mode) (\.mkd\' . markdown-mode) (\.org\’ . org-mode) (\.php$ . web-mode) (\.erb$ . web-mode) (\.aspx$ . web-mode) (\.html$ . web-mode) (/git-rebase-todo\' . git-rebase-mode) (\.md\' . markdown-mode) (\.markdown\' . markdown-mode) (\.\(e?ya?\|ra\)ml\' . yaml-mode) (\.gpg\(~\|\.~[0-9]+~\)?\' nil epa-file) (\.elc\' . elisp-byte-code-mode) (\.zst\' nil jka-compr) (\.dz\' nil jka-compr) (\.xz\' nil jka-compr) (\.lzma\' nil jka-compr) (\.lz\' nil jka-compr) (\.g?z\' nil jka-compr) (\.bz2\' nil jka-compr) (\.Z\' nil jka-compr) (\.vr[hi]?\' . vera-mode) (\(?:\.\(?:rbw?\|ru\|rake\|thor\|jbuilder\|rabl\|gemspec\|podspec\)\|/\(?:Gem\|Rake\|Cap\|Thor\|Puppet\|Berks\|Vagrant\|Guard\|Pod\)file\)\' . ruby-mode) (\.re?st\' . rst-mode) (\.py[iw]?\' . python-mode) (\.less\' . less-css-mode) (\.scss\' . scss-mode) (\.awk\' . awk-mode) (\.\(u?lpc\|pike\|pmod\(\.in\)?\)\' . pike-mode) (\.idl\' . idl-mode) (\.java\' . java-mode) (\.m\' . objc-mode) (\.ii\' . c++-mode) (\.i\' . c-mode) (\.lex\' . c-mode) (\.y\(acc\)?\' . c-mode) (\.h\' . c-or-c++-mode) (\.c\' . c-mode) (\.\(CC?\|HH?\)\' . c++-mode) (\.[ch]\(pp\|xx\|\+\+\)\' . c++-mode) (\.\(cc\|hh\)\' . c++-mode) (\.\(bat\|cmd\)\' . bat-mode) (\.[sx]?html?\(\.[a-zA-Z_]+\)?\' . mhtml-mode) (\.svgz?\' . image-mode) (\.svgz?\' . xml-mode) (\.x[bp]m\' . image-mode) (\.x[bp]m\' . c-mode) (\.p[bpgn]m\' . image-mode) (\.tiff?\' . image-mode) (\.gif\' . image-mode) (\.png\' . image-mode) (\.jpe?g\' . image-mode) (\.te?xt\' . text-mode) (\.[tT]e[xX]\' . tex-mode) (\.ins\' . tex-mode) (\.ltx\' . latex-mode) (\.dtx\' . doctex-mode) (\.org\' . org-mode) (\.el\' . emacs-lisp-mode) (Project\.ede\' . emacs-lisp-mode) (\.\(scm\|stk\|ss\|sch\)\' . scheme-mode) (\.l\' . lisp-mode) (\.li?sp\' . lisp-mode) (\.[fF]\' . fortran-mode) (\.for\' . fortran-mode) (\.p\' . pascal-mode) (\.pas\' . pascal-mode) (\.\(dpr\|DPR\)\' . delphi-mode) (\.ad[abs]\' . ada-mode) (\.ad[bs].dg\' . ada-mode) (\.\([pP]\([Llm]\|erl\|od\)\|al\)\' . perl-mode) (Imakefile\' . makefile-imake-mode) (Makeppfile\(?:\.mk\)?\' . makefile-makepp-mode) (\.makepp\' . makefile-makepp-mode) (\.mk\' . makefile-bsdmake-mode) (\.make\' . makefile-bsdmake-mode) (GNUmakefile\' . makefile-gmake-mode) ([Mm]akefile\' . makefile-bsdmake-mode) (\.am\' . makefile-automake-mode) (\.texinfo\' . texinfo-mode) (\.te?xi\' . texinfo-mode) (\.[sS]\' . asm-mode) (\.asm\' . asm-mode) (\.css\' . css-mode) (\.mixal\' . mixal-mode) (\.gcov\' . compilation-mode) (/\.[a-z0-9-]*gdbinit . gdb-script-mode) (-gdb\.gdb . gdb-script-mode) ([cC]hange\.?[lL]og?\' . change-log-mode) ([cC]hange[lL]og[-.][0-9]+\' . change-log-mode) (\$CHANGE_LOG\$\.TXT . change-log-mode) (\.scm\.[0-9]*\' . scheme-mode) (\.[ckz]?sh\'\|\.shar\'\|/\.z?profile\' . sh-mode) (\.bash\' . sh-mode) (\(/\|\`\)\.\(bash_\(profile\|history\|log\(in\|out\)\)\|z?log\(in\|out\)\)\' . sh-mode) (\(/\|\`\)\.\(shrc\|zshrc\|m?kshrc\|bashrc\|t?cshrc\|esrc\)\' . sh-mode) (\(/\|\`\)\.\([kz]shenv\|xinitrc\|startxrc\|xsession\)\' . sh-mode) (\.m?spec\' . sh-mode) (\.m[mes]\' . nroff-mode) (\.man\' . nroff-mode) (\.sty\' . latex-mode) (\.cl[so]\' . latex-mode) (\.bbl\' . latex-mode) (\.bib\' . bibtex-mode) (\.bst\' . bibtex-style-mode) (\.sql\' . sql-mode) (\.m[4c]\' . m4-mode) (\.mf\' . metafont-mode) (\.mp\' . metapost-mode) (\.vhdl?\' . vhdl-mode) (\.article\' . text-mode) (\.letter\' . text-mode) (\.i?tcl\' . tcl-mode) (\.exp\' . tcl-mode) (\.itk\' . tcl-mode) (\.icn\' . icon-mode) (\.sim\' . simula-mode) (\.mss\' . scribe-mode) (\.f9[05]\' . f90-mode) (\.f0[38]\' . f90-mode) (\.indent\.pro\' . fundamental-mode) (\.\(pro\|PRO\)\' . idlwave-mode) (\.srt\' . srecode-template-mode) (\.prolog\' . prolog-mode) (\.tar\' . tar-mode) (\.\(arc\|zip\|lzh\|lha\|zoo\|[jew]ar\|xpi\|rar\|cbr\|7z\|ARC\|ZIP\|LZH\|LHA\|ZOO\|[JEW]AR\|XPI\|RAR\|CBR\|7Z\)\' . archive-mode) (\.oxt\' . archive-mode) (\.\(deb\|[oi]pk\)\' . archive-mode) (\`/tmp/Re . text-mode) (/Message[0-9]*\' . text-mode) (\`/tmp/fol/ . text-mode) (\.oak\' . scheme-mode) (\.sgml?\' . sgml-mode) (\.x[ms]l\' . xml-mode) (\.dbk\' . xml-mode) (\.dtd\' . sgml-mode) (\.ds\(ss\)?l\' . dsssl-mode) (\.jsm?\' . javascript-mode) (\.json\' . javascript-mode) (\.jsx\' . js-jsx-mode) (\.[ds]?vh?\' . verilog-mode) (\.by\' . bovine-grammar-mode) (\.wy\' . wisent-grammar-mode) ([:/\]\..*\(emacs\|gnus\|viper\)\' . emacs-lisp-mode) (\`\..*emacs\' . emacs-lisp-mode) ([:/]_emacs\' . emacs-lisp-mode) (/crontab\.X*[0-9]+\' . shell-script-mode) (\.ml\' . lisp-mode) (\.ld[si]?\' . ld-script-mode) (ld\.?script\' . ld-script-mode) (\.xs\' . c-mode) (\.x[abdsru]?[cnw]?\' . ld-script-mode) (\.zone\' . dns-mode) (\.soa\' . dns-mode) (\.asd\' . lisp-mode) (\.\(asn\|mib\|smi\)\' . snmp-mode) (\.\(as\|mi\|sm\)2\' . snmpv2-mode) (\.\(diffs?\|patch\|rej\)\' . diff-mode) (\.\(dif\|pat\)\' . diff-mode) (\.[eE]?[pP][sS]\' . ps-mode) (\.\(?:PDF\|DVI\|OD[FGPST]\|DOCX?\|XLSX?\|PPTX?\|pdf\|djvu\|dvi\|od[fgpst]\|docx?\|xlsx?\|pptx?\)\' . doc-view-mode-maybe) (configure\.\(ac\|in\)\' . autoconf-mode) (\.s\(v\|iv\|ieve\)\' . sieve-mode) (BROWSE\' . ebrowse-tree-mode) (\.ebrowse\' . ebrowse-tree-mode) (#\*mail\* . mail-mode) (\.g\' . antlr-mode) (\.mod\' . m2-mode) (\.ses\' . ses-mode) (\.docbook\' . sgml-mode) (\.com\' . dcl-mode) (/config\.\(?:bat\|log\)\' . fundamental-mode) (\.\(?:[iI][nN][iI]\|[lL][sS][tT]\|[rR][eE][gG]\|[sS][yY][sS]\)\' . conf-mode) (\.la\' . conf-unix-mode) (\.ppd\' . conf-ppd-mode) (java.+\.conf\' . conf-javaprop-mode) (\.properties\(?:\.[a-zA-Z0-9._-]+\)?\' . conf-javaprop-mode) (\.toml\' . conf-toml-mode) (\.desktop\' . conf-desktop-mode) (\`/etc/\(?:DIR_COLORS\|ethers\|.?fstab\|.*hosts\|lesskey\|login\.?de\(?:fs\|vperm\)\|magic\|mtab\|pam\.d/.*\|permissions\(?:\.d/.+\)?\|protocols\|rpc\|services\)\' . conf-space-mode) (\`/etc/\(?:acpid?/.+\|aliases\(?:\.d/.+\)?\|default/.+\|group-?\|hosts\..+\|inittab\|ksysguarddrc\|opera6rc\|passwd-?\|shadow-?\|sysconfig/.+\)\' . conf-mode) ([cC]hange[lL]og[-.][-0-9a-z]+\' . change-log-mode) (/\.?\(?:gitconfig\|gnokiirc\|hgrc\|kde.*rc\|mime\.types\|wgetrc\)\' . conf-mode) (/\.\(?:enigma\|gltron\|gtk\|hxplayer\|net\|neverball\|qt/.+\|realplayer\|scummvm\|sversion\|sylpheed/.+\|xmp\)rc\' . conf-mode) (/\.\(?:gdbtkinit\|grip\|orbital/.+txt\|rhosts\|tuxracer/options\)\' . conf-mode) (/\.?X\(?:default\|resource\|re\)s\> . conf-xdefaults-mode) (/X11.+app-defaults/\|\.ad\' . conf-xdefaults-mode) (/X11.+locale/.+/Compose\' . conf-colon-mode) (/X11.+locale/compose\.dir\' . conf-javaprop-mode) (\.~?[0-9]+\.[0-9][-.0-9]*~?\' nil t) (\.\(?:orig\|in\|[bB][aA][kK]\)\' nil t) ([/.]c\(?:on\)?f\(?:i?g\)?\(?:\.[a-zA-Z0-9._-]+\)?\' . conf-mode-maybe) (\.[1-9]\' . nroff-mode) (\.tgz\' . tar-mode) (\.tbz2?\' . tar-mode) (\.txz\' . tar-mode) (\.tzst\' . tar-mode))
 
 * Web-Mode Indentation Hooks
   #+BEGIN_SRC emacs-lisp
@@ -681,28 +601,25 @@ values used in the user's shell."
 (require 'org)
    #+END_SRC
 
-   #+RESULTS:
-   : org
-
    #+BEGIN_SRC emacs-lisp
 ;; It's more convenient to press 'Return' to follow a link from Org an C-c C-l.
 (setq org-return-follows-link t)    
    #+END_SRC
 
-   #+RESULTS:
-   : t
+   #+begin_src emacs-lisp
+     ;; Set up Org-Mode
+     (add-to-list 'auto-mode-alist '("\\.org\\’" . org-mode))
+     (global-set-key "\C-cl" 'org-store-link)
+     (global-set-key "\C-ca" 'org-agenda)
+     (global-set-key "\C-cb" 'org-iswitchb)
+     (setq org-log-done t)
+   #+end_src
+*** No HTML Postamble by default
 
-   #+BEGIN_SRC emacs-lisp
-;; Set up Org-Mode
-(add-to-list 'auto-mode-alist '("\\.org\\’" . org-mode))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(setq org-log-done t)
-   #+END_SRC 
+   #+begin_src emacs-lisp
+     (setq org-html-postamble nil)
+   #+end_src
 
-   #+RESULTS:
-   : t
 
 ** Org-Mode Hooks
    Make yasnippet work properly with org-mode. 
@@ -722,9 +639,6 @@ values used in the user's shell."
             ))
 
    #+END_SRC
-
-   #+RESULTS:
-   | (lambda nil (local-set-key \216 (quote outline-next-visible-heading)) (local-set-key \220 (quote outline-previous-visible-heading)) (local-set-key \225 (quote outline-up-heading)) (local-set-key \227 (quote org-table-copy-region)) (local-set-key \231 (quote org-table-paste-rectangle)) (local-set-key \214 (quote org-table-sort-lines)) (local-set-key \311 (quote org-toggle-iimage-in-org))) | (lambda nil (add-to-list (quote org-tab-first-hook) (quote yas-org-very-safe-expand))) | #[0 \301\211\207 [imenu-create-index-function org-imenu-get-tree] 2] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | org-eldoc-load |
 
    #+BEGIN_SRC emacs-lisp
   (add-hook 'org-mode-hook
@@ -746,9 +660,6 @@ values used in the user's shell."
               ))
    #+END_SRC
 
-   #+RESULTS:
-   | (lambda nil (local-set-key \216 (quote outline-next-visible-heading)) (local-set-key \220 (quote outline-previous-visible-heading)) (local-set-key \225 (quote outline-up-heading)) (local-set-key \227 (quote org-table-copy-region)) (local-set-key \231 (quote org-table-paste-rectangle)) (local-set-key \214 (quote org-table-sort-lines)) (local-set-key \311 (quote org-toggle-iimage-in-org))) | (lambda nil (add-to-list (quote org-tab-first-hook) (quote yas-org-very-safe-expand))) | #[0 \301\211\207 [imenu-create-index-function org-imenu-get-tree] 2] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | org-eldoc-load |
-
 ** Speed keys
    Speed commands enable single-letter commands in Org-mode files when
    the point is at the beginning of a headline, or at the beginning of a
@@ -763,9 +674,6 @@ values used in the user's shell."
    #+BEGIN_SRC emacs-lisp
   (setq org-use-speed-commands t)
    #+END_SRC
-
-   #+RESULTS:
-   : t
 
 ** Code blocks
    This activates a number of widely used languages, you are encouraged
@@ -791,8 +699,6 @@ values used in the user's shell."
      
    #+END_SRC
 
-   #+RESULTS:
-
    The next block makes org-babel aware that a lower-case 'r' in a =src= block header should be processed as R. 
 
    #+source: add-r
@@ -814,9 +720,6 @@ values used in the user's shell."
       
     #+end_src
 
-    #+RESULTS: add-r
-    : ((r . ess-mode) (arduino . arduino) (redis . redis) (php . php) (C . c) (C++ . c++) (asymptote . asy) (bash . sh) (beamer . latex) (calc . fundamental) (cpp . c++) (ditaa . artist) (dot . fundamental) (elisp . emacs-lisp) (ocaml . tuareg) (screen . shell-script) (shell . sh) (sqlite . sql))
-
 ** Code block fontification
    :PROPERTIES:
    :CUSTOM_ID: code-block-fontification
@@ -833,9 +736,6 @@ values used in the user's shell."
   (setq org-src-tab-acts-natively t)
    #+END_SRC
 
-   #+RESULTS:
-   : t
-
    Don't ask for confirmation on every =C-c C-c= code-block compile. 
 
    #+BEGIN_SRC emacs-lisp
@@ -843,7 +743,6 @@ values used in the user's shell."
   (setq org-confirm-babel-evaluate nil)
    #+END_SRC
 
-   #+RESULTS:
 
 ** Ensure the Latest Org-mode manual is in the info directory
    By placing the =doc/= directory in Org-mode at the front of the
@@ -862,8 +761,6 @@ values used in the user's shell."
               Info-directory-list))
    #+END_SRC
 
-   #+RESULTS:
-   | /Users/abuckingham/.emacs.d/src/org/doc | /Users/abuckingham/.emacs.d/src/org/doc | /Users/abuckingham/.emacs.d/elpa/magit-20190405.1704 | /Users/abuckingham/.emacs.d/elpa/org-plus-contrib-20190402 | /Users/abuckingham/.emacs.d/elpa/transient-20190319.1928 | /Users/abuckingham/.emacs.d/elpa/with-editor-20190224.931 | /Applications/Emacs.app/Contents/Resources/info/ | /usr/local/share/info/ | /usr/share/info/ |
 
 ** Nice Bulleted Lists
    #+name: org-bullets
@@ -873,14 +770,13 @@ values used in the user's shell."
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
    #+END_SRC
 
-   #+RESULTS: org-bullets
-   | #[nil ((org-bullets-mode 1)) nil] | #[0 \301\211\207 [imenu-create-index-function org-imenu-get-tree] 2] | #[nil ((local-set-key \216 'outline-next-visible-heading) (local-set-key \220 'outline-previous-visible-heading) (local-set-key \225 'outline-up-heading) (local-set-key \227 'org-table-copy-region) (local-set-key \231 'org-table-paste-rectangle) (local-set-key \214 'org-table-sort-lines) (local-set-key \311 'org-toggle-image-in-org)) nil] | #[nil ((add-to-list 'org-tab-first-hook 'yas-org-very-safe-expand)) nil] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-fold-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes |
-
    #+source: message-line
+
    #+BEGIN_SRC emacs-lisp
 ;; It's silly, I know, but why not let Emacs greet me...? ;)
   (message "Welcome back, Andrew. Are you ready to save the world?")
    #+END_SRC
+
 ** Org-Capture
    #+BEGIN_SRC emacs-lisp
 ;; Let's keep our files in Dropbox
@@ -888,24 +784,18 @@ values used in the user's shell."
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
 (global-set-key (kbd "C-c c") 'org-capture)
    #+END_SRC
-* Add Org-Mode Markdown export back
+
+** Add Org-Mode Markdown export back
   #+BEGIN_SRC emacs-lisp
   (require 'ox-md)
   #+END_SRC
 
-# Andrew  
-# * Add Org-Mode Confluence export
-# #+begin_src emacs-lisp
-#   (require 'ox-confluence)
-# #+end_src
-
-* Hooks for org-clock-statusbar-app
+** Hooks for org-clock-statusbar-app
 
 #+begin_src emacs-lisp
   (add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
   (add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
 #+end_src  
-
 
 
   #+BEGIN_SRC emacs-lisp
@@ -919,7 +809,7 @@ values used in the user's shell."
   
   #+END_SRC
 
-* Add Ditaa code blocs to Org-Babel
+** Add Ditaa code blocs to Org-Babel
   #+BEGIN_SRC emacs-lisp
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -928,20 +818,7 @@ values used in the user's shell."
 (setq orgd-itaa-jar-path "/usr/local/Cellar/ditaa/0.9/libexec/ditaa0_9.jar")
   #+END_SRC
 
-  # Andrew  
-# * Enable Projectile Mode
-#   #+BEGIN_SRC emacs-lisp
-#     ;; Require Helm-Projectile
-#     (require 'helm-projectile)
-#     (projectile-global-mode)
-
-#     (setq projectile-completion-system 'helm
-#           projectile-switch-project-action 'helm-projectile)
-
-#     (define-key helm-projectile-find-file (kbd "C-c p h") 'helm-projectile-find-file)
-#   #+END_SRC
-
-* Org-Download
+** Org-Download
 #+begin_src emacs-lisp
 (require 'org-download)
 
@@ -949,12 +826,9 @@ values used in the user's shell."
 (add-hook 'dired-mode-hook 'org-download-enable)
 #+end_src
 
-#+RESULTS:
-| org-download-enable |
+** Enable org export to md
 
-* Enable org export to md
-
-* Org-roam setup
+** Org-roam setup
   #+begin_src emacs-lisp
     (setq org-roam-v2-ack t)
   #+end_src
@@ -967,7 +841,7 @@ values used in the user's shell."
       (setq org-roam-v2-ack t)
       
       :custom
-      (org-roam-directory "/Users/abuckingham/org-roam")
+      (org-roam-directory "~/org-roam")
       :bind (("C-c n f" . org-roam-node-find)
              ("C-c n l" . org-roam-buffer-toggle)
              ("C-c n i" . org-roam-node-insert)
@@ -978,7 +852,7 @@ values used in the user's shell."
 
   #+end_src   
 
-* Org-Roam-UI
+** Org-Roam-UI
 #+begin_src emacs-lisp
   (use-package websocket
                 :after org-roam)
@@ -995,6 +869,19 @@ values used in the user's shell."
                       org-roam-ui-update-on-save t
                       org-roam-ui-open-on-start t))
 #+end_src
+
+
+* Enable Projectile Mode
+   #+BEGIN_SRC emacs-lisp
+     ;; Require Helm-Projectile
+     (require 'helm-projectile)
+     (projectile-global-mode)
+
+     (setq projectile-completion-system 'helm
+           projectile-switch-project-action 'helm-projectile)
+
+     (global-set-key (kbd "C-c p h") 'helm-projectile-find-file)
+   #+END_SRC
 
 * Toggle Eshell Visor
   #+BEGIN_SRC emacs-lisp
@@ -1086,20 +973,6 @@ values used in the user's shell."
 
   #+END_SRC
 
-* Work Stuff
-** TODO Archive
-  #+BEGIN_SRC emacs-lisp
-;; I use these for cleaning up some report data from R. Not really useful for anyone but me...
-(fset 'ab/chat-regexp-home-pm
-   "\223[0-\C-?\C-?6-9\\|10]\C-?\C-?\C-?(10)]\C-?\C-?\C-?\C-?\C-?+:\C-?\C-?\C-?\C-?]+:[0-9]+:[0-9]+,PM\C-eHome")
-
-(fset 'ab/chat-regexp-office-am
-   "\223[0-9]+:[0-9]+:[0-9]+,AM\C-eOffice")
-
-(fset 'ab/chat-regexp-office-pm
-   "\223[0-5]+:[0-9]+:[0-9]+,PM\C-eOffice")
-
-  #+END_SRC
 
 * ibuffer is an Improved version of list-buffers
   #+BEGIN_SRC emacs-lisp
@@ -1127,15 +1000,16 @@ values used in the user's shell."
                      (cons exp 'ruby-mode)))
   #+END_SRC  
 
-* Require Robe
+** Require Robe
   #+BEGIN_SRC emacs-lisp
 (require 'robe)
   #+END_SRC
-* Require Rinari
+** Require Rinari
 #+BEGIN_SRC emacs-lisp
 (require 'rinari)
 #+END_SRC
-* Custom Jekyll Timestamps
+
+** Custom Jekyll Timestamps
 
   #+BEGIN_SRC emacs-lisp
 (defun timestamp ()
@@ -1151,7 +1025,7 @@ values used in the user's shell."
   (insert (format-time-string "%Y-%m-%d %H:%M:%S %:z")))
 (global-set-key [f5] 'jekyll-timestamp)
   #+END_SRC
-* Jekyll blogging
+** Jekyll blogging
 
 
   #+BEGIN_SRC emacs-lisp
@@ -1173,7 +1047,7 @@ tags: []
   )
   #+END_SRC
 
-* Enable minitest-mode for Ruby
+** Enable minitest-mode for Ruby
   #+BEGIN_SRC emacs-lisp 
     ;; Enable minitest-mode for Ruby
     (add-hook 'ruby-mode-hook 'minitest-mode)
@@ -1218,8 +1092,8 @@ Andrew
 
 * ASDF-VM
 #+begin_src elisp
-  (add-to-list 'exec-path "/Users/abuckingham/.asdf/shims")
-  (setenv "PATH" (concat "/Users/abuckingham/.asdf/shims:" (getenv "PATH")))
+  (add-to-list 'exec-path "~/.asdf/shims")
+  (setenv "PATH" (concat "~/.asdf/shims:" (getenv "PATH")))
 #+end_src
 
 *** TODO Merge into main LSP section
@@ -1243,7 +1117,6 @@ Andrew
        :config
        (unicode-fonts-setup))
    #+end_src
-
 
 
 * LSP setup
@@ -1329,17 +1202,12 @@ Andrew
 #+end_src
 
 * Store API Key
-# Might want to switch to gpg
+I might want to switch to gpg.
+
 #+begin_src emacs-lisp
   (let ((secrets-file "~/.emacs.d/secrets.el"))
   (when (file-exists-p secrets-file)
     (load secrets-file)))
 #+end_src
 
-#+RESULTS:
-: t
 
-
-#+begin_src emacs-lisp
-  (require 'ox-md)
-#+end_src
