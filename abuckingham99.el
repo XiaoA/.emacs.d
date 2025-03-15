@@ -112,7 +112,8 @@
 
 (use-package import-env-from-shell
   :load-path "~/.emacs.d/vendor"
-  :commands import-env-from-shell)
+  :config
+  (import-env-from-shell-initialize))
 
 ;; (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
 ;;     (require 'yasnippet) ;; not yasnippet-bundle

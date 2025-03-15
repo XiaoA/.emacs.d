@@ -4,7 +4,6 @@
 
 * Initial Setup
 
-
 * early-init.el
 Starting in Emacs 27+, =early-init.el= can be used for settings that can be applied before packages are loaded, including UI tweaks and garbage collection.
 
@@ -231,7 +230,9 @@ There are other options that I'm curious about, but I'm still happy with Helm.
 #+begin_src emacs-lisp
   (use-package import-env-from-shell
     :load-path "~/.emacs.d/vendor"
-    :commands import-env-from-shell)
+    :config
+    (import-env-from-shell-initialize))
+
 #+end_src
 
 * Yasnippet
