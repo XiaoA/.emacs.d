@@ -1,9 +1,30 @@
-((magit-blame
+((emoji--command-Emoji nil)
+ (emoji--command-Emoji\ >\ Body nil)
+ (emoji--command-Emoji\ >\ Body\ >\ hand nil)
+ (emoji--command-Emoji\ >\ Body\ >\ hand\ >\ fingers-open nil)
+ (emoji--command-Emoji\ >\ Body\ >\ hand\ >\ fingers-open\ 👋 nil)
+ (emoji--command-Emoji\ >\ People nil)
+ (emoji--command-Emoji\ >\ People\ >\ role nil)
+ (emoji--command-Emoji\ >\ People\ >\ role\ 🧑‍⚖️ nil)
+ (emoji--command-Emoji\ >\ People\ >\ role\ 🧑‍💻 nil)
+ (emoji--command-Emoji\ >\ Smileys nil)
+ (emoji--command-Emoji\ >\ Smileys\ >\ smiling nil)
+ (emoji--command-Emoji\ >\ Smileys\ >\ unwell nil)
+ (emoji--command-Emoji\ >\ Travel\ &\ Places nil)
+ (emoji--command-Emoji\ >\ Travel\ &\ Places\ >\ transport-air nil)
+ (emoji--command-Recent nil)
+ (emoji-insert nil)
+ (gptel-menu nil
+             ("g*ChatGPT*"))
+ (gptel-system-prompt nil)
+ (magit-blame
   ("-w"))
  (magit-branch nil)
  (magit-commit nil)
  (magit-diff
   ("--no-ext-diff" "--stat")
+  (("--" "config/routes.rb")
+   "--no-ext-diff" "--stat")
   (("--" "app/assets/stylesheets/responsive/mobile.scss")
    "--no-ext-diff" "--stat"))
  (magit-dispatch nil)
@@ -23,6 +44,8 @@
   ("--graph" "--color"))
  (magit-merge nil
               ("--ff-only"))
+ (magit-patch nil)
+ (magit-patch-create nil)
  (magit-pull nil)
  (magit-push nil
              ("--force"))
@@ -34,4 +57,6 @@
   ("--edit"))
  (magit-stash nil)
  (magit-status-jump nil)
- (magit:-- "--" "--color" ""))
+ (magit:-- "--" "--color" "")
+ (transient:gptel-menu:b)
+ (transient:gptel-menu:g))
