@@ -1,5 +1,5 @@
 (add-to-list 'package-archives
-           '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -62,13 +62,13 @@
 
 ;; Increment Number at Point
 ;;Got this from EmacsWiki; enables incremental numbers. First input
-  ;; numbers and then use this!
-  (defun ab/increment-number-at-point ()
-      (interactive)
-      (skip-chars-backward "0123456789")
-      (or (looking-at "[0123456789]+")
-          (error "No number at point"))
-      (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
+;; numbers and then use this!
+(defun ab/increment-number-at-point ()
+  (interactive)
+  (skip-chars-backward "0123456789")
+  (or (looking-at "[0123456789]+")
+      (error "No number at point"))
+  (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
 
 ;; Paren-Mode
 (require 'paren)
@@ -79,12 +79,15 @@
 
 ;; Add Urban Dictionary to webjump
 (eval-after-load "webjump"
-'(add-to-list 'webjump-sites
-              '("Urban Dictionary" .
-                [simple-query
-                 "www.urbandictionary.com"
-                 "http://www.urbandictionary.com/define.php?term="
-                 ""])))
+  '(add-to-list 'webjump-sites
+                '("Urban Dictionary" .
+                  [simple-query
+                   "www.urbandictionary.com"
+                   "http://www.urbandictionary.com/define.php?term="
+                   ""])))
+
+;; How many times has the kill ring saved my bacon...?
+;; (require 'browse-kill-ring)
 
 (add-to-list 'load-path "~/.emacs.d/elpa/ace-jump-mode*/")
 (autoload
@@ -157,20 +160,19 @@
 
 (setq yas/prompt-functions '(yas/popup-isearch-prompt yas/no-prompt))
 
-;; This is on hold...not really using MobileOrg now, but might change my mind later...
-;; (setq org-directory "~/Dropbox/org/")
-;; (setq org-mobile-directory "~/Dropbox/Apps/MobileOrg/")
-;; (setq org-agenda-files (quote ("~/Dropbox/org/its-2014-2.org")))
-;; (setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/inbox.org")
-
 (setq yas-snippet-dirs
       '("~/.emacs.d/elpa/yasnippet-20140314.255/snippets/"
         "~/.emacs.d/snippets/"
         ))
 (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
 
-;; (add-to-list 'load-path
-;;               "~/.emacs.d/snippets/html-mode/")
+;; From: https://github.com/fxbois/web-mode/issues/51
+;; Fixes Yassnippet with web-mode
+
+(defun yas-web-mode-fix ()
+  (web-mode-buffer-refresh)
+  (indent-for-tab-command))
+(setq yas/after-exit-snippet-hook 'yas-web-mode-fix)
 
 ;; (require 'auto-complete)
 ;; (global-auto-complete-mode t)
@@ -185,17 +187,17 @@
 ;; For some reason, I've had trouble getting indentation to work properly. This fixed that.
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
-    (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-css-indent-offset 2)
-    (setq web-mode-code-indent-offset 2)
-    (setq web-mode-indent-style 2)
-)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-indent-style 2)
+  )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;; Require Org-Mode
 (require 'org)
 
-;; It's more convenient to press 'Return' to follow a link from Org an C-c C-l.
+;; It's more convenient to press 'return' to follow a link from Org an C-c C-l.
 (setq org-return-follows-link t)
 
 ;; Set up Org-Mode
@@ -208,9 +210,6 @@
 (setq org-html-postamble nil)
 
 ;;  Make yasnippet work properly with org-mode. 
-;;  (defun yas/org-very-safe-expand ()
-;;    (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
-
 (defun yas-org-very-safe-expand ()
   (let ((yas-fallback-behavior 'return-nil))
     (and (fboundp 'yas-expand) (yas-expand))))
@@ -242,19 +241,19 @@
 (setq org-use-speed-commands t)
 
 ;; Org-Mode Code Blocks
- (org-babel-do-load-languages
-  'org-babel-load-languages
-  '((emacs-lisp . t)
-    (shell . t)
-    (R . t)
-    (perl . t)
-    (ruby . t)
-    (python . t)
-    (js . t)
-    (haskell . t)
-;;    (elixir . t)
-    (restclient . t)
-    ))
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (shell . t)
+   (R . t)
+   (perl . t)
+   (ruby . t)
+   (python . t)
+   (js . t)
+   (haskell . t)
+   ;;    (elixir . t)
+   (restclient . t)
+   ))
 
 (add-to-list 'org-src-lang-modes
              '("r" . ess-mode))
@@ -268,29 +267,29 @@
 ;; (require 'ob-racket)
 
 ;; Code block fontification
-  (setq org-src-fontify-natively t)
-  (setq org-src-tab-acts-natively t)
+(setq org-src-fontify-natively t)
+(setq org-src-tab-acts-natively t)
 
 ;; Don't ask for confirmation on every =C-c C-c= code-block compile. 
-  (setq org-confirm-babel-evaluate nil)
+(setq org-confirm-babel-evaluate nil)
 
 ;; Ensure the Latest Org-mode manual is in the info directory
-  (unless (boundp 'Info-directory-list)
-    (setq Info-directory-list Info-default-directory-list))
-  (setq Info-directory-list
-        (cons (expand-file-name
-               "doc"
-               (expand-file-name
-                "org"
-                (expand-file-name "src" dotfiles-dir)))
-              Info-directory-list))
+(unless (boundp 'Info-directory-list)
+  (setq Info-directory-list Info-default-directory-list))
+(setq Info-directory-list
+      (cons (expand-file-name
+             "doc"
+             (expand-file-name
+              "org"
+              (expand-file-name "src" dotfiles-dir)))
+            Info-directory-list))
 
 ;; Nice Bulleted Lists
-  (require 'org-bullets)
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; It's silly, I know, but why not let Emacs greet me...? ;)
-  (message "Welcome back, Andrew. Are you ready to save the world?")
+(message "Welcome back, Andrew. Are you ready to save the world?")
 
 ;; Let's keep our files in Dropbox
 (setq org-directory "~/Dropbox/org")
@@ -301,14 +300,6 @@
 
 (add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
 (add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
-
-;; From: https://github.com/fxbois/web-mode/issues/51
-;; Fixes Yassnippet with web-mode
-
-(defun yas-web-mode-fix ()
-  (web-mode-buffer-refresh)
-  (indent-for-tab-command))
-(setq yas/after-exit-snippet-hook 'yas-web-mode-fix)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -340,19 +331,19 @@
   (org-roam-setup))
 
 (use-package websocket
-              :after org-roam)
+  :after org-roam)
 
 (use-package org-roam-ui
-              :after org-roam ;; or :after org
-              ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-              ;;         a hookable mode anymore, you're advised to pick something yourself
-              ;;         if you don't care about startup time, use
-              ;;  :hook (after-init . org-roam-ui-mode)
-              :config
-              (setq org-roam-ui-sync-theme t
-                    org-roam-ui-follow t
-                    org-roam-ui-update-on-save t
-                    org-roam-ui-open-on-start t))
+  :after org-roam ;; or :after org
+  ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+  ;;         a hookable mode anymore, you're advised to pick something yourself
+  ;;         if you don't care about startup time, use
+  ;;  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 
 ;; Require Helm-Projectile
 (require 'helm-projectile)
@@ -396,8 +387,8 @@
   "add ========= below current line, with the same number of chars."
   (interactive)
   (let (
-         (num (- (line-end-position) (line-beginning-position) ))
-         (ii 0))
+        (num (- (line-end-position) (line-beginning-position) ))
+        (ii 0))
     (end-of-line)
     (insert"\n")
     (while (< ii num)
@@ -406,10 +397,10 @@
 
 ;;Autoload file types (.markdown; .md; .mkd)
 (autoload 'markdown-mode "markdown-mode"
-     "Major mode for editing Markdown files" t)
-  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-  (add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.mkd\\'" . markdown-mode))
 
 ;; Use Marked.app as my Markdown viewer
 (defun markdown-preview-file-with-marked ()
@@ -426,8 +417,8 @@
   "add ========= below current line, with same number of chars."
   (interactive)
   (let (
-         (num (- (line-end-position) (line-beginning-position) ))
-         (ii 0))
+        (num (- (line-end-position) (line-beginning-position) ))
+        (ii 0))
     (end-of-line)
     (insert "\n")
     (while (< ii num)
@@ -442,13 +433,30 @@
 (setq autopair-global-mode t)
 
 ;; Rake files are Ruby.    
-  (dolist (exp '("Rakefile\\'" "\\.rake\\'"))
-      (add-to-list 'auto-mode-alist
-                   (cons exp 'ruby-mode)))
+(dolist (exp '("Rakefile\\'" "\\.rake\\'"))
+  (add-to-list 'auto-mode-alist
+               (cons exp 'ruby-mode)))
 
 (require 'robe)
 
 (require 'rinari)
+
+;; adapted from Peter Reavy's elisp solution: http://peterreavy.com/tech/2012/12/18/elisp-to-create-a-new-blog-post-in-Jekyll.html
+
+(defun jekyll-new-post (title)
+  "Start a new blog post"
+  (setq path "~/jekyll/andrewbuckingham-source/_posts/")
+  (interactive "sTitle: ")
+  (find-file (concat path (format-time-string "%Y-%m-%d")
+                     "-" (replace-regexp-in-string " " "-" title) ".md"))
+  (insert "---
+layout: single
+title: 
+date: 
+tags: []
+---
+")
+  )
 
 (defun timestamp ()
   "Insert timestamp at point."
@@ -461,22 +469,15 @@
   (insert (format-time-string "%Y-%m-%d %H:%M:%S %:z")))
 (global-set-key [f5] 'jekyll-timestamp)
 
-;; adapted from Peter Reavy's elisp solution: http://peterreavy.com/tech/2012/12/18/elisp-to-create-a-new-blog-post-in-Jekyll.html
-
-(defun jekyll-new-post (title)
-  "Start a new blog post"
-  (setq path "~/jekyll/andrewbuckingham-source/_posts/")
-  (interactive "sTitle: ")
-  (find-file (concat path (format-time-string "%Y-%m-%d")
-    "-" (replace-regexp-in-string " " "-" title) ".md"))
-  (insert "---
-layout: single
-title: 
-date: 
-tags: []
----
-")
-  )
+;; Based on http://ezinearticles.com/?What-is-the-Average-Reading-Speed-and-the-Best-Rate-of-Reading?&id=2298503
+(defun ab/time-to-read ()
+  "Calculate time to read the content(mins.)
+       which is around 200 wpm."
+  (let ((count (count-words-region)))
+    (if (zerop count)
+        (message "ERR: Cannot estimate time to read.")
+      (setq ttr (fceiling (/ (/ count (/ 200 60.0)) 60.0))))
+    ttr))
 
 ;; Enable minitest-mode for Ruby
 (add-hook 'ruby-mode-hook 'minitest-mode)
@@ -493,130 +494,83 @@ tags: []
 ;  (add-hook 'js2-mode-hook
 ;            (lambda ()
 ;              (slime-js-minor-mode 1)))
- ; (load-file "~/.emacs.d/setup-slime-js.el")
+; (load-file "~/.emacs.d/setup-slime-js.el")
 
 ;; (require 'ob-elixir)
 
 (use-package exec-path-from-shell
-:ensure t
-:config
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize)))
+ :ensure t
+ :config
+ ;; Only needed for GUI frames on macOS or Linux (not TTY)
+ (when (memq window-system '(mac ns x))
+   ;; Import PATH and Ruby-related environment variables
+   (exec-path-from-shell-initialize)
+   (exec-path-from-shell-copy-envs '("PATH" "GEM_HOME" "GEM_PATH" "RBENV_ROOT"))))
 
-(add-to-list 'exec-path "~/.asdf/shims")
-(setenv "PATH" (concat "~/.asdf/shims:" (getenv "PATH")))
-
-;; (use-package lsp-mode
-;;     :commands lsp
-;;     :ensure t
-;;     :diminish lsp-mode
-;;     :hook
-;;     (elixir-mode . lsp)
-;;     :init
-;;     (add-to-list 'exec-path "~/.emacs.d/vendor/elixir-ls-1.12/"))
-
-(use-package unicode-fonts
-  :ensure t
-  :config
-  (unicode-fonts-setup))
-
+;; Small helper to configure the breadcrumb, etc.
 (defun ab/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
 
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
-  :hook (lsp-mode . ab/lsp-mode-setup)
   :init
-  (setq lsp-keymap-prefix "C-c p")
+  ;; I like C-c l for all LSP commands
+  (setq lsp-keymap-prefix "C-c l")
+  :hook ((lsp-mode . ab/lsp-mode-setup))
   :config
+  ;; nice which-key integration
   (lsp-enable-which-key-integration t))
 
 (use-package lsp-ui
-  :hook
-  (lsp-mode . lsp-ui-mode)
+  :after lsp-mode
+  :hook (lsp-mode . lsp-ui-mode)
   :custom
   (lsp-ui-doc-position 'bottom))
 
-
+;; Helm integration (you already use Helm)
 (use-package helm-lsp
-  :commands helm-lsp-workspace-symbol)
+  :after (lsp-mode helm)
+  :commands (helm-lsp-workspace-symbol))
 
-(use-package which-key
+;; Optional: diagnostics tree
+(use-package lsp-treemacs
+  :after lsp-mode
+  :commands (lsp-treemacs-errors-list))
+
+;; Optional: debug adapter protocol
+(use-package dap-mode
+  :after lsp-mode
+  :commands (dap-debug dap-debug-last)
   :config
-  (which-key-mode))
+  (dap-auto-configure-mode))
 
-(use-package typescript-mode
-  :mode "\\.ts\\'"
-  :mode "\\.tsx\\'"
-  :mode "\\.js\\'"
-  :hook
-  (typescript-mode . lsp-deferred)
-  :config
-  (setq typescript-indent-level 2))
+;; ruby-mode is built-in, but we can still use use-package for hooks
+(use-package ruby-mode
+  :ensure nil
+  :mode (("\\.rb\\'"      . ruby-mode)
+         ("Rakefile\\'"   . ruby-mode)
+         ("\\.rake\\'"    . ruby-mode)
+         ("\\.gemspec\\'" . ruby-mode))
+  :interpreter "ruby"
+  :hook (ruby-mode . lsp-deferred))
 
-
-(use-package company
-  ;; :after lsp-mode
-  ;; :hook (lsp-mode . company-mode)
-  :bind (:map company-active-map
-              ("<tab>" . company-complete-selection))
-  (:map lsp-mode-map
-        ("<tab>" . company-indent-or-complete-common))
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0))
-
-;; (use-package company-box
-;;   :hook
-;;   (company-mode . company-box-mode))
-
-;; Based on http://ezinearticles.com/?What-is-the-Average-Reading-Speed-and-the-Best-Rate-of-Reading?&id=2298503
-(defun ab/time-to-read ()
-  "Calculate time to read the content(mins.)
-       which is around 200 wpm."
-  (let ((count (count-words-region)))
-    (if (zerop count)
-        (message "ERR: Cannot estimate time to read.")
-      (setq ttr (fceiling (/ (/ count (/ 200 60.0)) 60.0))))
-    ttr))
+;; ruby-lsp client for lsp-mode
+(use-package lsp-ruby-lsp
+  :after lsp-mode
+  :init
+  ;; Use Bundler when available, which plays well with your mise/rbenv setups
+  (setq lsp-ruby-lsp-use-bundler t))
 
 (use-package gptel
-:ensure t
-:config
-(setq gptel-api-key "<your-openai-api-key>"
-      gptel-default-model "gpt-4"))
+  :ensure t
+  :config
+  (setq gptel-api-key "<your-openai-api-key>"
+        gptel-default-model "gpt-4"))
 
 
 (setq gptel-default-model "gpt-4")            ;; Choose the model
 
 (let ((secrets-file "~/.emacs.d/secrets.el"))
-(when (file-exists-p secrets-file)
-  (load secrets-file)))
-
-(use-package lsp-mode
-  :init
-  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-  (setq lsp-keymap-prefix "C-c l")
-  :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-         (XXX-mode . lsp)
-         ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
-
-;; optionally
-(use-package lsp-ui :commands lsp-ui-mode)
-;; if you are helm user
-(use-package helm-lsp :commands helm-lsp-workspace-symbol)
-;; if you are ivy user
-;; (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-
-;; optionally if you want to use debugger
-(use-package dap-mode)
-;; (use-package dap-LANGUAGE) to load the dap adapter for your language
-
-;; optional if you want which-key integration
-(use-package which-key
-    :config
-    (which-key-mode))
+  (when (file-exists-p secrets-file)
+    (load secrets-file)))
