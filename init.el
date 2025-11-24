@@ -41,7 +41,24 @@
      "2e5be9a86dbf3467288293564e209165c2e12439411bd478c644cd42acc6ccb2"
      "35ff01eb2ff2bff2760ceca637aeea7d2f3b9a60fd36ea0a96a6632637d5f222"
      default))
- '(package-selected-packages nil))
+ '(package-selected-packages
+   '(ace-jump-mode all-the-icons blackboard-theme browse-kill-ring cape
+                   color-theme-sanityinc-solarized
+                   color-theme-sanityinc-tomorrow corfu dap-mode
+                   devdocs diff-hl dumb-jump eglot eldoc-box
+                   enh-ruby-mode exec-path-from-shell expand-region
+                   github-dark-vscode-theme gptel helm-ag helm-company
+                   helm-lsp helm-projectile helm-xref imenu-list
+                   insert-kaomoji intellij-theme
+                   jetbrains-darcula-theme json-mode lsp-ui
+                   mac-pseudo-daemon magit minitest multiple-cursors
+                   nice-org-html ob-restclient orderless
+                   org-auto-export-pandoc org-bullets org-download
+                   org-journal org-modern org-re-reveal org-roam-ql
+                   org-roam-ui org-ros powerline rinari rjsx-mode robe
+                   rspec-mode ruby-end seeing-is-believing
+                   unicode-fonts vs-dark-theme web-mode yaml-mode
+                   yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

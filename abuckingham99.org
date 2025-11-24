@@ -243,10 +243,9 @@ There are other options that I'm curious about, but I'm still happy with Helm.
   (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 #+END_SRC  
 
-* Require Dired-X
+* TODO Figure out Dired-X
 #+BEGIN_SRC emacs-lisp
-  ;; Require Dired-X
-  (require 'dired-x)
+  ;; (use-package 'dired-x)
 #+END_SRC
 
 * My Macros

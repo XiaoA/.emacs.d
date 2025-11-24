@@ -125,8 +125,7 @@
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
-;; Require Dired-X
-(require 'dired-x)
+;; (use-package 'dired-x)
 
 (use-package import-env-from-shell
   :load-path "~/.emacs.d/vendor"
