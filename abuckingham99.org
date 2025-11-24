@@ -50,12 +50,6 @@ Eventually, I'll convert to ~use-package~.
   (setq use-package-always-ensure t)  ;; auto-install every package declared below
 #+end_src
 
-This should't be needed.
-#+begin_src emacs-lisp
-  ;; (add-to-list 'package-archives
-  ;;              '("melpa" . "https://melpa.org/packages/") t)
-#+end_src
-
 * init.el
 *** Just Y/N
 By default, Emacs menus require you to confirm choices with a full "yes" or "no." I prefer to type "y" or "n".

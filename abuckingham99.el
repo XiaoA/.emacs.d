@@ -12,9 +12,6 @@
 (require 'use-package)
 (setq use-package-always-ensure t)  ;; auto-install every package declared below
 
-;; (add-to-list 'package-archives
-;;              '("melpa" . "https://melpa.org/packages/") t)
-
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
