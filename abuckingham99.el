@@ -143,10 +143,6 @@
 
 (add-hook 'yas-after-exit-snippet-hook #'yas-web-mode-fix)
 
-;; (require 'auto-complete)
-;; (global-auto-complete-mode t)
-;; (auto-complete-mode t)
-
 ;; Use web-mode whenever possible...
 (setq auto-mode-alist (cons '("\\.html$" . web-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.aspx$" . web-mode) auto-mode-alist))

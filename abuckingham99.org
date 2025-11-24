@@ -317,12 +317,7 @@ There are other options that I'm curious about, but I'm still happy with Helm.
 #+END_SRC
 
 
-* Auto-Complete, you...never mind...
-#+BEGIN_SRC emacs-lisp
-  ;; (require 'auto-complete)
-  ;; (global-auto-complete-mode t)
-  ;; (auto-complete-mode t)
-#+END_SRC
+* TODO Replace auto-complete mode
 
 * Webdev
 #+BEGIN_SRC emacs-lisp
