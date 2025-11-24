@@ -261,7 +261,18 @@ There are other options that I'm curious about, but I'm still happy with Helm.
 
 #+end_src
 
-* COMMENT Yasnippet
+* COMMENT Set Up Popup and Yasnippet
+
+#+BEGIN_SRC emacs-lisp
+  (use-package popup
+    :config
+    ;; Keybindings for popup menus
+    (define-key popup-menu-keymap (kbd "M-n")      #'popup-next)
+    (define-key popup-menu-keymap (kbd "TAB")      #'popup-next)
+    (define-key popup-menu-keymap (kbd "<backtab>") #'popup-previous)
+    (define-key popup-menu-keymap (kbd "M-p")      #'popup-previous))
+#+END_SRC
+
 #+BEGIN_SRC emacs-lisp
   (use-package yasnippet
     :config
@@ -288,59 +299,23 @@ There are other options that I'm curious about, but I'm still happy with Helm.
             "~/.emacs.d/snippets/markdown-mode"
             "~/.emacs.d/snippets/org-mode"
             "~/.emacs.d/snippets/ruby-mode"))
-    (yas-global-mode 1))
+    (yas-global-mode 1)
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp
-  ;;Load Popup-Snippets
-  (add-to-list 'load-path "~/.emacs.d/vendor/")
-
-  (require 'popup)
-  ;; add some shotcuts in popup menu mode
-  (define-key popup-menu-keymap (kbd "M-n") 'popup-next)
-  ( define-key popup-menu-keymap (kbd "TAB") 'popup-next)
-  (define-key popup-menu-keymap (kbd "<tab>") 'popup-next)
-  (define-key popup-menu-keymap (kbd "<backtab>") 'popup-previous)
-  (define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
-
-  (defun yas/popup-isearch-prompt (prompt choices &optional display-fn)
-    (when (featurep 'popup)
-      (popup-menu*
-       (mapcar
-        (lambda (choice)
-          (popup-make-item
-           (or (and display-fn (funcall display-fn choice))
-               choice)
-           :value choice))
-        choices)
-       :prompt prompt
-       ;; start isearch mode immediately
-       :isearch t
-       )))
-
-  (setq yas/prompt-functions '(yas/popup-isearch-prompt yas/no-prompt))
-#+END_SRC
-
-  
-#+BEGIN_SRC emacs-lisp
-  (setq yas-snippet-dirs
-        '("~/.emacs.d/elpa/yasnippet-20140314.255/snippets/"
-          "~/.emacs.d/snippets/"
-          ))
-  (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
-
-#+END_SRC
-  
 * Yas/Web-Mode Fix
 #+BEGIN_SRC emacs-lisp
   ;; From: https://github.com/fxbois/web-mode/issues/51
   ;; Fixes Yassnippet with web-mode
 
-  (defun yas-web-mode-fix ()
+ (defun yas-web-mode-fix ()
+  "Fix indentation/refresh after yasnippet in web-mode."
+  (when (derived-mode-p 'web-mode)
     (web-mode-buffer-refresh)
-    (indent-for-tab-command))
-  (setq yas/after-exit-snippet-hook 'yas-web-mode-fix)
+    (indent-for-tab-command)))
+
+(add-hook 'yas-after-exit-snippet-hook #'yas-web-mode-fix)
 #+END_SRC
+
 
 * Auto-Complete, you...never mind...
 #+BEGIN_SRC emacs-lisp

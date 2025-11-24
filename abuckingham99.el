@@ -133,12 +133,15 @@
   (import-env-from-shell-initialize))
 
 ;; From: https://github.com/fxbois/web-mode/issues/51
-;; Fixes Yassnippet with web-mode
+  ;; Fixes Yassnippet with web-mode
 
-(defun yas-web-mode-fix ()
-  (web-mode-buffer-refresh)
-  (indent-for-tab-command))
-(setq yas/after-exit-snippet-hook 'yas-web-mode-fix)
+ (defun yas-web-mode-fix ()
+  "Fix indentation/refresh after yasnippet in web-mode."
+  (when (derived-mode-p 'web-mode)
+    (web-mode-buffer-refresh)
+    (indent-for-tab-command)))
+
+(add-hook 'yas-after-exit-snippet-hook #'yas-web-mode-fix)
 
 ;; (require 'auto-complete)
 ;; (global-auto-complete-mode t)
