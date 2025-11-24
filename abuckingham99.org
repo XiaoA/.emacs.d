@@ -215,8 +215,8 @@ There are other options that I'm curious about, but I'm still happy with Helm.
 
 * Browse Kill Ring
 #+BEGIN_SRC emacs-lisp
-  ;; How many times has the kill ring saved my bacon...?
-  ;; (require 'browse-kill-ring)
+  (use-package browse-kill-ring
+  :bind ("C-c k" . browse-kill-ring))
 #+END_SRC
   
 * Ace Jump Mode

@@ -58,19 +58,11 @@
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 (global-set-key (kbd "C-c h x") 'helm-register)
 
-;; Multiple Cursors
-;; https://github.com/magnars |http://www.emacsrocks.com 
-(require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C->") 'mc/mark-all-words-like-this)
-
 (use-package multiple-cursors
-:bind (("C-S-c C-S-c" . mc/edit-lines)
-       ("C->"         . mc/mark-next-like-this)
-       ("C-<"         . mc/mark-previous-like-this)
-       ("C-c C->"     . mc/mark-all-words-like-this)))
+  :bind (("C-S-c C-S-c" . mc/edit-lines)
+         ("C->"         . mc/mark-next-like-this)
+         ("C-<"         . mc/mark-previous-like-this)
+         ("C-c C->"     . mc/mark-all-words-like-this)))
 
 ;; Goal columns are useful!
 ;; Enable set-goal-column
@@ -85,10 +77,6 @@
   (or (looking-at "[0123456789]+")
       (error "No number at point"))
   (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
-
-;; Paren-Mode
-(require 'paren)
-(show-paren-mode t)
 
 (use-package paren
   :ensure nil
@@ -113,8 +101,8 @@
                    "http://www.urbandictionary.com/define.php?term="
                    ""])))
 
-;; How many times has the kill ring saved my bacon...?
-;; (require 'browse-kill-ring)
+(use-package browse-kill-ring
+:bind ("C-c k" . browse-kill-ring))
 
 (add-to-list 'load-path "~/.emacs.d/elpa/ace-jump-mode*/")
 (autoload
