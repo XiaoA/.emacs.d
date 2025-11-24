@@ -753,28 +753,6 @@ Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
   (add-hook 'enh-ruby-mode-hook 'minitest-mode)
 #+END_SRC
 
-
-* Setup Slime
-#+BEGIN_SRC emacs-lisp
-  ;;  (add-to-list 'load-path "~/.emacs.d/slime")
-  ;;  (setq inferior-lisp-program "/usr/local/bin/sbcl")
-  ;;  (require 'slime)
-  ;;  (slime-setup)
-#+END_SRC
-
-* swank-js settings
-#+BEGIN_SRC emacs-lisp
-  ;  (autoload 'js2-mode "js2-mode" nil t)
-  ;  (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-  ;  (global-set-key [f5] 'slime-js-reload)
-  ;  (add-hook 'js2-mode-hook
-  ;            (lambda ()
-  ;              (slime-js-minor-mode 1)))
-  ; (load-file "~/.emacs.d/setup-slime-js.el")
-#+END_SRC
-
-Andrew
-
 * Elixir Stuff
 #+begin_src emacs-lisp
   ;; (require 'ob-elixir)
