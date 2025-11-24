@@ -22,6 +22,11 @@ I've moved my 'UI/UX Tweaks' into this file, and delayed loading packages until 
 
   ;; I prefer a blank *scratch* buffer
   (setq initial-scratch-message nil)
+
+
+  ;; Set default tab/space width to 2
+  (setq default-tab-width 2)
+  (setq-default indent-tabs-mode nil)
 #+end_src
 
 * TODO tangle only init blocks into init.el
@@ -31,18 +36,18 @@ Eventually, I'll convert to ~use-package~.
 
 #+begin_src emacs-lisp
   ;; Package archives
-(require 'package)
-(setq package-archives
-      '(("gnu"   . "https://elpa.gnu.org/packages/")
-        ("melpa" . "https://melpa.org/packages/")))
-(unless package--initialized (package-initialize))
-(unless package-archive-contents (package-refresh-contents))
+  (require 'package)
+  (setq package-archives
+        '(("gnu"   . "https://elpa.gnu.org/packages/")
+          ("melpa" . "https://melpa.org/packages/")))
+  (unless package--initialized (package-initialize))
+  (unless package-archive-contents (package-refresh-contents))
 
-;; use-package
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
-(setq use-package-always-ensure t)  ;; auto-install every package declared below
+  ;; use-package
+  (unless (package-installed-p 'use-package)
+    (package-install 'use-package))
+  (require 'use-package)
+  (setq use-package-always-ensure t)  ;; auto-install every package declared below
 #+end_src
 
 This should't be needed.
@@ -94,19 +99,9 @@ A great tip from an old Steve Yegge [[Shttps://sites.google.com/site/steveyegge2
   ;; Experimenting with 'helm-M-x; see 'Helm Keyboard Shortcuts,' above
 #+END_SRC
 
-** Byte Recompile
-#+BEGIN_SRC emacs-lisp
-  ;; Byte Recompile
-  (defun ab/byte-recompile ()
-    (interactive)
-    (byte-recompile-directory "~/.emacs.d" 0))
-#+END_SRC
 
-** Set default tab/space width to 2
-#+begin_src emacs-lisp
-  (setq default-tab-width 2)
-  (setq-default indent-tabs-mode nil)
-#+end_src  
+
+
 
 ** Backups
 #+BEGIN_SRC emacs-lisp
@@ -168,32 +163,20 @@ There are other options that I'm curious about, but I'm still happy with Helm.
   (put 'set-goal-column 'disabled nil)
 #+END_SRC
 
-* Increment Number at Point
 
-#+BEGIN_SRC emacs-lisp
-  ;; Increment Number at Point
-  ;;Got this from EmacsWiki; enables incremental numbers. First input
-  ;; numbers and then use this!
-  (defun ab/increment-number-at-point ()
-    (interactive)
-    (skip-chars-backward "0123456789")
-    (or (looking-at "[0123456789]+")
-        (error "No number at point"))
-    (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
-#+END_SRC
 
 * Paren-Mode
-  #+begin_src emacs-lisp
-    (use-package paren
-      :ensure nil
-      :init
-      (show-paren-mode 1)
-      (setq show-paren-delay 0.05))
+#+begin_src emacs-lisp
+  (use-package paren
+    :ensure nil
+    :init
+    (show-paren-mode 1)
+    (setq show-paren-delay 0.05))
 
-    (use-package elec-pair
-      :ensure nil
-      :init
-      (electric-pair-mode 1))
+  (use-package elec-pair
+    :ensure nil
+    :init
+    (electric-pair-mode 1))
 #+end_src
 
 
@@ -217,7 +200,7 @@ There are other options that I'm curious about, but I'm still happy with Helm.
 * Browse Kill Ring
 #+BEGIN_SRC emacs-lisp
   (use-package browse-kill-ring
-  :bind ("C-c k" . browse-kill-ring))
+    :bind ("C-c k" . browse-kill-ring))
 #+END_SRC
   
 * Ace Jump Mode
@@ -307,13 +290,13 @@ There are other options that I'm curious about, but I'm still happy with Helm.
   ;; From: https://github.com/fxbois/web-mode/issues/51
   ;; Fixes Yassnippet with web-mode
 
- (defun yas-web-mode-fix ()
-  "Fix indentation/refresh after yasnippet in web-mode."
-  (when (derived-mode-p 'web-mode)
-    (web-mode-buffer-refresh)
-    (indent-for-tab-command)))
+  (defun yas-web-mode-fix ()
+    "Fix indentation/refresh after yasnippet in web-mode."
+    (when (derived-mode-p 'web-mode)
+      (web-mode-buffer-refresh)
+      (indent-for-tab-command)))
 
-(add-hook 'yas-after-exit-snippet-hook #'yas-web-mode-fix)
+  (add-hook 'yas-after-exit-snippet-hook #'yas-web-mode-fix)
 #+END_SRC
 
 
@@ -620,56 +603,6 @@ Org-mode manual is available to the =info= command (bound to =C-h i=).
   (global-set-key (kbd "C-c p h") 'helm-projectile-find-file)
 #+END_SRC
 
-* Toggle Eshell Visor
-#+BEGIN_SRC emacs-lisp
-  ;;Source: http://rawsyntax.com/blog/learn-emacs-store-window-configuration/
-  (defun ab/toggle-eshell-visor ()
-    "Brings up a visor like eshell buffer, filling the entire emacs frame"
-    (interactive)
-    (if (string= "eshell-mode" (eval 'major-mode))
-        (jump-to-register :pre-eshell-visor-window-configuration)
-      (window-configuration-to-register :pre-eshell-visor-window-configuration)
-      (call-interactively 'eshell)
-      (delete-other-windows)))
-
-  (global-set-key (kbd "C-c t") 'ab/toggle-eshell-visor)
-#+END_SRC
-
-
-#+BEGIN_SRC emacs-lisp
-  (defun ab/uniquify-all-lines-region (start end)
-    "Find duplicate lines in region START to END keeping first occurrence."
-    (interactive "*r")
-    (save-excursion
-      (let ((end (copy-marker end)))
-        (while
-            (progn
-              (goto-char start)
-              (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
-          (replace-match "\\1\n\\2")))))
-
-  (defun ab/uniquify-all-lines-buffer ()
-    "Delete duplicate lines in buffer and keep first occurrence."
-    (interactive "*")
-    (uniquify-all-lines-region (point-min) (point-max)))
-#+END_SRC
-
-* Underline H1 Title
-#+BEGIN_SRC emacs-lisp
-  ;; From Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
-  (defun ab/add-title-underline ()
-    "add ========= below current line, with the same number of chars."
-    (interactive)
-    (let (
-          (num (- (line-end-position) (line-beginning-position) ))
-          (ii 0))
-      (end-of-line)
-      (insert"\n")
-      (while (< ii num)
-        (insert"=")
-        (setq ii (1+ ii) ) ) ))
-#+END_SRC 
-
 * Markdown Mode
 #+BEGIN_SRC emacs-lisp
   ;;Autoload file types (.markdown; .md; .mkd)
@@ -692,23 +625,7 @@ Org-mode manual is available to the =info= command (bound to =C-h i=).
   (global-set-key (kbd "\C-cm") 'markdown-preview-file-with-marked)
 #+END_SRC
 
-* Add Title Underline
-Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
-#+BEGIN_SRC emacs-lisp
-  ;; Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
-  (defun ab/add-title-underline ()
-    "add ========= below current line, with same number of chars."
-    (interactive)
-    (let (
-          (num (- (line-end-position) (line-beginning-position) ))
-          (ii 0))
-      (end-of-line)
-      (insert "\n")
-      (while (< ii num)
-        (insert "=")
-        (setq ii (1+ ii) ) ) ))
 
-#+END_SRC
 
 
 * ibuffer is an Improved version of list-buffers
@@ -838,6 +755,77 @@ Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
   
 * Custom Functions
 
+** Byte Recompile
+#+BEGIN_SRC emacs-lisp
+  ;; Byte Recompile
+  (defun ab/byte-recompile ()
+    (interactive)
+    (byte-recompile-directory "~/.emacs.d" 0))
+#+END_SRC
+
+** Toggle Eshell Visor
+#+BEGIN_SRC emacs-lisp
+  ;;Source: http://rawsyntax.com/blog/learn-emacs-store-window-configuration/
+  (defun ab/toggle-eshell-visor ()
+    "Brings up a visor like eshell buffer, filling the entire emacs frame"
+    (interactive)
+    (if (string= "eshell-mode" (eval 'major-mode))
+        (jump-to-register :pre-eshell-visor-window-configuration)
+      (window-configuration-to-register :pre-eshell-visor-window-configuration)
+      (call-interactively 'eshell)
+      (delete-other-windows)))
+
+  (global-set-key (kbd "C-c t") 'ab/toggle-eshell-visor)
+#+END_SRC
+
+** Increment Number at Point
+
+#+BEGIN_SRC emacs-lisp
+  ;; Increment Number at Point
+  ;;Got this from EmacsWiki; enables incremental numbers. First input
+  ;; numbers and then use this!
+  (defun ab/increment-number-at-point ()
+    (interactive)
+    (skip-chars-backward "0123456789")
+    (or (looking-at "[0123456789]+")
+        (error "No number at point"))
+    (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (defun ab/uniquify-all-lines-region (start end)
+    "Find duplicate lines in region START to END keeping first occurrence."
+    (interactive "*r")
+    (save-excursion
+      (let ((end (copy-marker end)))
+        (while
+            (progn
+              (goto-char start)
+              (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+          (replace-match "\\1\n\\2")))))
+
+  (defun ab/uniquify-all-lines-buffer ()
+    "Delete duplicate lines in buffer and keep first occurrence."
+    (interactive "*")
+    (uniquify-all-lines-region (point-min) (point-max)))
+#+END_SRC
+
+** Add Underlined H1 Title for Plain Text Files
+#+BEGIN_SRC emacs-lisp
+  ;; From Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
+  (defun ab/add-title-underline ()
+    "add ========= below current line, with the same number of chars."
+    (interactive)
+    (let (
+          (num (- (line-end-position) (line-beginning-position) ))
+          (ii 0))
+      (end-of-line)
+      (insert"\n")
+      (while (< ii num)
+        (insert"=")
+        (setq ii (1+ ii) ) ) ))
+#+END_SRC 
+
 * Integrate LLM
 #+begin_src emacs-lisp
   (use-package gptel
@@ -859,5 +847,3 @@ I might want to switch to gpg.
     (when (file-exists-p secrets-file)
       (load secrets-file)))
 #+end_src
-
-

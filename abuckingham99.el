@@ -28,14 +28,6 @@
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 ;; Experimenting with 'helm-M-x; see 'Helm Keyboard Shortcuts,' above
 
-;; Byte Recompile
-(defun ab/byte-recompile ()
-  (interactive)
-  (byte-recompile-directory "~/.emacs.d" 0))
-
-(setq default-tab-width 2)
-(setq-default indent-tabs-mode nil)
-
 ;; Write backup files to own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
@@ -68,16 +60,6 @@
 ;; Enable set-goal-column
 (put 'set-goal-column 'disabled nil)
 
-;; Increment Number at Point
-;;Got this from EmacsWiki; enables incremental numbers. First input
-;; numbers and then use this!
-(defun ab/increment-number-at-point ()
-  (interactive)
-  (skip-chars-backward "0123456789")
-  (or (looking-at "[0123456789]+")
-      (error "No number at point"))
-  (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
-
 (use-package paren
   :ensure nil
   :init
@@ -102,7 +84,7 @@
                    ""])))
 
 (use-package browse-kill-ring
-:bind ("C-c k" . browse-kill-ring))
+  :bind ("C-c k" . browse-kill-ring))
 
 (add-to-list 'load-path "~/.emacs.d/elpa/ace-jump-mode*/")
 (autoload
@@ -133,9 +115,9 @@
   (import-env-from-shell-initialize))
 
 ;; From: https://github.com/fxbois/web-mode/issues/51
-  ;; Fixes Yassnippet with web-mode
+;; Fixes Yassnippet with web-mode
 
- (defun yas-web-mode-fix ()
+(defun yas-web-mode-fix ()
   "Fix indentation/refresh after yasnippet in web-mode."
   (when (derived-mode-p 'web-mode)
     (web-mode-buffer-refresh)
@@ -319,47 +301,6 @@
 
 (global-set-key (kbd "C-c p h") 'helm-projectile-find-file)
 
-;;Source: http://rawsyntax.com/blog/learn-emacs-store-window-configuration/
-(defun ab/toggle-eshell-visor ()
-  "Brings up a visor like eshell buffer, filling the entire emacs frame"
-  (interactive)
-  (if (string= "eshell-mode" (eval 'major-mode))
-      (jump-to-register :pre-eshell-visor-window-configuration)
-    (window-configuration-to-register :pre-eshell-visor-window-configuration)
-    (call-interactively 'eshell)
-    (delete-other-windows)))
-
-(global-set-key (kbd "C-c t") 'ab/toggle-eshell-visor)
-
-(defun ab/uniquify-all-lines-region (start end)
-  "Find duplicate lines in region START to END keeping first occurrence."
-  (interactive "*r")
-  (save-excursion
-    (let ((end (copy-marker end)))
-      (while
-          (progn
-            (goto-char start)
-            (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
-        (replace-match "\\1\n\\2")))))
-
-(defun ab/uniquify-all-lines-buffer ()
-  "Delete duplicate lines in buffer and keep first occurrence."
-  (interactive "*")
-  (uniquify-all-lines-region (point-min) (point-max)))
-
-;; From Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
-(defun ab/add-title-underline ()
-  "add ========= below current line, with the same number of chars."
-  (interactive)
-  (let (
-        (num (- (line-end-position) (line-beginning-position) ))
-        (ii 0))
-    (end-of-line)
-    (insert"\n")
-    (while (< ii num)
-      (insert"=")
-      (setq ii (1+ ii) ) ) ))
-
 ;;Autoload file types (.markdown; .md; .mkd)
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
@@ -376,19 +317,6 @@
 	   (shell-quote-argument (buffer-file-name)))))
 
 (global-set-key (kbd "\C-cm") 'markdown-preview-file-with-marked)
-
-;; Thanks to Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
-(defun ab/add-title-underline ()
-  "add ========= below current line, with same number of chars."
-  (interactive)
-  (let (
-        (num (- (line-end-position) (line-beginning-position) ))
-        (ii 0))
-    (end-of-line)
-    (insert "\n")
-    (while (< ii num)
-      (insert "=")
-      (setq ii (1+ ii) ) ) ))
 
 ;; ibuffer is an Improved version of list-buffers
 (defalias 'list-buffers 'ibuffer)
@@ -475,6 +403,62 @@
 ;;   :init
 ;;   ;; Use Bundler when available, which plays well with your mise/rbenv setups
 ;;   (setq lsp-ruby-lsp-use-bundler t))
+
+;; Byte Recompile
+(defun ab/byte-recompile ()
+  (interactive)
+  (byte-recompile-directory "~/.emacs.d" 0))
+
+;;Source: http://rawsyntax.com/blog/learn-emacs-store-window-configuration/
+(defun ab/toggle-eshell-visor ()
+  "Brings up a visor like eshell buffer, filling the entire emacs frame"
+  (interactive)
+  (if (string= "eshell-mode" (eval 'major-mode))
+      (jump-to-register :pre-eshell-visor-window-configuration)
+    (window-configuration-to-register :pre-eshell-visor-window-configuration)
+    (call-interactively 'eshell)
+    (delete-other-windows)))
+
+(global-set-key (kbd "C-c t") 'ab/toggle-eshell-visor)
+
+;; Increment Number at Point
+;;Got this from EmacsWiki; enables incremental numbers. First input
+;; numbers and then use this!
+(defun ab/increment-number-at-point ()
+  (interactive)
+  (skip-chars-backward "0123456789")
+  (or (looking-at "[0123456789]+")
+      (error "No number at point"))
+  (replace-match (number-to-string (1+ (string-to-number (match-string 0))))))
+
+(defun ab/uniquify-all-lines-region (start end)
+  "Find duplicate lines in region START to END keeping first occurrence."
+  (interactive "*r")
+  (save-excursion
+    (let ((end (copy-marker end)))
+      (while
+          (progn
+            (goto-char start)
+            (re-search-forward "^\\(.*\\)\n\\(\\(.*\n\\)*\\)\\1\n" end t))
+        (replace-match "\\1\n\\2")))))
+
+(defun ab/uniquify-all-lines-buffer ()
+  "Delete duplicate lines in buffer and keep first occurrence."
+  (interactive "*")
+  (uniquify-all-lines-region (point-min) (point-max)))
+
+;; From Xah Lee: http://ergoemacs.org/misc/ask_emacs_tuesday_2013-08-27.html
+(defun ab/add-title-underline ()
+  "add ========= below current line, with the same number of chars."
+  (interactive)
+  (let (
+        (num (- (line-end-position) (line-beginning-position) ))
+        (ii 0))
+    (end-of-line)
+    (insert"\n")
+    (while (< ii num)
+      (insert"=")
+      (setq ii (1+ ii) ) ) ))
 
 (use-package gptel
   :ensure t
