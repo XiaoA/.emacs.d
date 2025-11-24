@@ -1,5 +1,19 @@
-(add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
+;; Package archives
+(require 'package)
+(setq package-archives
+      '(("gnu"   . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
+(unless package--initialized (package-initialize))
+(unless package-archive-contents (package-refresh-contents))
+
+;; use-package
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)  ;; auto-install every package declared below
+
+;; (add-to-list 'package-archives
+;;              '("melpa" . "https://melpa.org/packages/") t)
 
 ;; type "y"/"n" instead of "yes"/"no"
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -9,9 +23,6 @@
 (set-face-attribute 'default nil :font "Menlo" :height 170)
 
 (load-theme 'modus-vivendi t)
-
-(require 'powerline)
-(powerline-center-theme)
 
 ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
 (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -48,13 +59,18 @@
 (global-set-key (kbd "C-c h x") 'helm-register)
 
 ;; Multiple Cursors
-;; (Magnar is an Emacs god!)
 ;; https://github.com/magnars |http://www.emacsrocks.com 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C->") 'mc/mark-all-words-like-this)
+
+(use-package multiple-cursors
+:bind (("C-S-c C-S-c" . mc/edit-lines)
+       ("C->"         . mc/mark-next-like-this)
+       ("C-<"         . mc/mark-previous-like-this)
+       ("C-c C->"     . mc/mark-all-words-like-this)))
 
 ;; Goal columns are useful!
 ;; Enable set-goal-column
@@ -73,6 +89,17 @@
 ;; Paren-Mode
 (require 'paren)
 (show-paren-mode t)
+
+(use-package paren
+  :ensure nil
+  :init
+  (show-paren-mode 1)
+  (setq show-paren-delay 0.05))
+
+(use-package elec-pair
+  :ensure nil
+  :init
+  (electric-pair-mode 1))
 
 ;; Set keyboard shortcut for webjump
 (global-set-key (kbd "C-x g") 'webjump)
@@ -556,11 +583,11 @@ tags: []
   :hook (ruby-mode . lsp-deferred))
 
 ;; ruby-lsp client for lsp-mode
-(use-package lsp-ruby-lsp
-  :after lsp-mode
-  :init
-  ;; Use Bundler when available, which plays well with your mise/rbenv setups
-  (setq lsp-ruby-lsp-use-bundler t))
+;; (use-package lsp-ruby-lsp
+;;   :after lsp-mode
+;;   :init
+;;   ;; Use Bundler when available, which plays well with your mise/rbenv setups
+;;   (setq lsp-ruby-lsp-use-bundler t))
 
 (use-package gptel
   :ensure t
