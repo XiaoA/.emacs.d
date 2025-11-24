@@ -335,8 +335,6 @@
 (add-hook 'ruby-mode-hook 'minitest-mode)
 (add-hook 'enh-ruby-mode-hook 'minitest-mode)
 
-;; (require 'ob-elixir)
-
 (use-package exec-path-from-shell
  :ensure t
  :config
@@ -393,13 +391,6 @@
          ("\\.gemspec\\'" . ruby-mode))
   :interpreter "ruby"
   :hook (ruby-mode . lsp-deferred))
-
-;; ruby-lsp client for lsp-mode
-;; (use-package lsp-ruby-lsp
-;;   :after lsp-mode
-;;   :init
-;;   ;; Use Bundler when available, which plays well with your mise/rbenv setups
-;;   (setq lsp-ruby-lsp-use-bundler t))
 
 ;; Byte Recompile
 (defun ab/byte-recompile ()
