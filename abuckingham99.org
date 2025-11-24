@@ -1,3 +1,4 @@
+
 #+TITLE: My Emacs Customizations
 #+AUTHOR: Andrew Buckingham
 #+OPTIONS: num:nil toc:nil
@@ -260,18 +261,34 @@ There are other options that I'm curious about, but I'm still happy with Helm.
 
 #+end_src
 
-* Yasnippet
+* COMMENT Yasnippet
 #+BEGIN_SRC emacs-lisp
-(use-package yasnippet
-  :config
+  (use-package yasnippet
+    :config
+    ;; Your popup-based yas prompt
+    (defun yas/popup-isearch-prompt (prompt choices &optional display-fn)
+      (require 'popup)
+      (when (featurep 'popup)
+        (popup-menu*
+         (mapcar
+          (lambda (choice)
+            (popup-make-item
+             (or (and display-fn (funcall display-fn choice))
+                 choice)
+             :value choice))
+          choices)
+         :prompt prompt
+         :isearch t)))
 
-  (setq yas-snippet-dirs
-        '("~/.emacs.d/snippets"
-          "~/.emacs.d/snippets/web-mode"
-          "~/.emacs.d/snippets/markdown-mode"
-          "~/.emacs.d/snippets/org-mode"
-          "~/.emacs.d/snippets/ruby-mode"))
-  (yas-global-mode 1))
+    (setq yas/prompt-functions '(yas/popup-isearch-prompt yas/no-prompt))
+
+    (setq yas-snippet-dirs
+          '("~/.emacs.d/snippets"
+            "~/.emacs.d/snippets/web-mode"
+            "~/.emacs.d/snippets/markdown-mode"
+            "~/.emacs.d/snippets/org-mode"
+            "~/.emacs.d/snippets/ruby-mode"))
+    (yas-global-mode 1))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp
