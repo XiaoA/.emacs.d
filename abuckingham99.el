@@ -406,44 +406,6 @@
 
 (require 'rinari)
 
-;; adapted from Peter Reavy's elisp solution: http://peterreavy.com/tech/2012/12/18/elisp-to-create-a-new-blog-post-in-Jekyll.html
-
-(defun jekyll-new-post (title)
-  "Start a new blog post"
-  (setq path "~/jekyll/andrewbuckingham-source/_posts/")
-  (interactive "sTitle: ")
-  (find-file (concat path (format-time-string "%Y-%m-%d")
-                     "-" (replace-regexp-in-string " " "-" title) ".md"))
-  (insert "---
-layout: single
-title: 
-date: 
-tags: []
----
-")
-  )
-
-(defun timestamp ()
-  "Insert timestamp at point."
-  (interactive)
-  (insert (format-time-string "%a, %b %d, %Y %H:%M:%S %z")))
-
-(defun jekyll-timestamp ()
-  "Insert timestamp at point."
-  (interactive)
-  (insert (format-time-string "%Y-%m-%d %H:%M:%S %:z")))
-(global-set-key [f5] 'jekyll-timestamp)
-
-;; Based on http://ezinearticles.com/?What-is-the-Average-Reading-Speed-and-the-Best-Rate-of-Reading?&id=2298503
-(defun ab/time-to-read ()
-  "Calculate time to read the content(mins.)
-       which is around 200 wpm."
-  (let ((count (count-words-region)))
-    (if (zerop count)
-        (message "ERR: Cannot estimate time to read.")
-      (setq ttr (fceiling (/ (/ count (/ 200 60.0)) 60.0))))
-    ttr))
-
 ;; Enable minitest-mode for Ruby
 (add-hook 'ruby-mode-hook 'minitest-mode)
 (add-hook 'enh-ruby-mode-hook 'minitest-mode)
