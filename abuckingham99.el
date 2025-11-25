@@ -17,7 +17,41 @@
 
 (setq visible-bell t)
 
-(set-face-attribute 'default nil :font "Menlo" :height 170)
+(use-package emacs
+  :ensure nil
+  :preface
+  (defvar ab/default-font-height 170
+    "Default font height for the main frame.")
+
+  (defvar ab/preferred-fonts
+    '("JetBrains Mono" "Menlo" "Monospace")
+    "List of preferred fonts in order of priority.")
+
+  (defun ab/set-default-font ()
+    "Set the default font using `ab/preferred-fonts` with graceful fallback.
+Only runs on graphical displays."
+    (when (display-graphic-p)
+      (catch 'font-found
+        (dolist (font ab/preferred-fonts)
+          (when (member font (font-family-list))
+            (set-face-attribute 'default nil
+                                :font font
+                                :height ab/default-font-height)
+            (throw 'font-found font))))))
+
+  (defun ab/apply-default-font (&optional frame)
+    "Apply `ab/set-default-font` in FRAME (or current frame)."
+    (with-selected-frame (or frame (selected-frame))
+      (ab/set-default-font)))
+
+  :init
+  ;; Apply font immediately in normal GUI sessions…
+  (unless (daemonp)
+    (ab/apply-default-font))
+
+  ;; …and for every new frame when running as a daemon.
+  (when (daemonp)
+    (add-hook 'after-make-frame-functions #'ab/apply-default-font)))
 
 (load-theme 'modus-vivendi t)
 

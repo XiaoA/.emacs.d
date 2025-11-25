@@ -31,8 +31,6 @@ I've moved my 'UI/UX Tweaks' into this file, and delayed loading packages until 
 * TODO tangle only init blocks into init.el
 
 * Install Packages.
-Eventually, I'll convert to ~use-package~.
-
 #+begin_src emacs-lisp
   ;; Package archives
   (require 'package)
@@ -49,7 +47,7 @@ Eventually, I'll convert to ~use-package~.
   (setq use-package-always-ensure t)  ;; auto-install every package declared below
 #+end_src
 
-* init.el
+* Set Up init.el
 *** Just Y/N
 By default, Emacs menus require you to confirm choices with a full "yes" or "no." I prefer to type "y" or "n".
 
@@ -66,9 +64,44 @@ By default, errors produce an annoying "beep." This replaces that with a visual 
 #+end_src
    
 
-** Set default font
+** Set Default Font
+
 #+begin_src emacs-lisp
-  (set-face-attribute 'default nil :font "Menlo" :height 170)
+  (use-package emacs
+    :ensure nil
+    :preface
+    (defvar ab/default-font-height 170
+      "Default font height for the main frame.")
+
+    (defvar ab/preferred-fonts
+      '("JetBrains Mono" "Menlo" "Monospace")
+      "List of preferred fonts in order of priority.")
+
+    (defun ab/set-default-font ()
+      "Set the default font using `ab/preferred-fonts` with graceful fallback.
+  Only runs on graphical displays."
+      (when (display-graphic-p)
+        (catch 'font-found
+          (dolist (font ab/preferred-fonts)
+            (when (member font (font-family-list))
+              (set-face-attribute 'default nil
+                                  :font font
+                                  :height ab/default-font-height)
+              (throw 'font-found font))))))
+
+    (defun ab/apply-default-font (&optional frame)
+      "Apply `ab/set-default-font` in FRAME (or current frame)."
+      (with-selected-frame (or frame (selected-frame))
+        (ab/set-default-font)))
+
+    :init
+    ;; Apply font immediately in normal GUI sessions…
+    (unless (daemonp)
+      (ab/apply-default-font))
+
+    ;; …and for every new frame when running as a daemon.
+    (when (daemonp)
+      (add-hook 'after-make-frame-functions #'ab/apply-default-font)))
 #+end_src
 
 ** Load default theme
@@ -817,3 +850,4 @@ I might want to switch to gpg.
     (when (file-exists-p secrets-file)
       (load secrets-file)))
 #+end_src
+
