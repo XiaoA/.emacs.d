@@ -35,28 +35,19 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(ac-html ac-html-bootstrap ac-html-csswatcher ac-inf-ruby
-             ace-jump-buffer ace-jump-mode browse-kill-ring bundler
-             calfw cider coffee-mode company csv-mode dash-at-point
-             dracula-theme enh-ruby-mode ess expand-region
-             flymake-haml flymake-json flymake-php flymake-ruby
-             fold-this folding haml-mode helm-ag helm-projectile
-             helm-robe js2-mode json-mode magit markdown-mode minitest
-             mode-icons multi-term multiple-cursors neotree nyan-mode
-             nyan-prompt ob-restclient org-plus-contrib org-present
-             org-roam-ql org-roam-ui org-screenshot parse-csv
-             password-generator php+-mode php-mode powerline
-             project-explorer projectile-rails rbenv rhtml-mode rinari
-             robe rspec-mode ruby-electric ruby-end ruby-refactor
-             ruby-tools seeing-is-believing soothe-theme sr-speedbar
-             twittering-mode undo-tree web-mode yaml-mode yasnippet)))
+ '(custom-safe-themes
+   '("de87f49e3eed3f7bbc1fd525147dc0a7569bc435c9b045ceeb2d89f2904806bd"
+     "32926e88c489bce47491ba330813a001d3938bb22ea894227c9c627e1d517c55"
+     "2e5be9a86dbf3467288293564e209165c2e12439411bd478c644cd42acc6ccb2"
+     "35ff01eb2ff2bff2760ceca637aeea7d2f3b9a60fd36ea0a96a6632637d5f222"
+     default))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(eglot-inlay-hint-face ((t (:inherit shadow :height 0.9 :slant italic)))))
 (put 'narrow-to-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)

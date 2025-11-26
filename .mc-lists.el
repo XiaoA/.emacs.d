@@ -21,6 +21,7 @@
         eruby-mode-electric-percent
         eval-print-last-sexp
         forward-sentence
+        helm-confirm-and-exit-minibuffer
         helm-projectile
         help-for-help
         indent-for-tab-command
@@ -29,6 +30,7 @@
         ns-copy-including-secondary
         org-beginning-of-line
         org-ctrl-c-ctrl-c
+        org-ctrl-c-star
         org-delete-char
         org-edit-src-save
         org-end-of-line

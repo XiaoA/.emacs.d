@@ -8,3 +8,8 @@
 
 ;; I prefer a blank *scratch* buffer
 (setq initial-scratch-message nil)
+
+
+;; Set default tab/space width to 2
+(setq default-tab-width 2)
+(setq-default indent-tabs-mode nil)
