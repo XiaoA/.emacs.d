@@ -394,7 +394,7 @@ contains an up to date list of the currently supported languages.
      (js . t)
      (haskell . t)
      ;;    (elixir . t)
-     (restclient . t)
+     ;;(restclient . t)
      ))
 
 #+END_SRC

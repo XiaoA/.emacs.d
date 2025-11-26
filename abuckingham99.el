@@ -191,7 +191,7 @@
    (js . t)
    (haskell . t)
    ;;    (elixir . t)
-   (restclient . t)
+   ;;(restclient . t)
    ))
 
 (add-to-list 'org-src-lang-modes
