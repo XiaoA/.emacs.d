@@ -1,4 +1,4 @@
-#+TITLE: My Emacs Customizations
+ #+TITLE: My Emacs Customizations
 #+AUTHOR: Andrew Buckingham
 #+OPTIONS: num:nil toc:nil
 
@@ -62,51 +62,12 @@ By default, errors produce an annoying "beep." This replaces that with a visual 
 #+begin_src emacs-lisp
   (setq visible-bell t)
 #+end_src
-   
-
-** Set Default Font
-
-#+begin_src emacs-lisp
-  (use-package emacs
-    :ensure nil
-    :preface
-    (defvar ab/default-font-height 170
-      "Default font height for the main frame.")
-
-    (defvar ab/preferred-fonts
-      '("JetBrains Mono" "Menlo" "Monospace")
-      "List of preferred fonts in order of priority.")
-
-    (defun ab/set-default-font ()
-      "Set the default font using `ab/preferred-fonts` with graceful fallback.
-  Only runs on graphical displays."
-      (when (display-graphic-p)
-        (catch 'font-found
-          (dolist (font ab/preferred-fonts)
-            (when (member font (font-family-list))
-              (set-face-attribute 'default nil
-                                  :font font
-                                  :height ab/default-font-height)
-              (throw 'font-found font))))))
-
-    (defun ab/apply-default-font (&optional frame)
-      "Apply `ab/set-default-font` in FRAME (or current frame)."
-      (with-selected-frame (or frame (selected-frame))
-        (ab/set-default-font)))
-
-    :init
-    ;; Apply font immediately in normal GUI sessions…
-    (unless (daemonp)
-      (ab/apply-default-font))
-
-    ;; …and for every new frame when running as a daemon.
-    (when (daemonp)
-      (add-hook 'after-make-frame-functions #'ab/apply-default-font)))
-#+end_src
 
 ** Load default theme
 #+BEGIN_SRC emacs-lisp
-  (load-theme 'modus-vivendi t)
+    (use-package modus-themes
+      :ensure t
+      :config (load-theme 'modus-vivendi t))
 #+END_SRC
 
 # * Set up my custom.el file
@@ -116,13 +77,12 @@ By default, errors produce an annoying "beep." This replaces that with a visual 
 # (load custom-file)
 #   #+END_SRC
 
-** Because Alt-x is usually too awkward
+** Better M-x UX
 A great tip from an old Steve Yegge [[Shttps://sites.google.com/site/steveyegge2/effective-emacs][blog post]] to make it easier to type =M-x= commands
    
 #+BEGIN_SRC emacs-lisp
-  ;; A great tip from Steve Yegge. Because Alt-x is too awkward...
+  ;; Calls helm-M-x; see 'Helm Keyboard Shortcuts,' above
   (global-set-key "\C-x\C-m" 'execute-extended-command)
-  ;; Experimenting with 'helm-M-x; see 'Helm Keyboard Shortcuts,' above
 #+END_SRC
 
 ** Backups
@@ -178,14 +138,10 @@ There are other options that I'm curious about, but I'm still happy with Helm.
            ("C-c C->"     . mc/mark-all-words-like-this)))
 #+end_src
 
-** Goal columns are useful!
+** Enable set-goal-column
 #+BEGIN_SRC emacs-lisp
-  ;; Goal columns are useful!
-  ;; Enable set-goal-column
   (put 'set-goal-column 'disabled nil)
 #+END_SRC
-
-
 
 * Paren-Mode
 #+begin_src emacs-lisp
@@ -201,10 +157,7 @@ There are other options that I'm curious about, but I'm still happy with Helm.
     (electric-pair-mode 1))
 #+end_src
 
-
-
 * Add Urban Dictionary to Webjump
-
 #+BEGIN_SRC emacs-lisp
   ;; Set keyboard shortcut for webjump
   (global-set-key (kbd "C-x g") 'webjump)
@@ -237,7 +190,6 @@ There are other options that I'm curious about, but I'm still happy with Helm.
   (define-key global-map (kbd "C-c j") 'ace-jump-mode)
 
   ;; enable a more powerful jump back function from ace jump mode
-
   (autoload
     'ace-jump-mode-pop-mark
     "ace-jump-mode"
@@ -321,9 +273,6 @@ There are other options that I'm curious about, but I'm still happy with Helm.
   (add-hook 'yas-after-exit-snippet-hook #'yas-web-mode-fix)
 #+END_SRC
 
-
-* TODO Replace auto-complete mode
-
 * Webdev
 #+BEGIN_SRC emacs-lisp
   ;; Use web-mode whenever possible...
@@ -348,9 +297,8 @@ There are other options that I'm curious about, but I'm still happy with Helm.
 
 
 * Set up Org-Mode 
-** Require Org
+** Require Org-Mode
 #+BEGIN_SRC emacs-lisp
-  ;; Require Org-Mode
   (require 'org)
 #+END_SRC
 
@@ -410,7 +358,6 @@ Make yasnippet work properly with org-mode.
               ;;(define-key yas/keymap [tab] 'yas/next-field)
               ))
 #+END_SRC
-
 
 
 ** Speed keys

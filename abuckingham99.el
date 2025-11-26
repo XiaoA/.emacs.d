@@ -17,47 +17,12 @@
 
 (setq visible-bell t)
 
-(use-package emacs
-  :ensure nil
-  :preface
-  (defvar ab/default-font-height 170
-    "Default font height for the main frame.")
+(use-package modus-themes
+  :ensure t
+  :config (load-theme 'modus-vivendi t))
 
-  (defvar ab/preferred-fonts
-    '("JetBrains Mono" "Menlo" "Monospace")
-    "List of preferred fonts in order of priority.")
-
-  (defun ab/set-default-font ()
-    "Set the default font using `ab/preferred-fonts` with graceful fallback.
-Only runs on graphical displays."
-    (when (display-graphic-p)
-      (catch 'font-found
-        (dolist (font ab/preferred-fonts)
-          (when (member font (font-family-list))
-            (set-face-attribute 'default nil
-                                :font font
-                                :height ab/default-font-height)
-            (throw 'font-found font))))))
-
-  (defun ab/apply-default-font (&optional frame)
-    "Apply `ab/set-default-font` in FRAME (or current frame)."
-    (with-selected-frame (or frame (selected-frame))
-      (ab/set-default-font)))
-
-  :init
-  ;; Apply font immediately in normal GUI sessions…
-  (unless (daemonp)
-    (ab/apply-default-font))
-
-  ;; …and for every new frame when running as a daemon.
-  (when (daemonp)
-    (add-hook 'after-make-frame-functions #'ab/apply-default-font)))
-
-(load-theme 'modus-vivendi t)
-
-;; A great tip from Steve Yegge. Because Alt-x is too awkward...
+;; Calls helm-M-x; see 'Helm Keyboard Shortcuts,' above
 (global-set-key "\C-x\C-m" 'execute-extended-command)
-;; Experimenting with 'helm-M-x; see 'Helm Keyboard Shortcuts,' above
 
 ;; Write backup files to own directory
 (setq backup-directory-alist
@@ -87,8 +52,6 @@ Only runs on graphical displays."
          ("C-<"         . mc/mark-previous-like-this)
          ("C-c C->"     . mc/mark-all-words-like-this)))
 
-;; Goal columns are useful!
-;; Enable set-goal-column
 (put 'set-goal-column 'disabled nil)
 
 (use-package paren
@@ -127,7 +90,6 @@ Only runs on graphical displays."
 (define-key global-map (kbd "C-c j") 'ace-jump-mode)
 
 ;; enable a more powerful jump back function from ace jump mode
-
 (autoload
   'ace-jump-mode-pop-mark
   "ace-jump-mode"
@@ -172,7 +134,6 @@ Only runs on graphical displays."
   )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
-;; Require Org-Mode
 (require 'org)
 
 ;; It's more convenient to press 'return' to follow a link from Org an C-c C-l.
