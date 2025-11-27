@@ -197,14 +197,6 @@
 (add-to-list 'org-src-lang-modes
              '("r" . ess-mode))
 
-;; (add-to-list 'org-src-lang-modes '("racket" . racket-mode))
-;; (add-to-list 'load-path "~/.emacs.d/vendor/emacs-ob-racket/")
-
-;; ;; Set path to racket interpreter
-;; (setq org-babel-command:racket "/usr/local/bin/racket")
-
-;; (require 'ob-racket)
-
 ;; Code block fontification
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
@@ -224,18 +216,17 @@
             Info-directory-list))
 
 ;; Nice Bulleted Lists
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
-;; It's silly, I know, but why not let Emacs greet me...? ;)
-(message "Welcome back, Andrew. Are you ready to save the world?")
+(use-package org-bullets
+  :hook (org-mode . org-bullets-mode))
 
 ;; Let's keep our files in Dropbox
 (setq org-directory "~/Dropbox/org")
 (setq org-default-notes-file "~/Dropbox/org/refile.org")
 (global-set-key (kbd "C-c c") 'org-capture)
 
-(require 'ox-md)
+(use-package ox-md
+  :ensure nil
+  :after org)
 
 (add-hook 'org-clock-in-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" (concat "tell application \"org-clock-statusbar\" to clock in \"" (replace-regexp-in-string "\"" "\\\\\"" org-clock-current-task) "\""))))
 (add-hook 'org-clock-out-hook (lambda () (call-process "/usr/bin/osascript" nil 0 nil "-e" "tell application \"org-clock-statusbar\" to clock out")))
@@ -285,13 +276,15 @@
         org-roam-ui-open-on-start t))
 
 ;; Require Helm-Projectile
-(require 'helm-projectile)
-(projectile-global-mode)
+( use-package helm-projectile
+  :after (helm-projectile)
+  :config
+  (projectile-mode +1)
+  (helm-projectile-on)
+  (setq projectile-completion-system 'helm
+        projectile-switch-project-action 'helm-projectile)
 
-(setq projectile-completion-system 'helm
-      projectile-switch-project-action 'helm-projectile)
-
-(global-set-key (kbd "C-c p h") 'helm-projectile-find-file)
+  :bind ("C-c p h" . helm-projectile-find-file))
 
 ;;Autoload file types (.markdown; .md; .mkd)
 (autoload 'markdown-mode "markdown-mode"
@@ -322,9 +315,7 @@
   (add-to-list 'auto-mode-alist
                (cons exp 'ruby-mode)))
 
-(require 'robe)
-
-(require 'rinari)
+;; (require 'robe)
 
 ;; Enable minitest-mode for Ruby
 (add-hook 'ruby-mode-hook 'minitest-mode)

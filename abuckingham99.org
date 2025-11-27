@@ -407,18 +407,6 @@ The next block makes org-babel aware that a lower-case 'r' in a =src= block head
                '("r" . ess-mode))
 #+END_SRC
 
-   
-*** Add racket-mode
-#+begin_src emacs-lisp
-  ;; (add-to-list 'org-src-lang-modes '("racket" . racket-mode))
-  ;; (add-to-list 'load-path "~/.emacs.d/vendor/emacs-ob-racket/")
-
-  ;; ;; Set path to racket interpreter
-  ;; (setq org-babel-command:racket "/usr/local/bin/racket")
-
-  ;; (require 'ob-racket)
-#+end_src
-
 ** Code block fontification
 :PROPERTIES:
 :CUSTOM_ID: code-block-fontification
@@ -466,15 +454,12 @@ Org-mode manual is available to the =info= command (bound to =C-h i=).
 #+name: org-bullets
 #+BEGIN_SRC emacs-lisp
   ;; Nice Bulleted Lists
-  (require 'org-bullets)
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (use-package org-bullets
+    :hook (org-mode . org-bullets-mode))
 #+END_SRC
 
-#+source: message-line
-#+BEGIN_SRC emacs-lisp
-  ;; It's silly, I know, but why not let Emacs greet me...? ;)
-  (message "Welcome back, Andrew. Are you ready to save the world?")
-#+END_SRC
+#+RESULTS: org-bullets
+| org-bullets-mode | #[nil ((local-set-key \216 'outline-next-visible-heading) (local-set-key \220 'outline-previous-visible-heading) (local-set-key \225 'outline-up-heading) (local-set-key \227 'org-table-copy-region) (local-set-key \231 'org-table-paste-rectangle) (local-set-key \214 'org-table-sort-lines) (local-set-key \311 'org-toggle-image-in-org)) nil] | #[nil ((add-to-list 'org-tab-first-hook 'yas-org-very-safe-expand)) nil] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-fold-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes |
 
 ** Org-Capture
 #+BEGIN_SRC emacs-lisp
@@ -486,7 +471,9 @@ Org-mode manual is available to the =info= command (bound to =C-h i=).
 
 ** Add Org-Mode Markdown export back
 #+BEGIN_SRC emacs-lisp
-  (require 'ox-md)
+(use-package ox-md
+  :ensure nil
+  :after org)
 #+END_SRC
 
 ** Hooks for org-clock-statusbar-app
@@ -560,13 +547,15 @@ Org-mode manual is available to the =info= command (bound to =C-h i=).
 * Enable Helm-Projectile Mode
 #+BEGIN_SRC emacs-lisp
   ;; Require Helm-Projectile
-  (require 'helm-projectile)
-  (projectile-global-mode)
+  ( use-package helm-projectile
+    :after (helm-projectile)
+    :config
+    (projectile-mode +1)
+    (helm-projectile-on)
+    (setq projectile-completion-system 'helm
+          projectile-switch-project-action 'helm-projectile)
 
-  (setq projectile-completion-system 'helm
-        projectile-switch-project-action 'helm-projectile)
-
-  (global-set-key (kbd "C-c p h") 'helm-projectile-find-file)
+    :bind ("C-c p h" . helm-projectile-find-file))
 #+END_SRC
 
 * Markdown Mode
@@ -618,12 +607,7 @@ Org-mode manual is available to the =info= command (bound to =C-h i=).
 
 ** Require Robe
 #+BEGIN_SRC emacs-lisp
-  (require 'robe)
-#+END_SRC
-
-** Require Rinari
-#+BEGIN_SRC emacs-lisp
-  (require 'rinari)
+  ;; (require 'robe)
 #+END_SRC
 
 ** Enable minitest-mode for Ruby
