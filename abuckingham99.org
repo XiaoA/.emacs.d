@@ -87,7 +87,7 @@ A great tip from an old Steve Yegge [[Shttps://sites.google.com/site/steveyegge2
 
 ** Backups
 #+BEGIN_SRC emacs-lisp
-  ;; Write backup files to own directory
+  ;; Write backup files to their own directory
   (setq backup-directory-alist
         `(("." . ,(expand-file-name
                    (concat user-emacs-directory "backups")))))

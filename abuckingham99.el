@@ -24,7 +24,7 @@
 ;; Calls helm-M-x; see 'Helm Keyboard Shortcuts,' above
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 
-;; Write backup files to own directory
+;; Write backup files to their own directory
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))

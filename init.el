@@ -45,12 +45,13 @@
    '(ace-jump-mode all-the-icons blackboard-theme browse-kill-ring cape
                    color-theme-sanityinc-solarized
                    color-theme-sanityinc-tomorrow corfu dap-mode
-                   devdocs diff-hl dumb-jump eglot eldoc-box
-                   enh-ruby-mode exec-path-from-shell expand-region
-                   github-dark-vscode-theme gptel helm-ag helm-company
-                   helm-lsp helm-projectile helm-xref imenu-list
-                   insert-kaomoji intellij-theme
-                   jetbrains-darcula-theme json-mode ligature lsp-ui
+                   devdocs diff-hl dumb-jump eglot eglot-java
+                   eldoc-box enh-ruby-mode exec-path-from-shell
+                   expand-region github-dark-vscode-theme gptel
+                   helm-ag helm-company helm-lsp helm-projectile
+                   helm-xref imenu-list insert-kaomoji intellij-theme
+                   java-imports java-snippets jetbrains-darcula-theme
+                   json-mode ligature lsp-javacomp lsp-ui
                    mac-pseudo-daemon magit minitest modus-themes
                    multiple-cursors nice-org-html ob-restclient
                    orderless org-auto-export-pandoc org-bullets
